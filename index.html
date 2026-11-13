@@ -107,7 +107,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ms-build" content="20261113001656">
+<meta name="ms-build" content="20261113003313">
 <meta name="theme-color" content="#F8F6F0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -831,12 +831,49 @@ nav a[href="#profil"]{position:relative}
 #s-fil #filStories{position:relative;z-index:1;flex-shrink:0}
 
 /* entraide tab */
-.enHead{flex-shrink:0;padding:16px 20px 12px;background:#F8F6F0}
+.enHead{flex-shrink:0;padding:16px 20px 12px;background:#F8F6F0;transition:background .25s}
 .enHead h1{margin:0;font-size:24px;font-weight:700;letter-spacing:-0.01em}
 .enHead p{margin:4px 0 10px;font-size:13.5px;color:#5B6661;line-height:1.35}
 .enSearch{display:flex;align-items:center;gap:8px;height:44px;padding:0 14px;border-radius:22px;background:#FFFFFF;border:1.5px solid #D6D1C4;color:#5B6661}
 .enSearch input{flex:1;border:none;background:none;font:inherit;font-size:15px;outline:none;color:#1E2A27;min-width:0}
-#s-entraide .pgFoot{background:#F8F6F0}
+#s-entraide .pgFoot{background:#F8F6F0;transition:background .25s}
+#s-entraide.en-req .enHead,#s-entraide.en-req .pgFoot{background:#FBF6F0}
+#s-entraide.en-care .enHead,#s-entraide.en-care .pgFoot{background:#F3F6F3}
+#s-entraide.en-req #enAsk.pgBtn{background:#8A3F14}
+#s-entraide.en-care #enAsk.pgBtn{background:#2B5F4F}
+.enToggle{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;margin:0 20px;background:#FFFFFF;border:1.5px solid #E4DFD3;border-radius:20px}
+.enToggle.qPad{padding:5px;padding-left:5px;padding-right:5px}
+.enToggle button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:56px;padding:8px 6px;border-radius:16px;border:none;background:transparent;color:#3F4A45;font:700 13.5px/1.2 Figtree,system-ui,sans-serif;text-align:center;cursor:pointer}
+.enToggle .enCount{font-size:12px;font-weight:700;opacity:.75}
+#s-entraide.en-req #enTabReq{background:#8A3F14;color:#FFFFFF}
+#s-entraide.en-req #enTabReq .enCount{opacity:.9}
+#s-entraide.en-care #enTabCare{background:#2B5F4F;color:#FFFFFF}
+#s-entraide.en-care #enTabCare .enCount{opacity:.9}
+.qScope .req.task{padding:14px;gap:12px}
+.qScope .taskRow{display:flex;align-items:flex-start;gap:12px}
+.qScope .taskIco{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
+.qScope .taskBody{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.qScope .taskTop{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.qScope .taskT{font-size:16.5px;font-weight:800;line-height:1.25;color:#1E2A27}
+.qScope .taskChips{display:flex;flex-wrap:wrap;gap:6px}
+.qScope .durChip,.qScope .whenChip{display:inline-flex;align-items:center;min-height:24px;padding:0 9px;border-radius:12px;font-size:12.5px;font-weight:700;background:#F8F1E8;color:#6B3312}
+.qScope .whenChip{background:#F3F0EA;color:#3F4A45;font-weight:600}
+.qScope .taskWho{font-weight:600;color:#5B6661}
+.qScope .reqBtn.taskBtn{align-self:stretch;justify-content:center;min-height:48px;padding:0 16px;border:none;border-radius:24px;background:#8A3F14;color:#FFFFFF;font-size:16px;font-weight:700}
+.qScope .takenTag{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border-radius:22px;background:#E3EDE7;color:#1E4539;font-size:14.5px;font-weight:700;text-align:center}
+.qScope .req.human{padding:16px;gap:10px;border-left:4px solid #2B5F4F}
+.qScope .req.human.open{border-left-color:#D9A520}
+.qScope .humTop{display:flex;align-items:center;gap:12px}
+.qScope .humAv{width:58px;height:58px;border-radius:29px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#1E4539;flex-shrink:0}
+.qScope .humId{flex:1;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.qScope .humName{font-size:18px;font-weight:800;line-height:1.2;color:#1E2A27}
+.qScope .humBio{margin:0;font-size:14.5px;line-height:1.45;color:#3F4A45}
+.qScope .humNeeds{margin-top:0}
+.qScope .humFreq{font-size:13.5px;font-weight:700;color:#1E4539}
+.qScope .humBy{font-size:13px;color:#5B6661}
+.qScope .reqBtn.careBtn{align-self:stretch;justify-content:center;min-height:48px;padding:0 16px;border:none;border-radius:24px;background:#2B5F4F;color:#FFFFFF !important;font-size:16px;font-weight:700}
+#s-entraide.en-req #enToggle{border-color:#E8D5C4}
+#s-entraide.en-care #enToggle{border-color:#C9D9D1}
 
 </style>
 </head>
@@ -1670,16 +1707,20 @@ nav a[href="#profil"]{position:relative}
 </main>
 <footer class="pgFoot"><button type="button" id="plNext" class="pgBtn">S’abonner · 10 $/mois</button></footer>
 </div></section>
-<section class="screen qScope" id="s-entraide" data-screen="entraide" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(243, 240, 234); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;">
+<section class="screen qScope en-req" id="s-entraide" data-screen="entraide" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(243, 240, 234); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;">
   <header class="enHead">
     <h1>Entraide</h1>
     <p>Calendrier, coups de main et aide à la personne dans votre quartier.</p>
     <div class="enSearch"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input id="enRecherche" type="search" placeholder="Une activité, un coup de main, une personne…" autocomplete="off"></div>
   </header>
-  <main id="enMain" style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; gap: 22px; padding: 4px 0 16px;">
+  <main id="enMain" style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding: 4px 0 16px;">
   <section id="qCal" class="qBlock" data-cats="entraide evenement dons discussion"><h2 class="qH qPad">Calendrier de la semaine</h2><div id="qDays" class="qDays"></div><div id="qDayList" class="qPad qList"></div><div id="qCalMore" class="qPad"></div></section>
-  <section id="qReq" class="qBlock qPad qHelp qHelpSimple" data-cats="entraide"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">🛠️</span><div><h2 class="qH">Coups de main</h2><p class="qHelpSub">Petits services entre voisins : courses, pelletage, petites réparations, transport, déménagement.</p></div></div><div id="qReqList" class="qList"></div><div id="qReqMore"></div></section>
-  <section id="qCare" class="qBlock qPad qHelp qHelpCare" data-cats="entraide"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">💚</span><div><h2 class="qH">Aide à la personne</h2><p class="qHelpSub">Accompagnement, visites d’amitié, aide aux repas, appels de bienveillance.</p></div></div><p class="qVerif"><span class="qVerifIco" aria-hidden="true">🛡️</span><span><strong>Antécédents vérifiés exigés par défaut</strong> · ces services sont réservés aux voisins dont les antécédents judiciaires ont été vérifiés. Une famille peut accepter des voisins non vérifiés&nbsp;: le choix devient alors sa responsabilité.</span></p><div id="qCareList" class="qList"></div><div id="qCareMore"></div></section>
+  <div id="enToggle" class="enToggle qPad" role="tablist" aria-label="Type d’entraide">
+    <button type="button" role="tab" id="enTabReq" data-enmode="req" aria-selected="true" aria-controls="qReq">🛠️ Coups de main <span class="enCount" id="enNReq">(18)</span></button>
+    <button type="button" role="tab" id="enTabCare" data-enmode="care" aria-selected="false" aria-controls="qCare">💚 Aide à la personne <span class="enCount" id="enNCare">(14)</span></button>
+  </div>
+  <section id="qReq" class="qBlock qPad qHelp qHelpSimple" data-cats="entraide"><p class="qHelpSub">Petits services entre voisins : courses, pelletage, petites réparations, transport, déménagement.</p><div id="qReqList" class="qList"></div><div id="qReqMore"></div></section>
+  <section id="qCare" class="qBlock qPad qHelp qHelpCare qHidden" data-cats="entraide"><p class="qHelpSub">Accompagnement, visites d’amitié, aide aux repas, appels de bienveillance.</p><p class="qVerif"><span class="qVerifIco" aria-hidden="true">🛡️</span><span><strong>Antécédents vérifiés exigés par défaut</strong> · ces services sont réservés aux voisins dont les antécédents judiciaires ont été vérifiés. Une famille peut accepter des voisins non vérifiés&nbsp;: le choix devient alors sa responsabilité.</span></p><div id="qCareList" class="qList"></div><div id="qCareMore"></div></section>
   </main>
   <footer class="pgFoot"><a href="#publier" id="enAsk" class="pgBtn">Demander de l’aide</a></footer>
 <nav aria-label="Navigation principale" style="height: 76px; flex-shrink: 0; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211); display: grid; grid-template-columns: repeat(5, minmax(0px, 1fr)); align-items: center;"><a href="#fil" aria-label="Accueil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a><a href="#quartier" aria-label="Quartier" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Quartier</a><a href="#publier" aria-label="Publier" style="justify-self: center; width: 52px; height: 52px; border-radius: 26px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#entraide" aria-label="Entraide" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(43, 95, 79); font-size: 11px; font-weight: 700;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 0 0 3-3"></path><path d="m14 14 2.5 2.5a1 1 0 0 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.36.36a3 3 0 0 1-4.24 0l-2.06-2.06a1 1 0 0 0-3 3z"></path><path d="m2 13 3.38-3.38a3 3 0 0 1 4.24 0l.36.36a3 3 0 0 0 4.24 0L16.5 8.5"></path><path d="m7 17 2.5-2.5"></path></svg>Entraide</a><a href="#profil" aria-label="Profil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg>Profil</a></nav></div></section>
@@ -2227,7 +2268,7 @@ $('#pollDone').addEventListener('click', function(){
 });
 
 function resetComposer(){
-  picked = '🤝 Entraide'; sub = 'coup'; $('#s-publier input[name="whoCan"][value="verif"]').checked = true; $('#whoAck').checked = false; renderChips(); visIdx = 0; place = null; mood = null; renderVis();
+  picked = '🤝 Entraide'; sub = (window.msEnAskSub === 'personne') ? 'personne' : 'coup'; window.msEnAskSub = null; $('#s-publier input[name="whoCan"][value="verif"]').checked = true; $('#whoAck').checked = false; renderChips(); visIdx = 0; place = null; mood = null; renderVis();
   $('#texte').value = ''; photos = []; gif = null; poll = null;
   $('#photoFile').value = ''; closeSheet('#gifSheet'); closeSheet('#pollSheet'); closeSheet('#lieuSheet');
   renderAttach();
@@ -2480,43 +2521,43 @@ var ACTS = [
   {d:6, h:'14 h', t:'Chorale intergénérationnelle', s:'Bibliothèque du quartier', c:'evenement', n:18, p:'biblio'}
 ];
 var REQS = [
-  {who:'Huguette Lavoie', txt:'a besoin de quelqu\u2019un pour faire son épicerie demain : elle ne peut pas sortir avec la glace.', u:'Urgent', ico:'🛒', m:350, a:3, r:0},
-  {who:'Famille Roy', txt:'cherche un voisin pour pelleter l\u2019entrée de M. Roy les matins de tempête cet hiver.', u:'Cette semaine', ico:'❄️', m:600, a:30, r:0},
-  {who:'Marcel Gagnon', txt:'aimerait un coup de main pour fixer une tablette et changer une ampoule au plafond.', u:'Flexible', ico:'🔧', m:450, a:50, r:1},
-  {who:'Denise Paquet', txt:'cherche un transport pour aller à la pharmacie jeudi après-midi.', u:'Cette semaine', ico:'🚗', m:800, a:5, r:0},
-  {who:'Line Côté', txt:'a besoin de deux bras pour descendre un divan au sous-sol samedi.', u:'Flexible', ico:'📦', m:1200, a:20, r:2, f:true},
-  {who:'Robert Pelletier', txt:'aimerait qu\u2019on déglace ses marches avant demain matin.', u:'Urgent', ico:'🧂', m:250, a:1, r:0},
-  {who:'Claire Bédard', txt:'a besoin d\u2019aide pour rentrer ses meubles de jardin avant la neige.', u:'Cette semaine', ico:'🪑', m:900, a:28, r:0},
-  {who:'Normand Lévesque', txt:'cherche quelqu\u2019un pour poster un colis au comptoir postal.', u:'Flexible', ico:'✉️', m:300, a:7, r:1, f:true},
-  {who:'Ginette Caron', txt:'aimerait de l\u2019aide pour poser des coupe-froid à ses fenêtres.', u:'Cette semaine', ico:'🪟', m:700, a:40, r:0},
-  {who:'Yves Morin', txt:'cherche un transport pour son rendez-vous chez le dentiste lundi matin.', u:'Cette semaine', ico:'🚗', m:1500, a:9, r:0},
-  {who:'Suzanne Dion', txt:'cherche quelqu\u2019un pour monter des caisses d\u2019eau au 3e étage.', u:'Flexible', ico:'💧', m:550, a:60, r:3, done:true},
-  {who:'Michel Boucher', txt:'aimerait qu\u2019on l\u2019aide à configurer son nouveau cellulaire.', u:'Flexible', ico:'📱', m:400, a:15, r:0},
-  {who:'Famille Nguyen', txt:'cherche un coup de main pour déménager quelques boîtes samedi.', u:'Cette semaine', ico:'📦', m:1100, a:26, r:1},
-  {who:'Lise Gauthier', txt:'a besoin qu\u2019on promène son chien deux matins cette semaine.', u:'Cette semaine', ico:'🐕', m:650, a:4, r:0},
-  {who:'André Simard', txt:'aimerait de l\u2019aide pour ramasser les feuilles mortes.', u:'Flexible', ico:'🍂', m:950, a:70, r:2, done:true},
-  {who:'Monique Lachance', txt:'cherche quelqu\u2019un pour aller chercher une commande à la pharmacie.', u:'Urgent', ico:'💊', m:300, a:2, r:1},
-  {who:'Pierre Ouellet', txt:'a besoin d\u2019aide pour changer le filtre de sa fournaise.', u:'Flexible', ico:'🔥', m:1300, a:36, r:0},
-  {who:'Jocelyne Roy', txt:'cherche quelqu\u2019un pour déneiger sa voiture après les tempêtes.', u:'Cette semaine', ico:'🚙', m:500, a:12, r:0},
-  {who:'Raymond Fortier', txt:'a besoin d\u2019un coup de main pour accrocher des cadres.', u:'Flexible', ico:'🖼️', m:750, a:48, r:1},
-  {who:'Francine Hébert', txt:'cherche quelqu\u2019un pour rapporter ses livres à la bibliothèque Monique-Corriveau.', u:'Flexible', ico:'📚', m:850, a:6, r:0}
+  {who:'Huguette Lavoie', t:'Faire l\u2019épicerie', txt:'a besoin de quelqu\u2019un pour faire son épicerie demain : elle ne peut pas sortir avec la glace.', u:'Urgent', ico:'🛒', m:350, a:3, r:0, dur:'45 min', when:'Demain matin'},
+  {who:'Famille Roy', t:'Pelleter l\u2019entrée', txt:'cherche un voisin pour pelleter l\u2019entrée de M. Roy les matins de tempête cet hiver.', u:'Cette semaine', ico:'❄️', m:600, a:30, r:0, dur:'30 min', when:'Les matins de tempête'},
+  {who:'Marcel Gagnon', t:'Petite réparation', txt:'aimerait un coup de main pour fixer une tablette et changer une ampoule au plafond.', u:'Flexible', ico:'🔧', m:450, a:50, r:1, dur:'1 h', when:'Quand ça vous arrange'},
+  {who:'Denise Paquet', t:'Transport à la pharmacie', txt:'cherche un transport pour aller à la pharmacie jeudi après-midi.', u:'Cette semaine', ico:'🚗', m:800, a:5, r:0, dur:'45 min', when:'Jeudi 15 h'},
+  {who:'Line Côté', t:'Descendre un divan', txt:'a besoin de deux bras pour descendre un divan au sous-sol samedi.', u:'Flexible', ico:'📦', m:1200, a:20, r:2, f:true, dur:'1 h 30', when:'Samedi matin'},
+  {who:'Robert Pelletier', t:'Déglacer les marches', txt:'aimerait qu\u2019on déglace ses marches avant demain matin.', u:'Urgent', ico:'🧂', m:250, a:1, r:0, dur:'20 min', when:'Aujourd\u2019hui 16 h'},
+  {who:'Claire Bédard', t:'Rentrer les meubles de jardin', txt:'a besoin d\u2019aide pour rentrer ses meubles de jardin avant la neige.', u:'Cette semaine', ico:'🪑', m:900, a:28, r:0, dur:'1 h', when:'Cette semaine'},
+  {who:'Normand Lévesque', t:'Poster un colis', txt:'cherche quelqu\u2019un pour poster un colis au comptoir postal.', u:'Flexible', ico:'✉️', m:300, a:7, r:1, f:true, dur:'20 min', when:'Quand ça vous arrange'},
+  {who:'Ginette Caron', t:'Poser des coupe-froid', txt:'aimerait de l\u2019aide pour poser des coupe-froid à ses fenêtres.', u:'Cette semaine', ico:'🪟', m:700, a:40, r:0, dur:'1 h', when:'Cette semaine'},
+  {who:'Yves Morin', t:'Transport chez le dentiste', txt:'cherche un transport pour son rendez-vous chez le dentiste lundi matin.', u:'Cette semaine', ico:'🚗', m:1500, a:9, r:0, dur:'1 h', when:'Lundi matin'},
+  {who:'Suzanne Dion', t:'Monter des caisses d\u2019eau', txt:'cherche quelqu\u2019un pour monter des caisses d\u2019eau au 3e étage.', u:'Flexible', ico:'💧', m:550, a:60, r:3, done:true, dur:'30 min', when:'Quand ça vous arrange'},
+  {who:'Michel Boucher', t:'Configurer un cellulaire', txt:'aimerait qu\u2019on l\u2019aide à configurer son nouveau cellulaire.', u:'Flexible', ico:'📱', m:400, a:15, r:0, dur:'45 min', when:'Quand ça vous arrange'},
+  {who:'Famille Nguyen', t:'Déménager quelques boîtes', txt:'cherche un coup de main pour déménager quelques boîtes samedi.', u:'Cette semaine', ico:'📦', m:1100, a:26, r:1, dur:'2 h', when:'Samedi matin'},
+  {who:'Lise Gauthier', t:'Promener le chien', txt:'a besoin qu\u2019on promène son chien deux matins cette semaine.', u:'Cette semaine', ico:'🐕', m:650, a:4, r:0, dur:'30 min', when:'Cette semaine'},
+  {who:'André Simard', t:'Ramasser les feuilles', txt:'aimerait de l\u2019aide pour ramasser les feuilles mortes.', u:'Flexible', ico:'🍂', m:950, a:70, r:2, done:true, dur:'1 h 30', when:'Quand ça vous arrange'},
+  {who:'Monique Lachance', t:'Commande à la pharmacie', txt:'cherche quelqu\u2019un pour aller chercher une commande à la pharmacie.', u:'Urgent', ico:'💊', m:300, a:2, r:1, dur:'20 min', when:'Aujourd\u2019hui 14 h'},
+  {who:'Pierre Ouellet', t:'Changer un filtre de fournaise', txt:'a besoin d\u2019aide pour changer le filtre de sa fournaise.', u:'Flexible', ico:'🔥', m:1300, a:36, r:0, dur:'45 min', when:'Quand ça vous arrange'},
+  {who:'Jocelyne Roy', t:'Déneiger la voiture', txt:'cherche quelqu\u2019un pour déneiger sa voiture après les tempêtes.', u:'Cette semaine', ico:'🚙', m:500, a:12, r:0, dur:'20 min', when:'Après les tempêtes'},
+  {who:'Raymond Fortier', t:'Accrocher des cadres', txt:'a besoin d\u2019un coup de main pour accrocher des cadres.', u:'Flexible', ico:'🖼️', m:750, a:48, r:1, dur:'30 min', when:'Quand ça vous arrange'},
+  {who:'Francine Hébert', t:'Rapporter des livres', txt:'cherche quelqu\u2019un pour rapporter ses livres à la bibliothèque Monique-Corriveau.', u:'Flexible', ico:'📚', m:850, a:6, r:0, dur:'30 min', when:'Quand ça vous arrange'}
 ];
 var CARE = [
-  {who:'Rita Morin', txt:'aimerait être accompagnée à son rendez-vous médical mardi matin, aller-retour en autobus.', u:'Urgent', ico:'🩺', k:'Accompagnement', m:400, a:4, r:0},
-  {who:'Gilles Bouchard', txt:'cherche une présence pour la marche de sa mère, les mardis et jeudis matin.', u:'Cette semaine', ico:'🚶', k:'Accompagnement', open:true, m:650, a:5, r:2},
-  {who:'Jeanne Fortin', txt:'(86 ans) aimerait recevoir une visite d\u2019amitié une fois par semaine pour jaser autour d\u2019un thé.', u:'Flexible', ico:'☕', k:'Visite d\u2019amitié', m:300, a:30, r:0},
-  {who:'Paul Tremblay', txt:'a besoin d\u2019aide pour préparer ses repas deux fois par semaine après son opération.', u:'Cette semaine', ico:'🍲', k:'Aide aux repas', m:900, a:10, r:1},
-  {who:'Thérèse Roy', txt:'souhaiterait un appel de bienveillance chaque matin pour s\u2019assurer que tout va bien.', u:'Flexible', ico:'📞', k:'Appel de bienveillance', m:1100, a:50, r:0},
-  {who:'Famille Côté', txt:'cherche une présence pour leur père le mercredi après-midi, le temps d\u2019un répit.', u:'Cette semaine', ico:'🤝', k:'Présence', m:700, a:26, r:0},
-  {who:'Lucien Paré', txt:'aimerait qu\u2019on l\u2019accompagne à l\u2019épicerie avec sa marchette.', u:'Cette semaine', ico:'🛒', k:'Accompagnement', open:true, m:350, a:3, r:0},
-  {who:'Madeleine Roy', txt:'souhaite de la compagnie pour une partie de cartes le dimanche.', u:'Flexible', ico:'🃏', k:'Visite d\u2019amitié', m:500, a:12, r:1},
-  {who:'Henri Gagné', txt:'a besoin d\u2019aide pour préparer ses repas de la semaine.', u:'Flexible', ico:'🥘', k:'Aide aux repas', m:1200, a:40, r:0},
-  {who:'Famille Bilodeau', txt:'cherche quelqu\u2019un pour s\u2019assurer que leur mère prend son repas du midi.', u:'Urgent', ico:'🍽️', k:'Aide aux repas', m:450, a:6, r:0},
-  {who:'Cécile Lavoie', txt:'aimerait un appel de bienveillance les soirs de tempête.', u:'Flexible', ico:'📞', k:'Appel de bienveillance', open:true, m:800, a:20, r:0},
-  {who:'Georges Dubé', txt:'aimerait être accompagné à la messe du dimanche.', u:'Flexible', ico:'⛪', k:'Accompagnement', m:600, a:70, r:3, done:true},
-  {who:'Yvonne Martel', txt:'souhaite qu\u2019on lui fasse la lecture du journal deux fois par semaine.', u:'Flexible', ico:'📰', k:'Visite d\u2019amitié', m:950, a:16, r:0},
-  {who:'Famille Tremblay', txt:'cherche une présence pour leur grand-mère à son retour de l\u2019hôpital.', u:'Cette semaine', ico:'🏠', k:'Présence', m:1400, a:8, r:1},
-  {who:'Roland Picard', txt:'aimerait être accompagné à la clinique pour sa prise de sang vendredi.', u:'Urgent', ico:'🩸', k:'Accompagnement', m:550, a:1, r:0}
+  {who:'Rita Morin', age:82, bio:'Ancienne caissière, elle aime le chant à l\u2019église et les bonnes discussions.', needs:['Accompagnement rendez-vous'], freq:'Ponctuel · mardi matin', by:'Demandé par Rita', txt:'aimerait être accompagnée à son rendez-vous médical mardi matin, aller-retour en autobus.', u:'Urgent', ico:'🩺', k:'Accompagnement', m:400, a:4, r:0},
+  {who:'Colette Bouchard', age:84, bio:'Maman de Gilles, elle se promène encore chaque matin, pas à pas, avec son déambulateur.', needs:['Accompagnement'], freq:'Les mardis et jeudis matin', by:'Demandé par son fils Gilles', txt:'cherche une présence pour la marche de sa mère, les mardis et jeudis matin.', u:'Cette semaine', ico:'🚶', k:'Accompagnement', open:true, m:650, a:5, r:2},
+  {who:'Jeanne Fortin', age:86, bio:'Ancienne institutrice, elle aime le thé, les romans et les nouvelles du quartier.', needs:['Compagnie'], freq:'Chaque mardi après-midi', by:'Demandé par sa nièce Louise', txt:'(86 ans) aimerait recevoir une visite d\u2019amitié une fois par semaine pour jaser autour d\u2019un thé.', u:'Flexible', ico:'☕', k:'Visite d\u2019amitié', m:300, a:30, r:0},
+  {who:'Paul Tremblay', age:74, bio:'Il revient d\u2019une opération et aimerait retrouver le plaisir de manger de bons plats simples.', needs:['Repas'], freq:'Deux fois par semaine', by:'Demandé par Paul', txt:'a besoin d\u2019aide pour préparer ses repas deux fois par semaine après son opération.', u:'Cette semaine', ico:'🍲', k:'Aide aux repas', m:900, a:10, r:1},
+  {who:'Thérèse Roy', age:89, bio:'Grande lectrice, elle habite seule et aime entendre une voix familière le matin.', needs:['Appels'], freq:'Chaque matin', by:'Demandé par sa fille Isabelle', txt:'souhaiterait un appel de bienveillance chaque matin pour s\u2019assurer que tout va bien.', u:'Flexible', ico:'📞', k:'Appel de bienveillance', m:1100, a:50, r:0},
+  {who:'Jacques Côté', age:81, bio:'Ancien menuisier, il aime les parties de dames et les histoires de chantier.', needs:['Présence','Compagnie'], freq:'Chaque mercredi après-midi', by:'Demandé par la famille Côté', txt:'cherche une présence pour leur père le mercredi après-midi, le temps d\u2019un répit.', u:'Cette semaine', ico:'🤝', k:'Présence', m:700, a:26, r:0},
+  {who:'Lucien Paré', age:78, bio:'Il se déplace avec une marchette et aime choisir lui-même ses fruits au marché.', needs:['Accompagnement','Courses'], freq:'Ponctuel', by:'Demandé par Lucien', txt:'aimerait qu\u2019on l\u2019accompagne à l\u2019épicerie avec sa marchette.', u:'Cette semaine', ico:'🛒', k:'Accompagnement', open:true, m:350, a:3, r:0},
+  {who:'Madeleine Roy', age:83, bio:'Joueuse de cartes dans l\u2019âme, elle prépare toujours un petit goûter pour ses visiteurs.', needs:['Compagnie'], freq:'Chaque dimanche', by:'Demandé par Madeleine', txt:'souhaite de la compagnie pour une partie de cartes le dimanche.', u:'Flexible', ico:'🃏', k:'Visite d\u2019amitié', m:500, a:12, r:1},
+  {who:'Henri Gagné', age:80, bio:'Il cuisine encore un peu, mais la semaine lui paraît longue devant les chaudrons.', needs:['Repas'], freq:'Une fois par semaine', by:'Demandé par Henri', txt:'a besoin d\u2019aide pour préparer ses repas de la semaine.', u:'Flexible', ico:'🥘', k:'Aide aux repas', m:1200, a:40, r:0},
+  {who:'Hélène Bilodeau', age:87, bio:'Douce et souriante, elle oublie parfois de s\u2019asseoir pour dîner si personne ne passe.', needs:['Repas'], freq:'Chaque midi', by:'Demandé par la famille Bilodeau', txt:'cherche quelqu\u2019un pour s\u2019assurer que leur mère prend son repas du midi.', u:'Urgent', ico:'🍽️', k:'Aide aux repas', m:450, a:6, r:0},
+  {who:'Cécile Lavoie', age:85, bio:'Elle aime les nouvelles du quartier, surtout quand la tempête force tout le monde à rester au chaud.', needs:['Appels'], freq:'Les soirs de tempête', by:'Demandé par Cécile', txt:'aimerait un appel de bienveillance les soirs de tempête.', u:'Flexible', ico:'📞', k:'Appel de bienveillance', open:true, m:800, a:20, r:0},
+  {who:'Georges Dubé', age:79, bio:'Fidèle à la messe du dimanche, il aime ensuite prendre le café avec les voisins.', needs:['Accompagnement'], freq:'Chaque dimanche matin', by:'Demandé par Georges', txt:'aimerait être accompagné à la messe du dimanche.', u:'Flexible', ico:'⛪', k:'Accompagnement', m:600, a:70, r:3, done:true},
+  {who:'Yvonne Martel', age:88, bio:'Les yeux fatigués, elle aime encore le journal du matin lu à voix haute, article par article.', needs:['Compagnie','Lecture'], freq:'Deux fois par semaine', by:'Demandé par sa petite-fille Anne', txt:'souhaite qu\u2019on lui fasse la lecture du journal deux fois par semaine.', u:'Flexible', ico:'📰', k:'Visite d\u2019amitié', m:950, a:16, r:0},
+  {who:'Germaine Tremblay', age:90, bio:'Elle rentre de l\u2019hôpital et aimerait une présence rassurante le temps de retrouver ses habitudes.', needs:['Présence'], freq:'Cette semaine, selon les moments', by:'Demandé par la famille Tremblay', txt:'cherche une présence pour leur grand-mère à son retour de l\u2019hôpital.', u:'Cette semaine', ico:'🏠', k:'Présence', m:1400, a:8, r:1},
+  {who:'Roland Picard', age:76, bio:'Ancien chauffeur d\u2019autobus, il est un peu nerveux à l\u2019idée d\u2019y aller seul pour sa prise de sang.', needs:['Accompagnement rendez-vous'], freq:'Ponctuel · vendredi', by:'Demandé par Roland', txt:'aimerait être accompagné à la clinique pour sa prise de sang vendredi.', u:'Urgent', ico:'🩸', k:'Accompagnement', m:550, a:1, r:0}
 ];
 var URG = {'Urgent':['#FDE8E4','#A3321A'], 'Cette semaine':['#FBEFE4','#8A3F14'], 'Flexible':['#E3EDE7','#1E4539']};
 var DON_CATS = ['Tous','Vêtements','Meubles','Nourriture','Jouets','Autres'];
@@ -2683,27 +2724,79 @@ function fairTags(x){
 }
 
 /* 4. entraide */
-function reqCard(r, care){
-  var u = URG[r.u], idx = (care ? CARE : REQS).indexOf(r), done = isDone(r);
-  var tag = care ? (r.open ? '<span class="openTag">⚠️ Non vérifiés acceptés · responsabilité de la famille</span>' : '<span class="bgTag">🛡️ Antécédents vérifiés requis</span>') : '';
-  var ft = fairTags(r);
-  return '<div class="qCard req' + (care ? ' care' : '') + (r.open ? ' open' : '') + (!done && r.r === 0 ? ' noResp' : '') + (!done && r.f ? ' feat' : '') + (done ? ' done' : '') + '"><div class="reqTop"><span class="reqWho"><span class="reqIco" aria-hidden="true">' + r.ico + '</span><strong style="font-size:15px">' + esc(r.who) + '</strong></span>' + (done ? '<span class="doneTag">✓ Comblée</span>' : '<span class="urg" style="background:' + u[0] + ';color:' + u[1] + '">' + r.u + '</span>') + '</div>' +
-    (ft ? '<div class="reqTags">' + ft + '</div>' : '') +
-    (care ? '<div class="reqTags"><span class="reqKind">' + esc(r.k) + '</span>' + tag + '</div>' : '') +
-    '<div class="reqTxt">' + esc(/^Famille /.test(r.who) ? 'La f' + r.who.slice(1) : r.who.split(' ')[0]) + ' ' + esc(r.txt) + '</div>' + metaLine(r, 'réponse') +
-    (done ? '' : '<a href="#messages" class="reqBtn" data-resp="' + (care ? 'care' : 'req') + ':' + idx + '"' + (care ? ' data-care="' + (r.open ? 'open' : 'bg') + '"' : '') + '>' + (care ? 'Proposer ma présence' : 'Proposer mon aide') + '</a>') + '</div>';
+var EN_PREVIEW = 4;
+var enMode = 'req';
+window.msEnMode = 'req';
+var TASK_BG = {'🛒':'#FBEFE4','❄️':'#E4EEF6','🔧':'#F3EDE3','🚗':'#E3EDE7','📦':'#F0E8FB','🧂':'#E4EEF6','🪑':'#F3EDE3','✉️':'#FFF4D6','🪟':'#E4EEF6','💧':'#E4EEF6','📱':'#F0E8FB','🐕':'#FBEFE4','🍂':'#F3EDE3','💊':'#FDE8E4','🔥':'#FDE8E4','🚙':'#E4EEF6','🖼️':'#F0E8FB','📚':'#E3EDE7'};
+var AV_BG = ['#E3EDE7','#FBEFE4','#E4EEF6','#F0E8FB','#FFF4D6','#FDE8E4','#F3EDE3'];
+function firstName(who){
+  if(!who) return '';
+  if(/^Famille /.test(who)) return who;
+  return who.split(/\s+/)[0];
 }
-function reqHit(r){ return hitEn(r.who, r.txt, r.u, 'entraide', 'coups de main', 'coup de main'); }
-function careHit(r){ return hitEn(r.who, r.txt, r.u, r.k, 'entraide', 'aide à la personne', 'voisins vérifiés', 'antécédents', r.open ? 'non vérifiés acceptés responsabilité' : 'antécédents vérifiés requis'); }
+function initials(who){
+  var p = (who || '').replace(/^Famille /,'').split(/\s+/).filter(Boolean);
+  return ((p[0] ? p[0].charAt(0) : '') + (p[1] ? p[1].charAt(0) : '')).toUpperCase();
+}
+function setEnMode(mode){
+  enMode = mode === 'care' ? 'care' : 'req';
+  window.msEnMode = enMode;
+  var root = document.getElementById('s-entraide');
+  if(root){ root.classList.toggle('en-req', enMode === 'req'); root.classList.toggle('en-care', enMode === 'care'); }
+  if(parts.req) parts.req.classList.toggle('qHidden', enMode !== 'req');
+  if(parts.care) parts.care.classList.toggle('qHidden', enMode !== 'care');
+  renderEnToggle();
+}
+function renderEnToggle(){
+  var bReq = document.getElementById('enTabReq'), bCare = document.getElementById('enTabCare');
+  if(!bReq || !bCare) return;
+  var nReq = REQS.filter(reqHit).filter(function(x){ return !isDone(x); }).length;
+  var nCare = CARE.filter(careHit).filter(function(x){ return !isDone(x); }).length;
+  bReq.setAttribute('aria-selected', enMode === 'req' ? 'true' : 'false');
+  bCare.setAttribute('aria-selected', enMode === 'care' ? 'true' : 'false');
+  var nR = document.getElementById('enNReq'), nC = document.getElementById('enNCare');
+  if(nR) nR.textContent = '(' + nReq + ')';
+  if(nC) nC.textContent = '(' + nCare + ')';
+}
+function reqCard(r, care){ return care ? careCard(r) : taskCard(r); }
+function taskCard(r){
+  var u = URG[r.u], idx = REQS.indexOf(r), done = isDone(r), ft = fairTags(r), taken = !!r._me;
+  var bg = TASK_BG[r.ico] || '#FBEFE4';
+  return '<div class="qCard req task' + (!done && r.r === 0 ? ' noResp' : '') + (!done && r.f ? ' feat' : '') + (done ? ' done' : '') + (taken ? ' taken' : '') + '"><div class="taskRow"><span class="taskIco" style="background:' + bg + '" aria-hidden="true">' + r.ico + '</span><div class="taskBody"><div class="taskTop"><strong class="taskT reqWho">' + esc(r.t) + '</strong>' + (done ? '<span class="doneTag">✓ Comblée</span>' : '<span class="urg" style="background:' + u[0] + ';color:' + u[1] + '">' + r.u + '</span>') + '</div><div class="taskChips">' + (r.dur ? '<span class="durChip">⏱ ' + esc(r.dur) + '</span>' : '') + (r.when ? '<span class="whenChip">' + esc(r.when) + '</span>' : '') + '</div><div class="qMeta"><span>📍 ' + fmtDist(r.m) + '</span><span class="taskWho">' + esc(firstName(r.who)) + '</span></div></div></div>' +
+    (ft ? '<div class="reqTags">' + ft + '</div>' : '') +
+    (done ? '' : taken ? '<span class="takenTag">✓ Pris en charge par vous</span>' : '<button type="button" class="reqBtn taskBtn" data-resp="req:' + idx + '">Je m\u2019en occupe</button>') + '</div>';
+}
+function careCard(r){
+  var u = URG[r.u], idx = CARE.indexOf(r), done = isDone(r), ft = fairTags(r), taken = !!r._me;
+  var tag = r.open ? '<span class="openTag">⚠️ Non vérifiés acceptés · responsabilité de la famille</span>' : '<span class="bgTag">🛡️ Antécédents vérifiés requis</span>';
+  var needs = (r.needs && r.needs.length) ? r.needs : (r.k ? [r.k] : []);
+  var age = r.age ? (', ' + r.age + ' ans') : '';
+  var chips = needs.map(function(n){ return '<span class="reqKind">' + esc(n) + '</span>'; }).join('');
+  return '<div class="qCard req care human' + (r.open ? ' open' : '') + (!done && r.r === 0 ? ' noResp' : '') + (done ? ' done' : '') + (taken ? ' taken' : '') + '"><div class="humTop"><span class="humAv" style="background:' + AV_BG[(idx >= 0 ? idx : 0) % AV_BG.length] + '" aria-hidden="true">' + esc(initials(r.who)) + '</span><div class="humId"><strong class="humName">' + esc(firstName(r.who)) + age + '</strong>' + (done ? '<span class="doneTag">✓ Comblée</span>' : (r.u === 'Urgent' ? '<span class="urg" style="background:' + u[0] + ';color:' + u[1] + '">' + r.u + '</span>' : '')) + '</div></div>' +
+    (r.bio ? '<p class="humBio">' + esc(r.bio) + '</p>' : '') +
+    (chips ? '<div class="reqTags humNeeds">' + chips + '</div>' : '') +
+    (r.freq ? '<div class="humFreq">📅 ' + esc(r.freq) + '</div>' : '') +
+    (r.by ? '<div class="humBy">' + esc(r.by) + '</div>' : '') +
+    ((ft || tag) ? '<div class="reqTags">' + ft + tag + '</div>' : '') +
+    (done ? '' : taken ? '<span class="takenTag">✓ Présence proposée</span>' : '<a href="#messages" class="reqBtn careBtn" data-resp="care:' + idx + '" data-care="' + (r.open ? 'open' : 'bg') + '">Proposer ma présence</a>') + '</div>';
+}
+function reqHit(r){ return hitEn(r.who, r.t, r.txt, r.u, r.dur, r.when, 'entraide', 'coups de main', 'coup de main'); }
+function careHit(r){ return hitEn(r.who, r.txt, r.bio, r.by, r.freq, r.k, (r.needs || []).join(' '), String(r.age || ''), 'entraide', 'aide à la personne', 'voisins vérifiés', 'antécédents', r.open ? 'non vérifiés acceptés responsabilité' : 'antécédents vérifiés requis'); }
+function pinMine(prev, all, n){
+  var mine = all.filter(function(x){ return x._me && !isDone(x); });
+  if(!mine.length) return prev;
+  return mine.concat(prev.filter(function(x){ return !x._me; })).slice(0, n);
+}
 function renderReq(){
   var simple = REQS.filter(reqHit), care = CARE.filter(careHit);
   var sa = simple.filter(function(x){ return !isDone(x); }), ca = care.filter(function(x){ return !isDone(x); });
-  parts.reqList.innerHTML = preview(simple, 3).map(function(r){ return reqCard(r, false); }).join('');
-  parts.careList.innerHTML = preview(care, 3, true).map(function(r){ return reqCard(r, true); }).join('');
-  parts.reqMore.innerHTML = simple.length > 3 ? moreBtn('req', sa.length) : '';
-  parts.careMore.innerHTML = care.length > 3 ? moreBtn('care', ca.length) : '';
-  parts.req.classList.toggle('qHidden', !sa.length);
-  parts.care.classList.toggle('qHidden', !ca.length);
+  var prevR = pinMine(preview(simple, EN_PREVIEW), sa, EN_PREVIEW);
+  var prevC = pinMine(preview(care, EN_PREVIEW, true), ca, EN_PREVIEW);
+  if(parts.reqList) parts.reqList.innerHTML = prevR.length ? prevR.map(function(r){ return reqCard(r, false); }).join('') : '<div class="qEmpty" style="padding:8px 0">Aucun coup de main pour le moment.</div>';
+  if(parts.careList) parts.careList.innerHTML = prevC.length ? prevC.map(function(r){ return reqCard(r, true); }).join('') : '<div class="qEmpty" style="padding:8px 0">Aucune demande d\u2019aide à la personne pour le moment.</div>';
+  if(parts.reqMore) parts.reqMore.innerHTML = simple.length > EN_PREVIEW ? moreBtn('req', sa.length) : '';
+  if(parts.careMore) parts.careMore.innerHTML = care.length > EN_PREVIEW ? moreBtn('care', ca.length) : '';
+  setEnMode(enMode);
   return sa.length + ca.length > 0;
 }
 
@@ -2744,7 +2837,7 @@ function lItems(){
   var q = norm(L.q), hours = now.getHours() + now.getMinutes() / 60;
   return src.filter(function(x){
     if(L.block === 'cal') return x.d === L.day && (!q || norm(x.t + ' ' + x.s).indexOf(q) >= 0);
-    if(q && norm([x.who, x.txt, x.t, x.s, x.k, x.cat, x.u].join(' ')).indexOf(q) < 0) return false;
+    if(q && norm([x.who, x.txt, x.t, x.s, x.k, x.cat, x.u, x.bio, x.by, x.freq, x.dur, x.when, (x.needs||[]).join(' ')].join(' ')).indexOf(q) < 0) return false;
     if(L.block === 'dons' && L.cat !== 'Tous' && x.cat !== L.cat) return false;
     if(L.f.urgent && x.u !== 'Urgent') return false;
     if(L.f.today && x.a > hours) return false;
@@ -2851,11 +2944,12 @@ function init(){
   }, true);
   root.addEventListener('click', function(e){
     var t;
+    if((t = e.target.closest('[data-enmode]'))){ setEnMode(t.getAttribute('data-enmode')); return; }
     if((t = e.target.closest('[data-cat]'))){ cat = t.getAttribute('data-cat'); renderFilters(); renderAll(); return; }
     if((t = e.target.closest('[data-job]'))){ openJob(t.getAttribute('data-job')); return; }
     if((t = e.target.closest('[data-list]'))){ openList(t.getAttribute('data-list')); return; }
     if((t = e.target.closest('[data-doncat]'))){ donCat = t.getAttribute('data-doncat'); renderDons(); parts.donList.scrollLeft = 0; return; }
-    if((t = e.target.closest('[data-resp]'))){ var rp = t.getAttribute('data-resp').split(':'), arr = rp[0] === 'req' ? REQS : rp[0] === 'care' ? CARE : DONS, it = arr[+rp[1]]; if(it && !it._me){ it._me = 1; it.r++; } return; }
+    if((t = e.target.closest('[data-resp]'))){ var rp = t.getAttribute('data-resp').split(':'), arr = rp[0] === 'req' ? REQS : rp[0] === 'care' ? CARE : DONS, it = arr[+rp[1]]; if(it && !it._me){ it._me = 1; it.r++; } if(rp[0] === 'req' || rp[0] === 'care'){ renderReq(); if($('#qListPanel') && !$('#qListPanel').hidden) renderList(true); } if(rp[0] === 'req'){ e.preventDefault(); e.stopPropagation(); } return; }
     if((t = e.target.closest('[data-lf]'))){ var f = t.getAttribute('data-lf'); L.f[f] = !L.f[f]; L.page = 1; renderList(); return; }
     if((t = e.target.closest('[data-lcat]'))){ L.cat = t.getAttribute('data-lcat'); L.page = 1; renderList(); return; }
     if((t = e.target.closest('[data-sort]'))){ L.sort = t.getAttribute('data-sort'); L.page = 1; renderList(); return; }
@@ -2891,10 +2985,13 @@ function init(){
     enRech.addEventListener('input', function(){ enQuery = enRech.value.trim(); renderCal(); renderReq(); });
     enRech.addEventListener('keydown', function(e){ if(e.key === 'Enter') enRech.blur(); });
   }
+  var enAsk = document.getElementById('enAsk');
+  if(enAsk) enAsk.addEventListener('click', function(){ window.msEnAskSub = (window.msEnMode === 'care') ? 'personne' : 'coup'; });
   window.msEnter_entraide = function(o){
     var lp = $('#qListPanel');
     if(lp && !lp.hidden && o && o.back){ renderList(true); renderCal(); renderReq(); return; }
     if(lp) lp.hidden = true;
+    setEnMode('req');
     rot++; try{ localStorage.setItem('ms_qrot', rot); }catch(_){}
     renderCal(); renderReq();
   };
