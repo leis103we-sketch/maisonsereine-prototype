@@ -107,7 +107,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ms-build" content="20261112220122">
+<meta name="ms-build" content="20261112220908">
 <meta name="theme-color" content="#F8F6F0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -482,6 +482,60 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 #s-quartier .wxMore{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:2px}
 #s-quartier .wxMM{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:18px;background:#FFFFFF;color:#1E4539 !important;font-size:13.5px;font-weight:700;text-decoration:none}
 #s-quartier .wxCredit{font-size:11px;opacity:.75;line-height:1.3}
+/* composer : tuiles du bas (Galerie / Lieu / Sondage / Humeur) */
+#s-publier .cmpFoot{flex-shrink:0;display:flex;flex-direction:column;gap:12px;padding:14px 16px calc(14px + env(safe-area-inset-bottom));border-top:1px solid #EAE6DF;background:#FFFFFF}
+#s-publier .tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+#s-publier .tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px 4px 12px;min-height:84px;border:none;border-radius:16px;background:#F7F5F0;color:#1E2A27;cursor:pointer;font-family:inherit}
+#s-publier .tile:active{transform:scale(.96)}
+#s-publier .tile:focus-visible{outline:2px solid #2B5F4F;outline-offset:2px}
+#s-publier .tIco{width:40px;height:40px;border-radius:20px;display:flex;align-items:center;justify-content:center}
+#s-publier .tLab{font-size:13.5px;font-weight:600;color:#1E2A27;white-space:nowrap}
+#s-publier .tGal .tIco{background:#E3EDE7;color:#2B5F4F}
+#s-publier .tLieu .tIco{background:#FBEDE4;color:#8A3F14}
+#s-publier .tPoll .tIco{background:#EFE6F8;color:#6B3A82}
+#s-publier .tMood .tIco{background:#FFF4D6}
+#s-publier .tEmo{font-size:22px;line-height:1}
+#s-publier .cmpBar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#s-publier .locPill{display:flex;align-items:center;gap:7px;min-height:40px;max-width:60%;padding:0 16px 0 12px;border:none;border-radius:20px;background:#EDEBE6;color:#5B6661;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+#s-publier .locPill span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#s-publier #pubPublier,#s-publier #pubPublier.ready{display:flex;align-items:center;min-height:42px;padding:0 24px;border-radius:21px;background:#3A6450;color:#FFFFFF !important;font-size:16px;font-weight:800}
+/* attach chips humeur / lieu */
+#s-publier .attChips{display:flex;flex-wrap:wrap;gap:8px}
+#s-publier .attChip{display:inline-flex;align-items:center;border-radius:16px;background:#F3F0EA;border:1px solid #E4DFD3;overflow:hidden}
+#s-publier .attChipB{border:none;background:none;padding:6px 4px 6px 12px;font-size:14px;font-weight:600;color:#1E2A27;font-family:inherit;cursor:pointer}
+#s-publier .attChipX{border:none;background:none;width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:#5B6661;cursor:pointer}
+/* sheet humeur + GIF */
+#s-publier .moodTabs{display:flex;gap:8px;padding:10px 14px 0;flex-shrink:0}
+#s-publier .moodTab{flex:1;min-height:40px;border-radius:20px;border:1.5px solid #E4DFD3;background:#FFFFFF;font-size:15px;font-weight:700;color:#1E2A27;font-family:inherit;cursor:pointer}
+#s-publier .moodTab[aria-selected="true"]{background:#1E2A27;border-color:#1E2A27;color:#FFFFFF}
+#s-publier .moodPanel{flex:1;min-height:0;overflow-y:auto;padding:12px 14px 20px}
+#s-publier .moodPanel[hidden],#s-publier .gifPanel[hidden]{display:none}
+#s-publier .gifPanel{flex:1;min-height:0;display:flex;flex-direction:column}
+#s-publier .moodGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+#s-publier .moodBtn{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 12px;border-radius:14px;border:1.5px solid #EFEBE1;background:#FAF8F3;font-size:15px;font-weight:600;color:#1E2A27;font-family:inherit;cursor:pointer;text-align:left}
+#s-publier .moodBtn[aria-pressed="true"]{border-color:#2B5F4F;background:#F1F6F3}
+#s-publier .moodE{font-size:24px;line-height:1}
+/* sheet lieu */
+#s-publier .lieuBody{flex:1;min-height:0;overflow-y:auto;padding:10px 14px 20px;display:flex;flex-direction:column;gap:10px}
+#s-publier .lieuList{display:flex;flex-direction:column;border:1px solid #EFEBE1;border-radius:14px;overflow:hidden}
+#s-publier .lieuItem{display:flex;align-items:center;gap:12px;min-height:56px;padding:8px 12px;border:none;border-top:1px solid #EFEBE1;background:#FFFFFF;text-align:left;font-family:inherit;cursor:pointer;color:#1E2A27}
+#s-publier .lieuItem:first-child{border-top:none}
+#s-publier .lieuItem[aria-pressed="true"]{background:#F1F6F3}
+#s-publier .lieuE{width:38px;height:38px;border-radius:12px;background:#F3F0EA;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+#s-publier .lieuB{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+#s-publier .lieuB strong{font-size:15px}
+#s-publier .lieuB small{font-size:12.5px;color:#5B6661}
+#s-publier .lieuOk{color:#2B5F4F;font-weight:800;font-size:18px}
+#s-publier .lieuVisT{margin:6px 2px 0;font-size:14px;font-weight:700}
+#s-publier .lieuVis{display:flex;flex-wrap:wrap;gap:8px}
+#s-publier .lieuVisB{display:flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border-radius:19px;border:1.5px solid #E4DFD3;background:#FFFFFF;font-size:14px;font-weight:600;color:#1E2A27;font-family:inherit;cursor:pointer}
+#s-publier .lieuVisB[aria-checked="true"]{background:#2B5F4F;border-color:#2B5F4F;color:#FFFFFF}
+/* post : humeur + lieu */
+.postWho{font-size:14px}
+.postWho strong{font-weight:700}
+.postMood{font-weight:400;color:#3F4A45}
+.postPlace{font-size:12.5px;color:#5B6661;margin-top:2px}
+#s-publier .tIco{width:46px;height:46px;border-radius:23px}#s-publier .tEmo{font-size:21px}#s-publier .tile{min-height:92px}
 
 </style>
 </head>
@@ -1066,18 +1120,33 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
   <textarea id="texte" placeholder="Quoi de neuf ?" style="flex-grow: 1; min-height: 140px; border: none; outline: none; resize: none; padding: 12px 16px; font-size: 22px; line-height: 1.35; color: rgb(30, 42, 39); background: transparent;"></textarea>
   <div id="attach" style="display: flex; flex-direction: column; gap: 10px; padding: 0 16px 10px; flex-shrink: 0;"></div>
   <label id="consentLbl" style="display: none; align-items: flex-start; gap: 12px; margin: 0 16px 10px; font-size: 14px; line-height: 1.4; cursor: pointer; flex-shrink: 0;"><input id="consent" type="checkbox" style="width: 22px; height: 22px; margin: 0; flex-shrink: 0; accent-color: rgb(43, 95, 79);"><span>Les personnes visibles sur la photo, ou leur proche responsable, ont donné leur accord.</span></label>
-  <div style="display: flex; gap: 10px; padding: 6px 16px 14px; overflow-x: auto; flex-shrink: 0;"><button class="mediaCard" id="photoBtn" style="flex-shrink: 0; width: 96px; height: 84px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border-radius: 14px; background: rgb(255, 255, 255); border: 1px solid rgb(228, 223, 211); box-shadow: 0 1px 3px rgba(30, 42, 39, 0.08); color: rgb(43, 95, 79); font-size: 13px; font-weight: 600; cursor: pointer;"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg><span style="color: rgb(30, 42, 39);">Galerie</span></button><button class="mediaCard" id="gifBtn" style="flex-shrink: 0; width: 96px; height: 84px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border-radius: 14px; background: rgb(255, 255, 255); border: 1px solid rgb(228, 223, 211); box-shadow: 0 1px 3px rgba(30, 42, 39, 0.08); color: rgb(43, 95, 79); font-size: 13px; font-weight: 600; cursor: pointer;"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M10 10H8.5a1.5 1.5 0 0 0-1.5 1.5v1A1.5 1.5 0 0 0 8.5 14H10v-2H9M13 10v4M16.5 14v-4H18M16.5 12h1.2"></path></svg><span style="color: rgb(30, 42, 39);">GIF</span></button><button class="mediaCard" id="pollBtn" style="flex-shrink: 0; width: 96px; height: 84px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border-radius: 14px; background: rgb(255, 255, 255); border: 1px solid rgb(228, 223, 211); box-shadow: 0 1px 3px rgba(30, 42, 39, 0.08); color: rgb(43, 95, 79); font-size: 13px; font-weight: 600; cursor: pointer;"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg><span style="color: rgb(30, 42, 39);">Sondage</span></button></div>
   <input id="photoFile" type="file" accept="image/*" multiple hidden><input id="optImgFile" type="file" accept="image/*" hidden>
 </main>
-<footer style="flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px 14px; border-top: 1px solid rgb(228, 223, 211); background: rgb(255, 255, 255);">
-  <button id="visBtn" aria-label="Visibilité" style="display: flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px 0 10px; border-radius: 18px; background: rgb(240, 237, 230); color: rgb(30, 42, 39); font-size: 14px; font-weight: 600;"><span id="visIcon" style="display: flex;"></span><span id="visLabel">Sainte-Foy</span></button>
-  <a href="#fil" id="pubPublier" aria-disabled="true" style="display: flex; align-items: center; min-height: 40px; padding: 0 22px; border-radius: 20px; font-size: 15px; font-weight: 700;">Suivant</a>
+<footer class="cmpFoot">
+  <div class="tiles"><button type="button" class="tile tGal" id="photoBtn"><span class="tIco"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg></span><span class="tLab">Galerie</span></button><button type="button" class="tile tLieu" id="lieuBtn"><span class="tIco"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><span class="tLab">Lieu</span></button><button type="button" class="tile tPoll" id="pollBtn"><span class="tIco"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="4" height="8" rx="1.2"></rect><rect x="10" y="8" width="4" height="12" rx="1.2"></rect><rect x="16" y="4" width="4" height="16" rx="1.2"></rect></svg></span><span class="tLab">Sondage</span></button><button type="button" class="tile tMood" id="moodBtn"><span class="tIco"><span class="tEmo" aria-hidden="true">😊</span></span><span class="tLab">Humeur</span></button></div>
+  <div class="cmpBar">
+    <button type="button" id="visBtn" class="locPill" aria-label="Lieu et visibilité"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><span id="visLabel">Sainte-Foy</span></button>
+    <a href="#fil" id="pubPublier" class="pubBtn">Publier</a>
+  </div>
 </footer>
 
-<div id="gifSheet" class="sheet" role="dialog" aria-label="Choisir un GIF" aria-hidden="true">
-  <header class="sheetHead"><button class="sheetX" id="gifClose" aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button><h2>Choisir un GIF</h2><span></span></header>
-  <div style="padding: 4px 14px 12px; flex-shrink: 0;"><div class="gifSearch"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input id="gifQuery" type="search" placeholder="Rechercher des GIF" autocomplete="off"></div></div>
-  <div id="gifGrid" class="gifGrid"></div>
+<div id="gifSheet" class="sheet" role="dialog" aria-label="Humeur ou GIF" aria-hidden="true">
+  <header class="sheetHead"><button class="sheetX" id="gifClose" aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button><h2 id="moodTitle">Votre humeur</h2><span></span></header>
+  <div class="moodTabs" role="tablist"><button type="button" role="tab" id="tabMood" class="moodTab" aria-selected="true" aria-controls="moodPanel">😊 Humeur</button><button type="button" role="tab" id="tabGif" class="moodTab" aria-selected="false" aria-controls="gifPanel">GIF</button></div>
+  <div id="moodPanel" class="moodPanel" role="tabpanel"><div id="moodGrid" class="moodGrid"></div></div>
+  <div id="gifPanel" class="gifPanel" role="tabpanel" hidden>
+    <div style="padding: 10px 14px 12px; flex-shrink: 0;"><div class="gifSearch"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input id="gifQuery" type="search" placeholder="Rechercher des GIF" autocomplete="off"></div></div>
+    <div id="gifGrid" class="gifGrid"></div>
+  </div>
+</div>
+<div id="lieuSheet" class="sheet" role="dialog" aria-label="Choisir un lieu" aria-hidden="true">
+  <header class="sheetHead"><button class="sheetX" id="lieuClose" aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button><h2>Lieu</h2><span></span></header>
+  <div class="lieuBody">
+    <div class="gifSearch"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input id="lieuQ" type="search" placeholder="Rechercher ou saisir un lieu" autocomplete="off"></div>
+    <div id="lieuList" class="lieuList"></div>
+    <p class="lieuVisT">Visible par</p>
+    <div id="lieuVis" class="lieuVis" role="radiogroup" aria-label="Visibilité"></div>
+  </div>
 </div>
 <div id="pollSheet" class="sheet" role="dialog" aria-label="Créer un sondage" aria-hidden="true">
   <header class="sheetHead"><button class="sheetX" id="pollClose" aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button><h2>Créer un sondage</h2><button id="pollDone" class="pollDone">Terminé</button></header>
@@ -1449,8 +1518,9 @@ var VIS_ICONS = [
   '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M17 14c2.8 0 4.5 2 4.5 5"></path></svg>'
 ];
 function visOptions(){ var q = ($('.quartierNom') || {}).textContent || 'Sainte-Foy'; return [q, 'Public', 'Mes proches']; }
-function renderVis(){ $('#visLabel').textContent = visOptions()[visIdx]; $('#visIcon').innerHTML = VIS_ICONS[visIdx]; }
-$('#visBtn').addEventListener('click', function(){ visIdx = (visIdx + 1) % 3; renderVis(); });
+var place = null, mood = null;
+function renderVis(){ var l = place || visOptions()[0]; $('#visLabel').textContent = l; $('#visBtn').setAttribute('aria-label', 'Lieu : ' + l + ' · visible par ' + visOptions()[visIdx] + '. Modifier'); }
+$('#visBtn').addEventListener('click', function(){ openLieu(); });
 var sub = 'coup';
 var SUB_LABEL = {coup:'🛠️ Coup de main', personne:'💚 Aide à la personne'};
 function renderSub(){
@@ -1470,7 +1540,7 @@ $$('#s-publier .subChip').forEach(function(b){ b.addEventListener('click', funct
 $$('#s-publier .typeChip').forEach(function(b){ b.addEventListener('click', function(){ picked = b.textContent.trim(); renderChips(); }); });
 function updateReady(){
   var ok = !!($('#texte').value.trim() || photos.length || gif || poll);
-  var p = $('#pubPublier'); p.classList.toggle('ready', ok); p.setAttribute('aria-disabled', ok ? 'false' : 'true');
+  var p = $('#pubPublier'); p.classList.toggle('ready', ok);
 }
 $('#texte').addEventListener('input', updateReady);
 function shake(el){ el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
@@ -1486,6 +1556,10 @@ function renderAttach(){
     html += '<div class="attPhotos" style="' + photoGrid(photos, 240) + '">';
     photos.forEach(function(p, i){ html += '<div class="attItem"><img src="' + p + '" alt="Photo ' + (i + 1) + '"><button class="attX" data-rm="photo" data-i="' + i + '" aria-label="Retirer la photo">' + SVG(I_X, 16) + '</button></div>'; });
     html += '</div>';
+  }
+  if(mood || place){
+    html += '<div class="attChips">' + (mood ? '<span class="attChip"><button type="button" class="attChipB" data-open="mood">' + mood[0] + ' se sent ' + esc(mood[2]) + '</button><button type="button" class="attChipX" data-rm="mood" aria-label="Retirer l’humeur">' + SVG(I_X, 14) + '</button></span>' : '') +
+      (place ? '<span class="attChip"><button type="button" class="attChipB" data-open="lieu">📍 ' + esc(place) + '</button><button type="button" class="attChipX" data-rm="place" aria-label="Retirer le lieu">' + SVG(I_X, 14) + '</button></span>' : '') + '</div>';
   }
   if(gif) html += '<div class="attItem" style="width:180px;height:180px"><img src="' + gif.src + '" alt="GIF ' + esc(gif.t) + '"><button class="attX" data-rm="gif" aria-label="Retirer le GIF">' + SVG(I_X, 16) + '</button></div>';
   if(poll){
@@ -1508,9 +1582,12 @@ $('#attach').addEventListener('click', function(e){
     if(k === 'photo') photos.splice(+rm.getAttribute('data-i'), 1);
     if(k === 'gif') gif = null;
     if(k === 'poll') poll = null;
+    if(k === 'mood') mood = null;
+    if(k === 'place'){ place = null; renderVis(); }
     renderAttach(); return;
   }
   if(e.target.closest('#pollEdit')) openPoll();
+  var op = e.target.closest('[data-open]'); if(op){ if(op.getAttribute('data-open') === 'mood') openMood('mood'); else openLieu(); }
 });
 
 /* Galerie: phone photo library (multiple, no capture attribute) */
@@ -1539,7 +1616,60 @@ function renderGifs(){
   });
   $('#gifGrid').innerHTML = html || '<div class="gifEmpty">Aucun GIF trouvé</div>';
 }
-$('#gifBtn').addEventListener('click', function(){ $('#gifQuery').value = ''; renderGifs(); openSheet('#gifSheet'); });
+var MOODS = [['😊','Heureux','heureux'],['🥰','Reconnaissant','reconnaissant'],['😴','Fatigué','fatigué'],['🎉','Fier','fier'],['😔','Triste','triste'],['🤗','Entouré','entouré'],['😌','Serein','serein'],['💪','Motivé','motivé'],['😂','Amusé','amusé'],['☕','Détendu','détendu'],['🥶','Frigorifié','frigorifié'],['🙏','Soulagé','soulagé']];
+function moodTab(t){
+  var g = t === 'gif';
+  $('#tabMood').setAttribute('aria-selected', g ? 'false' : 'true'); $('#tabGif').setAttribute('aria-selected', g ? 'true' : 'false');
+  $('#moodPanel').hidden = g; $('#gifPanel').hidden = !g;
+  $('#moodTitle').textContent = g ? 'Choisir un GIF' : 'Votre humeur';
+  if(g){ renderGifs(); }
+}
+function renderMoods(){
+  $('#moodGrid').innerHTML = MOODS.map(function(m, i){ var on = mood && mood[1] === m[1]; return '<button type="button" class="moodBtn" data-m="' + i + '" aria-pressed="' + (on ? 'true' : 'false') + '"><span class="moodE" aria-hidden="true">' + m[0] + '</span><span>' + m[1] + '</span></button>'; }).join('');
+}
+function openMood(tab){ $('#gifQuery').value = ''; renderMoods(); moodTab(tab || 'mood'); openSheet('#gifSheet'); }
+$('#moodBtn').addEventListener('click', function(){ openMood('mood'); });
+$('#tabMood').addEventListener('click', function(){ moodTab('mood'); });
+$('#tabGif').addEventListener('click', function(){ moodTab('gif'); });
+$('#moodGrid').addEventListener('click', function(e){
+  var b = e.target.closest('[data-m]'); if(!b) return;
+  var m = MOODS[+b.getAttribute('data-m')]; mood = (mood && mood[1] === m[1]) ? null : m;
+  closeSheet('#gifSheet'); renderAttach();
+});
+
+/* Lieu sheet */
+var PLACES_Q = [
+  ['🏘️', null, 'Tout le quartier'],
+  ['🏛️', 'Centre communautaire Sainte-Foy', 'Activités et ateliers'],
+  ['🌳', 'Parc de la Visitation', '2825, chemin Sainte-Foy'],
+  ['📚', 'Bibliothèque Monique-Corriveau', 'Bibliothèque de Sainte-Foy'],
+  ['🛍️', 'Place Sainte-Foy', 'Centre commercial'],
+  ['🌊', 'Parc de la Plage-Jacques-Cartier', 'Sentiers au bord du fleuve']
+];
+function renderLieu(){
+  var q = $('#lieuQ').value.trim(), nq = norm(q), qn = visOptions()[0], html = '';
+  PLACES_Q.forEach(function(p, i){
+    var name = p[1] || qn; if(nq && norm(name + ' ' + p[2]).indexOf(nq) < 0) return;
+    var on = (place || null) === p[1] || (!place && !p[1]);
+    html += '<button type="button" class="lieuItem" data-p="' + i + '" aria-pressed="' + (on ? 'true' : 'false') + '"><span class="lieuE" aria-hidden="true">' + p[0] + '</span><span class="lieuB"><strong>' + esc(name) + '</strong><small>' + esc(p[2]) + '</small></span>' + (on ? '<span class="lieuOk" aria-hidden="true">✓</span>' : '') + '</button>';
+  });
+  if(q) html += '<button type="button" class="lieuItem lieuCustom" data-custom="1"><span class="lieuE" aria-hidden="true">📍</span><span class="lieuB"><strong>Utiliser « ' + esc(q) + ' »</strong><small>Lieu personnalisé</small></span></button>';
+  $('#lieuList').innerHTML = html;
+  $('#lieuVis').innerHTML = visOptions().map(function(v, i){ return '<button type="button" role="radio" class="lieuVisB" data-v="' + i + '" aria-checked="' + (i === visIdx ? 'true' : 'false') + '">' + VIS_ICONS[i] + '<span>' + esc(v) + '</span></button>'; }).join('');
+}
+function openLieu(){ $('#lieuQ').value = ''; renderLieu(); openSheet('#lieuSheet'); }
+$('#lieuBtn').addEventListener('click', openLieu);
+$('#lieuClose').addEventListener('click', function(){ closeSheet('#lieuSheet'); });
+$('#lieuQ').addEventListener('input', renderLieu);
+$('#lieuQ').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); var v = this.value.trim(); if(v){ place = v; closeSheet('#lieuSheet'); renderVis(); renderAttach(); } } });
+$('#lieuSheet').addEventListener('click', function(e){
+  var b;
+  if((b = e.target.closest('[data-v]'))){ visIdx = +b.getAttribute('data-v'); renderLieu(); renderVis(); return; }
+  if((b = e.target.closest('[data-custom]'))){ place = $('#lieuQ').value.trim() || null; }
+  else if((b = e.target.closest('[data-p]'))){ place = PLACES_Q[+b.getAttribute('data-p')][1]; }
+  else return;
+  closeSheet('#lieuSheet'); renderVis(); renderAttach();
+});
 $('#gifClose').addEventListener('click', function(){ closeSheet('#gifSheet'); });
 $('#gifQuery').addEventListener('input', renderGifs);
 $('#gifQuery').addEventListener('keydown', function(e){ if(e.key === 'Enter') this.blur(); });
@@ -1603,9 +1733,9 @@ $('#pollDone').addEventListener('click', function(){
 });
 
 function resetComposer(){
-  picked = '🤝 Entraide'; sub = 'coup'; $('#s-publier input[name="whoCan"][value="verif"]').checked = true; $('#whoAck').checked = false; renderChips(); visIdx = 0; renderVis();
+  picked = '🤝 Entraide'; sub = 'coup'; $('#s-publier input[name="whoCan"][value="verif"]').checked = true; $('#whoAck').checked = false; renderChips(); visIdx = 0; place = null; mood = null; renderVis();
   $('#texte').value = ''; photos = []; gif = null; poll = null;
-  $('#photoFile').value = ''; closeSheet('#gifSheet'); closeSheet('#pollSheet');
+  $('#photoFile').value = ''; closeSheet('#gifSheet'); closeSheet('#pollSheet'); closeSheet('#lieuSheet');
   renderAttach();
 }
 var BADGE = {
@@ -1655,7 +1785,7 @@ $('#pubPublier').addEventListener('click', function(e){
   var isCare = isEnt && sub === 'personne'; if(careOpen) art.setAttribute('data-open', '1');
   var careTag = isCare ? (careOpen ? '<div class="openTag" role="note">⚠️ Non vérifiés acceptés · responsabilité de la famille</div>' : '<div class="bgTag">🛡️ Antécédents vérifiés requis</div>') : '';
   art.style.cssText = 'background:#FFFFFF;' + (media ? '' : 'padding:14px 16px');
-  var head = '<div style="display:flex;align-items:center;gap:10px;' + (media ? 'padding:12px 16px 10px' : 'margin-bottom:10px') + '"><span style="width:40px;height:40px;border-radius:20px;background:#E9E4D8;color:#3F4A45;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0">MO</span><div style="flex-grow:1"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:14px;font-weight:700">Moi</span><span class="badge" style="background:' + b[0] + ';color:' + b[1] + '">' + picked + '</span></div><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="font-size:12px;color:#8A9490">\u00e0 l\u2019instant \u00b7 ' + esc(vis) + '</span>' + (isEnt ? '<span class="subBadge' + (sub === 'personne' ? ' care' : '') + '">' + SUB_LABEL[sub] + '</span>' : '') + '</div></div></div>';
+  var head = '<div style="display:flex;align-items:center;gap:10px;' + (media ? 'padding:12px 16px 10px' : 'margin-bottom:10px') + '"><span style="width:40px;height:40px;border-radius:20px;background:#E9E4D8;color:#3F4A45;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0">MO</span><div style="flex-grow:1"><div style="display:flex;align-items:center;justify-content:space-between"><span class="postWho"><strong>Moi</strong>' + (mood ? ' <span class="postMood">se sent ' + esc(mood[2]) + ' ' + mood[0] + '</span>' : '') + '</span><span class="badge" style="background:' + b[0] + ';color:' + b[1] + '">' + picked + '</span></div><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="font-size:12px;color:#8A9490">\u00e0 l\u2019instant \u00b7 ' + esc(vis) + '</span>' + (isEnt ? '<span class="subBadge' + (sub === 'personne' ? ' care' : '') + '">' + SUB_LABEL[sub] + '</span>' : '') + '</div>' + (place ? '<div class="postPlace">📍 ' + esc(place) + '</div>' : '') + '</div></div>';
   var img = media ? '<div class="postPhotos" style="' + photoGrid(photos, 260) + '">' + photos.map(function(p){ return '<div style="background-image:url(' + p + ')"></div>'; }).join('') + '</div>' : '';
   var pad = media ? 'padding:2px 16px 12px;' : 'margin:0 0 10px;';
   var txt = t ? '<p style="margin:0;' + pad + 'font-size:14px;line-height:1.55">' + esc(t).replace(/\n/g,'<br>') + '</p>' : '';
