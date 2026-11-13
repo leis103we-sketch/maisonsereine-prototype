@@ -107,7 +107,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ms-build" content="20261113131117">
+<meta name="ms-build" content="20261113180236">
 <meta name="theme-color" content="#F8F6F0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -310,11 +310,6 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 .qScope .qEmpty{color:#5B6661;font-size:15px;text-align:center;padding-top:20px}
 .qScope .qCard{background:#FFFFFF;border:1px solid #E4DFD3;border-radius:14px}
 .qScope .todayBox{background:linear-gradient(135deg,#2B5F4F,#1E4539);color:#FFFFFF;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
-.qScope .wx{display:flex;align-items:center;gap:12px}
-.qScope .wxIcon{font-size:34px;line-height:1}
-.qScope .wxT{font-size:26px;font-weight:800;line-height:1}
-.qScope .wxD{font-size:13px;opacity:.85}
-.qScope .wxSrc{margin-left:auto;align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,.16)}
 .qScope .alert{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.12);border-radius:12px;padding:10px 6px 10px 12px;font-size:14px;line-height:1.35}
 .qScope .alert .ax{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#FFFFFF;opacity:.8;margin-top:-4px}
 .qScope .qPills{display:flex;gap:8px;overflow-x:auto;padding:0 20px;scrollbar-width:none;flex-shrink:0}
@@ -345,12 +340,6 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 .qScope .reqTxt{font-size:14.5px;line-height:1.45}
 .qScope .reqBtn{align-self:flex-start;display:flex;align-items:center;min-height:40px;padding:0 16px;border-radius:20px;border:2px solid #8A3F14;color:#8A3F14;font-size:14px;font-weight:700;background:#FFFFFF}
 .qScope .qCarousel{display:flex;gap:12px;overflow-x:auto;padding:0 20px 4px;scroll-snap-type:x mandatory;scrollbar-width:none}
-.qScope .don{flex-shrink:0;width:168px;scroll-snap-align:start;display:flex;flex-direction:column;overflow:hidden}
-.qScope .donImg{height:96px;display:flex;align-items:center;justify-content:center;font-size:40px}
-.qScope .donBody{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
-.qScope .donT{font-size:14px;font-weight:700;line-height:1.3}
-.qScope .donS{font-size:12px;color:#5B6661;flex:1}
-.qScope .donBtn{margin-top:6px;display:flex;align-items:center;justify-content:center;min-height:36px;border-radius:18px;background:#2B5F4F;color:#FFFFFF !important;font-size:13px;font-weight:700}
 .qScope .qProGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .qScope .pro{display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 10px;text-align:center;color:#1E2A27}
 .qScope .proAv{width:54px;height:54px;border-radius:27px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px}
@@ -552,13 +541,6 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 #s-verif .vStatuses{display:flex;flex-direction:column;align-items:center;gap:8px}
 #s-verif .vStatus2{background:#E8EEF8;color:#24476E}
 #s-fil article .openTag,#s-fil article .bgTag{align-self:flex-start;width:fit-content}
-/* météo : lien MétéoMédia */
-.qScope a.wxLink{color:inherit !important;text-decoration:none;border-radius:12px;margin:-4px;padding:4px}
-.qScope a.wxLink:active{background:rgba(255,255,255,.08)}
-.qScope a.wxLink:focus-visible,.qScope .wxMM:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px}
-.qScope .wxMore{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:2px}
-.qScope .wxMM{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:18px;background:#FFFFFF;color:#1E4539 !important;font-size:13.5px;font-weight:700;text-decoration:none}
-.qScope .wxCredit{font-size:11px;opacity:.75;line-height:1.3}
 /* composer : tuiles du bas (Galerie / Lieu / Sondage / Humeur) */
 #s-publier .cmpFoot{flex-shrink:0;display:flex;flex-direction:column;gap:12px;padding:14px 16px calc(14px + env(safe-area-inset-bottom));border-top:1px solid #EAE6DF;background:#FFFFFF}
 #s-publier .tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
@@ -638,16 +620,6 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 .qScope .reqTags{display:flex;flex-wrap:wrap;gap:6px}
 .qScope .done{opacity:.72;background:#F7F5F0}
 .qScope .doneTag{display:inline-flex;align-items:center;padding:3px 10px;border-radius:10px;background:#E3EDE7;color:#1E4539;font-size:12px;font-weight:800;align-self:flex-start}
-.qScope .don{width:200px}
-.qScope .donCat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#8A9490}
-.qScope .don .qMeta{font-size:11.5px;gap:2px 8px}
-.qScope .don .reqTags span{font-size:11px}
-.qScope .donAll{flex-shrink:0;width:120px;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#1E4539;font-size:15px;font-weight:700;border:1.5px dashed #B9C9C0 !important;background:#F4F8F5 !important;text-align:center}
-.qScope .donAll span{font-size:28px;line-height:1}
-.qScope #qDonMore{display:none}
-.qScope .donRow{width:auto;flex-direction:row}
-.qScope .donRow .donImg{width:88px;height:auto;min-height:100px;flex-shrink:0}
-.qScope .donRow .donBtn{align-self:flex-start;padding:0 16px}
 .qListPanel{position:absolute;inset:0;z-index:90;background:#F7F5F0;display:flex;flex-direction:column}
 .qListPanel[hidden]{display:none}
 .qScope .lHead{display:flex;align-items:center;gap:6px;padding:52px 12px 8px;background:#FFFFFF;border-bottom:1px solid #E4DFD3}
@@ -1319,7 +1291,6 @@ nav.mainNav a[href="#profil"]{position:relative}
     <button type="button" data-ftype="tout" aria-pressed="true">Tout</button>
     <button type="button" data-ftype="entraide" aria-pressed="false">🤝 Entraide</button>
     <button type="button" data-ftype="evenement" aria-pressed="false">🎉 Événement</button>
-    <button type="button" data-ftype="dons" aria-pressed="false">🎁 Dons</button>
     <button type="button" data-ftype="discussion" aria-pressed="false">💬 Discussion</button>
   </div>
 
@@ -1391,32 +1362,18 @@ nav.mainNav a[href="#profil"]{position:relative}
         </div>
       </article>
 
-      <article data-feat="1" data-type="dons" style="background: rgb(255, 255, 255); padding: 14px 16px;">
+      <article data-feat="1" data-type="evenement" style="background: rgb(255, 255, 255); padding: 14px 16px;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
           <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">FR</span>
           <div style="flex-grow: 1;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
               <span style="font-size: 14px; font-weight: 700;">Famille Roy</span>
-              <span class="badge" style="background: rgb(227, 237, 231); color: rgb(30, 69, 57);">🎁 Dons</span>
+              <span class="badge" style="background: rgb(240, 232, 251); color: rgb(107, 58, 130);">🎉 Événement</span>
             </div>
             <div style="display: flex; align-items: center; gap: 6px; margin-top: 1px;"><span style="font-size: 12px; color: rgb(138, 148, 144);">Famille · il y a 2 j</span><span class="featBadge">⭐ En vedette</span></div>
           </div>
         </div>
-        <div style="display: flex; gap: 12px; align-items: flex-start;">
-          <div style="width: 76px; height: 76px; flex-shrink: 0; border-radius: 14px; background: linear-gradient(135deg, rgb(200, 223, 207), rgb(138, 187, 160)); display: flex; align-items: center; justify-content: center; color: rgb(30, 69, 57);">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path><path d="M16 7V5a2 2 0 0 0-4 0v2"></path></svg>
-          </div>
-          <div style="flex: 1 1 0%;">
-            <p style="margin: 0px 0px 4px; font-size: 15px; font-weight: 700;">Habit de neige enfant à donner</p>
-            <p style="margin: 0px; font-size: 13px; color: rgb(91, 102, 97); line-height: 1.45;">Taille 6 ans, très chaud, porté un seul hiver. Ramassage près du parc Pointe-à-Puiseaux.</p>
-          </div>
-        </div>
-        <div style="display: flex; gap: 8px; margin-top: 12px;">
-          <a href="#messages" style="flex: 1 1 0%; display: flex; align-items: center; justify-content: center; min-height: 42px; border-radius: 21px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 13px; font-weight: 700;">Contacter</a>
-          <button style="width: 42px; height: 42px; border-radius: 21px; border: 1.5px solid rgb(228, 223, 211); display: flex; align-items: center; justify-content: center; color: rgb(138, 148, 144);">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><path d="M16 6l-4-4-4 4"></path><path d="M12 2v13"></path></svg>
-          </button>
-        </div>
+        <p style="margin: 0px 0px 10px; font-size: 14px; line-height: 1.55;">On prépare un <strong>goûter des voisins</strong> samedi après-midi, au parc Pointe-à-Puiseaux. Tout le quartier est invité 🍂</p>
       </article>
 
       <article data-type="entraide" data-sub="coup" style="background: rgb(255, 255, 255); padding: 14px 16px;">
@@ -1489,32 +1446,18 @@ nav.mainNav a[href="#profil"]{position:relative}
 
     
     
-      <article data-type="dons" style="background: rgb(255, 255, 255); padding: 14px 16px;">
+      <article data-type="discussion" style="background: rgb(255, 255, 255); padding: 14px 16px;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
           <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">AD</span>
           <div style="flex-grow: 1;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
               <span style="font-size: 14px; font-weight: 700;">Amina Diallo</span>
-              <span class="badge" style="background: rgb(227, 237, 231); color: rgb(30, 69, 57);">🎁 Dons</span>
+              <span class="badge" style="background: rgb(240, 237, 230); color: rgb(91, 102, 97);">💬 Discussion</span>
             </div>
             <span style="font-size: 12px; color: rgb(138, 148, 144);">Voisine · il y a 1 j</span>
           </div>
         </div>
-        <div style="display: flex; gap: 12px; align-items: flex-start;">
-          <div style="width: 76px; height: 76px; flex-shrink: 0; border-radius: 14px; background: linear-gradient(135deg, rgb(200, 223, 207), rgb(138, 187, 160)); display: flex; align-items: center; justify-content: center; color: rgb(30, 69, 57);">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path><path d="M16 7V5a2 2 0 0 0-4 0v2"></path></svg>
-          </div>
-          <div style="flex: 1 1 0%;">
-            <p style="margin: 0px 0px 4px; font-size: 15px; font-weight: 700;">Poussette pliante à donner</p>
-            <p style="margin: 0px; font-size: 13px; color: rgb(91, 102, 97); line-height: 1.45;">Bon état, Chicco, utilisée 1 an. Ramassage sur place, Sainte-Foy.</p>
-          </div>
-        </div>
-        <div style="display: flex; gap: 8px; margin-top: 12px;">
-          <a href="#messages" style="flex: 1 1 0%; display: flex; align-items: center; justify-content: center; min-height: 42px; border-radius: 21px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 13px; font-weight: 700;">Contacter</a>
-          <button style="width: 42px; height: 42px; border-radius: 21px; border: 1.5px solid rgb(228, 223, 211); display: flex; align-items: center; justify-content: center; color: rgb(138, 148, 144);">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><path d="M16 6l-4-4-4 4"></path><path d="M12 2v13"></path></svg>
-          </button>
-        </div>
+        <p style="margin: 0px 0px 10px; font-size: 14px; line-height: 1.55;">Est-ce que le centre communautaire offre encore des <strong>ateliers d’informatique</strong> pour débutants ? Ma tante aimerait s’inscrire 💻</p>
       </article>
 
       
@@ -1623,7 +1566,7 @@ nav.mainNav a[href="#profil"]{position:relative}
     <span style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 22px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center;">MO</span>
     <span style="font-size: 16px; font-weight: 700;">Moi</span>
   </div>
-  <div class="typeRow" role="group" aria-label="Type de publication" style="display: flex; gap: 8px; padding: 0 16px 6px; overflow-x: auto; flex-shrink: 0;"><button class="typeChip" aria-pressed="true">🤝 Entraide</button><button class="typeChip" aria-pressed="false">🎉 Événement</button><button class="typeChip" aria-pressed="false">🎁 Dons</button><button class="typeChip" aria-pressed="false">💬 Discussion</button></div>
+  <div class="typeRow" role="group" aria-label="Type de publication" style="display: flex; gap: 8px; padding: 0 16px 6px; overflow-x: auto; flex-shrink: 0;"><button class="typeChip" aria-pressed="true">🤝 Entraide</button><button class="typeChip" aria-pressed="false">🎉 Événement</button><button class="typeChip" aria-pressed="false">💬 Discussion</button></div>
   <div id="subRow" class="subRow" role="group" aria-label="Type d’entraide"><button class="subChip" data-sub="coup" aria-pressed="true">🛠️ Coup de main</button><button class="subChip" data-sub="personne" aria-pressed="false">💚 Aide à la personne</button></div>
   <div id="subNote" class="whoBox" hidden>
     <p class="whoT">Qui peut répondre ?</p>
@@ -1683,7 +1626,6 @@ nav.mainNav a[href="#profil"]{position:relative}
   <div id="qFilters" class="qPills" role="group" aria-label="Filtrer"></div>
   <p class="qDemo qPad">Données d’exemple pour le prototype · les publications sans réponse passent en premier.</p>
   <div id="qEmpty" class="qPad qEmpty" style="display:none"></div>
-  <section id="qDons" class="qBlock" data-cats="dons"><h2 class="qH qPad">Dons disponibles</h2><div id="qDonCats" class="qPills qPillsSm" role="group" aria-label="Catégories de dons"></div><div id="qDonList" class="qCarousel"></div><div id="qDonMore" class="qPad"></div></section>
   <section id="qJobs" class="qBlock qPad qHelp qHelpJobs" data-cats="emploi"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">💼</span><div><h2 class="qH">Emploi local</h2><p class="qHelpSub">Offres d’employeurs du quartier · à pied ou en autobus.</p></div></div><div id="qJobList" class="qList"></div><div id="qJobMore"></div></section>
   <!-- Carte du secteur masquée (SHOW_QMAP = False dans build.py pour la réactiver) -->
 </main><nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="#quartier" class="navItem" aria-label="Quartier" aria-current="page"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a><a href="#publier" class="navItem navPlus" aria-label="Publier"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#entraide" class="navItem" aria-label="Entraide"><span class="navEmoji" aria-hidden="true">🤝</span></a><a href="#profil" class="navItem" aria-label="Profil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></a></nav></div></section>
@@ -1855,7 +1797,7 @@ nav.mainNav a[href="#profil"]{position:relative}
 <main class="pgMain" id="plusMain">
   <section class="plStep" data-pstep="1">
     <div class="plHero"><span class="plStar" aria-hidden="true">⭐</span><h2>MaisonSereine<span>+</span></h2><p class="plPrice"><strong>10 $/mois</strong></p><p class="plPriceS">10 $/mois · prélevé automatiquement chaque mois · sans engagement, résiliable en tout temps<br>TPS/TVQ en sus</p><p class="plHeroS">Un coup de pouce pour vos publications, et un soutien au réseau du quartier.</p></div>
-    <p class="freeBanner"><span aria-hidden="true">💚</span><span><strong>L’application reste 100 % gratuite.</strong> Publier, demander de l’aide, donner et répondre : tout reste gratuit pour tout le monde.</span></p>
+    <p class="freeBanner"><span aria-hidden="true">💚</span><span><strong>L’application reste 100 % gratuite.</strong> Publier, demander de l’aide et répondre : tout reste gratuit pour tout le monde.</span></p>
     <h3 class="plH">Ce que vous obtenez</h3>
     <ul class="perks">
       <li class="perk"><span class="perkE" aria-hidden="true">⭐</span><span><strong>Mise en avant</strong><small>Vos publications passent en tête avec le badge « En vedette », 3 fois par semaine.</small></span></li>
@@ -1968,7 +1910,7 @@ nav.mainNav a[href="#profil"]{position:relative}
       <span></span>
     </header>
     <div class="calSearch"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input id="calRecherche" type="search" placeholder="Une activité, un lieu…" autocomplete="off"></div>
-    <section id="qCal" class="qBlock" data-cats="entraide evenement dons discussion"><div id="qDays" class="qDays"></div><div id="qDayList" class="qPad qList"></div><div id="qCalMore" class="qPad"></div></section>
+    <section id="qCal" class="qBlock" data-cats="entraide evenement discussion"><div id="qDays" class="qDays"></div><div id="qDayList" class="qPad qList"></div><div id="qCalMore" class="qPad"></div></section>
   </div>
 </div>
 <div id="filMenu" class="sheetOverlay menuOverlay" aria-hidden="true">
@@ -2636,7 +2578,6 @@ function resetComposer(){
 var BADGE = {
   '🤝 Entraide':   ['rgb(254, 240, 230)','rgb(138, 63, 20)'],
   '🎉 Événement':  ['rgb(240, 232, 251)','rgb(107, 58, 130)'],
-  '🎁 Dons':       ['rgb(227, 237, 231)','rgb(30, 69, 57)'],
   '💬 Discussion': ['rgb(240, 237, 230)','rgb(91, 102, 97)']
 };
 
@@ -2703,11 +2644,10 @@ $('#pubPublier').addEventListener('click', function(e){
 renderVis(); renderAttach();
 
 /* ---------------- 4b. fil : filtres par type ---------------- */
-var TYPE_KEY = {'🤝 Entraide':'entraide','🎉 Événement':'evenement','🎁 Dons':'dons','💬 Discussion':'discussion'};
+var TYPE_KEY = {'🤝 Entraide':'entraide','🎉 Événement':'evenement','💬 Discussion':'discussion'};
 var FIL_EMPTY = {
   entraide:   ['🤝', 'Aucune demande d’entraide pour le moment', 'Besoin d’un coup de main ? Demandez à vos voisins.'],
   evenement:  ['🎉', 'Aucun événement à venir', 'Organisez une activité pour le quartier !'],
-  dons:       ['🎁', 'Aucun don disponible pour l’instant', 'Un objet dont vous n’avez plus besoin ? Donnez-lui une 2e vie.'],
   discussion: ['💬', 'Aucune discussion en cours', 'Lancez la conversation avec vos voisins.'],
   tout:       ['🏡', 'Rien dans le fil pour le moment', 'Soyez la première personne à publier !']
 };
@@ -2851,7 +2791,7 @@ function openJob(id){ window.msJobId = +id; show('emploidetail'); }
 
 /* ---------------- 5. quartier : tableau pratique ---------------- */
 (function(){
-var CATS = [['tout','Tout'],['dons','🎁 Dons'],['emploi','💼 Emploi']];
+var CATS = [['tout','Tout'],['emploi','💼 Emploi']];
 var cat = 'tout', query = '', dayIdx = 0;
 var JOURS = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
 var JOURS_L = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
@@ -2866,7 +2806,7 @@ var ACTS = [
   {d:1, h:'13 h 30', t:'Atelier soupes d\u2019hiver', s:'Salle paroissiale · on cuisine ensemble', c:'evenement', n:10, p:'eglise'},
   {d:1, h:'15 h 30', t:'Aide aux devoirs', s:'Bibliothèque · bénévoles retraités', c:'entraide', n:6, p:'biblio'},
   {d:2, h:'10 h', t:'Atelier numérique : éviter les arnaques', s:'Bibliothèque du quartier', c:'entraide', n:14, p:'biblio'},
-  {d:2, h:'13 h 30', t:'Collecte de vêtements d\u2019hiver', s:'Sous-sol de l\u2019église', c:'dons', n:6, p:'eglise'},
+  {d:2, h:'13 h 30', t:'Atelier de réparation de vêtements', s:'Centre communautaire · petits raccommodages', c:'evenement', n:6, p:'cc'},
   {d:2, h:'16 h', t:'Jeux de société intergénérationnels', s:'Centre communautaire', c:'evenement', n:12, p:'cc'},
   {d:3, h:'10 h', t:'Atelier de tricot', s:'Centre communautaire · avec Lucie', c:'evenement', n:12, p:'cc'},
   {d:3, h:'13 h', t:'Épicerie en covoiturage', s:'Départ du centre communautaire', c:'entraide', n:5, p:'cc'},
@@ -2875,9 +2815,9 @@ var ACTS = [
   {d:4, h:'11 h 30', t:'Dîner communautaire', s:'Salle paroissiale · 5 $ suggéré', c:'evenement', n:21, p:'eglise'},
   {d:4, h:'17 h 30', t:'Souper communautaire', s:'Salle paroissiale · contribution volontaire', c:'evenement', n:23, p:'eglise'},
   {d:5, h:'9 h 30', t:'Marche du samedi', s:'Départ au parc · rythme doux', c:'evenement', n:15, p:'parc'},
-  {d:5, h:'10 h', t:'Bazar de dons', s:'Sous-sol de l\u2019église · apportez vos sacs', c:'dons', n:18, p:'eglise'},
+  {d:5, h:'10 h', t:'Bazar du quartier', s:'Sous-sol de l\u2019église · apportez vos sacs', c:'evenement', n:18, p:'eglise'},
   {d:5, h:'13 h 30', t:'Café-réparation', s:'Centre communautaire · petits appareils et vêtements', c:'entraide', n:9, p:'cc'},
-  {d:5, h:'15 h', t:'Échange de livres', s:'Bibliothèque Monique-Corriveau', c:'dons', n:7, p:'biblio'},
+  {d:5, h:'15 h', t:'Échange de livres', s:'Bibliothèque Monique-Corriveau', c:'evenement', n:7, p:'biblio'},
   {d:6, h:'10 h', t:'Brunch des voisins', s:'Centre communautaire · chacun apporte un plat', c:'discussion', n:13, p:'cc'},
   {d:6, h:'14 h', t:'Chorale intergénérationnelle', s:'Bibliothèque du quartier', c:'evenement', n:18, p:'biblio'}
 ];
@@ -2921,29 +2861,6 @@ var CARE = [
   {who:'Roland Picard', age:76, bio:'Ancien chauffeur d\u2019autobus, il est un peu nerveux à l\u2019idée d\u2019y aller seul pour sa prise de sang.', needs:['Accompagnement rendez-vous'], freq:'Ponctuel · vendredi', by:'Demandé par Roland', txt:'aimerait être accompagné à la clinique pour sa prise de sang vendredi.', u:'Urgent', ico:'🩸', k:'Accompagnement', m:550, a:1, r:0}
 ];
 var URG = {'Urgent':['#FDE8E4','#A3321A'], 'Aujourd’hui':['#FDE8E4','#A3321A'], 'Cette semaine':['#FBEFE4','#8A3F14'], 'Flexible':['#E3EDE7','#1E4539'], 'Pas pressé':['#E3EDE7','#1E4539']};
-var DON_CATS = ['Tous','Vêtements','Meubles','Nourriture','Jouets','Autres'];
-var DONS = [
-  {e:'🧥', t:'Manteau d\u2019hiver, taille M', s:'Très chaud, comme neuf', cat:'Vêtements', bg:'#E4EEF6', m:400, a:5, r:0},
-  {e:'🥾', t:'Bottes d\u2019hiver femme, pointure 8', s:'Portées un hiver', cat:'Vêtements', bg:'#F3EDE3', m:700, a:30, r:0},
-  {e:'🧣', t:'Tuques et foulards tricotés', s:'Faits à l\u2019atelier du jeudi', cat:'Vêtements', bg:'#FDE8E4', m:300, a:2, r:3},
-  {e:'⛄', t:'Habit de neige enfant, 6 ans', s:'Très chaud, porté un hiver', cat:'Vêtements', bg:'#E4EEF6', m:900, a:48, r:1},
-  {e:'🧤', t:'Mitaines doublées (lot de 5)', s:'Tailles variées', cat:'Vêtements', bg:'#F0E8FB', m:500, a:10, r:0},
-  {e:'🪑', t:'Fauteuil berçant', s:'Bois massif, coussin inclus', cat:'Meubles', bg:'#F3EDE3', m:1100, a:26, r:0},
-  {e:'🍽️', t:'Petite table de cuisine', s:'Avec 2 chaises · à ramasser', cat:'Meubles', bg:'#FBEFE4', m:800, a:12, r:2, f:true},
-  {e:'💡', t:'Lampe de lecture sur pied', s:'Lumière douce, réglable', cat:'Meubles', bg:'#FFF4D6', m:350, a:4, r:0},
-  {e:'📚', t:'Bibliothèque en bois', s:'5 tablettes · 180 cm', cat:'Meubles', bg:'#F3EDE3', m:1300, a:60, r:0},
-  {e:'🍓', t:'Confitures maison (6 pots)', s:'Fraises et bleuets du Québec', cat:'Nourriture', bg:'#FDE8E4', m:450, a:8, r:1},
-  {e:'🎃', t:'Courges du jardin', s:'Une dizaine, à donner avant le gel', cat:'Nourriture', bg:'#FBEFE4', m:650, a:36, r:0},
-  {e:'🥫', t:'Conserves (lot de 15)', s:'Non périmées · idéal pour un dépannage', cat:'Nourriture', bg:'#E3EDE7', m:550, a:3, r:0},
-  {e:'🍞', t:'Pain de la veille', s:'Boulangerie du coin, chaque soir', cat:'Nourriture', bg:'#F3EDE3', m:250, a:20, r:4, given:true},
-  {e:'🧩', t:'Casse-tête 1000 pièces', s:'3 boîtes complètes', cat:'Jouets', bg:'#F0E8FB', m:600, a:14, r:0},
-  {e:'🧱', t:'Blocs de construction', s:'Grand bac, pièces mélangées', cat:'Jouets', bg:'#E4EEF6', m:1000, a:28, r:0},
-  {e:'🎲', t:'Jeux de société', s:'Scrabble, Monopoly, cartes', cat:'Jouets', bg:'#E3EDE7', m:400, a:6, r:2, f:true},
-  {e:'🛷', t:'Traîneau d\u2019enfant', s:'Bon état', cat:'Jouets', bg:'#FDE8E4', m:850, a:50, r:0},
-  {e:'🦯', t:'Déambulateur pliant', s:'Avec siège et panier', cat:'Autres', bg:'#E3EDE7', m:500, a:9, r:1},
-  {e:'📖', t:'Livres en gros caractères', s:'Lot de 12 romans', cat:'Autres', bg:'#FBEFE4', m:300, a:1, r:0},
-  {e:'🫙', t:'Pots Mason (24)', s:'Parfaits pour les confitures', cat:'Autres', bg:'#F3EDE3', m:750, a:40, r:0}
-];
 // Real public resources (verified Nov 2026: sante.gouv.qc.ca, ville.quebec.qc.ca, cabquebec.org)
 var MAPS = 'https://www.google.com/maps/search/?api=1&query=';
 var RES = [
@@ -2979,38 +2896,22 @@ var now = new Date(), todayIdx = (now.getDay() + 6) % 7;
 var monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - todayIdx);
 dayIdx = todayIdx;
 
-/* 1. Aujourd'hui : météo + alertes */
-var WX = {0:['☀️','Ciel dégagé'],1:['🌤️','Plutôt dégagé'],2:['⛅','Partiellement nuageux'],3:['☁️','Nuageux'],45:['🌫️','Brouillard'],48:['🌫️','Brouillard givrant'],51:['🌦️','Bruine légère'],53:['🌦️','Bruine'],55:['🌧️','Bruine forte'],56:['🌧️','Bruine verglaçante'],57:['🌧️','Bruine verglaçante'],61:['🌧️','Pluie faible'],63:['🌧️','Pluie'],65:['🌧️','Pluie forte'],66:['🧊','Pluie verglaçante'],67:['🧊','Pluie verglaçante'],71:['🌨️','Neige faible'],73:['🌨️','Neige'],75:['❄️','Neige forte'],77:['🌨️','Grésil'],80:['🌦️','Averses'],81:['🌧️','Averses'],82:['⛈️','Fortes averses'],85:['🌨️','Averses de neige'],86:['❄️','Fortes averses de neige'],95:['⛈️','Orages'],96:['⛈️','Orages et grêle'],99:['⛈️','Orages et grêle']};
-var wx = {t:-2, f:-6, code:3, live:false};
+/* 1. Aujourd'hui : alertes du quartier */
 var alerts = [
   {id:'neige', e:'❄️', t:'Déneigement ce soir à partir de 21 h — déplacez votre voiture.'},
   {id:'recyc', e:'♻️', t:'Collecte du recyclage demain matin.'}
 ];
 var dismissed = {};
 try{ dismissed = JSON.parse(localStorage.getItem('ms_alerts_off') || '{}'); }catch(_){}
-function fmtT(v){ return (Math.round(v) === 0 ? 0 : Math.round(v)).toString().replace('-', '\u2212') + ' °C'; }
-var METEO_URL = 'https://www.meteomedia.com/fr/ville/ca/quebec/quebec/actuelle';
 function renderToday(){
-  var w = WX[wx.code] || ['🌡️',''];
   var dateStr = JOURS_L[todayIdx] + ' ' + now.getDate() + ' ' + ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'][now.getMonth()];
   var al = alerts.filter(function(a){ return !dismissed[a.id] && hit(a.t, 'alerte'); });
-  var show = hit('aujourd\u2019hui météo ' + w[1], 'quebec') || al.length;
-  var h = '<div class="todayBox"><div style="font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.8">Aujourd\u2019hui · ' + dateStr + '</div>' +
-    '<a class="wx wxLink" href="' + METEO_URL + '" target="_blank" rel="noopener" aria-label="Météo à Québec : ' + fmtT(wx.t) + ', ' + w[1] + '. Voir sur MétéoMédia (nouvel onglet)"><span class="wxIcon" aria-hidden="true">' + w[0] + '</span><div><div class="wxT">' + fmtT(wx.t) + '</div><div class="wxD">' + w[1] + ' · ressenti ' + fmtT(wx.f) + ' · Québec</div></div><span class="wxSrc">' + (wx.live ? 'En direct' : 'Exemple') + '</span></a>' +
-    '<div class="wxMore"><a class="wxMM" href="' + METEO_URL + '" target="_blank" rel="noopener">Voir sur MétéoMédia ›</a><span class="wxCredit">Source : MétéoMédia (prévisions) · Open-Meteo (temps réel)</span></div>';
+  var show = al.length > 0;
+  var h = '<div class="todayBox"><div style="font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.8">Aujourd\u2019hui · ' + dateStr + '</div>';
   al.forEach(function(a){ h += '<div class="alert" data-alert="' + a.id + '"><span aria-hidden="true">' + a.e + '</span><span style="flex:1">' + esc(a.t) + '</span><button class="ax" aria-label="Masquer l\u2019alerte">' + XS + '</button></div>'; });
   parts.today.innerHTML = h + '</div>';
   parts.today.classList.toggle('qHidden', !show || cat !== 'tout');
   return show && cat === 'tout';
-}
-function loadWeather(){
-  if(!window.fetch) return;
-  var ctl = window.AbortController ? new AbortController() : null;
-  var to = setTimeout(function(){ if(ctl) ctl.abort(); }, 6000);
-  fetch('https://api.open-meteo.com/v1/forecast?latitude=46.81&longitude=-71.21&current=temperature_2m,apparent_temperature,weather_code&timezone=America%2FToronto', ctl ? {signal: ctl.signal} : {})
-    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
-    .then(function(j){ clearTimeout(to); var c = j && j.current; if(!c || typeof c.temperature_2m !== 'number') return; wx = {t:c.temperature_2m, f:c.apparent_temperature, code:c.weather_code, live:true}; renderToday(); })
-    .catch(function(){ clearTimeout(to); });
 }
 
 /* 2. filtres */
@@ -3044,7 +2945,7 @@ function renderCal(){
 /* équité : sans réponse d'abord, relance après 24 h, rotation de l'aperçu à chaque visite */
 var rot = 0; try{ rot = +localStorage.getItem('ms_qrot') || 0; }catch(_){}
 var URANK = {'Urgent':0, 'Cette semaine':1, 'Flexible':2};
-function isDone(x){ return !!(x.done || x.given); }
+function isDone(x){ return !!x.done; }
 function boosted(x){ return !isDone(x) && x.r === 0 && x.a >= 24; }
 function fairRank(x){ return isDone(x) ? 9 : boosted(x) ? 0 : x.r === 0 ? 1 : 2; }
 function fairSort(list, key){
@@ -3177,24 +3078,6 @@ function renderReq(){
   return sa.length + ca.length > 0;
 }
 
-/* 5. dons */
-var donCat = 'Tous';
-function donHit(d){ return hit(d.t, d.s, d.cat, 'don'); }
-function donCard(d, row){
-  var idx = DONS.indexOf(d), done = isDone(d), ft = fairTags(d);
-  return '<div class="qCard don' + (row ? ' donRow' : '') + (!done && d.r === 0 ? ' noResp' : '') + (!done && d.f ? ' feat' : '') + (done ? ' done' : '') + '"><div class="donImg" style="background:' + d.bg + '" aria-hidden="true">' + d.e + '</div><div class="donBody"><span class="donCat">' + d.cat + '</span><span class="donT">' + esc(d.t) + '</span><span class="donS">' + esc(d.s) + '</span>' + metaLine(d, 'intéressé') + (ft ? '<div class="reqTags">' + ft + '</div>' : '') +
-    (done ? '<span class="doneTag">✓ Donné</span>' : '<a href="#messages" class="donBtn" data-resp="don:' + idx + '">Je suis intéressé</a>') + '</div></div>';
-}
-function renderDons(){
-  var all = catOk('dons') ? DONS.filter(donHit) : [];
-  var list = all.filter(function(d){ return donCat === 'Tous' || d.cat === donCat; }), act = list.filter(function(d){ return !isDone(d); });
-  parts.donCats.innerHTML = DON_CATS.map(function(c){ var n = c === 'Tous' ? all.filter(function(d){ return !isDone(d); }).length : all.filter(function(d){ return d.cat === c && !isDone(d); }).length; return '<button data-doncat="' + c + '" aria-pressed="' + (c === donCat) + '">' + c + ' <span class="pc">' + n + '</span></button>'; }).join('');
-  parts.donList.innerHTML = act.length ? preview(list, 3).map(function(d){ return donCard(d, false); }).join('') + (act.length > 3 ? '<button type="button" class="qCard donAll" data-list="dons">Voir tout<br><strong>(' + act.length + ')</strong><span aria-hidden="true">›</span></button>' : '') : '<div class="qEmpty" style="padding:8px 0">Aucun don dans cette catégorie.</div>';
-  parts.donMore.innerHTML = act.length > 3 ? moreBtn('dons', act.length) : '';
-  parts.dons.classList.toggle('qHidden', !all.filter(function(d){ return !isDone(d); }).length);
-  return all.length > 0;
-}
-
 /* 5b. emploi local */
 function jobHit(j){ return hit(j.t, j.emp, j.lieu, j.hor, JOB_TYPES[j.type], 'emploi', 'job', 'travail'); }
 function renderJobs(){
@@ -3207,15 +3090,14 @@ function renderJobs(){
 
 /* liste complète (« Voir tout ») */
 var L = {block:null, q:'', f:{}, sort:'recent', page:1, cat:'Tous', day:0};
-var L_TITLES = {req:'Coups de main', care:'Aide à la personne', dons:'Dons disponibles', cal:'Activités'};
+var L_TITLES = {req:'Coups de main', care:'Aide à la personne', cal:'Activités'};
 var L_FILTERS = [['urgent','Urgent'],['today','Aujourd\u2019hui'],['near','Près de moi'],['noresp','Sans réponse']];
 function lItems(){
-  var src = L.block === 'req' ? REQS : L.block === 'care' ? CARE : L.block === 'dons' ? DONS : ACTS;
+  var src = L.block === 'req' ? REQS : L.block === 'care' ? CARE : ACTS;
   var q = norm(L.q), hours = now.getHours() + now.getMinutes() / 60;
   return src.filter(function(x){
     if(L.block === 'cal') return x.d === L.day && (!q || norm(x.t + ' ' + x.s).indexOf(q) >= 0);
     if(q && norm([x.who, x.txt, x.t, x.s, x.k, x.cat, x.u, x.bio, x.by, x.freq, x.dur, x.when, (x.needs||[]).join(' ')].join(' ')).indexOf(q) < 0) return false;
-    if(L.block === 'dons' && L.cat !== 'Tous' && x.cat !== L.cat) return false;
     if(L.f.urgent && x.u !== 'Urgent') return false;
     if(L.f.today && x.a > hours) return false;
     if(L.f.near && x.m > 500) return false;
@@ -3228,17 +3110,16 @@ function renderList(keepScroll){
   if(!cal) items = fairSort(items, L.sort);
   var act = items.filter(function(x){ return !isDone(x); }).length, doneN = items.length - act, shown = items.slice(0, L.page * 10);
   $('#lTitle').textContent = cal ? 'Activités · ' + JOURS_L[L.day] : L_TITLES[L.block];
-  $('#lCount').textContent = cal ? items.length + ' activité' + (items.length > 1 ? 's' : '') : act + ' active' + (act > 1 ? 's' : '') + (doneN ? ' · ' + doneN + (L.block === 'dons' ? ' donné' : ' comblée') + (doneN > 1 ? 's' : '') : '') + ' · exemples';
-  $('#lFilters').hidden = cal; $('#lSortRow').hidden = cal; $('#lCats').hidden = L.block !== 'dons';
-  $('#lFilters').innerHTML = L_FILTERS.filter(function(f){ return !(L.block === 'dons' && f[0] === 'urgent'); }).map(function(f){ return '<button data-lf="' + f[0] + '" aria-pressed="' + !!L.f[f[0]] + '">' + f[1] + '</button>'; }).join('');
-  $('#lCats').innerHTML = DON_CATS.map(function(c){ return '<button data-lcat="' + c + '" aria-pressed="' + (c === L.cat) + '">' + c + '</button>'; }).join('');
-  $$('#lSortRow [data-sort]').forEach(function(b){ b.setAttribute('aria-checked', b.getAttribute('data-sort') === L.sort ? 'true' : 'false'); });
-  $('#lList').innerHTML = shown.length ? shown.map(function(x){ return cal ? actCard(x) : L.block === 'dons' ? donCard(x, true) : reqCard(x, L.block === 'care'); }).join('') : '<div class="qEmpty" style="padding:24px 0;text-align:center">Aucun résultat avec ces filtres.</div>';
+  $('#lCount').textContent = cal ? items.length + ' activité' + (items.length > 1 ? 's' : '') : act + ' active' + (act > 1 ? 's' : '') + (doneN ? ' · ' + doneN + ' comblée' + (doneN > 1 ? 's' : '') : '') + ' · exemples';
+  $('#lFilters').hidden = cal; $('#lSortRow').hidden = cal; $('#lCats').hidden = true;
+  $('#lFilters').innerHTML = L_FILTERS.map(function(f){ return '<button data-lf="' + f[0] + '" aria-pressed="' + !!L.f[f[0]] + '">' + f[1] + '</button>'; }).join('');
+    $$('#lSortRow [data-sort]').forEach(function(b){ b.setAttribute('aria-checked', b.getAttribute('data-sort') === L.sort ? 'true' : 'false'); });
+  $('#lList').innerHTML = shown.length ? shown.map(function(x){ return cal ? actCard(x) : reqCard(x, L.block === 'care'); }).join('') : '<div class="qEmpty" style="padding:24px 0;text-align:center">Aucun résultat avec ces filtres.</div>';
   $('#lMore').innerHTML = items.length > shown.length ? '<button type="button" class="qMoreBtn" id="lMoreBtn">Voir plus (' + (items.length - shown.length) + ')</button>' : (items.length > 10 ? '<p class="lEnd">Vous avez tout vu 👍</p>' : '');
   if(!keepScroll) $('#lMain').scrollTop = 0;
 }
 function openList(block){
-  L = {block:block, q:query, f:{}, sort:'recent', page:1, cat:block === 'dons' ? donCat : 'Tous', day:dayIdx};
+  L = {block:block, q:query, f:{}, sort:'recent', page:1, cat:'Tous', day:dayIdx};
   $('#lQ').value = L.q; renderList();
   var p = $('#qListPanel'); p.hidden = false; $('#lBack').focus();
 }
@@ -3293,16 +3174,16 @@ function showTip(k){
 
 function renderAll(){
   renderCal(); renderReq();
-  var shown = [renderToday(), renderDons(), renderJobs(), renderMap()].some(Boolean);
+  var shown = [renderToday(), renderJobs(), renderMap()].some(Boolean);
   parts.empty.style.display = shown ? 'none' : 'block';
   parts.empty.textContent = query ? 'Aucun résultat pour « ' + query + ' ».' : 'Rien à afficher pour ce filtre.';
 }
 
 function init(){
-  ['today','filters','empty','cal','days','dayList','calMore','req','reqList','reqMore','care','careList','careMore','dons','donCats','donList','donMore','jobs','jobList','jobMore','map','mapBox'].forEach(function(k){
+  ['today','filters','empty','cal','days','dayList','calMore','req','reqList','reqMore','care','careList','careMore','jobs','jobList','jobMore','map','mapBox'].forEach(function(k){
     parts[k] = document.getElementById('q' + k.charAt(0).toUpperCase() + k.slice(1));
   });
-  renderFilters(); renderAll(); renderRes(); loadWeather();
+  renderFilters(); renderAll(); renderRes();
   var root = $('#device') || document.body;
   var modal = document.createElement('div'); modal.className = 'qModal'; modal.hidden = true; modal.setAttribute('role', 'dialog'); modal.setAttribute('aria-modal', 'true'); modal.setAttribute('aria-labelledby', 'qModalT');
   root.appendChild(modal);
@@ -3325,8 +3206,7 @@ function init(){
     if((t = e.target.closest('[data-cat]'))){ cat = t.getAttribute('data-cat'); renderFilters(); renderAll(); return; }
     if((t = e.target.closest('[data-job]'))){ openJob(t.getAttribute('data-job')); return; }
     if((t = e.target.closest('[data-list]'))){ openList(t.getAttribute('data-list')); return; }
-    if((t = e.target.closest('[data-doncat]'))){ donCat = t.getAttribute('data-doncat'); renderDons(); parts.donList.scrollLeft = 0; return; }
-    if((t = e.target.closest('[data-resp]'))){ var rp = t.getAttribute('data-resp').split(':'), arr = rp[0] === 'req' ? REQS : rp[0] === 'care' ? CARE : DONS, it = arr[+rp[1]]; if(it && !it._me){ it._me = 1; it.r++; } if(rp[0] === 'req' || rp[0] === 'care'){ renderReq(); if($('#qListPanel') && !$('#qListPanel').hidden) renderList(true); } if(rp[0] === 'req'){ e.preventDefault(); e.stopPropagation(); } return; }
+    if((t = e.target.closest('[data-resp]'))){ var rp = t.getAttribute('data-resp').split(':'), arr = rp[0] === 'req' ? REQS : CARE, it = arr[+rp[1]]; if(it && !it._me){ it._me = 1; it.r++; } if(rp[0] === 'req' || rp[0] === 'care'){ renderReq(); if($('#qListPanel') && !$('#qListPanel').hidden) renderList(true); } if(rp[0] === 'req'){ e.preventDefault(); e.stopPropagation(); } return; }
     if((t = e.target.closest('[data-lf]'))){ var f = t.getAttribute('data-lf'); L.f[f] = !L.f[f]; L.page = 1; renderList(); return; }
     if((t = e.target.closest('[data-lcat]'))){ L.cat = t.getAttribute('data-lcat'); L.page = 1; renderList(); return; }
     if((t = e.target.closest('[data-sort]'))){ L.sort = t.getAttribute('data-sort'); L.page = 1; renderList(); return; }
@@ -3812,8 +3692,8 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
       C('Denise Paquet', 'Si vous avez encore besoin d’un jeudi, dites-le-moi.', 'il y a 1 h')
     ],
     famille: [
-      C('Huguette Lavoie', 'Quel beau manteau. Je le réserve pour mon petit-fils !', 'il y a 1 j'),
-      C('Amina Diallo', 'Trop tard ? Sinon je connais une famille qui chercherait ça.', 'il y a 5 h')
+      C('Huguette Lavoie', 'Belle idée, on passe samedi avec les petits !', 'il y a 1 j'),
+      C('Amina Diallo', 'J\u2019apporte une tarte aux pommes !', 'il y a 5 h')
     ],
     denise: [
       C('Pierre Lachance', 'Je passe demain vers 8 h avec ma pelle, ça vous va ?', 'il y a 8 h', 3),
@@ -3826,8 +3706,8 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
       C('Pierre Lachance', 'Super initiative, on compte y passer l’après-midi.', 'il y a 1 h')
     ],
     amina: [
-      C('Famille Roy', 'Nous sommes intéressés, je vous écris.', 'il y a 12 h'),
-      C('Denise Paquet', 'Belle poussette, ça va faire un heureux.', 'il y a 4 h')
+      C('Famille Roy', 'Oui, il y a un atelier le mercredi matin, je crois.', 'il y a 12 h'),
+      C('Denise Paquet', 'Ma voisine y est allée, elle a beaucoup aimé.', 'il y a 4 h')
     ],
     pierre: [
       C('Lucie Tremblay', 'J’ai entendu dire juillet — mais rien d’officiel de la ville.', 'il y a 1 j', 3),
