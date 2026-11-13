@@ -107,7 +107,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ms-build" content="20261113110116">
+<meta name="ms-build" content="20261113113324">
 <meta name="theme-color" content="#F8F6F0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -914,7 +914,19 @@ nav.mainNav a[href="#profil"]{position:relative}
 #s-fil > div{background:#F8F6F0 !important}
 #s-fil #filHead{display:flex;align-items:center;justify-content:space-between;background:#F8F6F0 !important;border:none !important;box-shadow:none !important;gap:6px;min-width:0;padding:8px 8px 6px 8px !important}
 #s-fil #filHead .filHeadLeft{min-width:0;flex:1 1 auto;display:flex;align-items:center;gap:4px}
-#s-fil #filHead .filBrand{font-size:21px;font-weight:800;color:#2B5F4F;letter-spacing:-0.03em;line-height:1.1;white-space:nowrap}
+#s-fil #filHead .filBrandWrap{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;gap:0}
+#s-fil #filHead .filBrand{font-size:20px;font-weight:800;color:#2B5F4F;letter-spacing:-0.03em;line-height:1.1;white-space:nowrap}
+#s-fil #filHead .filQBtn{display:inline-flex;align-items:center;gap:2px;max-width:100%;margin:0;padding:0;border:none;background:none;color:#5B6661;font:600 12.5px/1.2 Figtree,system-ui,sans-serif;cursor:pointer;text-align:left}
+#s-fil #filHead .filQBtn .quartierNom{font-weight:700;color:#3F4A45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#s-fil #filHead .filQChev{flex-shrink:0;margin-top:1px}
+.qPickCard{background:#F8F6F0;border-radius:20px 20px 0 0;height:92%;max-height:92%;overflow:hidden;display:flex;flex-direction:column;padding:0 0 max(12px, env(safe-area-inset-bottom));box-shadow:0 -8px 28px rgba(30,42,39,.18)}
+.qPickLead{margin:0;padding:0 20px 10px;font-size:13.5px;line-height:1.4;color:#5B6661}
+.qPickList{flex:1;min-height:0;overflow-y:auto;padding:0 16px 16px}
+.qPickGroup{margin:0 0 16px}
+.qPickGroup h3{margin:0 4px 8px;font-size:12px;font-weight:700;color:#8A9490;text-transform:uppercase;letter-spacing:.04em}
+.qPickBtn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:48px;padding:8px 14px;margin:0 0 6px;border:1.5px solid #E4DFD3;border-radius:14px;background:#FFFFFF;color:#1E2A27;font:600 15px/1.2 Figtree,system-ui,sans-serif;text-align:left;cursor:pointer}
+.qPickBtn[aria-pressed="true"]{border-color:#2B5F4F;background:#E3EDE7;color:#1E4539}
+.qPickBtn .qPickCk{flex-shrink:0;color:#2B5F4F;font-size:16px;font-weight:800}
 #s-fil #filHead .filHeadActions{display:flex;flex:0 0 auto;align-items:center;gap:6px}
 #s-fil #filHead .filIconBtn{width:36px;height:36px;border-radius:18px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#1E2A27;background:#E9E5DB;border:none;padding:0;position:relative;text-decoration:none}
 #s-fil #filFilters{background:transparent !important;border:none !important;box-shadow:none !important}
@@ -1179,7 +1191,7 @@ nav.mainNav a[href="#profil"]{position:relative}
 <section class="screen hasNav" id="s-fil" data-screen="fil" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(243, 240, 234); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;">
 
   
-  <main id="feed" style="flex-grow: 1; min-height: 0px; overflow-y: auto; background: rgb(248, 246, 240); scrollbar-width: none; padding-top: 0px; -webkit-overflow-scrolling: touch;"><header id="filHead" class="filHead"><div class="filHeadLeft"><button type="button" id="filMenuBtn" class="filIconBtn" aria-label="Menu"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button><span class="filBrand">MaisonSereine</span></div><div class="filHeadActions"><button type="button" id="filSearch" class="filIconBtn" aria-label="Rechercher"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg></button><button type="button" id="filCal" class="filIconBtn" aria-label="Calendrier"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M3.5 10h17"></path></svg></button><a href="#messages" id="filMsg" class="filIconBtn" aria-label="Messages"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path><path d="M12 8.15c.22-.65 1.05-.9 1.58-.38.53-.52 1.36-.27 1.58.38.22.8-.78 1.65-1.58 2.4-.8-.75-1.8-1.6-1.58-2.4z"></path></svg><span id="filMsgBadge" class="filMsgBadge">2</span></a></div></header><div id="filComposer" class="filComposer"><a href="#publier" id="filQuoi" class="filQuoi" aria-label="Quoi de neuf dans le quartier ?"><span class="filQuoiAv" aria-hidden="true">LT</span><span class="filQuoiT">Quoi de neuf dans le quartier ?</span></a><button type="button" id="filGal" class="filGalBtn" aria-label="Galerie"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect><circle cx="9" cy="10.5" r="1.6"></circle><path d="M3.5 16.5l5-4.5 3.5 3 2.5-2.2 6 5.2"></path></svg></button></div>
+  <main id="feed" style="flex-grow: 1; min-height: 0px; overflow-y: auto; background: rgb(248, 246, 240); scrollbar-width: none; padding-top: 0px; -webkit-overflow-scrolling: touch;"><header id="filHead" class="filHead"><div class="filHeadLeft"><button type="button" id="filMenuBtn" class="filIconBtn" aria-label="Menu"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button><div class="filBrandWrap"><span class="filBrand">MaisonSereine</span><button type="button" id="filQuartier" class="filQBtn" aria-label="Changer de quartier"><span class="quartierNom">Sainte-Foy</span><svg class="filQChev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button></div></div><div class="filHeadActions"><button type="button" id="filSearch" class="filIconBtn" aria-label="Rechercher"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg></button><button type="button" id="filCal" class="filIconBtn" aria-label="Calendrier"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M3.5 10h17"></path></svg></button><a href="#messages" id="filMsg" class="filIconBtn" aria-label="Messages"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path><path d="M12 8.15c.22-.65 1.05-.9 1.58-.38.53-.52 1.36-.27 1.58.38.22.8-.78 1.65-1.58 2.4-.8-.75-1.8-1.6-1.58-2.4z"></path></svg><span id="filMsgBadge" class="filMsgBadge">2</span></a></div></header><div id="filComposer" class="filComposer"><a href="#publier" id="filQuoi" class="filQuoi" aria-label="Quoi de neuf dans le quartier ?"><span class="filQuoiAv" aria-hidden="true">LT</span><span class="filQuoiT">Quoi de neuf dans le quartier ?</span></a><button type="button" id="filGal" class="filGalBtn" aria-label="Galerie"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect><circle cx="9" cy="10.5" r="1.6"></circle><path d="M3.5 16.5l5-4.5 3.5 3 2.5-2.2 6 5.2"></path></svg></button></div>
 
   
   <section id="filStories" style="display: flex; gap: 12px; padding: 10px 20px 12px; overflow-x: auto; scrollbar-width: none; flex-shrink: 0; background: transparent; border-bottom: none;">
@@ -1882,7 +1894,7 @@ nav.mainNav a[href="#profil"]{position:relative}
       <div><strong>Lucie Tremblay</strong><small>Voisine · <span class="quartierNom">Sainte-Foy</span></small></div>
     </div>
     <nav class="menuNav" aria-label="Menu">
-      <a href="#secteur" class="menuRow"><span class="menuIco" aria-hidden="true">📍</span><span class="menuTxt">Votre quartier<strong class="quartierNom">Sainte-Foy</strong><small>Changer de quartier</small></span></a>
+      <button type="button" id="menuQuartier" class="menuRow" aria-label="Changer de quartier"><span class="menuIco" aria-hidden="true">📍</span><span class="menuTxt">Votre quartier<strong class="quartierNom">Sainte-Foy</strong><small>Changer de quartier</small></span></button>
       <button type="button" id="filTel" class="menuRow" aria-label="Ressources utiles"><span class="menuIco" aria-hidden="true">📞</span><span class="menuTxt">Ressources utiles<small>Les 5 numéros essentiels</small></span></button>
       <button type="button" id="menuCal" class="menuRow" aria-label="Calendrier"><span class="menuIco" aria-hidden="true">📅</span><span class="menuTxt">Calendrier<small>Les activités de la semaine</small></span></button>
       <a href="#profil" class="menuRow"><span class="menuIco" aria-hidden="true">👤</span><span class="menuTxt">Profil</span></a>
@@ -1890,6 +1902,18 @@ nav.mainNav a[href="#profil"]{position:relative}
       <a href="#verif" class="menuRow"><span class="menuIco" aria-hidden="true">🛡️</span><span class="menuTxt">Vérification</span></a>
       <a href="#profil" id="menuNotifs" class="menuRow"><span class="menuIco" aria-hidden="true">🔔</span><span class="menuTxt">Notifications</span></a>
     </nav>
+  </div>
+</div>
+<div id="qPickSheet" class="sheetOverlay" aria-hidden="true">
+  <button type="button" class="sheetBak" data-sheetclose aria-label="Fermer"></button>
+  <div class="sheetCard qPickCard" role="dialog" aria-modal="true" aria-labelledby="qPickTitle">
+    <header class="sheetHead">
+      <button type="button" class="sheetX" data-sheetclose aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      <h2 id="qPickTitle">Choisir un quartier</h2>
+      <span></span>
+    </header>
+    <p class="qPickLead">Vous voyez les publications de votre quartier.</p>
+    <div id="qPickList" class="qPickList"></div>
   </div>
 </div>
 <div id="plusSheet" class="sheetOverlay" aria-hidden="true">
@@ -1970,6 +1994,13 @@ function back(fallback){
 }
 document.addEventListener('click', function(e){
   if(e.target.closest('#filMenuBtn')){ openOverlay('filMenu', e.target.closest('#filMenuBtn')); return; }
+  if(e.target.closest('#filQuartier, #menuQuartier')){ openQPick(e.target.closest('#filQuartier, #menuQuartier')); return; }
+  var qp = e.target.closest('#qPickSheet .qPickBtn');
+  if(qp){
+    setQuartier(qp.getAttribute('data-q'));
+    closeOverlays();
+    return;
+  }
   if(e.target.closest('#filTel')){ openOverlay('resSheet', e.target.closest('#filTel')); return; }
   if(e.target.closest('#filCal, #menuCal')){
     if(window.msOpenCal) window.msOpenCal();
@@ -2059,10 +2090,40 @@ function renderSecteur(){
   });
   $('#sheetBody').innerHTML = html + '</div>';
 }
+function sidForQuartier(q){
+  var id; for(id in DONNEES){ if(DONNEES[id].q.indexOf(q) >= 0) return id; }
+  return sid;
+}
 function setQuartier(q){
+  if(!q) return;
+  choix = q;
+  var found = sidForQuartier(q); if(found) sid = found;
   $$('.quartierNom').forEach(function(e){ e.textContent = q; });
   $$('#s-publier [data-visible]').forEach(function(e){ e.textContent = 'Visible dans ' + q; });
+  var btn = document.getElementById('filQuartier');
+  if(btn) btn.setAttribute('aria-label', 'Quartier ' + q + ', changer de quartier');
   try{ localStorage.setItem('ms_quartier', q); }catch(_){}
+  if(typeof renderVis === 'function') try{ renderVis(); }catch(_){}
+}
+function renderQPick(){
+  var box = document.getElementById('qPickList'); if(!box) return;
+  var cur = choix || (($('.quartierNom') || {}).textContent || 'Sainte-Foy');
+  var html = '', id, d;
+  for(id in DONNEES){
+    d = DONNEES[id];
+    html += '<div class="qPickGroup"><h3>' + d.nom + '</h3>';
+    d.q.forEach(function(q){
+      var on = q === cur;
+      html += '<button type="button" class="qPickBtn" data-q="' + q.replace(/"/g,'&quot;') + '" aria-pressed="' + on + '">' +
+        '<span>' + q + '</span>' + (on ? '<span class="qPickCk" aria-hidden="true">✓</span>' : '') + '</button>';
+    });
+    html += '</div>';
+  }
+  box.innerHTML = html;
+}
+function openQPick(trigger){
+  renderQPick();
+  openOverlay('qPickSheet', trigger || null);
 }
 function bindPosition(){
   var b = $('#maPosition'); if(!b) return;
