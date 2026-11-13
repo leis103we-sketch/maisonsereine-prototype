@@ -107,7 +107,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ms-build" content="20261113123356">
+<meta name="ms-build" content="20261113131117">
 <meta name="theme-color" content="#F8F6F0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -203,8 +203,7 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 .screen.hasNav > div > main{
   padding-bottom:calc(var(--nav-space) + 24px) !important;
 }
-#s-entraide.hasNav .pgFoot{margin-bottom:var(--nav-space)}
-#s-entraide.hasNav #enMain{padding-bottom:24px !important}
+#s-entraide.hasNav #enMain{padding-bottom:var(--nav-space) !important}
 .screen a{color:#2B5F4F;text-decoration:none}
 .screen a:hover{color:inherit}
 .screen button,.screen input,.screen textarea{font-family:inherit}
@@ -959,16 +958,21 @@ nav.mainNav a[href="#profil"]{position:relative}
 .enHead{flex-shrink:0;padding:16px 20px 12px;background:transparent;border:none;box-shadow:none}
 .enHead h1{margin:0;font-size:24px;font-weight:700;letter-spacing:-0.01em}
 .enHead p{margin:4px 0 10px;font-size:13.5px;color:#5B6661;line-height:1.35}
+.enHead .enAskTop{margin-top:12px}
+.enHead #enToggle{margin-top:0}
 .enSearch{display:flex;align-items:center;gap:8px;height:44px;padding:0 14px;border-radius:22px;background:#FFFFFF;border:1.5px solid #D6D1C4;color:#5B6661}
 .enSearch input{flex:1;border:none;background:none;font:inherit;font-size:15px;outline:none;color:#1E2A27;min-width:0}
-#s-entraide.hasNav .pgFoot{position:absolute;left:0;right:0;bottom:calc(var(--nav-h) + var(--nav-lift) + 8px + var(--safe-bottom));margin-bottom:0;padding:0 20px;background:transparent;border:none;box-shadow:none;pointer-events:none;z-index:34}
-#s-entraide.hasNav .pgFoot .pgBtn{pointer-events:auto;box-shadow:0 8px 22px rgba(30,42,39,.18)}
-#s-entraide.hasNav #enMain{padding-bottom:calc(var(--nav-space) + 64px) !important}
-#s-entraide .pgFoot{background:transparent;border:none;box-shadow:none}
+#s-entraide.hasNav #enMain{padding-bottom:var(--nav-space) !important}
 #s-entraide.en-req .enHead,#s-entraide.en-care .enHead{background:transparent}
-#s-entraide.en-req .pgFoot,#s-entraide.en-care .pgFoot{background:transparent}
-#s-entraide.en-req #enAsk.pgBtn{background:#8A3F14}
-#s-entraide.en-care #enAsk.pgBtn{background:#2B5F4F}
+#s-entraide #enAsk.enAskTop,#s-entraide #enAsk{
+  display:flex;align-items:center;justify-content:center;width:100%;
+  min-height:50px;margin:12px 0 14px;padding:0 16px;box-sizing:border-box;
+  border:none;border-radius:25px;background:#2B5F4F;color:#FFFFFF !important;
+  font:800 16px/1.2 Figtree,system-ui,sans-serif;text-decoration:none;
+  box-shadow:none;position:static;
+}
+#s-entraide.en-req #enAsk,#s-entraide.en-care #enAsk{background:#2B5F4F}
+#s-entraide #enAsk:active{opacity:.88}
 .enToggle{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;margin:12px 0 0;background:#FFFFFF;border:1.5px solid #E4DFD3;border-radius:20px}
 .enToggle.qPad{padding:5px;padding-left:5px;padding-right:5px}
 .enToggle button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:56px;padding:8px 6px;border-radius:16px;border:none;background:transparent;color:#3F4A45;font:700 13.5px/1.2 Figtree,system-ui,sans-serif;text-align:center;cursor:pointer}
@@ -1070,6 +1074,8 @@ nav.mainNav a[href="#profil"]{position:relative}
 .aidePublier{width:100%;min-height:50px;border:0;border-radius:25px;background:#2B5F4F;color:#fff;font:800 16px Figtree,system-ui,sans-serif;cursor:pointer}
 .aidePublier:active{opacity:.85}
 /* Aide page */
+.aideSuggest{margin:0 0 8px;padding:0 0 8px;border-bottom:1px solid #EFEBE2}
+.aideSuggest .aideLab{margin-top:0}
 .aidePublish{margin:0 0 12px;padding:10px 10px 8px;background:#E3EDE7;border-radius:16px}
 .aidePublishT{margin:0 0 8px;font-size:15px;font-weight:800;color:#1E4539}
 .aideEx{display:flex;flex-direction:column;gap:6px}
@@ -1882,18 +1888,16 @@ nav.mainNav a[href="#profil"]{position:relative}
 <section class="screen qScope en-req hasNav" id="s-entraide" data-screen="entraide" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(248, 246, 240); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;">
   <header class="enHead">
     <h1>Entraide</h1>
-    <p>Coups de main et aide à la personne dans votre quartier.</p>
-    <div class="enSearch"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input id="enRecherche" type="search" placeholder="Un coup de main, une personne…" autocomplete="off"></div>
+    <a href="#publier" id="enAsk" class="pgBtn enAskTop">Demander de l’aide</a>
     <div id="enToggle" class="enToggle" role="tablist" aria-label="Type d’entraide">
       <button type="button" role="tab" id="enTabReq" data-enmode="req" aria-selected="true" aria-controls="qReq">🛠️ Coups de main <span class="enCount" id="enNReq">(18)</span></button>
       <button type="button" role="tab" id="enTabCare" data-enmode="care" aria-selected="false" aria-controls="qCare">💚 Aide à la personne <span class="enCount" id="enNCare">(14)</span></button>
     </div>
   </header>
   <main id="enMain" style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding: 4px 0 16px;">
-  <section id="qReq" class="qBlock qPad qHelp qHelpSimple" data-cats="entraide"><p class="qHelpSub">Petits services entre voisins : courses, pelletage, petites réparations, transport, déménagement.</p><div id="qReqList" class="qList"></div><div id="qReqMore"></div></section>
-  <section id="qCare" class="qBlock qPad qHelp qHelpCare qHidden" data-cats="entraide"><p class="qHelpSub">Accompagnement, visites d’amitié, aide aux repas, appels de bienveillance.</p><div id="aidePublish" class="aidePublish"><p class="aidePublishT">Publier une demande d’aide</p><div class="aideEx" role="list"><button type="button" class="aideExChip" data-aideex="surveiller">Ma maman a besoin qu’on vienne la surveiller</button><button type="button" class="aideExChip" data-aideex="compagnie">Venir lui tenir compagnie</button><button type="button" class="aideExChip" data-aideex="rdv">L’accompagner à un rendez-vous médical</button><button type="button" class="aideExChip" data-aideex="courses">Faire ses courses</button><button type="button" class="aideExChip aideExOwn" data-aideex="own">✏️ Écrire ma propre demande</button></div></div><p class="qVerif"><span class="qVerifIco" aria-hidden="true">🛡️</span><span><strong>Antécédents vérifiés exigés par défaut</strong> · ces services sont réservés aux voisins dont les antécédents judiciaires ont été vérifiés. Une famille peut accepter des voisins non vérifiés&nbsp;: le choix devient alors sa responsabilité.</span></p><div id="aideFilt" class="aideFilt" role="tablist" aria-label="Filtrer les demandes"><button type="button" data-af="tous" aria-pressed="true">Tous</button><button type="button" data-af="urgent" aria-pressed="false">Urgent</button></div><div id="qCareList" class="qList"></div><div id="qCareMore"></div></section>
+  <section id="qReq" class="qBlock qPad qHelp qHelpSimple" data-cats="entraide"><div id="qReqList" class="qList"></div><div id="qReqMore"></div></section>
+  <section id="qCare" class="qBlock qPad qHelp qHelpCare qHidden" data-cats="entraide"><div id="aideFilt" class="aideFilt" role="tablist" aria-label="Filtrer les demandes"><button type="button" data-af="tous" aria-pressed="true">Tous</button><button type="button" data-af="urgent" aria-pressed="false">Urgent</button></div><div id="qCareList" class="qList"></div><div id="qCareMore"></div></section>
   </main>
-  <footer class="pgFoot"><a href="#publier" id="enAsk" class="pgBtn">Demander de l’aide</a></footer>
 <nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="#quartier" class="navItem" aria-label="Quartier"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a><a href="#publier" class="navItem navPlus" aria-label="Publier"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#entraide" class="navItem" aria-label="Entraide" aria-current="page"><span class="navEmoji" aria-hidden="true">🤝</span></a><a href="#profil" class="navItem" aria-label="Profil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></a></nav></div></section>
 <section class="screen" id="s-emploi" data-screen="emploi" aria-hidden="true"><div class="pgWrap">
 <header class="pgHead"><a href="#quartier" data-back class="pgIcon" aria-label="Retour"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></a><h1>Emploi local</h1><span></span></header>
@@ -2030,6 +2034,16 @@ nav.mainNav a[href="#profil"]{position:relative}
       <span></span>
     </header>
     <div class="aideBody">
+      <div id="aideSuggest" class="aideSuggest">
+        <p class="aideLab">Suggestions</p>
+        <div class="aideEx" role="list">
+          <button type="button" class="aideExChip" data-aideex="surveiller">Ma maman a besoin qu’on vienne la surveiller</button>
+          <button type="button" class="aideExChip" data-aideex="compagnie">Venir lui tenir compagnie</button>
+          <button type="button" class="aideExChip" data-aideex="rdv">L’accompagner à un rendez-vous médical</button>
+          <button type="button" class="aideExChip" data-aideex="courses">Faire ses courses</button>
+          <button type="button" class="aideExChip aideExOwn" data-aideex="own">✏️ Écrire ma propre demande</button>
+        </div>
+      </div>
       <p class="aideLab">Type d’aide</p>
       <div id="aideTypes" class="aideChips" role="group" aria-label="Type d’aide"></div>
       <p class="aideLab">Pour qui</p>
@@ -4136,10 +4150,15 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
   }
   function openAideSheet(){ openOverlay('aideSheet'); }
   function openAide(exKey){
-    closeOverlays();
-    resetAide(typeof exKey === 'string' ? (AIDE_EX[exKey] || {}) : (exKey || {}));
-    openAideSheet();
-    setTimeout(function(){ var d = $('#aideDesc'); if(d && !(d.value)) d.focus(); }, 80);
+    var already = $('#aideSheet') && $('#aideSheet').classList.contains('open');
+    var key = (typeof exKey === 'string') ? exKey : '';
+    resetAide(key ? (AIDE_EX[key] || {}) : (exKey || {}));
+    if(!already){ closeOverlays(); openAideSheet(); }
+    var body = document.querySelector('#aideSheet .aideBody');
+    if(body) body.scrollTop = 0;
+    if(key === 'own'){
+      setTimeout(function(){ var d = $('#aideDesc'); if(d) d.focus(); }, 80);
+    }
   }
   window.msOpenAide = openAide;
   window.msOpenAideSheet = openAideSheet;
