@@ -298,6 +298,18 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 #s-quartier .qHidden{display:none !important}
 #s-quartier .pin:focus{outline:none}
 #s-quartier .pinTip.below{transform:translate(-50%,0);margin-top:6px}
+/* fil : filtres par type */
+#s-fil .filPills{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none;flex-shrink:0;background:#F8F6F0;border-bottom:1px solid #EAE6DF;-webkit-overflow-scrolling:touch}
+#s-fil .filPills::-webkit-scrollbar{display:none}
+#s-fil .filPills button{flex-shrink:0;min-height:36px;padding:0 14px;border-radius:18px;border:1.5px solid #D6D1C4;background:#FFFFFF;color:#1E2A27;font:600 14px/1 Figtree,system-ui,sans-serif;white-space:nowrap;cursor:pointer}
+#s-fil .filPills button[aria-pressed="true"]{background:#1E2A27;border-color:#1E2A27;color:#FFFFFF}
+#s-fil #feed > article[hidden]{display:none!important}
+#s-fil .filEmpty{background:#FFFFFF;margin:12px 16px;border-radius:18px;padding:32px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+#s-fil .filEmpty[hidden]{display:none}
+#s-fil .filEmpty .feIco{font-size:40px;line-height:1;margin-bottom:6px}
+#s-fil .filEmpty .feT{margin:0;font-size:16px;font-weight:700;color:#1E2A27}
+#s-fil .filEmpty .feS{margin:0;font-size:14px;color:#5B6661;line-height:1.45}
+#s-fil .filEmpty .feBtn{margin-top:12px;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:22px;background:#2B5F4F;color:#FFFFFF;font-weight:700;font-size:14px}
 
 </style>
 </head>
@@ -541,11 +553,19 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
   </section>
 
   
+  <div id="filFilters" class="filPills" role="toolbar" aria-label="Filtrer les publications">
+    <button type="button" data-ftype="tout" aria-pressed="true">Tout</button>
+    <button type="button" data-ftype="entraide" aria-pressed="false">🤝 Entraide</button>
+    <button type="button" data-ftype="evenement" aria-pressed="false">🎉 Événement</button>
+    <button type="button" data-ftype="dons" aria-pressed="false">🎁 Dons</button>
+    <button type="button" data-ftype="discussion" aria-pressed="false">💬 Discussion</button>
+  </div>
+
   <main id="feed" style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; background: rgb(236, 231, 224); scrollbar-width: none; padding-top: 0px;">
 
     
     
-      <article style="background: rgb(255, 255, 255);">
+      <article data-type="evenement" style="background: rgb(255, 255, 255);">
         <div style="display: flex; align-items: center; gap: 10px; padding: 12px 16px 10px;">
           <a href="#profil" style="width: 40px; height: 40px; border-radius: 20px; background: linear-gradient(135deg, rgb(43, 95, 79), rgb(30, 69, 57)); color: rgb(255, 255, 255); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">LT</a>
           <div style="flex-grow: 1;">
@@ -555,7 +575,7 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Vérifiée
               </span>
             </div>
-            <span style="font-size: 12px; color: rgb(138, 148, 144);">Intervenante · il y a 2 h</span>
+            <div style="display: flex; align-items: center; gap: 6px; margin-top: 1px;"><span style="font-size: 12px; color: rgb(138, 148, 144);">Intervenante · il y a 2 h</span><span class="badge" style="background: rgb(240, 232, 251); color: rgb(107, 58, 130);">🎉 Événement</span></div>
           </div>
           <button aria-label="Plus d'options" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: rgb(138, 148, 144);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.6"></circle><circle cx="12" cy="12" r="1.6"></circle><circle cx="12" cy="19" r="1.6"></circle></svg></button>
         </div>
@@ -580,7 +600,7 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 
     
     
-      <article style="background: rgb(255, 255, 255); padding: 14px 16px;">
+      <article data-type="entraide" style="background: rgb(255, 255, 255); padding: 14px 16px;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
           <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">GB</span>
           <div style="flex-grow: 1;">
@@ -607,11 +627,39 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
           </button>
         </div>
       </article>
+
+      <article data-type="entraide" style="background: rgb(255, 255, 255); padding: 14px 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">DP</span>
+          <div style="flex-grow: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-size: 14px; font-weight: 700;">Denise Paquet</span>
+              <span class="badge" style="background: rgb(254, 240, 230); color: rgb(138, 63, 20);">🤝 Entraide</span>
+            </div>
+            <span style="font-size: 12px; color: rgb(138, 148, 144);">Voisine · il y a 1 j</span>
+          </div>
+        </div>
+        <p style="margin: 0px 0px 12px; font-size: 14px; line-height: 1.55;">Avec la neige annoncée, j'aurais besoin d'un coup de main pour <strong>pelleter mon entrée</strong> demain matin. Café et muffins offerts ☕</p>
+        <a href="#messages" style="display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; border-radius: 22px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 14px; font-weight: 700;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>
+          Proposer mon aide
+        </a>
+        <div style="display: flex; align-items: center; margin-top: 4px;">
+          <button class="act like" style="padding-left: 0px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E2A27" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <span style="color: rgb(30, 42, 39);"><span>7</span></span>
+          </button>
+          <button class="act">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12z"></path></svg>
+            2
+          </button>
+        </div>
+      </article>
     
 
     
     
-      <article style="background: rgb(255, 255, 255); padding: 14px 16px;">
+      <article data-type="evenement" style="background: rgb(255, 255, 255); padding: 14px 16px;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
           <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(237, 224, 247); color: rgb(74, 32, 96); font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">MC</span>
           <div style="flex-grow: 1;">
@@ -650,7 +698,7 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 
     
     
-      <article style="background: rgb(255, 255, 255); padding: 14px 16px;">
+      <article data-type="dons" style="background: rgb(255, 255, 255); padding: 14px 16px;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
           <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">AD</span>
           <div style="flex-grow: 1;">
@@ -677,11 +725,39 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
           </button>
         </div>
       </article>
+
+      <article data-type="dons" style="background: rgb(255, 255, 255); padding: 14px 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">FR</span>
+          <div style="flex-grow: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-size: 14px; font-weight: 700;">Famille Roy</span>
+              <span class="badge" style="background: rgb(227, 237, 231); color: rgb(30, 69, 57);">🎁 Dons</span>
+            </div>
+            <span style="font-size: 12px; color: rgb(138, 148, 144);">Famille · il y a 2 j</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <div style="width: 76px; height: 76px; flex-shrink: 0; border-radius: 14px; background: linear-gradient(135deg, rgb(200, 223, 207), rgb(138, 187, 160)); display: flex; align-items: center; justify-content: center; color: rgb(30, 69, 57);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path><path d="M16 7V5a2 2 0 0 0-4 0v2"></path></svg>
+          </div>
+          <div style="flex: 1 1 0%;">
+            <p style="margin: 0px 0px 4px; font-size: 15px; font-weight: 700;">Habit de neige enfant à donner</p>
+            <p style="margin: 0px; font-size: 13px; color: rgb(91, 102, 97); line-height: 1.45;">Taille 6 ans, très chaud, porté un seul hiver. Ramassage près du parc Pointe-à-Puiseaux.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; margin-top: 12px;">
+          <a href="#messages" style="flex: 1 1 0%; display: flex; align-items: center; justify-content: center; min-height: 42px; border-radius: 21px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 13px; font-weight: 700;">Contacter</a>
+          <button style="width: 42px; height: 42px; border-radius: 21px; border: 1.5px solid rgb(228, 223, 211); display: flex; align-items: center; justify-content: center; color: rgb(138, 148, 144);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><path d="M16 6l-4-4-4 4"></path><path d="M12 2v13"></path></svg>
+          </button>
+        </div>
+      </article>
     
 
     
     
-      <article style="background: rgb(255, 255, 255); padding: 14px 16px;">
+      <article data-type="discussion" style="background: rgb(255, 255, 255); padding: 14px 16px;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
           <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">PL</span>
           <div style="flex-grow: 1;">
@@ -717,6 +793,46 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
           <a href="#publication" class="act">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12z"></path></svg>
             8
+          </a>
+        </div>
+      </article>
+
+      <article data-type="discussion" style="background: rgb(255, 255, 255); padding: 14px 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">HL</span>
+          <div style="flex-grow: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-size: 14px; font-weight: 700;">Huguette Lavoie</span>
+              <span class="badge" style="background: rgb(240, 237, 230); color: rgb(91, 102, 97);">💬 Discussion</span>
+            </div>
+            <span style="font-size: 12px; color: rgb(138, 148, 144);">Voisine · il y a 3 j</span>
+          </div>
+        </div>
+        <p style="margin: 0px 0px 10px; font-size: 14px; line-height: 1.55;">Quelqu'un connaît un bon cordonnier dans le coin ? Mes bottes d'hiver ont besoin d'un nouveau talon 👢</p>
+        <div style="background: rgb(248, 246, 240); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <span style="width: 28px; height: 28px; border-radius: 14px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">LT</span>
+            <div>
+              <span style="font-size: 12px; font-weight: 700;">Lucie T. </span><span style="font-size: 12px; color: rgb(91, 102, 97);">· il y a 1 j</span>
+              <p style="margin: 3px 0px 0px; font-size: 13px; line-height: 1.45;">Celui près de la place Sainte-Foy est très minutieux !</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <span style="width: 28px; height: 28px; border-radius: 14px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">AD</span>
+            <div>
+              <span style="font-size: 12px; font-weight: 700;">Amina D. </span><span style="font-size: 12px; color: rgb(91, 102, 97);">· il y a 20 h</span>
+              <p style="margin: 3px 0px 0px; font-size: 13px; line-height: 1.45;">Je vous donne son numéro en message 🙂</p>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 4px;">
+          <button class="act like" style="padding-left: 0px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E2A27" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <span style="color: rgb(30, 42, 39);"><span>4</span></span>
+          </button>
+          <a href="#publication" class="act">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12z"></path></svg>
+            2
           </a>
         </div>
       </article>
@@ -1274,6 +1390,7 @@ $('#pubPublier').addEventListener('click', function(e){
   var b = BADGE[picked], vis = visOptions()[visIdx], media = photos.length > 0;
   var art = document.createElement('article');
   art.className = 'newpost';
+  art.setAttribute('data-type', TYPE_KEY[picked] || 'discussion');
   art.style.cssText = 'background:#FFFFFF;' + (media ? '' : 'padding:14px 16px');
   var head = '<div style="display:flex;align-items:center;gap:10px;' + (media ? 'padding:12px 16px 10px' : 'margin-bottom:10px') + '"><span style="width:40px;height:40px;border-radius:20px;background:#E9E4D8;color:#3F4A45;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0">MO</span><div style="flex-grow:1"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:14px;font-weight:700">Moi</span><span class="badge" style="background:' + b[0] + ';color:' + b[1] + '">' + picked + '</span></div><span style="font-size:12px;color:#8A9490">\u00e0 l\u2019instant \u00b7 ' + esc(vis) + '</span></div></div>';
   var img = media ? '<div class="postPhotos" style="' + photoGrid(photos, 260) + '">' + photos.map(function(p){ return '<div style="background-image:url(' + p + ')"></div>'; }).join('') + '</div>' : '';
@@ -1288,9 +1405,40 @@ $('#pubPublier').addEventListener('click', function(e){
   var pl = art.querySelector('.poll'); if(pl) bindPoll(pl);
   stack = [];
   show('fil', {back:true});
+  if(filType !== 'tout' && filType !== art.getAttribute('data-type')) setFil('tout'); else setFil(filType);
   feed.scrollTo({top:0});
 });
 renderVis(); renderAttach();
+
+/* ---------------- 4b. fil : filtres par type ---------------- */
+var TYPE_KEY = {'🤝 Entraide':'entraide','🎉 Événement':'evenement','🎁 Dons':'dons','💬 Discussion':'discussion'};
+var FIL_EMPTY = {
+  entraide:   ['🤝', 'Aucune demande d’entraide pour le moment', 'Besoin d’un coup de main ? Demandez à vos voisins.'],
+  evenement:  ['🎉', 'Aucun événement à venir', 'Organisez une activité pour le quartier !'],
+  dons:       ['🎁', 'Aucun don disponible pour l’instant', 'Un objet dont vous n’avez plus besoin ? Donnez-lui une 2e vie.'],
+  discussion: ['💬', 'Aucune discussion en cours', 'Lancez la conversation avec vos voisins.'],
+  tout:       ['🏡', 'Rien dans le fil pour le moment', 'Soyez la première personne à publier !']
+};
+var filType = 'tout';
+var filEmpty = document.createElement('div');
+filEmpty.id = 'filEmpty'; filEmpty.className = 'filEmpty'; filEmpty.hidden = true;
+$('#feed').insertBefore(filEmpty, $('#feed > div:last-child'));
+function setFil(t){
+  filType = t;
+  $$('#filFilters [data-ftype]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-ftype') === t ? 'true' : 'false'); });
+  var n = 0;
+  $$('#feed > article').forEach(function(a){ var ok = t === 'tout' || a.getAttribute('data-type') === t; a.hidden = !ok; if(ok) n++; });
+  var e = FIL_EMPTY[t] || FIL_EMPTY.tout;
+  filEmpty.innerHTML = '<span class="feIco" aria-hidden="true">' + e[0] + '</span><p class="feT">' + e[1] + '</p><p class="feS">' + e[2] + '</p><a href="#publier" class="feBtn">Créer une publication</a>';
+  filEmpty.hidden = n > 0;
+}
+$('#filFilters').addEventListener('click', function(e){
+  var b = e.target.closest('[data-ftype]'); if(!b) return;
+  setFil(b.getAttribute('data-ftype'));
+  b.scrollIntoView({block:'nearest', inline:'nearest', behavior:'smooth'});
+  $('#feed').scrollTo({top:0});
+});
+setFil('tout');
 
 /* ---------------- 5. quartier : tableau pratique ---------------- */
 (function(){
