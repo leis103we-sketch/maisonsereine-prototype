@@ -107,7 +107,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ms-build" content="20261113113324">
+<meta name="ms-build" content="20261113123356">
 <meta name="theme-color" content="#F8F6F0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -855,9 +855,10 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 .calCard #qCal{flex:1;min-height:0;overflow-y:auto;padding-bottom:16px;gap:14px}
 .plusCard{margin:0 10px max(10px, env(safe-area-inset-bottom));width:auto;background:#EDEAE3;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;padding:6px 6px 6px;box-shadow:0 8px 28px rgba(30,42,39,.22)}
 .plusSheetT{margin:4px 10px 8px;font-size:13px;font-weight:700;color:#5B6661;letter-spacing:.04em;text-transform:uppercase;text-align:center}
-.plusAct{display:flex;align-items:center;gap:12px;min-height:54px;padding:0 16px;background:#FFFFFF;color:#1E2A27 !important;text-decoration:none;font-size:16px;font-weight:700;border:0;width:100%;text-align:left;font-family:inherit;cursor:pointer}
+.plusAct{display:flex;align-items:center;gap:12px;min-height:54px;padding:0 16px;background:#FFFFFF;color:#1E2A27 !important;text-decoration:none;font-size:16px;font-weight:700;border:0;width:100%;text-align:left;font-family:inherit;cursor:pointer;box-sizing:border-box}
 .plusAct + .plusAct{margin-top:1px}
-.plusAct:first-of-type{border-radius:12px 12px 0 0}
+.plusAct.plusFeat{min-height:60px;background:#E3EDE7;color:#1E4539 !important;border:1.5px solid #C5D9CF;border-radius:14px;margin-bottom:8px;font-size:17px}
+.plusAct.plusFeat + .plusAct{margin-top:0;border-radius:12px 12px 0 0}
 .plusAct:last-of-type{border-radius:0 0 12px 12px}
 .plusActIco{width:28px;text-align:center;font-size:18px;flex-shrink:0}
 .plusCancel{margin-top:8px;min-height:50px;border:0;border-radius:12px;background:#FFFFFF;color:#1E2A27;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer}
@@ -931,7 +932,10 @@ nav.mainNav a[href="#profil"]{position:relative}
 #s-fil #filHead .filIconBtn{width:36px;height:36px;border-radius:18px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#1E2A27;background:#E9E5DB;border:none;padding:0;position:relative;text-decoration:none}
 #s-fil #filFilters{background:transparent !important;border:none !important;box-shadow:none !important}
 #s-fil #filStories{position:relative;z-index:1;flex-shrink:0;background:transparent !important;border:none !important;border-bottom:none !important;box-shadow:none !important}
-.filComposer{display:flex;align-items:center;gap:8px;padding:6px 12px 10px;background:transparent;border:none;box-shadow:none}
+.filComposer{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:6px 12px 10px;background:transparent;border:none;box-shadow:none}
+.filComposerRow{display:flex;align-items:center;gap:8px}
+#s-fil button.filAideBtn,.filAideBtn{align-self:flex-start;margin-left:50px;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:16px;border:1px solid #D7E3DC;background:#E3EDE7;color:#1E4539;font:600 13px/1 Figtree,system-ui,sans-serif;cursor:pointer}
+.filAideBtn:active{opacity:.75}
 .filQuoi{flex:1;min-width:0;display:flex;align-items:center;gap:10px;background:none;border:none;padding:0;font:inherit;color:inherit;text-decoration:none;cursor:pointer;text-align:left}
 .filQuoiAv{width:40px;height:40px;border-radius:20px;background:#2B5F4F;color:#FFFFFF;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .filQuoiT{color:#5B6661;font-size:15px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -998,6 +1002,87 @@ nav.mainNav a[href="#profil"]{position:relative}
 .qScope .reqBtn.careBtn{align-self:stretch;justify-content:center;min-height:48px;padding:0 16px;border:none;border-radius:24px;background:#2B5F4F;color:#FFFFFF !important;font-size:16px;font-weight:700}
 #s-entraide.en-req #enToggle{border-color:#E8D5C4}
 #s-entraide.en-care #enToggle{border-color:#C9D9D1}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap}
+/* comments */
+.comCard,.aideCard{background:#F8F6F0;border-radius:20px 20px 0 0;height:92%;max-height:92%;overflow:hidden;display:flex;flex-direction:column;padding:0;box-shadow:0 -8px 28px rgba(30,42,39,.18)}
+.comEx{margin:0;padding:0 20px 8px;font-size:11px;font-weight:700;color:#8A9490;text-transform:uppercase;letter-spacing:.04em}
+.comList{flex:1;min-height:0;overflow-y:auto;padding:0 14px 12px}
+.cmRow{display:flex;gap:10px;align-items:flex-start;margin:0 0 12px}
+.cmRow.cmReply{margin-left:44px}
+.cmAv{width:36px;height:36px;border-radius:18px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px}
+.cmAv.me,.comFormBar .comAv{background:#2B5F4F;color:#fff}
+.cmBody{flex:1;min-width:0}
+.cmBubble{position:relative;display:inline-block;max-width:100%;background:#E9E5DB;border-radius:18px;padding:8px 12px 8px;color:#1E2A27}
+.cmName{display:block;font-size:13px;font-weight:800;color:#1E2A27;margin:0 0 2px}
+.cmVerif{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;margin-left:4px;border-radius:8px;background:#2B5F4F;color:#fff;font-size:9px;font-weight:800;vertical-align:middle}
+.cmTxt{display:block;font-size:14.5px;line-height:1.4;font-weight:500}
+.cmLikes{position:absolute;right:6px;bottom:-10px;display:inline-flex;align-items:center;gap:2px;background:#fff;border-radius:10px;padding:1px 6px;font-size:11px;font-weight:700;color:#1E2A27;box-shadow:0 1px 3px rgba(30,42,39,.16)}
+.cmMeta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:4px 0 0 12px;font-size:12px;font-weight:700;color:#8A9490}
+.cmMeta button{border:0;background:none;padding:0;font:inherit;font-weight:700;color:#5B6661;cursor:pointer}
+.cmMeta button.on{color:#8A3F14}
+.comFormBar{flex-shrink:0;display:flex;align-items:center;gap:8px;padding:8px 12px max(10px, env(safe-area-inset-bottom));background:#F8F6F0;border-top:1px solid #EFEBE2}
+.comFormBar input{flex:1;min-width:0;height:42px;border:0;border-radius:21px;background:#E9E5DB;padding:0 14px;font:500 15px Figtree,system-ui,sans-serif;color:#1E2A27}
+.comMoodBtn{width:40px;height:40px;border:0;background:none;font-size:20px;cursor:pointer;flex-shrink:0}
+.comSend{width:40px;height:40px;border:0;border-radius:20px;background:#2B5F4F;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer}
+.comEmoji{display:flex;flex-wrap:wrap;gap:6px;padding:6px 14px 8px;background:#F8F6F0}
+.comEmoji button{width:40px;height:40px;border:0;background:#E9E5DB;border-radius:12px;font-size:20px;cursor:pointer}
+.comPrev{padding:4px 0 2px}
+#feed article:not([style*="padding"]) .comPrev{padding:2px 16px 12px}
+#s-fil button.comPrevAll,.comPrevAll{display:block;border:0;background:none;padding:4px 0;margin:0;font:700 13.5px/1.3 Figtree,system-ui,sans-serif;color:#5B6661;cursor:pointer;text-align:left}
+.comPrevOne{display:flex;gap:8px;align-items:flex-start;padding:2px 0 4px;cursor:pointer}
+.comPrevOne .cmAv{width:28px;height:28px;border-radius:14px;font-size:10px}
+.comPrevOne .cmBubble{padding:6px 10px;border-radius:14px}
+.comPrevOne .cmName{font-size:12px}
+.comPrevOne .cmTxt{font-size:13px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* help card on Fil */
+#feed article.helpCard{background:#FFFFFF;border-left:4px solid #2B5F4F;padding:14px 16px 8px;box-sizing:border-box}
+.helpTop{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.helpId{flex:1;min-width:0}
+.helpId strong{display:block;font-size:15px;font-weight:800}
+.helpId small{font-size:12px;color:#5B6661}
+.helpChips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.helpChip,.humQ,.urgBadge{display:inline-flex;align-items:center;gap:4px;border-radius:10px;padding:3px 8px;font-size:12px;font-weight:700}
+.helpChip{background:#E3EDE7;color:#1E4539}
+.helpTxt{margin:0 0 10px;font-size:14.5px;line-height:1.5;color:#1E2A27}
+.helpCard .careBtn,.helpOffer{display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:22px;background:#2B5F4F;color:#fff !important;font-weight:700;font-size:14.5px;text-decoration:none;margin:0 0 6px}
+/* aide form */
+.aideBody{flex:1;min-height:0;overflow-y:auto;padding:0 16px 24px}
+.aideLab{display:block;margin:14px 0 8px;font-size:13px;font-weight:800;color:#1E2A27}
+.aideLab:first-child{margin-top:4px}
+.aideOpt{font-weight:600;color:#8A9490}
+.aideChips{display:flex;flex-wrap:wrap;gap:8px}
+.aideChip{border:1.5px solid #E4DFD3;background:#FFFFFF;color:#1E2A27;border-radius:18px;padding:8px 12px;font:600 13.5px Figtree,system-ui,sans-serif;cursor:pointer}
+.aideChip[aria-pressed="true"]{border-color:#2B5F4F;background:#E3EDE7;color:#1E4539}
+.aideWhoExtra{display:flex;gap:8px;margin-top:10px}
+.aideWhoExtra[hidden]{display:none}
+.aideField{flex:1;display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:700;color:#5B6661}
+.aideField input,.aideIn,.aideDesc{width:100%;box-sizing:border-box;border:1.5px solid #E4DFD3;border-radius:12px;background:#FFF;padding:10px 12px;font:500 15px Figtree,system-ui,sans-serif;color:#1E2A27}
+.aideDesc{resize:none;min-height:84px;line-height:1.4}
+.aideQBtn{display:flex;width:fit-content;align-items:center;gap:6px;border:1.5px solid #E4DFD3;background:#FFF;border-radius:18px;padding:8px 14px;font:700 15px Figtree,system-ui,sans-serif;color:#1E2A27;cursor:pointer}
+.aideWhoBox{margin-top:16px}
+.aideWhoBox .whoOpt{display:flex;gap:10px;align-items:flex-start;padding:10px 0;font-size:14px;line-height:1.35}
+.aideWhoBox .whoOpt input{margin-top:3px;flex-shrink:0}
+.aideWhoBox .whoAck{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:12px;background:#FFF3D6;border:1.5px solid #F0D58C;color:#5C3A00;font-size:13px;line-height:1.45;cursor:pointer;margin-top:8px}
+.aideWhoBox .whoAck[hidden]{display:none}
+.aideWhoBox .whoAck.need{border-color:#A3321A}
+.aideFoot{flex-shrink:0;padding:10px 16px max(12px, env(safe-area-inset-bottom));background:#F8F6F0}
+.aidePublier{width:100%;min-height:50px;border:0;border-radius:25px;background:#2B5F4F;color:#fff;font:800 16px Figtree,system-ui,sans-serif;cursor:pointer}
+.aidePublier:active{opacity:.85}
+/* Aide page */
+.aidePublish{margin:0 0 12px;padding:10px 10px 8px;background:#E3EDE7;border-radius:16px}
+.aidePublishT{margin:0 0 8px;font-size:15px;font-weight:800;color:#1E4539}
+.aideEx{display:flex;flex-direction:column;gap:6px}
+.aideExChip{display:block;width:100%;text-align:left;border:1.5px solid #C5D9CF;background:#FFFFFF;color:#1E2A27;border-radius:12px;padding:8px 10px;font:600 13.5px/1.3 Figtree,system-ui,sans-serif;cursor:pointer}
+.aideExChip.aideExOwn{background:#F8F6F0;font-weight:700}
+.aideFilt{display:flex;gap:8px;margin:0 0 12px}
+.aideFilt button{border:1.5px solid #E4DFD3;background:#FFF;color:#1E2A27;border-radius:16px;padding:6px 14px;font:700 13.5px Figtree,system-ui,sans-serif;cursor:pointer}
+.aideFilt button[aria-pressed="true"]{border-color:#2B5F4F;background:#2B5F4F;color:#fff}
+.humMeta{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}
+.urgBadge.urgent{background:#FDE8E4;color:#A3321A}
+.urgBadge.week{background:#FBEFE4;color:#8A3F14}
+.urgBadge.slow{background:#E3EDE7;color:#1E4539}
+.humQ{background:#F3F0EA;color:#3F4A45}
 
 </style>
 </head>
@@ -1191,7 +1276,7 @@ nav.mainNav a[href="#profil"]{position:relative}
 <section class="screen hasNav" id="s-fil" data-screen="fil" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(243, 240, 234); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;">
 
   
-  <main id="feed" style="flex-grow: 1; min-height: 0px; overflow-y: auto; background: rgb(248, 246, 240); scrollbar-width: none; padding-top: 0px; -webkit-overflow-scrolling: touch;"><header id="filHead" class="filHead"><div class="filHeadLeft"><button type="button" id="filMenuBtn" class="filIconBtn" aria-label="Menu"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button><div class="filBrandWrap"><span class="filBrand">MaisonSereine</span><button type="button" id="filQuartier" class="filQBtn" aria-label="Changer de quartier"><span class="quartierNom">Sainte-Foy</span><svg class="filQChev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button></div></div><div class="filHeadActions"><button type="button" id="filSearch" class="filIconBtn" aria-label="Rechercher"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg></button><button type="button" id="filCal" class="filIconBtn" aria-label="Calendrier"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M3.5 10h17"></path></svg></button><a href="#messages" id="filMsg" class="filIconBtn" aria-label="Messages"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path><path d="M12 8.15c.22-.65 1.05-.9 1.58-.38.53-.52 1.36-.27 1.58.38.22.8-.78 1.65-1.58 2.4-.8-.75-1.8-1.6-1.58-2.4z"></path></svg><span id="filMsgBadge" class="filMsgBadge">2</span></a></div></header><div id="filComposer" class="filComposer"><a href="#publier" id="filQuoi" class="filQuoi" aria-label="Quoi de neuf dans le quartier ?"><span class="filQuoiAv" aria-hidden="true">LT</span><span class="filQuoiT">Quoi de neuf dans le quartier ?</span></a><button type="button" id="filGal" class="filGalBtn" aria-label="Galerie"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect><circle cx="9" cy="10.5" r="1.6"></circle><path d="M3.5 16.5l5-4.5 3.5 3 2.5-2.2 6 5.2"></path></svg></button></div>
+  <main id="feed" style="flex-grow: 1; min-height: 0px; overflow-y: auto; background: rgb(248, 246, 240); scrollbar-width: none; padding-top: 0px; -webkit-overflow-scrolling: touch;"><header id="filHead" class="filHead"><div class="filHeadLeft"><button type="button" id="filMenuBtn" class="filIconBtn" aria-label="Menu"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button><div class="filBrandWrap"><span class="filBrand">MaisonSereine</span><button type="button" id="filQuartier" class="filQBtn" aria-label="Changer de quartier"><span class="quartierNom">Sainte-Foy</span><svg class="filQChev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button></div></div><div class="filHeadActions"><button type="button" id="filSearch" class="filIconBtn" aria-label="Rechercher"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg></button><button type="button" id="filCal" class="filIconBtn" aria-label="Calendrier"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M3.5 10h17"></path></svg></button><a href="#messages" id="filMsg" class="filIconBtn" aria-label="Messages"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path><path d="M12 8.15c.22-.65 1.05-.9 1.58-.38.53-.52 1.36-.27 1.58.38.22.8-.78 1.65-1.58 2.4-.8-.75-1.8-1.6-1.58-2.4z"></path></svg><span id="filMsgBadge" class="filMsgBadge">2</span></a></div></header><div id="filComposer" class="filComposer"><div class="filComposerRow"><a href="#publier" id="filQuoi" class="filQuoi" aria-label="Quoi de neuf dans le quartier ?"><span class="filQuoiAv" aria-hidden="true">LT</span><span class="filQuoiT">Quoi de neuf dans le quartier ?</span></a><button type="button" id="filGal" class="filGalBtn" aria-label="Galerie"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect><circle cx="9" cy="10.5" r="1.6"></circle><path d="M3.5 16.5l5-4.5 3.5 3 2.5-2.2 6 5.2"></path></svg></button></div><button type="button" id="filAideBtn" class="filAideBtn">💚 Demander de l’aide</button></div>
 
   
   <section id="filStories" style="display: flex; gap: 12px; padding: 10px 20px 12px; overflow-x: auto; scrollbar-width: none; flex-shrink: 0; background: transparent; border-bottom: none;">
@@ -1806,7 +1891,7 @@ nav.mainNav a[href="#profil"]{position:relative}
   </header>
   <main id="enMain" style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding: 4px 0 16px;">
   <section id="qReq" class="qBlock qPad qHelp qHelpSimple" data-cats="entraide"><p class="qHelpSub">Petits services entre voisins : courses, pelletage, petites réparations, transport, déménagement.</p><div id="qReqList" class="qList"></div><div id="qReqMore"></div></section>
-  <section id="qCare" class="qBlock qPad qHelp qHelpCare qHidden" data-cats="entraide"><p class="qHelpSub">Accompagnement, visites d’amitié, aide aux repas, appels de bienveillance.</p><p class="qVerif"><span class="qVerifIco" aria-hidden="true">🛡️</span><span><strong>Antécédents vérifiés exigés par défaut</strong> · ces services sont réservés aux voisins dont les antécédents judiciaires ont été vérifiés. Une famille peut accepter des voisins non vérifiés&nbsp;: le choix devient alors sa responsabilité.</span></p><div id="qCareList" class="qList"></div><div id="qCareMore"></div></section>
+  <section id="qCare" class="qBlock qPad qHelp qHelpCare qHidden" data-cats="entraide"><p class="qHelpSub">Accompagnement, visites d’amitié, aide aux repas, appels de bienveillance.</p><div id="aidePublish" class="aidePublish"><p class="aidePublishT">Publier une demande d’aide</p><div class="aideEx" role="list"><button type="button" class="aideExChip" data-aideex="surveiller">Ma maman a besoin qu’on vienne la surveiller</button><button type="button" class="aideExChip" data-aideex="compagnie">Venir lui tenir compagnie</button><button type="button" class="aideExChip" data-aideex="rdv">L’accompagner à un rendez-vous médical</button><button type="button" class="aideExChip" data-aideex="courses">Faire ses courses</button><button type="button" class="aideExChip aideExOwn" data-aideex="own">✏️ Écrire ma propre demande</button></div></div><p class="qVerif"><span class="qVerifIco" aria-hidden="true">🛡️</span><span><strong>Antécédents vérifiés exigés par défaut</strong> · ces services sont réservés aux voisins dont les antécédents judiciaires ont été vérifiés. Une famille peut accepter des voisins non vérifiés&nbsp;: le choix devient alors sa responsabilité.</span></p><div id="aideFilt" class="aideFilt" role="tablist" aria-label="Filtrer les demandes"><button type="button" data-af="tous" aria-pressed="true">Tous</button><button type="button" data-af="urgent" aria-pressed="false">Urgent</button></div><div id="qCareList" class="qList"></div><div id="qCareMore"></div></section>
   </main>
   <footer class="pgFoot"><a href="#publier" id="enAsk" class="pgBtn">Demander de l’aide</a></footer>
 <nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="#quartier" class="navItem" aria-label="Quartier"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a><a href="#publier" class="navItem navPlus" aria-label="Publier"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#entraide" class="navItem" aria-label="Entraide" aria-current="page"><span class="navEmoji" aria-hidden="true">🤝</span></a><a href="#profil" class="navItem" aria-label="Profil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></a></nav></div></section>
@@ -1916,10 +2001,75 @@ nav.mainNav a[href="#profil"]{position:relative}
     <div id="qPickList" class="qPickList"></div>
   </div>
 </div>
+<div id="comSheet" class="sheetOverlay" aria-hidden="true">
+  <button type="button" class="sheetBak" data-sheetclose aria-label="Fermer"></button>
+  <div class="sheetCard comCard" role="dialog" aria-modal="true" aria-labelledby="comTitle">
+    <header class="sheetHead">
+      <button type="button" class="sheetX" data-sheetclose aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      <h2 id="comTitle">Commentaires</h2>
+      <span></span>
+    </header>
+    <p id="comEx" class="comEx">Exemples</p>
+    <div id="comList" class="comList"></div>
+    <div id="comEmoji" class="comEmoji" hidden></div>
+    <form id="comFormBar" class="comFormBar" autocomplete="off">
+      <span class="comAv me" aria-hidden="true">LT</span>
+      <label class="sr-only" for="comText">Écrire un commentaire</label>
+      <input id="comText" type="text" placeholder="Écrire un commentaire…" maxlength="300">
+      <button type="button" id="comMood" class="comMoodBtn" aria-label="Humeur ou emoji">😊</button>
+      <button type="submit" id="comSendBtn" class="comSend" aria-label="Envoyer le commentaire"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-3-7z"></path></svg></button>
+    </form>
+  </div>
+</div>
+<div id="aideSheet" class="sheetOverlay" aria-hidden="true">
+  <button type="button" class="sheetBak" data-sheetclose aria-label="Fermer"></button>
+  <div class="sheetCard aideCard" role="dialog" aria-modal="true" aria-labelledby="aideTitle">
+    <header class="sheetHead">
+      <button type="button" class="sheetX" data-sheetclose aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      <h2 id="aideTitle">Demande d’aide</h2>
+      <span></span>
+    </header>
+    <div class="aideBody">
+      <p class="aideLab">Type d’aide</p>
+      <div id="aideTypes" class="aideChips" role="group" aria-label="Type d’aide"></div>
+      <p class="aideLab">Pour qui</p>
+      <div id="aideWho" class="aideChips" role="group" aria-label="Pour qui">
+        <button type="button" class="aideChip" data-awho="moi" aria-pressed="true">Moi</button>
+        <button type="button" class="aideChip" data-awho="proche" aria-pressed="false">Un proche</button>
+      </div>
+      <div id="aideWhoExtra" class="aideWhoExtra" hidden>
+        <label class="aideField">Prénom <input id="aidePrenom" type="text" maxlength="40" placeholder="Prénom" autocomplete="off"></label>
+        <label class="aideField">Âge <input id="aideAge" type="number" min="1" max="120" inputmode="numeric" placeholder="ans"></label>
+      </div>
+      <p class="aideLab">Urgence</p>
+      <div id="aideUrg" class="aideChips" role="group" aria-label="Urgence">
+        <button type="button" class="aideChip" data-aurg="Urgent" aria-pressed="false">Aujourd’hui</button>
+        <button type="button" class="aideChip" data-aurg="Cette semaine" aria-pressed="true">Cette semaine</button>
+        <button type="button" class="aideChip" data-aurg="Pas pressé" aria-pressed="false">Pas pressé</button>
+      </div>
+      <p class="aideLab">Quartier</p>
+      <button type="button" id="aideQBtn" class="aideQBtn" aria-label="Changer de quartier"><span class="quartierNom" id="aideQNom">Sainte-Foy</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+      <label class="aideLab" for="aideDesc">Description</label>
+      <textarea id="aideDesc" class="aideDesc" rows="3" maxlength="400" placeholder="Décrivez le besoin, en quelques mots…"></textarea>
+      <label class="aideLab" for="aideFreq">Fréquence <span class="aideOpt">(facultatif)</span></label>
+      <input id="aideFreq" class="aideIn" type="text" maxlength="80" placeholder="Ex. : les mardis matin, une fois par semaine…">
+      <div class="aideWhoBox">
+        <p class="aideLab">Qui peut répondre&nbsp;?</p>
+        <label class="whoOpt"><input type="radio" name="aideWhoCan" value="verif" checked><span><strong>Seulement des voisins aux antécédents vérifiés</strong> <span class="whoRec">recommandé</span><br><small>🛡️ Vérification officielle des antécédents judiciaires.</small></span></label>
+        <label class="whoOpt"><input type="radio" name="aideWhoCan" value="open"><span><strong>Accepter aussi des voisins non vérifiés</strong><br><small>Votre publication portera la mention « Non vérifiés acceptés ».</small></span></label>
+        <label id="aideAckLbl" class="whoAck" hidden><input type="checkbox" id="aideAck"><span>Je comprends que MaisonSereine n’a pas vérifié ces personnes et que le choix de l’aidant devient ma responsabilité.</span></label>
+      </div>
+    </div>
+    <div class="aideFoot">
+      <button type="button" id="aidePublier" class="aidePublier">Publier la demande</button>
+    </div>
+  </div>
+</div>
 <div id="plusSheet" class="sheetOverlay" aria-hidden="true">
   <button type="button" class="sheetBak" data-sheetclose aria-label="Fermer"></button>
   <div class="plusCard" role="dialog" aria-modal="true" aria-labelledby="plusSheetT">
     <h2 id="plusSheetT" class="plusSheetT">Que voulez-vous publier&nbsp;?</h2>
+    <button type="button" id="plusAide" class="plusAct plusFeat"><span class="plusActIco" aria-hidden="true">💚</span><span>Demande d’aide</span></button>
     <a href="#publier" id="plusNew" class="plusAct"><span class="plusActIco" aria-hidden="true">✏️</span><span>Nouvelle publication</span></a>
     <a href="#emploipub" id="plusJob" class="plusAct"><span class="plusActIco" aria-hidden="true">💼</span><span>Publier une offre d’emploi</span></a>
     <button type="button" class="plusCancel" data-sheetclose>Annuler</button>
@@ -1999,6 +2149,8 @@ document.addEventListener('click', function(e){
   if(qp){
     setQuartier(qp.getAttribute('data-q'));
     closeOverlays();
+    if(window.msAideRestore){ window.msAideRestore = false; if(window.msOpenAideSheet) window.msOpenAideSheet(); }
+    if(window.msRenderReq) window.msRenderReq();
     return;
   }
   if(e.target.closest('#filTel')){ openOverlay('resSheet', e.target.closest('#filTel')); return; }
@@ -2025,10 +2177,15 @@ document.addEventListener('click', function(e){
     closeOverlays();
     return;
   }
+  if(e.target.closest('#plusAide, #filAideBtn')){ closeOverlays(); if(window.msOpenAide) window.msOpenAide(); return; }
+  if(e.target.closest('#aideQBtn')){ window.msAideRestore = true; openQPick(e.target.closest('#aideQBtn')); return; }
+  var aex = e.target.closest('[data-aideex]');
+  if(aex){ if(window.msOpenAide) window.msOpenAide(aex.getAttribute('data-aideex')); return; }
   var a = e.target.closest('a[href^="#"]');
   if(!a) return;
   e.preventDefault();
   if(a.id === 'pubPublier') return; // handled below
+  if(a.id === 'enAsk' && window.msEnMode === 'care'){ if(window.msOpenAide) window.msOpenAide(); return; }
   if(a.getAttribute('aria-label') === 'Publier' && a.closest('nav')){ openOverlay('plusSheet', a); return; }
   var target = a.getAttribute('href').slice(1);
   if(a.hasAttribute('data-back')) return back(target);
@@ -2104,6 +2261,7 @@ function setQuartier(q){
   if(btn) btn.setAttribute('aria-label', 'Quartier ' + q + ', changer de quartier');
   try{ localStorage.setItem('ms_quartier', q); }catch(_){}
   if(typeof renderVis === 'function') try{ renderVis(); }catch(_){}
+  if(window.msRenderReq) try{ window.msRenderReq(); }catch(_){}
 }
 function renderQPick(){
   var box = document.getElementById('qPickList'); if(!box) return;
@@ -2148,7 +2306,8 @@ bindPosition();
 $$('#s-publier span').forEach(function(s){ if(s.textContent === 'Visible dans Sainte-Foy') s.setAttribute('data-visible',''); });
 
 /* ---------------- 2. fil : mercis, participe ---------------- */
-function bindLike(btn){
+function bindLike(btn){ window.bindLike = bindLike;
+  if(!btn) return;
   btn.addEventListener('click', function(){
     var svg = btn.querySelector('svg'), n = btn.querySelector('span span') || btn.querySelector('span');
     var liked = btn.getAttribute('data-liked') === '1';
@@ -2183,24 +2342,7 @@ pm.addEventListener('click', function(){
   $('#pubMerciN').textContent = (liked ? 25 : 24) + ' mercis';
   svg.classList.remove('heart-pop'); void svg.offsetWidth; svg.classList.add('heart-pop');
 });
-var nCom = 6;
 function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-function addComment(){
-  var inp = $('#commentaire'), t = inp.value.trim();
-  if(!t){ inp.focus(); inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake'); return; }
-  var div = document.createElement('div');
-  div.className = 'newpost'; div.style.cssText = 'display:flex;gap:12px';
-  div.innerHTML = '<span style="width:36px;height:36px;border-radius:18px;background:#E9E4D8;color:#3F4A45;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0">MO</span><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px"><strong>Moi</strong> <span style="color:#5B6661">· à l\u2019instant</span></span><span style="font-size:15px;line-height:1.4">' + esc(t) + '</span></div>';
-  $('#comments').appendChild(div);
-  nCom++;
-  $('#pubComN').textContent = nCom + ' commentaires';
-  var cc = $('#s-fil .ccount'); if(cc) cc.textContent = nCom;
-  inp.value = '';
-  div.scrollIntoView({behavior:'smooth', block:'end'});
-}
-$('#comSend').addEventListener('click', addComment);
-$('#commentaire').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); addComment(); } });
-
 /* ---------------- 4. nouvelle publication (composer) ---------------- */
 var picked = '🤝 Entraide', visIdx = 0;
 var photos = [], gif = null, poll = null;   // attachments
@@ -2530,13 +2672,14 @@ $('#pubPublier').addEventListener('click', function(e){
   var txt = t ? '<p style="margin:0;' + pad + 'font-size:14px;line-height:1.55">' + esc(t).replace(/\n/g,'<br>') + '</p>' : '';
   var gifH = gif ? '<div style="' + (media ? 'padding:0 16px 12px' : 'margin-bottom:10px') + '"><img src="' + gif.src + '" alt="GIF ' + esc(gif.t) + '" style="display:block;width:200px;height:200px;border-radius:12px;object-fit:cover"></div>' : '';
   var pollH = poll ? '<div style="' + (media ? 'padding:0 16px 12px' : 'margin-bottom:6px') + '">' + pollHTML(poll) + '</div>' : '';
-  var acts = '<div style="display:flex;align-items:center;' + (media ? 'padding:0 6px 4px' : 'margin-top:4px') + '"><button class="act like"' + (media ? '' : ' style="padding-left:0"') + '><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E2A27" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><span style="color:#1E2A27"><span>0</span></span></button></div>';
+  var acts = '<div style="display:flex;align-items:center;' + (media ? 'padding:0 6px 4px' : 'margin-top:4px') + '"><button class="act like"' + (media ? '' : ' style="padding-left:0"') + '><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E2A27" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><span style="color:#1E2A27"><span>0</span></span></button><button type="button" class="act comBtn" aria-label="Commentaires"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12z"></path></svg><span class="ccount"></span></button></div>';
   art.innerHTML = media ? head + careTag + img + acts + txt + gifH + pollH : head + careTag + txt + gifH + pollH + acts;
   var isFeat = window.msFeat && window.msFeat();
   if(isFeat){ art.setAttribute('data-feat', '1'); var mm = art.querySelector('span[style*="font-size:12px;color:#8A9490"]'); if(mm) mm.insertAdjacentHTML('afterend', '<span class="featBadge">⭐ En vedette</span>'); window.msFeatUse(); }
   var feed = $('#feed'); var hook = feed.querySelector('article, #filEmpty'); feed.insertBefore(art, hook || feed.firstElementChild);
   bindLike(art.querySelector('.like'));
   var pl = art.querySelector('.poll'); if(pl) bindPoll(pl);
+  if(window.msEnhancePost) window.msEnhancePost(art);
   stack = [];
   show('fil', {back:true});
   if(filType !== 'tout' && filType !== art.getAttribute('data-type')) setFil('tout'); else setFil(filType);
@@ -2763,7 +2906,7 @@ var CARE = [
   {who:'Germaine Tremblay', age:90, bio:'Elle rentre de l\u2019hôpital et aimerait une présence rassurante le temps de retrouver ses habitudes.', needs:['Présence'], freq:'Cette semaine, selon les moments', by:'Demandé par la famille Tremblay', txt:'cherche une présence pour leur grand-mère à son retour de l\u2019hôpital.', u:'Cette semaine', ico:'🏠', k:'Présence', m:1400, a:8, r:1},
   {who:'Roland Picard', age:76, bio:'Ancien chauffeur d\u2019autobus, il est un peu nerveux à l\u2019idée d\u2019y aller seul pour sa prise de sang.', needs:['Accompagnement rendez-vous'], freq:'Ponctuel · vendredi', by:'Demandé par Roland', txt:'aimerait être accompagné à la clinique pour sa prise de sang vendredi.', u:'Urgent', ico:'🩸', k:'Accompagnement', m:550, a:1, r:0}
 ];
-var URG = {'Urgent':['#FDE8E4','#A3321A'], 'Cette semaine':['#FBEFE4','#8A3F14'], 'Flexible':['#E3EDE7','#1E4539']};
+var URG = {'Urgent':['#FDE8E4','#A3321A'], 'Aujourd’hui':['#FDE8E4','#A3321A'], 'Cette semaine':['#FBEFE4','#8A3F14'], 'Flexible':['#E3EDE7','#1E4539'], 'Pas pressé':['#E3EDE7','#1E4539']};
 var DON_CATS = ['Tous','Vêtements','Meubles','Nourriture','Jouets','Autres'];
 var DONS = [
   {e:'🧥', t:'Manteau d\u2019hiver, taille M', s:'Très chaud, comme neuf', cat:'Vêtements', bg:'#E4EEF6', m:400, a:5, r:0},
@@ -2933,6 +3076,11 @@ function fairTags(x){
 var EN_PREVIEW = 4;
 var enMode = 'req';
 window.msEnMode = 'req';
+var careFilt = 'tous';
+CARE.forEach(function(r){ if(!r.q) r.q = 'Sainte-Foy'; });
+function currentQ(){ var n = document.querySelector('.quartierNom'); return (n && n.textContent.trim()) || 'Sainte-Foy'; }
+function urgLabel(u){ if(u === 'Urgent' || u === 'Aujourd’hui') return 'Urgent'; if(u === 'Cette semaine') return 'Cette semaine'; return 'Pas pressé'; }
+function urgBadge(u){ var lab = urgLabel(u), cls = lab === 'Urgent' ? 'urgent' : (lab === 'Cette semaine' ? 'week' : 'slow'); return '<span class="urgBadge ' + cls + '">' + (lab === 'Urgent' ? '🔴 Urgent' : lab) + '</span>'; }
 var TASK_BG = {'🛒':'#FBEFE4','❄️':'#E4EEF6','🔧':'#F3EDE3','🚗':'#E3EDE7','📦':'#F0E8FB','🧂':'#E4EEF6','🪑':'#F3EDE3','✉️':'#FFF4D6','🪟':'#E4EEF6','💧':'#E4EEF6','📱':'#F0E8FB','🐕':'#FBEFE4','🍂':'#F3EDE3','💊':'#FDE8E4','🔥':'#FDE8E4','🚙':'#E4EEF6','🖼️':'#F0E8FB','📚':'#E3EDE7'};
 var AV_BG = ['#E3EDE7','#FBEFE4','#E4EEF6','#F0E8FB','#FFF4D6','#FDE8E4','#F3EDE3'];
 function firstName(who){
@@ -2978,7 +3126,9 @@ function careCard(r){
   var needs = (r.needs && r.needs.length) ? r.needs : (r.k ? [r.k] : []);
   var age = r.age ? (', ' + r.age + ' ans') : '';
   var chips = needs.map(function(n){ return '<span class="reqKind">' + esc(n) + '</span>'; }).join('');
-  return '<div class="qCard req care human' + (r.open ? ' open' : '') + (!done && r.r === 0 ? ' noResp' : '') + (done ? ' done' : '') + (taken ? ' taken' : '') + '"><div class="humTop"><span class="humAv" style="background:' + AV_BG[(idx >= 0 ? idx : 0) % AV_BG.length] + '" aria-hidden="true">' + esc(initials(r.who)) + '</span><div class="humId"><strong class="humName">' + esc(firstName(r.who)) + age + '</strong>' + (done ? '<span class="doneTag">✓ Comblée</span>' : (r.u === 'Urgent' ? '<span class="urg" style="background:' + u[0] + ';color:' + u[1] + '">' + r.u + '</span>' : '')) + '</div></div>' +
+  var qn = r.q || currentQ();
+  return '<div class="qCard req care human' + (r.open ? ' open' : '') + (!done && r.r === 0 ? ' noResp' : '') + (done ? ' done' : '') + (taken ? ' taken' : '') + '"><div class="humTop"><span class="humAv" style="background:' + AV_BG[(idx >= 0 ? idx : 0) % AV_BG.length] + '" aria-hidden="true">' + esc(initials(r.who)) + '</span><div class="humId"><strong class="humName">' + esc(firstName(r.who)) + age + '</strong>' + (done ? '<span class="doneTag">✓ Comblée</span>' : '') + '</div></div>' +
+    '<div class="humMeta"><span class="humQ">📍 ' + esc(qn) + '</span>' + (done ? '' : urgBadge(r.u)) + '</div>' +
     (r.bio ? '<p class="humBio">' + esc(r.bio) + '</p>' : '') +
     (chips ? '<div class="reqTags humNeeds">' + chips + '</div>' : '') +
     (r.freq ? '<div class="humFreq">📅 ' + esc(r.freq) + '</div>' : '') +
@@ -2993,8 +3143,15 @@ function pinMine(prev, all, n){
   if(!mine.length) return prev;
   return mine.concat(prev.filter(function(x){ return !x._me; })).slice(0, n);
 }
+function careListHit(r){
+  if(!careHit(r)) return false;
+  var q = currentQ();
+  if(r.q && q && r.q !== q) return false;
+  if(careFilt === 'urgent' && urgLabel(r.u) !== 'Urgent') return false;
+  return true;
+}
 function renderReq(){
-  var simple = REQS.filter(reqHit), care = CARE.filter(careHit);
+  var simple = REQS.filter(reqHit), care = CARE.filter(careListHit);
   var sa = simple.filter(function(x){ return !isDone(x); }), ca = care.filter(function(x){ return !isDone(x); });
   var prevR = pinMine(preview(simple, EN_PREVIEW), sa, EN_PREVIEW);
   var prevC = pinMine(preview(care, EN_PREVIEW, true), ca, EN_PREVIEW);
@@ -3212,6 +3369,18 @@ function init(){
     renderCal(); renderReq();
   };
 }
+window.msAddCare = function(r){ if(!r.q) r.q = currentQ(); CARE.unshift(r); renderReq(); };
+window.msRenderReq = renderReq;
+window.msSetEnMode = setEnMode;
+window.msEnter_entraide = function(opts){ if(!opts || !opts.back) setEnMode('req'); };
+window.msCurrentQ = currentQ;
+var aideFilt = document.getElementById('aideFilt');
+if(aideFilt) aideFilt.addEventListener('click', function(e){
+  var b = e.target.closest('[data-af]'); if(!b) return;
+  careFilt = b.getAttribute('data-af');
+  $$('#aideFilt button').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+  renderReq();
+});
 init();
 })();
 
@@ -3583,6 +3752,492 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
   if(btn) btn.addEventListener('click', function(){ save(ITEMS.map(function(it){ return it.id; })); render(); });
   render();
 })();
+
+
+/* ---------------- comments Facebook + demande d'aide ---------------- */
+(function(){
+  var ICO_COM = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12z"></path></svg>';
+  var EMOJIS = ['😊','❤️','👍','🙏','👏','😂','😍','🙌','🌸','☕'];
+  var ME = {name:'Lucie Tremblay', ini:'LT', bg:'#2B5F4F', fg:'#FFFFFF', verif:true};
+  var PPL = {
+    'Lucie Tremblay': ME,
+    'Gilles Bouchard': {ini:'GB', bg:'#F0D9C4', fg:'#6B3312', verif:false},
+    'Amina Diallo': {ini:'AD', bg:'#D5E3DB', fg:'#1E4539', verif:false},
+    'Denise Paquet': {ini:'DP', bg:'#E4EEF6', fg:'#2F5F8A', verif:false},
+    'Pierre Lachance': {ini:'PL', bg:'#F3EDE3', fg:'#5C3A00', verif:false},
+    'Huguette Lavoie': {ini:'HL', bg:'#F0E8FB', fg:'#6B3A82', verif:false},
+    'Famille Roy': {ini:'FR', bg:'#FBEFE4', fg:'#8A3F14', verif:false},
+    'Sophie Girard': {ini:'SG', bg:'#E3EDE7', fg:'#1E4539', verif:true},
+    'Marc Villeneuve': {ini:'MV', bg:'#E4EEF6', fg:'#2F5F8A', verif:false},
+    'Céline Fortin': {ini:'CF', bg:'#FFF4D6', fg:'#5C3A00', verif:false},
+    'Bernard Nadeau': {ini:'BN', bg:'#FDE8E4', fg:'#8A3F14', verif:false},
+    'Moi': {ini:'MO', bg:'#E9E4D8', fg:'#3F4A45', verif:false}
+  };
+  function whoOf(n){ return PPL[n] || {ini:(n||'?').slice(0,2).toUpperCase(), bg:'#E9E5DB', fg:'#1E2A27', verif:false}; }
+  function av(n, cls){ var p = whoOf(n); return '<span class="cmAv ' + (cls||'') + '" style="background:' + p.bg + ';color:' + p.fg + '" aria-hidden="true">' + p.ini + '</span>'; }
+  function cid(){ return 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+  function C(name, text, time, likes, replies){
+    var o = {id:cid(), name:name, text:text, time:time, likes:likes||0, liked:false, exemple:true, replies:replies||[]};
+    return o;
+  }
+  function R(name, text, time, likes){ var o = C(name, text, time, likes); o.exemple = true; return o; }
+
+  var COMM_SEED = {
+    lucie: [
+      C('Gilles Bouchard', 'Bravo à madame Gagnon ! Ma mère aimerait venir jeudi.', 'il y a 1 h', 4, [
+        R('Lucie Tremblay', 'Avec plaisir Gilles, je lui garde une place.', 'il y a 50 min')
+      ]),
+      C('Amina Diallo', 'Quelle belle idée. J’apporte de la laine la prochaine fois.', 'il y a 20 min', 2),
+      C('Huguette Lavoie', 'Ça me tente. Il reste de la place pour une débutante ?', 'il y a 15 min'),
+      C('Denise Paquet', 'Le foulard est magnifique, félicitations !', 'il y a 10 min'),
+      C('Pierre Lachance', 'Belle ambiance au centre, merci Lucie de l’organiser.', 'il y a 5 min')
+    ],
+    gilles: [
+      C('Lucie Tremblay', 'Je peux les mardis, vers 9 h. Je vous écris.', 'il y a 3 h', 2),
+      C('Amina Diallo', 'Belle idée, ça va lui faire du bien de marcher.', 'il y a 2 h'),
+      C('Denise Paquet', 'Si vous avez encore besoin d’un jeudi, dites-le-moi.', 'il y a 1 h')
+    ],
+    famille: [
+      C('Huguette Lavoie', 'Quel beau manteau. Je le réserve pour mon petit-fils !', 'il y a 1 j'),
+      C('Amina Diallo', 'Trop tard ? Sinon je connais une famille qui chercherait ça.', 'il y a 5 h')
+    ],
+    denise: [
+      C('Pierre Lachance', 'Je passe demain vers 8 h avec ma pelle, ça vous va ?', 'il y a 8 h', 3),
+      C('Lucie Tremblay', 'Si Pierre a besoin d’un coup de main, je peux venir aussi.', 'il y a 6 h')
+    ],
+    maison: [
+      C('Lucie Tremblay', 'On y sera avec les voisins de la rue !', 'il y a 6 h', 5),
+      C('Gilles Bouchard', 'Y aura-t-il un kiosque de jeux pour les enfants ?', 'il y a 4 h'),
+      C('Amina Diallo', 'J’apporte des biscuits à partager.', 'il y a 3 h'),
+      C('Pierre Lachance', 'Super initiative, on compte y passer l’après-midi.', 'il y a 1 h')
+    ],
+    amina: [
+      C('Famille Roy', 'Nous sommes intéressés, je vous écris.', 'il y a 12 h'),
+      C('Denise Paquet', 'Belle poussette, ça va faire un heureux.', 'il y a 4 h')
+    ],
+    pierre: [
+      C('Lucie Tremblay', 'J’ai entendu dire juillet — mais rien d’officiel de la ville.', 'il y a 1 j', 3),
+      C('Gilles Bouchard', 'Ils ont commencé les travaux près du rond-point, ça avance doucement.', 'il y a 1 j'),
+      C('Denise Paquet', 'Tant mieux si c’est prêt pour les vacances.', 'il y a 22 h'),
+      C('Amina Diallo', 'Je vais poser la question sur le compte de la ville !', 'il y a 20 h', 2),
+      C('Huguette Lavoie', 'Attention aux déviations, c’était mêlant hier matin.', 'il y a 18 h'),
+      C('Marc Villeneuve', 'La piste va relier jusqu’au campus, ce sera bien pratique.', 'il y a 12 h'),
+      C('Sophie Girard', 'Merci de poser la question, je me la posais aussi.', 'il y a 8 h', 0, [
+        R('Pierre Lachance', 'Je vous tiens au courant si j’ai une réponse.', 'il y a 6 h')
+      ])
+    ],
+    huguette: [
+      C('Lucie Tremblay', 'Celui près de la place Sainte-Foy est très minutieux !', 'il y a 1 j', 2),
+      C('Amina Diallo', 'Je vous donne son numéro en message 🙂', 'il y a 20 h', 1)
+    ]
+  };
+
+  var AUTHOR_PID = {
+    'Lucie Tremblay':'lucie', 'Gilles Bouchard':'gilles', 'Famille Roy':'famille',
+    'Denise Paquet':'denise', 'Maison comm. SFO':'maison', 'Amina Diallo':'amina',
+    'Pierre Lachance':'pierre', 'Huguette Lavoie':'huguette'
+  };
+
+  var comms = {};
+  Object.keys(COMM_SEED).forEach(function(k){ comms[k] = COMM_SEED[k]; });
+  try{
+    var saved = JSON.parse(localStorage.getItem('ms_comments') || 'null');
+    if(saved && saved.v === 1 && saved.data){
+      Object.keys(saved.data).forEach(function(k){ comms[k] = saved.data[k]; });
+    }
+  }catch(_){}
+  function saveComms(){ try{ localStorage.setItem('ms_comments', JSON.stringify({v:1, data:comms})); }catch(_){} }
+
+  function walk(list, fn){ (list||[]).forEach(function(c){ fn(c); (c.replies||[]).forEach(fn); }); }
+  function countOf(pid){ var n = 0; walk(comms[pid]||[], function(){ n++; }); return n; }
+  function lastOf(pid){
+    var last = null;
+    (comms[pid]||[]).forEach(function(c){
+      last = c;
+      (c.replies||[]).forEach(function(r){ last = r; });
+    });
+    return last;
+  }
+  function findCom(pid, id){
+    var list = comms[pid] || [], i, c;
+    for(i = 0; i < list.length; i++){
+      c = list[i]; if(c.id === id) return c;
+      if(c.replies){ var r = c.replies.filter(function(x){ return x.id === id; })[0]; if(r) return r; }
+    }
+    return null;
+  }
+
+  function postAuthor(art){
+    var who = art.querySelector('.postWho strong, .helpId strong');
+    if(who) return who.textContent.trim();
+    var spans = art.querySelectorAll('span');
+    for(var i = 0; i < spans.length; i++){
+      var st = spans[i].getAttribute('style') || '', t = spans[i].textContent.trim();
+      if((st.indexOf('font-weight: 700') >= 0 || st.indexOf('font-weight:700') >= 0) && t && t.length < 40 && t.indexOf('·') < 0) return t;
+    }
+    var s = art.querySelector('strong'); return s ? s.textContent.trim() : '';
+  }
+  function ensurePid(art){
+    var id = art.getAttribute('data-pid');
+    if(id) return id;
+    var name = postAuthor(art);
+    id = AUTHOR_PID[name] || ('p-' + Math.random().toString(36).slice(2, 8));
+    art.setAttribute('data-pid', id);
+    if(!comms[id]) comms[id] = [];
+    return id;
+  }
+
+  function stripLegacy(art){
+    $$('span', art).forEach(function(sp){
+      var st = sp.getAttribute('style') || '';
+      if(st.indexOf('width: 28px') < 0 && st.indexOf('width:28px') < 0) return;
+      if(sp.closest('.comPrev, .cmRow, .helpCard')) return;
+      var row = sp.parentElement, stack = row && row.parentElement;
+      if(stack && stack !== art && stack.parentElement) stack.parentElement.removeChild(stack);
+    });
+  }
+
+  function isComAct(el){
+    if(!el || el.classList.contains('like')) return false;
+    if(el.classList.contains('comBtn')) return true;
+    if((el.getAttribute('href') || '') === '#publication' && el.classList.contains('act')) return true;
+    if(el.classList.contains('act') && el.tagName === 'BUTTON' && /M20 12a8/.test(el.innerHTML)) return true;
+    return false;
+  }
+
+  function ensureComBtn(art){
+    var acts = art.querySelectorAll('a.act, button.act, .act');
+    var btn = null;
+    for(var i = 0; i < acts.length; i++){ if(isComAct(acts[i])){ btn = acts[i]; break; } }
+    if(btn && !btn.classList.contains('comBtn')){
+      var nb = document.createElement('button');
+      nb.type = 'button';
+      nb.className = 'act comBtn';
+      nb.setAttribute('aria-label', 'Commentaires');
+      nb.innerHTML = ICO_COM + '<span class="ccount"></span>';
+      btn.parentNode.replaceChild(nb, btn);
+      btn = nb;
+    }
+    if(!btn){
+      var row = document.createElement('div');
+      row.className = 'comActs';
+      row.style.cssText = 'display:flex;align-items:center;margin-top:6px';
+      row.innerHTML = '<button type="button" class="act comBtn" aria-label="Commentaires" style="padding-left:0">' + ICO_COM + '<span class="ccount"></span></button>';
+      art.appendChild(row);
+      btn = row.querySelector('.comBtn');
+    }
+    return btn;
+  }
+
+  function renderPreview(art){
+    var pid = ensurePid(art), n = countOf(pid), last = lastOf(pid);
+    var old = art.querySelector('.comPrev'); if(old) old.remove();
+    var btn = art.querySelector('.comBtn .ccount, .comBtn');
+    var cc = art.querySelector('.comBtn .ccount');
+    if(cc) cc.textContent = n ? String(n) : '';
+    if(btn && btn.closest) { var b = art.querySelector('.comBtn'); if(b) b.setAttribute('aria-label', n ? (n + ' commentaire' + (n > 1 ? 's' : '')) : 'Commenter'); }
+    if(!n || !last) return;
+    var prev = document.createElement('div');
+    prev.className = 'comPrev';
+    var label = n === 1 ? 'Voir le commentaire' : ('Voir les ' + n + ' commentaires');
+    prev.innerHTML = '<button type="button" class="comPrevAll">' + label + '</button>' +
+      '<div class="comPrevOne" role="button" tabindex="0">' + av(last.name) +
+      '<div class="cmBubble"><span class="cmName">' + esc(last.name) + (whoOf(last.name).verif ? '<span class="cmVerif">✓</span>' : '') + '</span><span class="cmTxt">' + esc(last.text) + '</span></div></div>';
+    art.appendChild(prev);
+  }
+
+  function enhancePost(art){
+    if(!art || art.hasAttribute('data-com-ready') && art.querySelector('.comBtn') && art.querySelector('.comPrev, .comBtn .ccount')){
+      // still refresh counts if already ready
+    }
+    stripLegacy(art);
+    ensurePid(art);
+    ensureComBtn(art);
+    renderPreview(art);
+    art.setAttribute('data-com-ready', '1');
+  }
+  function enhanceAll(){ $$('#feed article').forEach(enhancePost); }
+
+  var openPid = null, replyTo = null;
+  function bubbleHTML(c){
+    var p = whoOf(c.name);
+    var like = c.likes ? '<span class="cmLikes" aria-label="' + c.likes + ' j’aime">❤️ ' + c.likes + '</span>' : '';
+    return av(c.name) + '<div class="cmBody"><div class="cmBubble"><span class="cmName">' + esc(c.name) + (p.verif ? '<span class="cmVerif">✓</span>' : '') + '</span><span class="cmTxt">' + esc(c.text) + '</span>' + like + '</div>' +
+      '<div class="cmMeta"><span>' + esc(c.time) + '</span><button type="button" class="cmLike' + (c.liked ? ' on' : '') + '" data-like="' + c.id + '">J’aime</button><button type="button" class="cmReplyBtn" data-reply="' + c.id + '" data-rname="' + esc(c.name) + '">Répondre</button></div></div>';
+  }
+  function renderSheet(){
+    var pid = openPid, list = comms[pid] || [], box = $('#comList'); if(!box) return;
+    var html = '', n = countOf(pid), hasEx = false;
+    walk(list, function(c){ if(c.exemple) hasEx = true; });
+    var ex = $('#comEx'); if(ex) ex.hidden = !hasEx;
+    var t = $('#comTitle'); if(t) t.textContent = n ? ('Commentaires · ' + n) : 'Commentaires';
+    list.forEach(function(c){
+      html += '<div class="cmRow">' + bubbleHTML(c) + '</div>';
+      (c.replies || []).forEach(function(r){ html += '<div class="cmRow cmReply">' + bubbleHTML(r) + '</div>'; });
+    });
+    if(!list.length) html = '<p class="comEx" style="text-transform:none;font-weight:500;padding:20px 8px">Soyez la première personne à commenter.</p>';
+    box.innerHTML = html;
+  }
+  function openCom(art, trigger){
+    openPid = ensurePid(art);
+    replyTo = null;
+    var inp = $('#comText'); if(inp){ inp.value = ''; inp.placeholder = 'Écrire un commentaire…'; }
+    var emo = $('#comEmoji'); if(emo) emo.hidden = true;
+    renderSheet();
+    openOverlay('comSheet', trigger || null);
+    setTimeout(function(){ var i = $('#comText'); if(i) i.focus(); }, 80);
+  }
+  function addUserComment(text, pid, parentId){
+    pid = pid || openPid; if(!pid || !text) return;
+    if(!comms[pid]) comms[pid] = [];
+    var c = {id:cid(), name:ME.name, text:text, time:'à l’instant', likes:0, liked:false, exemple:false, replies:[]};
+    if(parentId){
+      var p = findCom(pid, parentId);
+      if(p){ if(!p.replies) p.replies = []; p.replies.push(c); }
+      else comms[pid].push(c);
+    } else comms[pid].push(c);
+    saveComms();
+    $$('#feed article[data-pid="' + pid + '"]').forEach(renderPreview);
+    if(pid === 'lucie') syncPubPage();
+    if(openPid === pid) renderSheet();
+    return c;
+  }
+
+  function syncPubPage(){
+    var box = $('#comments'), n = countOf('lucie');
+    var nEl = $('#pubComN'); if(nEl) nEl.textContent = n + ' commentaire' + (n > 1 ? 's' : '');
+    if(!box) return;
+    box.innerHTML = (comms.lucie || []).map(function(c){
+      var rows = [c].concat(c.replies || []);
+      return rows.map(function(x){
+        return '<div style="display:flex;gap:12px;margin-bottom:8px">' + av(x.name) + '<div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px"><strong>' + esc(x.name) + '</strong> <span style="color:#5B6661">· ' + esc(x.time) + '</span></span><span style="font-size:15px;line-height:1.4">' + esc(x.text) + '</span></div></div>';
+      }).join('');
+    }).join('');
+  }
+
+  document.addEventListener('click', function(e){
+    var art = e.target.closest('#feed article');
+    if(art && (e.target.closest('.comBtn, .comPrevAll, .comPrevOne, .comPrev'))){
+      e.preventDefault(); e.stopPropagation();
+      openCom(art, e.target.closest('button, [role="button"], a, .comPrevOne'));
+      return;
+    }
+    if(art && e.target.closest('a.act[href="#publication"]')){
+      e.preventDefault(); e.stopPropagation();
+      openCom(art, e.target.closest('a'));
+      return;
+    }
+    var like = e.target.closest('#comSheet [data-like]');
+    if(like){
+      var c = findCom(openPid, like.getAttribute('data-like'));
+      if(c){ c.liked = !c.liked; c.likes += c.liked ? 1 : -1; if(c.likes < 0) c.likes = 0; saveComms(); renderSheet(); }
+      return;
+    }
+    var rp = e.target.closest('#comSheet .cmReplyBtn, #comSheet [data-reply]');
+    if(rp){
+      replyTo = rp.getAttribute('data-reply');
+      var inp = $('#comText');
+      if(inp){ inp.placeholder = 'Réponse à ' + (rp.getAttribute('data-rname') || '') + '…'; inp.focus(); }
+      return;
+    }
+    if(e.target.closest('#comMood')){
+      var box = $('#comEmoji');
+      if(box){
+        if(box.hidden){ box.hidden = false; box.innerHTML = EMOJIS.map(function(em){ return '<button type="button" data-emo="' + em + '">' + em + '</button>'; }).join(''); }
+        else box.hidden = true;
+      }
+      return;
+    }
+    var em = e.target.closest('#comEmoji [data-emo]');
+    if(em){
+      var inp = $('#comText'); if(inp){ inp.value += (inp.value ? ' ' : '') + em.getAttribute('data-emo'); inp.focus(); }
+      return;
+    }
+  }, true);
+
+  var form = $('#comFormBar');
+  if(form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var inp = $('#comText'), t = (inp && inp.value || '').trim();
+    if(!t){ if(inp){ inp.focus(); } return; }
+    addUserComment(t, openPid, replyTo);
+    replyTo = null;
+    if(inp){ inp.value = ''; inp.placeholder = 'Écrire un commentaire…'; }
+    var emo = $('#comEmoji'); if(emo) emo.hidden = true;
+    var list = $('#comList'); if(list) list.scrollTop = list.scrollHeight;
+  });
+
+  // publication page legacy field
+  var oldAdd = window.addComment;
+  function addCommentFromPub(){
+    var inp = $('#commentaire'), t = inp && inp.value.trim();
+    if(!t){ if(inp){ inp.focus(); inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake'); } return; }
+    addUserComment(t, 'lucie');
+    inp.value = '';
+    var last = $('#comments') && $('#comments').lastElementChild; if(last && last.scrollIntoView) last.scrollIntoView({behavior:'smooth', block:'end'});
+  }
+  if($('#comSend')){ $('#comSend').addEventListener('click', addCommentFromPub); }
+  if($('#commentaire')){ $('#commentaire').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); addCommentFromPub(); } }); }
+  // if hash publication, sync
+  var prevEnter = window.msEnter_publication;
+  window.msEnter_publication = function(opts){ syncPubPage(); if(prevEnter) prevEnter(opts); };
+
+  enhanceAll();
+  syncPubPage();
+  window.msEnhancePost = enhancePost;
+  window.msOpenCom = openCom;
+
+  /* ---- Demande d'aide form ---- */
+  var AIDE_TYPES = [
+    ['Visite d’amitié','☕'],
+    ['Courses','🛒'],
+    ['Repas','🍲'],
+    ['Transport/rendez-vous','🩺'],
+    ['Appel de bienveillance','📞'],
+    ['Autre','💚']
+  ];
+  var AIDE_EX = {
+    surveiller: {type:'Visite d’amitié', who:'proche', desc:'Ma maman a besoin qu’on vienne la surveiller.'},
+    compagnie: {type:'Visite d’amitié', who:'proche', desc:'Venir lui tenir compagnie.'},
+    rdv: {type:'Transport/rendez-vous', who:'proche', desc:'L’accompagner à un rendez-vous médical.'},
+    courses: {type:'Courses', who:'proche', desc:'Faire ses courses.'},
+    own: {}
+  };
+  var aideType = 'Visite d’amitié', aideWho = 'moi', aideUrg = 'Cette semaine';
+
+  function renderAideTypes(){
+    var box = $('#aideTypes'); if(!box) return;
+    box.innerHTML = AIDE_TYPES.map(function(t){
+      return '<button type="button" class="aideChip" data-atype="' + t[0] + '" aria-pressed="' + (t[0] === aideType ? 'true' : 'false') + '">' + t[1] + ' ' + t[0] + '</button>';
+    }).join('');
+  }
+  function setPressed(sel, key, val, attr){
+    $$(sel).forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute(attr) === val ? 'true' : 'false'); });
+  }
+  function resetAide(ex){
+    ex = ex || {};
+    aideType = ex.type || 'Visite d’amitié';
+    aideWho = ex.who || 'moi';
+    aideUrg = ex.urg || 'Cette semaine';
+    renderAideTypes();
+    setPressed('#aideWho .aideChip', 'who', aideWho, 'data-awho');
+    setPressed('#aideUrg .aideChip', 'urg', aideUrg, 'data-aurg');
+    var extra = $('#aideWhoExtra'); if(extra) extra.hidden = aideWho !== 'proche';
+    var prenom = $('#aidePrenom'), age = $('#aideAge'), desc = $('#aideDesc'), freq = $('#aideFreq');
+    if(prenom) prenom.value = ex.prenom || '';
+    if(age) age.value = ex.age || '';
+    if(desc) desc.value = ex.desc || '';
+    if(freq) freq.value = ex.freq || '';
+    var v = $('#aideSheet input[name="aideWhoCan"][value="verif"]'); if(v) v.checked = true;
+    var ack = $('#aideAck'), al = $('#aideAckLbl');
+    if(ack) ack.checked = false;
+    if(al){ al.hidden = true; al.classList.remove('need'); }
+    var qn = $('#aideQNom'); if(qn && !qn.textContent.trim()) qn.textContent = (window.msCurrentQ && window.msCurrentQ()) || 'Sainte-Foy';
+  }
+  function openAideSheet(){ openOverlay('aideSheet'); }
+  function openAide(exKey){
+    closeOverlays();
+    resetAide(typeof exKey === 'string' ? (AIDE_EX[exKey] || {}) : (exKey || {}));
+    openAideSheet();
+    setTimeout(function(){ var d = $('#aideDesc'); if(d && !(d.value)) d.focus(); }, 80);
+  }
+  window.msOpenAide = openAide;
+  window.msOpenAideSheet = openAideSheet;
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('#aideTypes [data-atype]');
+    if(t){ aideType = t.getAttribute('data-atype'); renderAideTypes(); return; }
+    var w = e.target.closest('#aideWho [data-awho]');
+    if(w){ aideWho = w.getAttribute('data-awho'); setPressed('#aideWho .aideChip', 'who', aideWho, 'data-awho'); var ex = $('#aideWhoExtra'); if(ex) ex.hidden = aideWho !== 'proche'; return; }
+    var u = e.target.closest('#aideUrg [data-aurg]');
+    if(u){ aideUrg = u.getAttribute('data-aurg'); setPressed('#aideUrg .aideChip', 'urg', aideUrg, 'data-aurg'); return; }
+  });
+  $$('#aideSheet input[name="aideWhoCan"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      var open = r.value === 'open' && r.checked;
+      var al = $('#aideAckLbl'); if(al) al.hidden = !($('#aideSheet input[name="aideWhoCan"]:checked') || {}).value || ($('#aideSheet input[name="aideWhoCan"]:checked').value !== 'open');
+      if(!open && $('#aideAck')) $('#aideAck').checked = false;
+    });
+  });
+
+  function typeIco(t){
+    for(var i = 0; i < AIDE_TYPES.length; i++) if(AIDE_TYPES[i][0] === t) return AIDE_TYPES[i][1];
+    return '💚';
+  }
+  function helpCardHTML(r, pid){
+    var qn = r.q || 'Sainte-Foy';
+    var who = r.byName || 'Lucie Tremblay';
+    var p = whoOf(who);
+    var open = !!r.open;
+    var tag = open ? '<span class="openTag">⚠️ Non vérifiés acceptés · responsabilité de la famille</span>' : '<span class="bgTag">🛡️ Antécédents vérifiés requis</span>';
+    var age = r.age ? (', ' + r.age + ' ans') : '';
+    return '<div class="helpTop">' + av(who) + '<div class="helpId"><strong>' + esc(firstNameSafe(who)) + age + '</strong><small>à l’instant · ' + esc(qn) + '</small></div></div>' +
+      '<div class="helpChips"><span class="helpChip">' + typeIco(r.k || r.needs[0]) + ' ' + esc(r.k || r.needs[0]) + '</span>' + urgBadgeSafe(r.u) + '<span class="humQ">📍 ' + esc(qn) + '</span></div>' +
+      (r.bio ? '<p class="helpTxt">' + esc(r.bio) + '</p>' : '') +
+      (r.freq ? '<div class="humFreq">📅 ' + esc(r.freq) + '</div>' : '') +
+      (r.by ? '<div class="humBy">' + esc(r.by) + '</div>' : '') +
+      '<div class="reqTags">' + tag + '</div>' +
+      '<a href="#messages" class="helpOffer careBtn">Proposer ma présence</a>' +
+      '<div style="display:flex;align-items:center;margin-top:4px"><button type="button" class="act like" style="padding-left:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E2A27" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><span style="color:#1E2A27"><span>0</span></span></button><button type="button" class="act comBtn" aria-label="Commentaires">' + ICO_COM + '<span class="ccount">0</span></button></div>';
+  }
+  function firstNameSafe(who){
+    if(!who) return '';
+    if(/^Famille /.test(who)) return who;
+    return who.split(/\s+/)[0];
+  }
+  function urgBadgeSafe(u){
+    if(typeof urgBadge === 'function') return urgBadge(u);
+    var lab = (u === 'Urgent' || u === 'Aujourd’hui') ? 'Urgent' : (u === 'Cette semaine' ? 'Cette semaine' : 'Pas pressé');
+    var cls = lab === 'Urgent' ? 'urgent' : (lab === 'Cette semaine' ? 'week' : 'slow');
+    return '<span class="urgBadge ' + cls + '">' + (lab === 'Urgent' ? '🔴 Urgent' : lab) + '</span>';
+  }
+
+  function publishAide(){
+    var desc = ($('#aideDesc') && $('#aideDesc').value || '').trim();
+    if(!desc){ var d = $('#aideDesc'); if(d){ d.focus(); d.classList.remove('shake'); void d.offsetWidth; d.classList.add('shake'); } return; }
+    var whoCan = (($('#aideSheet input[name="aideWhoCan"]:checked') || {}).value) || 'verif';
+    if(whoCan === 'open' && !($('#aideAck') && $('#aideAck').checked)){
+      var al = $('#aideAckLbl'); if(al){ al.hidden = false; al.classList.add('need'); al.scrollIntoView({block:'center'}); }
+      return;
+    }
+    var qn = (window.msCurrentQ && window.msCurrentQ()) || 'Sainte-Foy';
+    var prenom = ($('#aidePrenom') && $('#aidePrenom').value || '').trim();
+    var age = parseInt($('#aideAge') && $('#aideAge').value, 10) || '';
+    var freq = ($('#aideFreq') && $('#aideFreq').value || '').trim();
+    var whoName = (aideWho === 'proche' && prenom) ? prenom : 'Lucie Tremblay';
+    var by = aideWho === 'proche'
+      ? ('Demandé par Lucie' + (prenom ? (' pour ' + prenom) : ' pour un proche'))
+      : 'Demandé par Lucie';
+    var r = {
+      who: whoName, age: age || undefined, bio: desc, txt: desc,
+      needs: [aideType], k: aideType, freq: freq, by: by,
+      u: aideUrg, ico: typeIco(aideType), q: qn, open: whoCan === 'open',
+      m: 0, a: 0, r: 0, _mine: true, byName: whoName
+    };
+    if(window.msAddCare) window.msAddCare(r);
+    var pid = 'aide-' + Date.now().toString(36);
+    comms[pid] = []; saveComms();
+    var art = document.createElement('article');
+    art.className = 'newpost helpCard';
+    art.setAttribute('data-type', 'entraide');
+    art.setAttribute('data-sub', 'personne');
+    art.setAttribute('data-pid', pid);
+    if(whoCan === 'open') art.setAttribute('data-open', '1');
+    art.innerHTML = helpCardHTML(r, pid);
+    var feed = $('#feed');
+    if(feed){ var hook = feed.querySelector('article, #filEmpty'); feed.insertBefore(art, hook || feed.firstElementChild); }
+    if(window.bindLike && art.querySelector('.like')) window.bindLike(art.querySelector('.like'));
+    else if(typeof bindLike === 'function' && art.querySelector('.like')) bindLike(art.querySelector('.like'));
+    enhancePost(art);
+    closeOverlays();
+    if(window.msFilShowChrome) window.msFilShowChrome();
+    show('fil', {back:true});
+    if(feed) feed.scrollTo({top:0});
+  }
+  var pubBtn = $('#aidePublier');
+  if(pubBtn) pubBtn.addEventListener('click', publishAide);
+})();
+
 
 /* ---------------- boot ---------------- */
 try{ var q0 = localStorage.getItem('ms_quartier'); if(q0) setQuartier(q0); }catch(_){}
