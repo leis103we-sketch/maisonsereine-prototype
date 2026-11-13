@@ -107,7 +107,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ms-build" content="20261112214623">
+<meta name="ms-build" content="20261112215743">
 <meta name="theme-color" content="#F8F6F0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -413,6 +413,68 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 #s-verif .vFoot{flex-shrink:0;padding:10px 20px 16px;border-top:1px solid #E4DFD3;background:#FFFFFF}
 #s-verif .vNext{width:100%;min-height:52px;border:none;border-radius:26px;background:#2B5F4F;color:#FFFFFF;font-size:16px;font-weight:700;cursor:pointer}
 #s-verif .vNext:disabled{background:#E4E1DA;color:#8A9490;cursor:default}
+/* niveaux de vérification */
+.lvl{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:9px;font-size:11.5px;font-weight:700;white-space:nowrap}
+.lvl1{background:#E3EDE7;color:#1E4539}
+.lvl2{background:#E8EEF8;color:#24476E}
+#s-quartier .proBadges{display:flex;flex-direction:column;align-items:center;gap:4px}
+#s-quartier .qLvlRows{display:flex;flex-direction:column;gap:10px;padding-bottom:4px;border-bottom:1px solid #EFEBE1}
+#s-quartier .qLvlRow{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+#s-quartier .qLvlD{font-size:13px;line-height:1.4;color:#3F4A45}
+#s-quartier .optTag{font-size:11px;font-weight:700;color:#5B6661;background:#F3F0EA;border-radius:8px;padding:1px 7px;vertical-align:1px}
+#s-quartier .qHowN2{background:#E8EEF8;font-size:13px}
+#s-quartier .qHowPlus{padding-top:10px;border-top:1px dashed #E4DFD3}
+#s-quartier .qCtaSub{margin:-4px 0 0;text-align:center;font-size:12.5px;color:#5B6661}
+#s-quartier .qVerifIco{font-size:15px;line-height:1.2;flex-shrink:0}
+#s-quartier .reqTags{display:flex;flex-wrap:wrap;gap:6px;margin-top:-2px}
+#s-quartier .reqTags .reqKind{margin-top:0}
+.openTag{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:9px;background:#FFF3D6;color:#7A4B00;font-size:12px;font-weight:700;line-height:1.35;border:1px solid #F0D58C}
+.bgTag{display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:9px;background:#E8EEF8;color:#24476E;font-size:12px;font-weight:700}
+#s-fil article .openTag,#s-fil article .bgTag{margin:0 0 10px}
+#s-fil article > .openTag{margin:0 16px 10px}
+#s-quartier .req.care.open{border-left-color:#D9A520}
+/* modal antécédents requis */
+#s-quartier .qModal{position:absolute;inset:0;z-index:50;background:rgba(30,42,39,.45);display:flex;align-items:flex-end;justify-content:center}
+#s-quartier .qModal[hidden]{display:none}
+#s-quartier .qModalCard{width:100%;box-sizing:border-box;background:#FFFFFF;border-radius:22px 22px 0 0;padding:22px 20px calc(20px + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+#s-quartier .qModalIco{font-size:34px}
+#s-quartier .qModalCard h3{margin:0;font-size:19px;font-weight:800}
+#s-quartier .qModalCard p{margin:0;font-size:14.5px;line-height:1.5;color:#3F4A45}
+#s-quartier .qModalBtn{margin-top:6px;width:100%;min-height:50px;border-radius:25px;border:none;background:#2B5F4F;color:#FFFFFF !important;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer}
+#s-quartier .qModalAlt{width:100%;min-height:44px;border:none;background:none;color:#2B5F4F;font-size:15px;font-weight:700;cursor:pointer}
+/* composer : qui peut répondre */
+#s-publier .whoBox{margin:6px 16px 0;padding:12px;border-radius:14px;background:#F8F6F0;border:1px solid #E4DFD3;display:flex;flex-direction:column;gap:8px;flex-shrink:0}
+#s-publier .whoBox[hidden],#s-publier .whoAck[hidden]{display:none}
+#s-publier .whoT,#s-verif .whoT{margin:0;font-size:14px;font-weight:700;color:#1E2A27}
+#s-publier .whoOpt{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:12px;background:#FFFFFF;border:1.5px solid #E4DFD3;font-size:13.5px;line-height:1.4;cursor:pointer}
+#s-publier .whoOpt.on{border-color:#2B5F4F}
+#s-publier .whoOpt input{width:20px;height:20px;margin:1px 0 0;flex-shrink:0;accent-color:#2B5F4F}
+#s-publier .whoOpt small{color:#5B6661;font-size:12.5px}
+#s-publier .whoRec{font-size:11px;font-weight:700;color:#1E4539;background:#E3EDE7;border-radius:8px;padding:1px 7px;white-space:nowrap}
+#s-publier .whoAck{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:12px;background:#FFF3D6;border:1.5px solid #F0D58C;color:#5C3A00;font-size:13px;line-height:1.45;cursor:pointer}
+#s-publier .whoAck.need{border-color:#A3321A}
+#s-publier .whoAck input{width:20px;height:20px;margin:1px 0 0;flex-shrink:0;accent-color:#7A4B00}
+/* flow : étape aînés */
+#s-verif .vOptTag{display:inline-block;font-size:12px;font-weight:700;color:#5B6661;background:#F3F0EA;border-radius:9px;padding:2px 9px;vertical-align:4px}
+#s-verif .vOptTagBig{align-self:flex-start;vertical-align:0;background:#E3EDE7;color:#1E4539;font-size:12.5px;padding:4px 11px;border-radius:11px}
+#s-verif .vToggle{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;background:#FFFFFF;border:1.5px solid #E4DFD3;cursor:pointer}
+#s-verif .vToggle input{position:absolute;opacity:0;pointer-events:none}
+#s-verif .vToggleB{flex:1;display:flex;flex-direction:column;gap:3px;font-size:15px}
+#s-verif .vToggleB small{font-size:12.5px;color:#5B6661}
+#s-verif .vSwitch{width:48px;height:28px;border-radius:14px;background:#D6D1C4;position:relative;flex-shrink:0;transition:background .2s}
+#s-verif .vSwitch::after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:11px;background:#FFFFFF;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:left .2s}
+#s-verif .vToggle input:checked ~ .vSwitch{background:#2B5F4F}
+#s-verif .vToggle input:checked ~ .vSwitch::after{left:23px}
+#s-verif .vToggle:focus-within{outline:2px solid #2B5F4F;outline-offset:2px}
+#s-verif .vBgBox{display:flex;flex-direction:column;gap:12px}
+#s-verif .vBgInfo{display:flex;gap:10px;padding:12px;border-radius:12px;background:#E8EEF8;color:#24476E;font-size:13.5px;line-height:1.45}
+#s-verif .vOptSm{padding:12px}
+#s-verif .vCertBox{margin-top:-4px;display:flex;flex-direction:column;gap:6px}
+#s-verif .vCertPick{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:12px;border:2px dashed #9DB8AA;background:#FFFFFF;color:#2B5F4F;font-weight:700;font-size:14px;cursor:pointer}
+#s-verif .vCertName{font-size:13.5px;font-weight:600;color:#1E4539;padding:0 4px;word-break:break-all}
+#s-verif .vStatuses{display:flex;flex-direction:column;align-items:center;gap:8px}
+#s-verif .vStatus2{background:#E8EEF8;color:#24476E}
+#s-fil article .openTag,#s-fil article .bgTag{align-self:flex-start;width:fit-content}
 
 </style>
 </head>
@@ -703,7 +765,7 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 
     
     
-      <article data-type="entraide" data-sub="personne" style="background: rgb(255, 255, 255); padding: 14px 16px;">
+      <article data-type="entraide" data-sub="personne" data-open="1" style="background: rgb(255, 255, 255); padding: 14px 16px;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
           <span style="width: 40px; height: 40px; border-radius: 20px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">GB</span>
           <div style="flex-grow: 1;">
@@ -714,6 +776,7 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
             <div style="display: flex; align-items: center; gap: 6px; margin-top: 1px;"><span style="font-size: 12px; color: rgb(138, 148, 144);">Famille · il y a 5 h</span><span class="subBadge care">💚 Aide à la personne</span></div>
           </div>
         </div>
+        <div class="openTag" role="note">⚠️ Non vérifiés acceptés · responsabilité de la famille</div>
         <p style="margin: 0px 0px 12px; font-size: 14px; line-height: 1.55;">Je cherche quelqu'un pour accompagner ma mère à sa marche matinale, les <strong>mardis et jeudis</strong>, au parc Pointe-à-Puiseaux. 30–45 min.</p>
         <a href="#messages" style="display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; border-radius: 22px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 14px; font-weight: 700;">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>
@@ -986,7 +1049,12 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
   </div>
   <div class="typeRow" role="group" aria-label="Type de publication" style="display: flex; gap: 8px; padding: 0 16px 6px; overflow-x: auto; flex-shrink: 0;"><button class="typeChip" aria-pressed="true">🤝 Entraide</button><button class="typeChip" aria-pressed="false">🎉 Événement</button><button class="typeChip" aria-pressed="false">🎁 Dons</button><button class="typeChip" aria-pressed="false">💬 Discussion</button></div>
   <div id="subRow" class="subRow" role="group" aria-label="Type d’entraide"><button class="subChip" data-sub="coup" aria-pressed="true">🛠️ Coup de main</button><button class="subChip" data-sub="personne" aria-pressed="false">💚 Aide à la personne</button></div>
-  <p id="subNote" class="subNote" hidden><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Votre demande sera relayée à des voisins vérifiés.</p>
+  <div id="subNote" class="whoBox" hidden>
+    <p class="whoT">Qui peut répondre ?</p>
+    <label class="whoOpt"><input type="radio" name="whoCan" value="verif" checked><span><strong>Seulement des voisins aux antécédents vérifiés</strong> <span class="whoRec">recommandé</span><br><small>🛡️ Vérification officielle des antécédents judiciaires.</small></span></label>
+    <label class="whoOpt"><input type="radio" name="whoCan" value="open"><span><strong>Accepter aussi des voisins non vérifiés</strong><br><small>Votre publication portera la mention « Non vérifiés acceptés ».</small></span></label>
+    <label id="whoAckLbl" class="whoAck" hidden><input type="checkbox" id="whoAck"><span>Je comprends que MaisonSereine n’a pas vérifié ces personnes et que le choix de l’aidant devient ma responsabilité.</span></label>
+  </div>
   <label for="texte" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);">Votre message</label>
   <textarea id="texte" placeholder="Quoi de neuf ?" style="flex-grow: 1; min-height: 140px; border: none; outline: none; resize: none; padding: 12px 16px; font-size: 22px; line-height: 1.35; color: rgb(30, 42, 39); background: transparent;"></textarea>
   <div id="attach" style="display: flex; flex-direction: column; gap: 10px; padding: 0 16px 10px; flex-shrink: 0;"></div>
@@ -1023,10 +1091,10 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
   <div id="qEmpty" class="qPad qEmpty" style="display:none"></div>
   <section id="qCal" class="qBlock" data-cats="entraide evenement dons discussion"><h2 class="qH qPad">Calendrier de la semaine</h2><div id="qDays" class="qDays"></div><div id="qDayList" class="qPad qList"></div></section>
   <section id="qReq" class="qBlock qPad qHelp qHelpSimple" data-cats="entraide"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">🛠️</span><div><h2 class="qH">Coups de main</h2><p class="qHelpSub">Petits services entre voisins : courses, pelletage, petites réparations, transport, déménagement.</p></div></div><div id="qReqList" class="qList"></div></section>
-  <section id="qCare" class="qBlock qPad qHelp qHelpCare" data-cats="entraide"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">💚</span><div><h2 class="qH">Aide à la personne</h2><p class="qHelpSub">Accompagnement, visites d’amitié, aide aux repas, appels de bienveillance.</p></div></div><p class="qVerif"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span><strong>Voisins vérifiés</strong> · ces demandes sont confiées à des voisins vérifiés (identité et attestation).</span></p><div id="qCareList" class="qList"></div></section>
+  <section id="qCare" class="qBlock qPad qHelp qHelpCare" data-cats="entraide"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">💚</span><div><h2 class="qH">Aide à la personne</h2><p class="qHelpSub">Accompagnement, visites d’amitié, aide aux repas, appels de bienveillance.</p></div></div><p class="qVerif"><span class="qVerifIco" aria-hidden="true">🛡️</span><span><strong>Antécédents vérifiés exigés par défaut</strong> · ces services sont réservés aux voisins dont les antécédents judiciaires ont été vérifiés. Une famille peut accepter des voisins non vérifiés&nbsp;: le choix devient alors sa responsabilité.</span></p><div id="qCareList" class="qList"></div></section>
   <section id="qDons" class="qBlock" data-cats="dons"><h2 class="qH qPad">Dons disponibles</h2><div id="qDonList" class="qCarousel"></div></section>
-  <section id="qPros" class="qBlock" data-cats="tout"><div class="qHelpHead qPad"><span class="qHelpIco qVoisIco" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span><div><h2 class="qH">Voisins vérifiés</h2><p class="qHelpSub">Des voisins qui ont confirmé leur identité et offrent un coup de main.</p></div></div><div id="qProFilters" class="qPills qPillsSm"></div><div id="qProList" class="qPad qProGrid"></div>
-    <div class="qPad"><div class="qHow"><h3>Comment se faire vérifier ?</h3><ol><li><span class="qHowN">1</span><span><strong>Pièce d’identité envoyée</strong><br>Photo de votre permis, carte d’assurance maladie ou passeport.</span></li><li><span class="qHowN">2</span><span><strong>Attestation sur l’honneur</strong><br>Casier judiciaire vierge.</span></li><li><span class="qHowN">3</span><span><strong>Badge « Voisin vérifié »</strong><br>Affiché sur votre profil, sous 48 h.</span></li></ol><a href="#verif" id="qVerifCta" class="qVerifCta">Devenir voisin vérifié</a></div></div></section>
+  <section id="qPros" class="qBlock" data-cats="tout"><div class="qHelpHead qPad"><span class="qHelpIco qVoisIco" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span><div><h2 class="qH">Voisins vérifiés</h2><p class="qHelpSub">Des voisins qui ont choisi de confirmer leur identité. C’est facultatif, mais ça inspire confiance.</p></div></div><div id="qProFilters" class="qPills qPillsSm"></div><div id="qProList" class="qPad qProGrid"></div>
+    <div class="qPad"><div class="qHow"><h3>Deux niveaux de vérification</h3><div class="qLvlRows"><div class="qLvlRow"><span class="lvl lvl1">✓ Voisin vérifié</span><span class="qLvlD"><strong>Facultatif</strong> · un plus pour la confiance (pièce d’identité + attestation).</span></div><div class="qLvlRow"><span class="lvl lvl2">🛡️ Antécédents vérifiés</span><span class="qLvlD"><strong>Exigé</strong> pour l’aide à la personne aux aînés, sauf si la famille accepte des voisins non vérifiés.</span></div></div><ol><li><span class="qHowN">1</span><span><strong>Pièce d’identité envoyée</strong> <span class="optTag">facultatif</span><br>Photo de votre permis, carte d’assurance maladie ou passeport.</span></li><li><span class="qHowN">2</span><span><strong>Attestation sur l’honneur</strong><br>Casier judiciaire vierge.</span></li><li><span class="qHowN">3</span><span><strong>Badge « Voisin vérifié »</strong><br>Affiché sur votre profil, sous 48 h.</span></li><li class="qHowPlus"><span class="qHowN qHowN2">🛡️</span><span><strong>Aide à la personne aux aînés</strong><br>Vérification officielle des antécédents judiciaires (service de police ou fournisseur autorisé), exigée par défaut. Badge « Antécédents vérifiés ».</span></li></ol><a href="#verif" id="qVerifCta" class="qVerifCta">Devenir voisin vérifié</a><p class="qCtaSub">Facultatif · vous pouvez utiliser MaisonSereine sans être vérifié.</p></div></div></section>
   <section id="qRes" class="qBlock qPad" data-cats="tout"><h2 class="qH">Ressources utiles</h2><div id="qResList" class="qResList"></div></section>
   <section id="qMap" class="qBlock qPad" data-cats="tout"><h2 class="qH">Carte du secteur</h2><div id="qMapBox" class="qMapBox"></div></section>
 </main><nav aria-label="Navigation principale" style="height: 76px; flex-shrink: 0; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211); display: grid; grid-template-columns: repeat(5, minmax(0px, 1fr)); align-items: center;"><a href="#fil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a><a href="#quartier" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(43, 95, 79); font-size: 11px; font-weight: 700;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Quartier</a><a href="#publier" aria-label="Publier" style="justify-self: center; width: 52px; height: 52px; border-radius: 26px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#messages" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Messages</a><a href="#profil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg>Profil</a></nav></div></section>
@@ -1140,11 +1208,12 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
   <span></span>
 </header>
 <div class="vProg" aria-hidden="true"><span id="vBar"></span></div>
-<p id="vStepL" class="vStepL">Étape 1 sur 3 · Pièce d’identité</p>
+<p id="vStepL" class="vStepL">Étape 1 sur 4 · Pièce d’identité</p>
 <main id="vMain" class="vMain">
   <section class="vStep" data-step="1">
+    <span class="vOptTag vOptTagBig">Facultatif · un plus pour la confiance</span>
     <h2>Quelle pièce d’identité ?</h2>
-    <p class="vLead">Choisissez une pièce avec photo, puis photographiez-la.</p>
+    <p class="vLead">Choisissez une pièce avec photo, puis photographiez-la. Vous obtiendrez le badge ✓ Voisin vérifié.</p>
     <div class="vOpts" role="radiogroup" aria-label="Type de pièce d’identité">
       <label class="vOpt"><input type="radio" name="vIdType" value="permis"><span class="vOptE" aria-hidden="true">🚗</span><span class="vOptB"><span class="vOptT">Permis de conduire</span><span class="vOptS">Recto et verso</span></span><span class="vRadio" aria-hidden="true"></span></label>
       <label class="vOpt"><input type="radio" name="vIdType" value="ramq"><span class="vOptE" aria-hidden="true">🏥</span><span class="vOptB"><span class="vOptT">Carte d’assurance maladie</span><span class="vOptS">Recto et verso</span></span><span class="vRadio" aria-hidden="true"></span></label>
@@ -1166,11 +1235,25 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
     <div class="vField"><span>Date</span><div id="vDate" class="vDate"></div></div>
     <p class="vPriv"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span>Votre pièce d’identité sert uniquement à vérifier votre identité, puis elle est supprimée. <em>Prototype : rien n’est envoyé, la photo reste sur votre téléphone.</em></span></p>
   </section>
-  <section class="vStep vDone" data-step="3" hidden>
+  <section class="vStep" data-step="3" hidden>
+    <h2>Aide aux aînés <span class="vOptTag">facultatif</span></h2>
+    <p class="vLead">L’aide à la personne aux aînés exige un 2e niveau : la vérification officielle de vos antécédents judiciaires.</p>
+    <label class="vToggle"><input type="checkbox" id="vBg"><span class="vToggleB"><strong>Je veux offrir de l’aide à la personne aux aînés</strong><small>Accompagnement, visites, repas, appels de bienveillance</small></span><span class="vSwitch" aria-hidden="true"></span></label>
+    <div id="vBgBox" class="vBgBox" hidden>
+      <div class="vBgInfo"><span aria-hidden="true">🛡️</span><span>Vérification d’antécédents judiciaires faite par un <strong>service de police</strong> ou un <strong>fournisseur autorisé</strong>. Vous recevrez le badge « Antécédents vérifiés ».</span></div>
+      <label class="vCheck"><input type="checkbox" id="vBgOk"><span>Je consens à la vérification de mes antécédents judiciaires pour offrir de l’aide à la personne aux aînés.</span></label>
+      <p class="whoT">Comment fournir la vérification ?</p>
+      <label class="vOpt vOptSm"><input type="radio" name="vBgWay" value="upload"><span class="vOptE" aria-hidden="true">📄</span><span class="vOptB"><span class="vOptT">J’ai déjà un certificat</span><span class="vOptS">Téléverser une photo ou un PDF de moins de 12 mois</span></span><span class="vRadio" aria-hidden="true"></span></label>
+      <div id="vCertBox" class="vCertBox" hidden><label class="vCertPick"><input type="file" id="vCert" accept="image/*,application/pdf" hidden><span>📎 Choisir le certificat</span></label><div id="vCertName" class="vCertName" hidden></div></div>
+      <label class="vOpt vOptSm"><input type="radio" name="vBgWay" value="request"><span class="vOptE" aria-hidden="true">📨</span><span class="vOptB"><span class="vOptT">Demander la vérification pour moi</span><span class="vOptS">MaisonSereine transmet la demande à un fournisseur autorisé</span></span><span class="vRadio" aria-hidden="true"></span></label>
+    </div>
+    <p class="vPriv"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span>Le certificat sert uniquement à attribuer le badge, puis il est supprimé. <em>Prototype : rien n’est envoyé.</em></span></p>
+  </section>
+  <section class="vStep vDone" data-step="4" hidden>
     <div class="vOk" aria-hidden="true"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></div>
     <h2>Demande envoyée</h2>
     <p class="vLead">Vérification sous 48 h. Nous vous écrirons dans Messages dès que votre badge sera activé.</p>
-    <span class="vStatus">⏳ Statut : En attente</span>
+    <div class="vStatuses"><span class="vStatus">✓ Voisin vérifié : en attente</span><span id="vBgStatus" class="vStatus vStatus2" hidden>🛡️ Antécédents : en cours</span></div>
     <div id="vRecap" class="vRecap"></div>
     <div class="vBadgePrev"><span class="vBadgeIco"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span><span><strong>Badge « Voisin vérifié »</strong><br>Il s’affichera sur votre profil et vos publications.</span></div>
     <p class="vPriv vPrivSm"><span>Les photos de votre pièce ont été retirées de l’appareil. <em>Prototype : aucune donnée n’a été transmise.</em></span></p>
@@ -1368,7 +1451,13 @@ function renderSub(){
   $('#subRow').hidden = !on;
   $$('#s-publier .subChip').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-sub') === sub ? 'true' : 'false'); });
   $('#subNote').hidden = !(on && sub === 'personne');
+  var open = whoCan() === 'open';
+  $('#whoAckLbl').hidden = !open;
+  $$('#s-publier .whoOpt').forEach(function(l){ l.classList.toggle('on', l.querySelector('input').checked); });
 }
+$('#whoAck').addEventListener('change', function(){ $('#whoAckLbl').classList.remove('need'); });
+function whoCan(){ var r = $('#s-publier input[name="whoCan"]:checked'); return r ? r.value : 'verif'; }
+$$('#s-publier input[name="whoCan"]').forEach(function(r){ r.addEventListener('change', function(){ if(r.value !== 'open') $('#whoAck').checked = false; renderSub(); }); });
 function renderChips(){ $$('#s-publier .typeChip').forEach(function(b){ b.setAttribute('aria-pressed', b.textContent.trim() === picked); }); renderSub(); }
 $$('#s-publier .subChip').forEach(function(b){ b.addEventListener('click', function(){ sub = b.getAttribute('data-sub'); renderSub(); }); });
 $$('#s-publier .typeChip').forEach(function(b){ b.addEventListener('click', function(){ picked = b.textContent.trim(); renderChips(); }); });
@@ -1507,7 +1596,7 @@ $('#pollDone').addEventListener('click', function(){
 });
 
 function resetComposer(){
-  picked = '🤝 Entraide'; sub = 'coup'; renderChips(); visIdx = 0; renderVis();
+  picked = '🤝 Entraide'; sub = 'coup'; $('#s-publier input[name="whoCan"][value="verif"]').checked = true; $('#whoAck').checked = false; renderChips(); visIdx = 0; renderVis();
   $('#texte').value = ''; photos = []; gif = null; poll = null;
   $('#photoFile').value = ''; closeSheet('#gifSheet'); closeSheet('#pollSheet');
   renderAttach();
@@ -1549,11 +1638,15 @@ $('#pubPublier').addEventListener('click', function(e){
   var ta = $('#texte'), t = ta.value.trim();
   if(!t && !photos.length && !gif && !poll){ ta.focus(); shake($('#pubPublier')); return; }
   if(photos.length && !$('#consent').checked){ shake($('#consentLbl')); return; }
+  var careOpen = picked === '🤝 Entraide' && sub === 'personne' && whoCan() === 'open';
+  if(careOpen && !$('#whoAck').checked){ var al = $('#whoAckLbl'); shake(al); al.classList.add('need'); al.scrollIntoView({block:'center'}); return; }
   var b = BADGE[picked], vis = visOptions()[visIdx], media = photos.length > 0;
   var art = document.createElement('article');
   art.className = 'newpost';
   art.setAttribute('data-type', TYPE_KEY[picked] || 'discussion');
   var isEnt = picked === '🤝 Entraide'; if(isEnt) art.setAttribute('data-sub', sub);
+  var isCare = isEnt && sub === 'personne'; if(careOpen) art.setAttribute('data-open', '1');
+  var careTag = isCare ? (careOpen ? '<div class="openTag" role="note">⚠️ Non vérifiés acceptés · responsabilité de la famille</div>' : '<div class="bgTag">🛡️ Antécédents vérifiés requis</div>') : '';
   art.style.cssText = 'background:#FFFFFF;' + (media ? '' : 'padding:14px 16px');
   var head = '<div style="display:flex;align-items:center;gap:10px;' + (media ? 'padding:12px 16px 10px' : 'margin-bottom:10px') + '"><span style="width:40px;height:40px;border-radius:20px;background:#E9E4D8;color:#3F4A45;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0">MO</span><div style="flex-grow:1"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:14px;font-weight:700">Moi</span><span class="badge" style="background:' + b[0] + ';color:' + b[1] + '">' + picked + '</span></div><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="font-size:12px;color:#8A9490">\u00e0 l\u2019instant \u00b7 ' + esc(vis) + '</span>' + (isEnt ? '<span class="subBadge' + (sub === 'personne' ? ' care' : '') + '">' + SUB_LABEL[sub] + '</span>' : '') + '</div></div></div>';
   var img = media ? '<div class="postPhotos" style="' + photoGrid(photos, 260) + '">' + photos.map(function(p){ return '<div style="background-image:url(' + p + ')"></div>'; }).join('') + '</div>' : '';
@@ -1562,7 +1655,7 @@ $('#pubPublier').addEventListener('click', function(e){
   var gifH = gif ? '<div style="' + (media ? 'padding:0 16px 12px' : 'margin-bottom:10px') + '"><img src="' + gif.src + '" alt="GIF ' + esc(gif.t) + '" style="display:block;width:200px;height:200px;border-radius:12px;object-fit:cover"></div>' : '';
   var pollH = poll ? '<div style="' + (media ? 'padding:0 16px 12px' : 'margin-bottom:6px') + '">' + pollHTML(poll) + '</div>' : '';
   var acts = '<div style="display:flex;align-items:center;' + (media ? 'padding:0 6px 4px' : 'margin-top:4px') + '"><button class="act like"' + (media ? '' : ' style="padding-left:0"') + '><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E2A27" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><span style="color:#1E2A27"><span>0</span></span></button></div>';
-  art.innerHTML = media ? head + img + acts + txt + gifH + pollH : head + txt + gifH + pollH + acts;
+  art.innerHTML = media ? head + careTag + img + acts + txt + gifH + pollH : head + careTag + txt + gifH + pollH + acts;
   var feed = $('#feed'); feed.insertBefore(art, feed.firstElementChild);
   bindLike(art.querySelector('.like'));
   var pl = art.querySelector('.poll'); if(pl) bindPoll(pl);
@@ -1629,7 +1722,7 @@ var REQS = [
 ];
 var CARE = [
   {who:'Rita Morin', txt:'aimerait être accompagnée à son rendez-vous médical mardi matin, aller-retour en autobus.', u:'Urgent', ico:'🩺', k:'Accompagnement'},
-  {who:'Gilles Bouchard', txt:'cherche une présence pour la marche de sa mère, les mardis et jeudis matin.', u:'Cette semaine', ico:'🚶', k:'Accompagnement'},
+  {who:'Gilles Bouchard', txt:'cherche une présence pour la marche de sa mère, les mardis et jeudis matin.', u:'Cette semaine', ico:'🚶', k:'Accompagnement', open:true},
   {who:'Jeanne Fortin', txt:'(86 ans) aimerait recevoir une visite d\u2019amitié une fois par semaine pour jaser autour d\u2019un thé.', u:'Flexible', ico:'☕', k:'Visite d\u2019amitié'},
   {who:'Paul Tremblay', txt:'a besoin d\u2019aide pour préparer ses repas deux fois par semaine après son opération.', u:'Cette semaine', ico:'🍲', k:'Aide aux repas'},
   {who:'Thérèse Roy', txt:'souhaiterait un appel de bienveillance chaque matin pour s\u2019assurer que tout va bien.', u:'Flexible', ico:'📞', k:'Appel de bienveillance'}
@@ -1644,10 +1737,10 @@ var DONS = [
   {e:'🧣', t:'Tuques et foulards tricotés', s:'Faits à l\u2019atelier du jeudi', bg:'#FDE8E4'}
 ];
 var PROS = [
-  {i:'LT', n:'Lucie Tremblay', g:'f', d:'à 300 m', svc:['Compagnie','Tricot','Marches'], bg:'#2B5F4F', fg:'#FFFFFF'},
+  {i:'LT', n:'Lucie Tremblay', g:'f', d:'à 300 m', bg2:true, svc:['Compagnie','Tricot','Marches','Aînés'], bg:'#2B5F4F', fg:'#FFFFFF'},
   {i:'AD', n:'Amina Diallo', g:'f', d:'à 500 m', svc:['Courses','Repas'], bg:'#D5E3DB', fg:'#1E4539'},
   {i:'MP', n:'Marc Pelletier', g:'m', d:'à 650 m', svc:['Bricolage','Transport'], bg:'#F0D9C4', fg:'#6B3312'},
-  {i:'SB', n:'Sophie Bergeron', g:'f', d:'à 800 m', svc:['Compagnie','Appels'], bg:'#EDE0F7', fg:'#4A2060'}
+  {i:'SB', n:'Sophie Bergeron', g:'f', d:'à 800 m', bg2:true, svc:['Compagnie','Appels','Aînés'], bg:'#EDE0F7', fg:'#4A2060'}
 ];
 // Real public resources (verified Nov 2026: sante.gouv.qc.ca, ville.quebec.qc.ca, cabquebec.org)
 var MAPS = 'https://www.google.com/maps/search/?api=1&query=';
@@ -1743,13 +1836,14 @@ function renderCal(){
 /* 4. entraide */
 function reqCard(r, care){
   var u = URG[r.u];
-  return '<div class="qCard req' + (care ? ' care' : '') + '"><div class="reqTop"><span class="reqWho"><span class="reqIco" aria-hidden="true">' + r.ico + '</span><strong style="font-size:15px">' + esc(r.who) + '</strong></span><span class="urg" style="background:' + u[0] + ';color:' + u[1] + '">' + r.u + '</span></div>' +
-    (care ? '<span class="reqKind">' + esc(r.k) + '</span>' : '') +
-    '<div class="reqTxt">' + esc(/^Famille /.test(r.who) ? 'La f' + r.who.slice(1) : r.who.split(' ')[0]) + ' ' + esc(r.txt) + '</div><a href="#messages" class="reqBtn">' + (care ? 'Proposer ma présence' : 'Proposer mon aide') + '</a></div>';
+  var tag = care ? (r.open ? '<span class="openTag">⚠️ Non vérifiés acceptés · responsabilité de la famille</span>' : '<span class="bgTag">🛡️ Antécédents vérifiés requis</span>') : '';
+  return '<div class="qCard req' + (care ? ' care' : '') + (r.open ? ' open' : '') + '"><div class="reqTop"><span class="reqWho"><span class="reqIco" aria-hidden="true">' + r.ico + '</span><strong style="font-size:15px">' + esc(r.who) + '</strong></span><span class="urg" style="background:' + u[0] + ';color:' + u[1] + '">' + r.u + '</span></div>' +
+    (care ? '<div class="reqTags"><span class="reqKind">' + esc(r.k) + '</span>' + tag + '</div>' : '') +
+    '<div class="reqTxt">' + esc(/^Famille /.test(r.who) ? 'La f' + r.who.slice(1) : r.who.split(' ')[0]) + ' ' + esc(r.txt) + '</div><a href="#messages" class="reqBtn"' + (care ? ' data-care="' + (r.open ? 'open' : 'bg') + '"' : '') + '>' + (care ? 'Proposer ma présence' : 'Proposer mon aide') + '</a></div>';
 }
 function renderReq(){
   var simple = REQS.filter(function(r){ return catOk('entraide') && hit(r.who, r.txt, r.u, 'entraide', 'coups de main', 'coup de main'); });
-  var care = CARE.filter(function(r){ return catOk('entraide') && hit(r.who, r.txt, r.u, r.k, 'entraide', 'aide à la personne', 'voisins vérifiés'); });
+  var care = CARE.filter(function(r){ return catOk('entraide') && hit(r.who, r.txt, r.u, r.k, 'entraide', 'aide à la personne', 'voisins vérifiés', 'antécédents', r.open ? 'non vérifiés acceptés responsabilité' : 'antécédents vérifiés requis'); });
   parts.reqList.innerHTML = simple.map(function(r){ return reqCard(r, false); }).join('');
   parts.careList.innerHTML = care.map(function(r){ return reqCard(r, true); }).join('');
   parts.req.classList.toggle('qHidden', !simple.length);
@@ -1768,18 +1862,18 @@ function renderDons(){
 }
 
 /* 6. voisins vérifiés */
-var SVCS = ['Tous','Compagnie','Courses','Bricolage','Transport'];
+var SVCS = ['Tous','🛡️ Antécédents vérifiés','Compagnie','Courses','Bricolage','Transport'];
 window.msRenderPros = function(){ renderPros(); };
 function renderPros(){
   parts.proFilters.innerHTML = SVCS.map(function(s){ return '<button data-svc="' + s + '" aria-pressed="' + (s === proSvc) + '">' + s + '</button>'; }).join('');
   var qn = (($('.quartierNom') || {}).textContent || 'Sainte-Foy');
-  var list = PROS.filter(function(p){ return (proSvc === 'Tous' || p.svc.indexOf(proSvc) >= 0) && hit(p.n, p.svc.join(' '), 'voisin vérifié', 'voisins vérifiés'); });
+  var list = PROS.filter(function(p){ return (proSvc === 'Tous' || (proSvc.indexOf('Antécédents') >= 0 ? !!p.bg2 : p.svc.indexOf(proSvc) >= 0)) && hit(p.n, p.svc.join(' '), 'voisin vérifié', 'voisins vérifiés', p.bg2 ? 'antécédents vérifiés' : ''); });
   parts.proList.innerHTML = list.length ? list.map(function(p){
-    return '<a href="#profil" class="qCard pro"><span class="proAv" style="background:' + p.bg + ';color:' + p.fg + '">' + p.i + '</span><span class="proN">' + esc(p.n) + '</span><span class="proV">' + SHIELD + (p.g === 'f' ? 'Vérifiée' : 'Vérifié') + '</span><span class="proQ">' + esc(qn) + ' · ' + p.d + '</span><span class="proS">' + p.svc.map(function(x){ return '<span class="proChip">' + x + '</span>'; }).join('') + '</span></a>';
+    return '<a href="#profil" class="qCard pro"><span class="proAv" style="background:' + p.bg + ';color:' + p.fg + '">' + p.i + '</span><span class="proN">' + esc(p.n) + '</span><span class="proBadges"><span class="lvl lvl1">✓ ' + (p.g === 'f' ? 'Voisine vérifiée' : 'Voisin vérifié') + '</span>' + (p.bg2 ? '<span class="lvl lvl2">🛡️ Antécédents vérifiés</span>' : '') + '</span><span class="proQ">' + esc(qn) + ' · ' + p.d + '</span><span class="proS">' + p.svc.map(function(x){ return '<span class="proChip">' + x + '</span>'; }).join('') + '</span></a>';
   }).join('') : '<div class="qEmpty" style="grid-column:1/-1;padding:8px 0">Aucun voisin vérifié pour ce coup de main.</div>';
   var show = cat === 'tout' && (!query || PROS.some(function(p){ return hit(p.n, p.svc.join(' '), 'voisin vérifié', 'voisins vérifiés', 'devenir vérifié', 'vérification'); }));
   var cta = $('#qVerifCta');
-  if(cta){ var pend = false; try{ pend = localStorage.getItem('ms_verif') === 'pending'; }catch(_){} cta.textContent = pend ? '⏳ Demande en attente · vérification sous 48 h' : 'Devenir voisin vérifié'; cta.classList.toggle('pending', pend); }
+  if(cta){ var pend = false; try{ pend = localStorage.getItem('ms_verif') === 'pending'; }catch(_){} var bgp = false; try{ bgp = localStorage.getItem('ms_bg') === 'pending'; }catch(_){} cta.textContent = pend ? '⏳ Demande en attente' + (bgp ? ' · antécédents en cours' : ' · vérification sous 48 h') : 'Devenir voisin vérifié'; cta.classList.toggle('pending', pend); }
   parts.pros.classList.toggle('qHidden', !show);
   return show;
 }
@@ -1844,6 +1938,21 @@ function init(){
   });
   renderFilters(); renderAll(); loadWeather();
   var root = $('#s-quartier');
+  var modal = document.createElement('div'); modal.className = 'qModal'; modal.hidden = true; modal.setAttribute('role', 'dialog'); modal.setAttribute('aria-modal', 'true'); modal.setAttribute('aria-labelledby', 'qModalT');
+  root.appendChild(modal);
+  function bgNeeded(){
+    var bgp = false; try{ bgp = localStorage.getItem('ms_bg') === 'pending'; }catch(_){}
+    modal.innerHTML = '<div class="qModalCard"><span class="qModalIco" aria-hidden="true">🛡️</span><h3 id="qModalT">Antécédents vérifiés requis</h3>' +
+      (bgp ? '<p>Votre vérification d’antécédents judiciaires est <strong>en cours</strong>. Vous pourrez proposer votre présence dès que le badge « Antécédents vérifiés » sera activé.</p><button type="button" class="qModalBtn" data-mclose>J’ai compris</button>'
+           : '<p>Cette famille demande une personne dont les <strong>antécédents judiciaires ont été vérifiés</strong>, pour la sécurité des aînés. Ajoutez cette vérification à votre profil pour proposer votre présence.</p><a href="#verif" class="qModalBtn" data-mclose>Faire vérifier mes antécédents</a><button type="button" class="qModalAlt" data-mclose>Plus tard</button>') + '</div>';
+    modal.hidden = false;
+    var f = modal.querySelector('.qModalBtn'); if(f) f.focus();
+  }
+  modal.addEventListener('click', function(e){ if(e.target === modal || e.target.closest('[data-mclose]')) modal.hidden = true; });
+  root.addEventListener('click', function(e){
+    var cb = e.target.closest('[data-care="bg"]');
+    if(cb){ var hasBg = false; try{ hasBg = localStorage.getItem('ms_bg') === 'verified'; }catch(_){} if(!hasBg){ e.preventDefault(); e.stopPropagation(); bgNeeded(); return; } }
+  }, true);
   root.addEventListener('click', function(e){
     var t;
     if((t = e.target.closest('[data-cat]'))){ cat = t.getAttribute('data-cat'); renderFilters(); renderAll(); return; }
@@ -1898,24 +2007,26 @@ $$('#s-story .react').forEach(function(r){ r.addEventListener('click', function(
 
 /* ---------------- 7b. devenir voisin vérifié (prototype local) ---------------- */
 (function(){
-var step = 1, idType = null, shots = {recto:null, verso:null};
+var step = 1, idType = null, shots = {recto:null, verso:null}, cert = null;
 var ID_LABEL = {permis:'Permis de conduire', ramq:'Carte d’assurance maladie', passeport:'Passeport'};
-var STEP_L = ['Étape 1 sur 3 · Pièce d’identité', 'Étape 2 sur 3 · Attestation', 'Étape 3 sur 3 · Confirmation'];
+var STEP_L = ['Étape 1 sur 4 · Pièce d’identité', 'Étape 2 sur 4 · Attestation', 'Étape 3 sur 4 · Aide aux aînés (facultatif)', 'Étape 4 sur 4 · Confirmation'];
 var MOIS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 function today(){ var d = new Date(); return d.getDate() + (d.getDate() === 1 ? 'er' : '') + ' ' + MOIS[d.getMonth()] + ' ' + d.getFullYear(); }
 function needVerso(){ return idType !== 'passeport'; }
+function bgWay(){ var r = $('#s-verif input[name="vBgWay"]:checked'); return r ? r.value : null; }
 function okStep(){
   if(step === 1) return !!idType && !!shots.recto && (!needVerso() || !!shots.verso);
   if(step === 2) return $('#vAtt').checked && $('#vNom').value.trim().length >= 3;
+  if(step === 3) return !$('#vBg').checked || ($('#vBgOk').checked && (bgWay() === 'request' || (bgWay() === 'upload' && !!cert)));
   return true;
 }
 function render(){
   $$('#s-verif .vStep').forEach(function(s){ s.hidden = +s.getAttribute('data-step') !== step; });
-  $('#vBar').style.width = (step * 100 / 3) + '%';
+  $('#vBar').style.width = (step * 25) + '%';
   $('#vStepL').textContent = STEP_L[step - 1];
   $('#vPhotos').hidden = !idType;
-  $$('#s-verif .vOpt').forEach(function(o){ o.classList.toggle('on', o.querySelector('input').value === idType); });
-  var vs = $('#s-verif .vSlot[data-side="verso"]'); vs.hidden = !needVerso();
+  $$('#s-verif .vOpt').forEach(function(o){ var i = o.querySelector('input'); o.classList.toggle('on', i.name === 'vIdType' ? i.value === idType : i.checked); });
+  $('#s-verif .vSlot[data-side="verso"]').hidden = !needVerso();
   $('#s-verif .vSlot[data-side="recto"] .vSlotL').textContent = needVerso() ? 'Recto' : 'Page photo';
   ['recto','verso'].forEach(function(k){
     var slot = $('#s-verif .vSlot[data-side="' + k + '"]');
@@ -1925,24 +2036,32 @@ function render(){
   });
   $('#vDate').textContent = today();
   var n = $('#vNom').value.trim(); $('#vSig').textContent = n; $('#vSig').hidden = !n;
+  $('#vBgBox').hidden = !$('#vBg').checked;
+  $('#vCertBox').hidden = bgWay() !== 'upload';
+  $('#vCertName').hidden = !cert; $('#vCertName').textContent = cert ? '✓ ' + cert : '';
   var btn = $('#vNext');
-  btn.textContent = step === 1 ? 'Continuer' : step === 2 ? 'Envoyer ma demande' : 'Retour au quartier';
+  btn.textContent = step === 1 || step === 2 ? 'Continuer' : step === 3 ? ($('#vBg').checked ? 'Envoyer mes demandes' : 'Passer et envoyer ma demande') : 'Retour au quartier';
   btn.disabled = !okStep();
   $('#vMain').scrollTop = 0;
 }
+function recap(r){
+  $('#vRecap').innerHTML = '<div><span>Pièce</span><strong>' + esc(r.id || '') + '</strong></div><div><span>Attestation</span><strong>Signée par ' + esc(r.nom || '') + '</strong></div><div><span>Date</span><strong>' + esc(r.date || '') + '</strong></div>' +
+    (r.bg ? '<div><span>Antécédents judiciaires</span><strong>' + esc(r.bg) + '</strong></div>' : '');
+  $('#vBgStatus').hidden = !r.bg;
+}
 function reset(){
   var pend = false; try{ pend = localStorage.getItem('ms_verif') === 'pending'; }catch(_){}
-  step = pend ? 3 : 1; idType = null; shots = {recto:null, verso:null};
-  $$('#s-verif input[name="vIdType"]').forEach(function(r){ r.checked = false; });
-  $('#vAtt').checked = false; $('#vNom').value = '';
-  if(pend){ try{ var r = JSON.parse(localStorage.getItem('ms_verif_recap') || '{}'); recap(r); }catch(_){} }
+  step = pend ? 4 : 1; idType = null; shots = {recto:null, verso:null}; cert = null;
+  $$('#s-verif input[type=radio]').forEach(function(r){ r.checked = false; });
+  ['#vAtt','#vBg','#vBgOk'].forEach(function(s){ $(s).checked = false; });
+  $('#vNom').value = '';
+  if(pend){ try{ recap(JSON.parse(localStorage.getItem('ms_verif_recap') || '{}')); }catch(_){} }
   render();
-}
-function recap(r){
-  $('#vRecap').innerHTML = '<div><span>Pièce</span><strong>' + esc(r.id || '') + '</strong></div><div><span>Attestation</span><strong>Signée par ' + esc(r.nom || '') + '</strong></div><div><span>Date</span><strong>' + esc(r.date || '') + '</strong></div>';
 }
 window.msVerifReset = reset;
 $$('#s-verif input[name="vIdType"]').forEach(function(r){ r.addEventListener('change', function(){ idType = r.value; if(!needVerso()) shots.verso = null; render(); }); });
+$$('#s-verif input[name="vBgWay"]').forEach(function(r){ r.addEventListener('change', render); });
+['#vBg','#vBgOk','#vAtt'].forEach(function(s){ $(s).addEventListener('change', function(){ var y = $('#vMain').scrollTop; render(); $('#vMain').scrollTop = y; }); });
 $$('#s-verif .vFile').forEach(function(inp){
   inp.addEventListener('change', function(){
     var f = inp.files && inp.files[0]; if(!f) return;
@@ -1951,25 +2070,26 @@ $$('#s-verif .vFile').forEach(function(inp){
     rd.readAsDataURL(f);   // stays in memory on the phone, never uploaded
   });
 });
+$('#vCert').addEventListener('change', function(){ var f = this.files && this.files[0]; if(!f) return; cert = f.name; this.value = ''; var y = $('#vMain').scrollTop; render(); $('#vMain').scrollTop = y; });
 $('#s-verif').addEventListener('click', function(e){ var b = e.target.closest('.vRm'); if(b){ shots[b.getAttribute('data-side')] = null; render(); } });
-$('#vAtt').addEventListener('change', render);
 $('#vNom').addEventListener('input', function(){ var n = $('#vNom').value.trim(); $('#vSig').textContent = n; $('#vSig').hidden = !n; $('#vNext').disabled = !okStep(); });
 $('#vNext').addEventListener('click', function(){
   if(!okStep()) return;
-  if(step === 1){ step = 2; render(); return; }
-  if(step === 2){
-    var r = {id: ID_LABEL[idType] + (needVerso() ? ' (recto et verso)' : ' (page photo)'), nom: $('#vNom').value.trim(), date: today()};
+  if(step < 3){ step++; render(); return; }
+  if(step === 3){
+    var bg = $('#vBg').checked ? (bgWay() === 'upload' ? 'Certificat téléversé · en cours' : 'Demande transmise · en cours') : '';
+    var r = {id: ID_LABEL[idType] + (needVerso() ? ' (recto et verso)' : ' (page photo)'), nom: $('#vNom').value.trim(), date: today(), bg: bg};
     recap(r);
-    try{ localStorage.setItem('ms_verif', 'pending'); localStorage.setItem('ms_verif_recap', JSON.stringify(r)); }catch(_){}
-    shots = {recto:null, verso:null};   // prototype: photos discarded
-    step = 3; render();
+    try{ localStorage.setItem('ms_verif', 'pending'); localStorage.setItem('ms_verif_recap', JSON.stringify(r)); if(bg) localStorage.setItem('ms_bg', 'pending'); }catch(_){}
+    shots = {recto:null, verso:null}; cert = null;   // prototype: files discarded
+    step = 4; render();
     if(window.msRenderPros) window.msRenderPros();
     return;
   }
   stack = []; show('quartier', {back:true});
 });
 $('#vBack').addEventListener('click', function(e){
-  if(step === 2){ e.preventDefault(); e.stopPropagation(); step = 1; render(); }
+  if(step === 2 || step === 3){ e.preventDefault(); e.stopPropagation(); step--; render(); }
 }, true);
 render();
 })();
