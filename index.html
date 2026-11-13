@@ -107,7 +107,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ms-build" content="20261112222041">
+<meta name="ms-build" content="20261112223932">
 <meta name="theme-color" content="#F8F6F0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -547,6 +547,48 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 #s-publier .gifGrid{grid-auto-rows:max-content;align-content:start}
 #s-publier .gifGrid button[data-g]{display:block;width:100%;height:auto;aspect-ratio:1/1;padding:0;border:none;align-self:start}
 #s-publier .gifGrid .gifMoreBtn{align-self:start;height:auto}
+/* ===== Quartier: échelle et équité ===== */
+#s-quartier .qDemo{margin:-4px 0 0;font-size:12px;color:#8A9490;font-style:italic}
+#s-quartier .qDay .dc{margin-top:3px;min-width:22px;height:20px;padding:0 6px;border-radius:10px;background:#FBEFE4;color:#8A3F14;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+#s-quartier .qDay .dc.zero{background:#F1EEE6;color:#A8B0AC}
+#s-quartier .qDay[aria-pressed="true"] .dc{background:#FFFFFF;color:#1E4539}
+#s-quartier .qMoreBtn{width:100%;margin-top:2px;min-height:44px;border-radius:12px !important;border:1.5px solid #D6D1C4 !important;background:#FFFFFF !important;color:#1E4539 !important;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:4px}
+#s-quartier .qMeta{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px;color:#5B6661}
+#s-quartier .qMeta span:first-child{font-weight:700;color:#1E4539}
+#s-quartier .noResp{background:#FFFBF2;border-color:#F0D9B5;box-shadow:inset 3px 0 0 #E0A458}
+#s-quartier .noRespTag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:10px;background:#FFF1D9;color:#8A5A14;font-size:12px;font-weight:700}
+#s-quartier .boostTag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:10px;background:#E8F0FB;color:#21477A;font-size:12px;font-weight:700}
+#s-quartier .reqTags{display:flex;flex-wrap:wrap;gap:6px}
+#s-quartier .done{opacity:.72;background:#F7F5F0}
+#s-quartier .doneTag{display:inline-flex;align-items:center;padding:3px 10px;border-radius:10px;background:#E3EDE7;color:#1E4539;font-size:12px;font-weight:800;align-self:flex-start}
+#s-quartier .don{width:200px}
+#s-quartier .donCat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#8A9490}
+#s-quartier .don .qMeta{font-size:11.5px;gap:2px 8px}
+#s-quartier .don .reqTags span{font-size:11px}
+#s-quartier .donAll{flex-shrink:0;width:120px;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#1E4539;font-size:15px;font-weight:700;border:1.5px dashed #B9C9C0 !important;background:#F4F8F5 !important;text-align:center}
+#s-quartier .donAll span{font-size:28px;line-height:1}
+#s-quartier #qDonMore{display:none}
+#s-quartier .donRow{width:auto;flex-direction:row}
+#s-quartier .donRow .donImg{width:88px;height:auto;min-height:100px;flex-shrink:0}
+#s-quartier .donRow .donBtn{align-self:flex-start;padding:0 16px}
+#s-quartier .qListPanel{position:absolute;inset:0;z-index:40;background:#F7F5F0;display:flex;flex-direction:column}
+#s-quartier .qListPanel[hidden]{display:none}
+#s-quartier .lHead{display:flex;align-items:center;gap:6px;padding:52px 12px 8px;background:#FFFFFF;border-bottom:1px solid #E4DFD3}
+#s-quartier .lBack{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:22px;color:#1E2A27}
+#s-quartier .lHeadT{display:flex;flex-direction:column}
+#s-quartier .lHeadT h2{margin:0;font-size:19px;font-weight:800}
+#s-quartier .lCount{font-size:12.5px;color:#5B6661}
+#s-quartier .lTools{display:flex;flex-direction:column;gap:10px;padding:12px 0 10px;background:#FFFFFF;border-bottom:1px solid #E4DFD3}
+#s-quartier .lSearch{margin:0 20px;display:flex;align-items:center;gap:8px;height:44px;padding:0 14px;border-radius:22px;background:#F1EEE6;color:#5B6661}
+#s-quartier .lSearch input{flex:1;border:none;background:none;font:inherit;font-size:15px;outline:none;color:#1E2A27;min-width:0}
+#s-quartier .lPills[hidden],#s-quartier .lSortRow[hidden]{display:none}
+#s-quartier .lSortRow{display:flex;align-items:center;gap:10px;padding:0 20px;font-size:13px;color:#5B6661;font-weight:600}
+#s-quartier .lSort{display:flex;background:#F1EEE6;border-radius:18px;padding:3px}
+#s-quartier .lSort button{min-height:30px;padding:0 14px;border-radius:15px;font-size:13px;font-weight:700;color:#5B6661}
+#s-quartier .lSort button[aria-checked="true"]{background:#FFFFFF;color:#1E2A27;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+#s-quartier .lMain{flex:1;overflow-y:auto;padding:14px 20px 28px}
+#s-quartier .lMain #lMore{margin-top:12px}
+#s-quartier .lEnd{text-align:center;color:#8A9490;font-size:13px;margin:8px 0 0}
 
 </style>
 </head>
@@ -1176,16 +1218,26 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
 <section class="screen" id="s-quartier" data-screen="quartier" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(248, 246, 240); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;"><header style="display: flex; flex-direction: column; gap: 12px; padding: 20px 20px 12px;"><h1 style="margin: 0px; font-size: 24px; font-weight: 700;">Quartier <span class="quartierNom">Sainte-Foy</span></h1><div style="position: relative; display: flex;"><label for="recherche" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);">Rechercher dans le quartier</label><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6661" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 16px; top: 14px;"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg><input id="recherche" type="search" placeholder="Une activité, un voisin, un service…" style="flex-grow: 1; min-width: 0px; height: 48px; box-sizing: border-box; padding: 0px 16px 0px 44px; border: 1px solid rgb(201, 194, 178); border-radius: 24px; background: rgb(255, 255, 255); color: rgb(30, 42, 39); font-size: 15px;"></div></header><main id="qMain" style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; gap: 22px; padding: 4px 0 24px;">
   <section id="qToday" class="qBlock qPad"></section>
   <div id="qFilters" class="qPills" role="group" aria-label="Filtrer"></div>
+  <p class="qDemo qPad">Données d’exemple pour le prototype · les publications sans réponse passent en premier.</p>
   <div id="qEmpty" class="qPad qEmpty" style="display:none"></div>
-  <section id="qCal" class="qBlock" data-cats="entraide evenement dons discussion"><h2 class="qH qPad">Calendrier de la semaine</h2><div id="qDays" class="qDays"></div><div id="qDayList" class="qPad qList"></div></section>
-  <section id="qReq" class="qBlock qPad qHelp qHelpSimple" data-cats="entraide"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">🛠️</span><div><h2 class="qH">Coups de main</h2><p class="qHelpSub">Petits services entre voisins : courses, pelletage, petites réparations, transport, déménagement.</p></div></div><div id="qReqList" class="qList"></div></section>
-  <section id="qCare" class="qBlock qPad qHelp qHelpCare" data-cats="entraide"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">💚</span><div><h2 class="qH">Aide à la personne</h2><p class="qHelpSub">Accompagnement, visites d’amitié, aide aux repas, appels de bienveillance.</p></div></div><p class="qVerif"><span class="qVerifIco" aria-hidden="true">🛡️</span><span><strong>Antécédents vérifiés exigés par défaut</strong> · ces services sont réservés aux voisins dont les antécédents judiciaires ont été vérifiés. Une famille peut accepter des voisins non vérifiés&nbsp;: le choix devient alors sa responsabilité.</span></p><div id="qCareList" class="qList"></div></section>
-  <section id="qDons" class="qBlock" data-cats="dons"><h2 class="qH qPad">Dons disponibles</h2><div id="qDonList" class="qCarousel"></div></section>
+  <section id="qCal" class="qBlock" data-cats="entraide evenement dons discussion"><h2 class="qH qPad">Calendrier de la semaine</h2><div id="qDays" class="qDays"></div><div id="qDayList" class="qPad qList"></div><div id="qCalMore" class="qPad"></div></section>
+  <section id="qReq" class="qBlock qPad qHelp qHelpSimple" data-cats="entraide"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">🛠️</span><div><h2 class="qH">Coups de main</h2><p class="qHelpSub">Petits services entre voisins : courses, pelletage, petites réparations, transport, déménagement.</p></div></div><div id="qReqList" class="qList"></div><div id="qReqMore"></div></section>
+  <section id="qCare" class="qBlock qPad qHelp qHelpCare" data-cats="entraide"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">💚</span><div><h2 class="qH">Aide à la personne</h2><p class="qHelpSub">Accompagnement, visites d’amitié, aide aux repas, appels de bienveillance.</p></div></div><p class="qVerif"><span class="qVerifIco" aria-hidden="true">🛡️</span><span><strong>Antécédents vérifiés exigés par défaut</strong> · ces services sont réservés aux voisins dont les antécédents judiciaires ont été vérifiés. Une famille peut accepter des voisins non vérifiés&nbsp;: le choix devient alors sa responsabilité.</span></p><div id="qCareList" class="qList"></div><div id="qCareMore"></div></section>
+  <section id="qDons" class="qBlock" data-cats="dons"><h2 class="qH qPad">Dons disponibles</h2><div id="qDonCats" class="qPills qPillsSm" role="group" aria-label="Catégories de dons"></div><div id="qDonList" class="qCarousel"></div><div id="qDonMore" class="qPad"></div></section>
   <section id="qPros" class="qBlock" data-cats="tout"><div class="qHelpHead qPad"><span class="qHelpIco qVoisIco" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span><div><h2 class="qH">Voisins vérifiés</h2><p class="qHelpSub">Des voisins qui ont choisi de confirmer leur identité. C’est facultatif, mais ça inspire confiance.</p></div></div><div id="qProFilters" class="qPills qPillsSm"></div><div id="qProList" class="qPad qProGrid"></div>
     <div class="qPad"><div class="qHow"><h3>Deux niveaux de vérification</h3><div class="qLvlRows"><div class="qLvlRow"><span class="lvl lvl1">✓ Voisin vérifié</span><span class="qLvlD"><strong>Facultatif</strong> · un plus pour la confiance (pièce d’identité + attestation).</span></div><div class="qLvlRow"><span class="lvl lvl2">🛡️ Antécédents vérifiés</span><span class="qLvlD"><strong>Exigé</strong> pour l’aide à la personne aux aînés, sauf si la famille accepte des voisins non vérifiés.</span></div></div><ol><li><span class="qHowN">1</span><span><strong>Pièce d’identité envoyée</strong> <span class="optTag">facultatif</span><br>Photo de votre permis, carte d’assurance maladie ou passeport.</span></li><li><span class="qHowN">2</span><span><strong>Attestation sur l’honneur</strong><br>Casier judiciaire vierge.</span></li><li><span class="qHowN">3</span><span><strong>Badge « Voisin vérifié »</strong><br>Affiché sur votre profil, sous 48 h.</span></li><li class="qHowPlus"><span class="qHowN qHowN2">🛡️</span><span><strong>Aide à la personne aux aînés</strong><br>Vérification officielle des antécédents judiciaires (service de police ou fournisseur autorisé), exigée par défaut. Badge « Antécédents vérifiés ».</span></li></ol><a href="#verif" id="qVerifCta" class="qVerifCta">Devenir voisin vérifié</a><p class="qCtaSub">Facultatif · vous pouvez utiliser MaisonSereine sans être vérifié.</p></div></div></section>
   <section id="qRes" class="qBlock qPad" data-cats="tout"><h2 class="qH">Ressources utiles</h2><div id="qResList" class="qResList"></div></section>
   <!-- Carte du secteur masquée (SHOW_QMAP = False dans build.py pour la réactiver) -->
-</main><nav aria-label="Navigation principale" style="height: 76px; flex-shrink: 0; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211); display: grid; grid-template-columns: repeat(5, minmax(0px, 1fr)); align-items: center;"><a href="#fil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a><a href="#quartier" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(43, 95, 79); font-size: 11px; font-weight: 700;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Quartier</a><a href="#publier" aria-label="Publier" style="justify-self: center; width: 52px; height: 52px; border-radius: 26px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#messages" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Messages</a><a href="#profil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg>Profil</a></nav></div></section>
+</main><nav aria-label="Navigation principale" style="height: 76px; flex-shrink: 0; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211); display: grid; grid-template-columns: repeat(5, minmax(0px, 1fr)); align-items: center;"><a href="#fil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a><a href="#quartier" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(43, 95, 79); font-size: 11px; font-weight: 700;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Quartier</a><a href="#publier" aria-label="Publier" style="justify-self: center; width: 52px; height: 52px; border-radius: 26px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#messages" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Messages</a><a href="#profil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg>Profil</a></nav><div id="qListPanel" class="qListPanel" hidden role="dialog" aria-modal="true" aria-labelledby="lTitle">
+  <header class="lHead"><button type="button" id="lBack" class="lBack" aria-label="Retour au quartier"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button><div class="lHeadT"><h2 id="lTitle">Coups de main</h2><span id="lCount" class="lCount"></span></div></header>
+  <div class="lTools">
+    <div class="lSearch"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input id="lQ" type="search" placeholder="Rechercher dans la liste" autocomplete="off"></div>
+    <div id="lCats" class="qPills qPillsSm lPills" role="group" aria-label="Catégories"></div>
+    <div id="lFilters" class="qPills qPillsSm lPills" role="group" aria-label="Filtres"></div>
+    <div id="lSortRow" class="lSortRow"><span>Trier :</span><div class="lSort" role="radiogroup" aria-label="Trier"><button type="button" role="radio" data-sort="recent" aria-checked="true">Récent</button><button type="button" role="radio" data-sort="dist" aria-checked="false">Distance</button></div></div>
+  </div>
+  <main id="lMain" class="lMain"><div id="lList" class="qList"></div><div id="lMore"></div></main>
+</div></div></section>
 <section class="screen" id="s-messages" data-screen="messages" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(248, 246, 240); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;"><header style="display: flex; align-items: center; justify-content: space-between; padding: 16px 12px 12px 20px;"><h1 style="margin: 0px; font-size: 24px; font-weight: 700;">Messages</h1><button aria-label="Nouveau message" style="width: 44px; height: 44px; border: 0px; border-radius: 22px; background: rgb(227, 237, 231); color: rgb(30, 69, 57); display: flex; align-items: center; justify-content: center; cursor: pointer;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></button></header><main style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211);"><a href="#messages" class="conv" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39); background: rgb(242, 247, 244);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">GB</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Gilles Bouchard</span><span style="font-size: 13px; font-weight: 700; color: rgb(30, 69, 57);">9 h 12</span></span><span style="font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Merci beaucoup&nbsp;! Mardi 9 h, ça vous irait&nbsp;?</span></span><span style="flex-shrink: 0; padding: 3px 9px; border-radius: 11px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 12px; font-weight: 700;">Nouveau</span></a><a href="#profil" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">LT</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Lucie Tremblay</span><span style="font-size: 13px; color: rgb(91, 102, 97);">Hier</span></span><span style="font-size: 14px; color: rgb(91, 102, 97); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Je garde une place pour votre mère jeudi.</span></span></a><a href="#messages" class="conv" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">CC</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Centre communautaire</span><span style="font-size: 13px; color: rgb(91, 102, 97);">Lundi</span></span><span style="font-size: 14px; color: rgb(91, 102, 97); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">La marche du samedi part à 9 h 30 du parc.</span></span></a><a href="#messages" class="conv" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">AD</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Amina Diallo</span><span style="font-size: 13px; color: rgb(91, 102, 97);">8 nov.</span></span><span style="font-size: 14px; color: rgb(91, 102, 97); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Parfait, à vendredi pour le ménage.</span></span></a><div style="display: flex; gap: 12px; align-items: flex-start; margin: 20px; padding: 14px 16px; border-radius: 14px; background: rgb(248, 246, 240); border: 1px solid rgb(228, 223, 211);"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5F4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span style="font-size: 14px; line-height: 1.4; color: rgb(63, 74, 69);">Vos échanges restent privés. MaisonSereine ne prélève aucune commission sur les services convenus entre vous.</span></div></main><nav aria-label="Navigation principale" style="height: 76px; flex-shrink: 0; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211); display: grid; grid-template-columns: repeat(5, minmax(0px, 1fr)); align-items: center;"><a href="#fil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a><a href="#quartier" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Quartier</a><a href="#publier" aria-label="Publier" style="justify-self: center; width: 52px; height: 52px; border-radius: 26px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#messages" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(43, 95, 79); font-size: 11px; font-weight: 700;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Messages</a><a href="#profil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg>Profil</a></nav></div></section>
 <section class="screen" id="s-profil" data-screen="profil" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(248, 246, 240); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;"><main style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 20px 20px 4px;"><div style="display: flex; align-items: center; gap: 16px;"><span style="width: 84px; height: 84px; flex-shrink: 0; border-radius: 42px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-weight: 700; font-size: 28px; display: flex; align-items: center; justify-content: center;">LT</span><div style="display: flex; flex-direction: column; gap: 4px;"><h1 style="margin: 0px; font-size: 22px; font-weight: 700;">Lucie Tremblay</h1><span style="font-size: 14px; color: rgb(91, 102, 97);">Voisine · Sainte-Foy</span><span style="align-self: flex-start; display: flex; align-items: center; gap: 4px; padding: 3px 10px 3px 6px; border-radius: 12px; background: rgb(227, 237, 231); color: rgb(30, 69, 57); font-size: 13px; font-weight: 700;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Voisine vérifiée</span></div></div><div style="display: grid; grid-template-columns: repeat(3, minmax(0px, 1fr)); gap: 8px; padding: 12px 0px; border-top: 1px solid rgb(228, 223, 211); border-bottom: 1px solid rgb(228, 223, 211); text-align: center;"><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 20px; font-weight: 700;">18</span><span style="font-size: 13px; color: rgb(91, 102, 97);">publications</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 20px; font-weight: 700;">142</span><span style="font-size: 13px; color: rgb(91, 102, 97);">voisins abonnés</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 20px; font-weight: 700;">310</span><span style="font-size: 13px; color: rgb(91, 102, 97);">mercis reçus</span></div></div><p style="margin: 0px; font-size: 15px; line-height: 1.45;">J'accompagne des aînés du quartier depuis huit ans. J'aime les ateliers créatifs, les marches et les bonnes conversations autour d'un thé.</p><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;"><span style="padding: 6px 12px; border-radius: 16px; background: rgb(255, 255, 255); border: 1px solid rgb(201, 194, 178); font-size: 14px; font-weight: 600;">Compagnie</span><span style="padding: 6px 12px; border-radius: 16px; background: rgb(255, 255, 255); border: 1px solid rgb(201, 194, 178); font-size: 14px; font-weight: 600;">Marches</span></div><div style="display: grid; grid-template-columns: repeat(2, minmax(0px, 1fr)); gap: 12px;"><a href="#messages" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border-radius: 24px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 15px; font-weight: 700;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Écrire à Lucie</a><button id="suivre" aria-pressed="false" style="min-height: 48px; border-radius: 24px; border: 2px solid rgb(43, 95, 79); background: rgb(255, 255, 255); color: rgb(30, 69, 57); font-size: 15px; font-weight: 700; cursor: pointer;"><span>Suivre</span></button></div><div style="display: grid; grid-template-columns: repeat(3, minmax(0px, 1fr)); gap: 4px; margin: 0px -20px;"><a href="#publication" aria-label="Publication : atelier de tricot" style="height: 128px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">[PHOTO — tricot]</a><a href="#publication" aria-label="Publication : marche au parc" style="height: 128px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">[PHOTO — marche au parc]</a><a href="#publication" aria-label="Publication : jeux de société" style="height: 128px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">[PHOTO — jeux de société]</a><a href="#publication" aria-label="Publication : jardinage" style="height: 128px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">[PHOTO — jardinage]</a><a href="#publication" aria-label="Publication : recette de tarte" style="height: 128px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">[PHOTO — tarte aux pommes]</a><a href="#publication" aria-label="Publication : chorale" style="height: 128px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">[PHOTO — chorale]</a></div></main><nav aria-label="Navigation principale" style="height: 76px; flex-shrink: 0; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211); display: grid; grid-template-columns: repeat(5, minmax(0px, 1fr)); align-items: center;"><a href="#fil" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a><a href="#quartier" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Quartier</a><a href="#publier" aria-label="Publier" style="justify-self: center; width: 52px; height: 52px; border-radius: 26px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#messages" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(91, 102, 97); font-size: 11px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Messages</a><a href="#profil" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: rgb(43, 95, 79); font-size: 11px; font-weight: 700;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg>Profil</a></nav></div></section>
 <section class="screen" id="s-story" data-screen="story" aria-hidden="true"><div style="width: 100%; height: 100%; font-family: Figtree, system-ui, sans-serif; position: relative; overflow: hidden; background: rgb(0, 0, 0);">
@@ -1374,6 +1426,7 @@ function show(name, opts){
   if(name === 'story') startStory(); else stopStory();
   if(name === 'publier') resetComposer();
   if(name === 'verif' && window.msVerifReset) window.msVerifReset();
+  if(name === 'quartier' && window.msQVisit) window.msQVisit(opts);
 }
 function back(fallback){
   var prev = stack.pop();
@@ -1894,39 +1947,94 @@ var CATS = [['tout','Tout'],['entraide','🤝 Entraide'],['evenement','🎉 Év�
 var cat = 'tout', query = '', dayIdx = 0, proSvc = 'Tous';
 var JOURS = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
 var JOURS_L = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
-// Example data (prototype) ----------------------------------------------
+// Example data (prototype, fictive) — Québec / Sainte-Foy ---------------------
+// m = distance en mètres, a = âge en heures, r = nombre de réponses, done = comblée / donné
 var ACTS = [
+  {d:0, h:'10 h', t:'Marche matinale du lundi', s:'Parc de la Pointe-à-Puiseaux · rythme doux', c:'evenement', n:8, p:'parc'},
   {d:0, h:'14 h', t:'Café-jasette', s:'Centre communautaire · ouvert à tous', c:'discussion', n:9, p:'cc'},
+  {d:0, h:'19 h', t:'Club de lecture', s:'Bibliothèque Monique-Corriveau', c:'discussion', n:7, p:'biblio'},
   {d:1, h:'9 h', t:'Marche accompagnée', s:'Parc de la Pointe-à-Puiseaux · avec bénévoles', c:'entraide', n:4, p:'parc'},
+  {d:1, h:'10 h 30', t:'Yoga sur chaise', s:'Centre communautaire · tous niveaux', c:'evenement', n:11, p:'cc'},
+  {d:1, h:'13 h 30', t:'Atelier soupes d\u2019hiver', s:'Salle paroissiale · on cuisine ensemble', c:'evenement', n:10, p:'eglise'},
+  {d:1, h:'15 h 30', t:'Aide aux devoirs', s:'Bibliothèque · bénévoles retraités', c:'entraide', n:6, p:'biblio'},
+  {d:2, h:'10 h', t:'Atelier numérique : éviter les arnaques', s:'Bibliothèque du quartier', c:'entraide', n:14, p:'biblio'},
   {d:2, h:'13 h 30', t:'Collecte de vêtements d\u2019hiver', s:'Sous-sol de l\u2019église', c:'dons', n:6, p:'eglise'},
+  {d:2, h:'16 h', t:'Jeux de société intergénérationnels', s:'Centre communautaire', c:'evenement', n:12, p:'cc'},
   {d:3, h:'10 h', t:'Atelier de tricot', s:'Centre communautaire · avec Lucie', c:'evenement', n:12, p:'cc'},
+  {d:3, h:'13 h', t:'Épicerie en covoiturage', s:'Départ du centre communautaire', c:'entraide', n:5, p:'cc'},
   {d:3, h:'15 h', t:'Aide aux tablettes et appels vidéo', s:'Bibliothèque du quartier', c:'entraide', n:5, p:'biblio'},
+  {d:3, h:'19 h', t:'Soirée discussion : vieillir chez soi', s:'Centre communautaire', c:'discussion', n:16, p:'cc'},
+  {d:4, h:'11 h 30', t:'Dîner communautaire', s:'Salle paroissiale · 5 $ suggéré', c:'evenement', n:21, p:'eglise'},
   {d:4, h:'17 h 30', t:'Souper communautaire', s:'Salle paroissiale · contribution volontaire', c:'evenement', n:23, p:'eglise'},
   {d:5, h:'9 h 30', t:'Marche du samedi', s:'Départ au parc · rythme doux', c:'evenement', n:15, p:'parc'},
+  {d:5, h:'10 h', t:'Bazar de dons', s:'Sous-sol de l\u2019église · apportez vos sacs', c:'dons', n:18, p:'eglise'},
+  {d:5, h:'13 h 30', t:'Café-réparation', s:'Centre communautaire · petits appareils et vêtements', c:'entraide', n:9, p:'cc'},
+  {d:5, h:'15 h', t:'Échange de livres', s:'Bibliothèque Monique-Corriveau', c:'dons', n:7, p:'biblio'},
+  {d:6, h:'10 h', t:'Brunch des voisins', s:'Centre communautaire · chacun apporte un plat', c:'discussion', n:13, p:'cc'},
   {d:6, h:'14 h', t:'Chorale intergénérationnelle', s:'Bibliothèque du quartier', c:'evenement', n:18, p:'biblio'}
 ];
 var REQS = [
-  {who:'Huguette Lavoie', txt:'a besoin de quelqu\u2019un pour faire son épicerie demain : elle ne peut pas sortir avec la glace.', u:'Urgent', ico:'🛒'},
-  {who:'Famille Roy', txt:'cherche un voisin pour pelleter l\u2019entrée de M. Roy les matins de tempête cet hiver.', u:'Cette semaine', ico:'❄️'},
-  {who:'Marcel Gagnon', txt:'aimerait un coup de main pour fixer une tablette et changer une ampoule au plafond.', u:'Flexible', ico:'🔧'},
-  {who:'Denise Paquet', txt:'cherche un transport pour aller à la pharmacie jeudi après-midi.', u:'Cette semaine', ico:'🚗'},
-  {who:'Line Côté', txt:'a besoin de deux bras pour descendre un divan au sous-sol samedi.', u:'Flexible', ico:'📦'}
+  {who:'Huguette Lavoie', txt:'a besoin de quelqu\u2019un pour faire son épicerie demain : elle ne peut pas sortir avec la glace.', u:'Urgent', ico:'🛒', m:350, a:3, r:0},
+  {who:'Famille Roy', txt:'cherche un voisin pour pelleter l\u2019entrée de M. Roy les matins de tempête cet hiver.', u:'Cette semaine', ico:'❄️', m:600, a:30, r:0},
+  {who:'Marcel Gagnon', txt:'aimerait un coup de main pour fixer une tablette et changer une ampoule au plafond.', u:'Flexible', ico:'🔧', m:450, a:50, r:1},
+  {who:'Denise Paquet', txt:'cherche un transport pour aller à la pharmacie jeudi après-midi.', u:'Cette semaine', ico:'🚗', m:800, a:5, r:0},
+  {who:'Line Côté', txt:'a besoin de deux bras pour descendre un divan au sous-sol samedi.', u:'Flexible', ico:'📦', m:1200, a:20, r:2},
+  {who:'Robert Pelletier', txt:'aimerait qu\u2019on déglace ses marches avant demain matin.', u:'Urgent', ico:'🧂', m:250, a:1, r:0},
+  {who:'Claire Bédard', txt:'a besoin d\u2019aide pour rentrer ses meubles de jardin avant la neige.', u:'Cette semaine', ico:'🪑', m:900, a:28, r:0},
+  {who:'Normand Lévesque', txt:'cherche quelqu\u2019un pour poster un colis au comptoir postal.', u:'Flexible', ico:'✉️', m:300, a:7, r:1},
+  {who:'Ginette Caron', txt:'aimerait de l\u2019aide pour poser des coupe-froid à ses fenêtres.', u:'Cette semaine', ico:'🪟', m:700, a:40, r:0},
+  {who:'Yves Morin', txt:'cherche un transport pour son rendez-vous chez le dentiste lundi matin.', u:'Cette semaine', ico:'🚗', m:1500, a:9, r:0},
+  {who:'Suzanne Dion', txt:'cherche quelqu\u2019un pour monter des caisses d\u2019eau au 3e étage.', u:'Flexible', ico:'💧', m:550, a:60, r:3, done:true},
+  {who:'Michel Boucher', txt:'aimerait qu\u2019on l\u2019aide à configurer son nouveau cellulaire.', u:'Flexible', ico:'📱', m:400, a:15, r:0},
+  {who:'Famille Nguyen', txt:'cherche un coup de main pour déménager quelques boîtes samedi.', u:'Cette semaine', ico:'📦', m:1100, a:26, r:1},
+  {who:'Lise Gauthier', txt:'a besoin qu\u2019on promène son chien deux matins cette semaine.', u:'Cette semaine', ico:'🐕', m:650, a:4, r:0},
+  {who:'André Simard', txt:'aimerait de l\u2019aide pour ramasser les feuilles mortes.', u:'Flexible', ico:'🍂', m:950, a:70, r:2, done:true},
+  {who:'Monique Lachance', txt:'cherche quelqu\u2019un pour aller chercher une commande à la pharmacie.', u:'Urgent', ico:'💊', m:300, a:2, r:1},
+  {who:'Pierre Ouellet', txt:'a besoin d\u2019aide pour changer le filtre de sa fournaise.', u:'Flexible', ico:'🔥', m:1300, a:36, r:0},
+  {who:'Jocelyne Roy', txt:'cherche quelqu\u2019un pour déneiger sa voiture après les tempêtes.', u:'Cette semaine', ico:'🚙', m:500, a:12, r:0},
+  {who:'Raymond Fortier', txt:'a besoin d\u2019un coup de main pour accrocher des cadres.', u:'Flexible', ico:'🖼️', m:750, a:48, r:1},
+  {who:'Francine Hébert', txt:'cherche quelqu\u2019un pour rapporter ses livres à la bibliothèque Monique-Corriveau.', u:'Flexible', ico:'📚', m:850, a:6, r:0}
 ];
 var CARE = [
-  {who:'Rita Morin', txt:'aimerait être accompagnée à son rendez-vous médical mardi matin, aller-retour en autobus.', u:'Urgent', ico:'🩺', k:'Accompagnement'},
-  {who:'Gilles Bouchard', txt:'cherche une présence pour la marche de sa mère, les mardis et jeudis matin.', u:'Cette semaine', ico:'🚶', k:'Accompagnement', open:true},
-  {who:'Jeanne Fortin', txt:'(86 ans) aimerait recevoir une visite d\u2019amitié une fois par semaine pour jaser autour d\u2019un thé.', u:'Flexible', ico:'☕', k:'Visite d\u2019amitié'},
-  {who:'Paul Tremblay', txt:'a besoin d\u2019aide pour préparer ses repas deux fois par semaine après son opération.', u:'Cette semaine', ico:'🍲', k:'Aide aux repas'},
-  {who:'Thérèse Roy', txt:'souhaiterait un appel de bienveillance chaque matin pour s\u2019assurer que tout va bien.', u:'Flexible', ico:'📞', k:'Appel de bienveillance'}
+  {who:'Rita Morin', txt:'aimerait être accompagnée à son rendez-vous médical mardi matin, aller-retour en autobus.', u:'Urgent', ico:'🩺', k:'Accompagnement', m:400, a:4, r:0},
+  {who:'Gilles Bouchard', txt:'cherche une présence pour la marche de sa mère, les mardis et jeudis matin.', u:'Cette semaine', ico:'🚶', k:'Accompagnement', open:true, m:650, a:5, r:2},
+  {who:'Jeanne Fortin', txt:'(86 ans) aimerait recevoir une visite d\u2019amitié une fois par semaine pour jaser autour d\u2019un thé.', u:'Flexible', ico:'☕', k:'Visite d\u2019amitié', m:300, a:30, r:0},
+  {who:'Paul Tremblay', txt:'a besoin d\u2019aide pour préparer ses repas deux fois par semaine après son opération.', u:'Cette semaine', ico:'🍲', k:'Aide aux repas', m:900, a:10, r:1},
+  {who:'Thérèse Roy', txt:'souhaiterait un appel de bienveillance chaque matin pour s\u2019assurer que tout va bien.', u:'Flexible', ico:'📞', k:'Appel de bienveillance', m:1100, a:50, r:0},
+  {who:'Famille Côté', txt:'cherche une présence pour leur père le mercredi après-midi, le temps d\u2019un répit.', u:'Cette semaine', ico:'🤝', k:'Présence', m:700, a:26, r:0},
+  {who:'Lucien Paré', txt:'aimerait qu\u2019on l\u2019accompagne à l\u2019épicerie avec sa marchette.', u:'Cette semaine', ico:'🛒', k:'Accompagnement', open:true, m:350, a:3, r:0},
+  {who:'Madeleine Roy', txt:'souhaite de la compagnie pour une partie de cartes le dimanche.', u:'Flexible', ico:'🃏', k:'Visite d\u2019amitié', m:500, a:12, r:1},
+  {who:'Henri Gagné', txt:'a besoin d\u2019aide pour préparer ses repas de la semaine.', u:'Flexible', ico:'🥘', k:'Aide aux repas', m:1200, a:40, r:0},
+  {who:'Famille Bilodeau', txt:'cherche quelqu\u2019un pour s\u2019assurer que leur mère prend son repas du midi.', u:'Urgent', ico:'🍽️', k:'Aide aux repas', m:450, a:6, r:0},
+  {who:'Cécile Lavoie', txt:'aimerait un appel de bienveillance les soirs de tempête.', u:'Flexible', ico:'📞', k:'Appel de bienveillance', open:true, m:800, a:20, r:0},
+  {who:'Georges Dubé', txt:'aimerait être accompagné à la messe du dimanche.', u:'Flexible', ico:'⛪', k:'Accompagnement', m:600, a:70, r:3, done:true},
+  {who:'Yvonne Martel', txt:'souhaite qu\u2019on lui fasse la lecture du journal deux fois par semaine.', u:'Flexible', ico:'📰', k:'Visite d\u2019amitié', m:950, a:16, r:0},
+  {who:'Famille Tremblay', txt:'cherche une présence pour leur grand-mère à son retour de l\u2019hôpital.', u:'Cette semaine', ico:'🏠', k:'Présence', m:1400, a:8, r:1},
+  {who:'Roland Picard', txt:'aimerait être accompagné à la clinique pour sa prise de sang vendredi.', u:'Urgent', ico:'🩸', k:'Accompagnement', m:550, a:1, r:0}
 ];
 var URG = {'Urgent':['#FDE8E4','#A3321A'], 'Cette semaine':['#FBEFE4','#8A3F14'], 'Flexible':['#E3EDE7','#1E4539']};
+var DON_CATS = ['Tous','Vêtements','Meubles','Nourriture','Jouets','Autres'];
 var DONS = [
-  {e:'🧥', t:'Manteau d\u2019hiver, taille M', s:'Très chaud, comme neuf · Rue Myrand', bg:'#E4EEF6'},
-  {e:'🦯', t:'Déambulateur pliant', s:'Avec siège et panier · à ramasser', bg:'#E3EDE7'},
-  {e:'📚', t:'Livres en gros caractères', s:'Lot de 12 romans · Bibliothèque libre', bg:'#FBEFE4'},
-  {e:'🫙', t:'Pots Mason (24)', s:'Parfaits pour les confitures', bg:'#F3EDE3'},
-  {e:'🧩', t:'Casse-tête 1000 pièces', s:'3 boîtes complètes', bg:'#F0E8FB'},
-  {e:'🧣', t:'Tuques et foulards tricotés', s:'Faits à l\u2019atelier du jeudi', bg:'#FDE8E4'}
+  {e:'🧥', t:'Manteau d\u2019hiver, taille M', s:'Très chaud, comme neuf', cat:'Vêtements', bg:'#E4EEF6', m:400, a:5, r:0},
+  {e:'🥾', t:'Bottes d\u2019hiver femme, pointure 8', s:'Portées un hiver', cat:'Vêtements', bg:'#F3EDE3', m:700, a:30, r:0},
+  {e:'🧣', t:'Tuques et foulards tricotés', s:'Faits à l\u2019atelier du jeudi', cat:'Vêtements', bg:'#FDE8E4', m:300, a:2, r:3},
+  {e:'⛄', t:'Habit de neige enfant, 6 ans', s:'Très chaud, porté un hiver', cat:'Vêtements', bg:'#E4EEF6', m:900, a:48, r:1},
+  {e:'🧤', t:'Mitaines doublées (lot de 5)', s:'Tailles variées', cat:'Vêtements', bg:'#F0E8FB', m:500, a:10, r:0},
+  {e:'🪑', t:'Fauteuil berçant', s:'Bois massif, coussin inclus', cat:'Meubles', bg:'#F3EDE3', m:1100, a:26, r:0},
+  {e:'🍽️', t:'Petite table de cuisine', s:'Avec 2 chaises · à ramasser', cat:'Meubles', bg:'#FBEFE4', m:800, a:12, r:2},
+  {e:'💡', t:'Lampe de lecture sur pied', s:'Lumière douce, réglable', cat:'Meubles', bg:'#FFF4D6', m:350, a:4, r:0},
+  {e:'📚', t:'Bibliothèque en bois', s:'5 tablettes · 180 cm', cat:'Meubles', bg:'#F3EDE3', m:1300, a:60, r:0},
+  {e:'🍓', t:'Confitures maison (6 pots)', s:'Fraises et bleuets du Québec', cat:'Nourriture', bg:'#FDE8E4', m:450, a:8, r:1},
+  {e:'🎃', t:'Courges du jardin', s:'Une dizaine, à donner avant le gel', cat:'Nourriture', bg:'#FBEFE4', m:650, a:36, r:0},
+  {e:'🥫', t:'Conserves (lot de 15)', s:'Non périmées · idéal pour un dépannage', cat:'Nourriture', bg:'#E3EDE7', m:550, a:3, r:0},
+  {e:'🍞', t:'Pain de la veille', s:'Boulangerie du coin, chaque soir', cat:'Nourriture', bg:'#F3EDE3', m:250, a:20, r:4, given:true},
+  {e:'🧩', t:'Casse-tête 1000 pièces', s:'3 boîtes complètes', cat:'Jouets', bg:'#F0E8FB', m:600, a:14, r:0},
+  {e:'🧱', t:'Blocs de construction', s:'Grand bac, pièces mélangées', cat:'Jouets', bg:'#E4EEF6', m:1000, a:28, r:0},
+  {e:'🎲', t:'Jeux de société', s:'Scrabble, Monopoly, cartes', cat:'Jouets', bg:'#E3EDE7', m:400, a:6, r:2},
+  {e:'🛷', t:'Traîneau d\u2019enfant', s:'Bon état', cat:'Jouets', bg:'#FDE8E4', m:850, a:50, r:0},
+  {e:'🦯', t:'Déambulateur pliant', s:'Avec siège et panier', cat:'Autres', bg:'#E3EDE7', m:500, a:9, r:1},
+  {e:'📖', t:'Livres en gros caractères', s:'Lot de 12 romans', cat:'Autres', bg:'#FBEFE4', m:300, a:1, r:0},
+  {e:'🫙', t:'Pots Mason (24)', s:'Parfaits pour les confitures', cat:'Autres', bg:'#F3EDE3', m:750, a:40, r:0}
 ];
 var PROS = [
   {i:'LT', n:'Lucie Tremblay', g:'f', d:'à 300 m', bg2:true, svc:['Compagnie','Tricot','Marches','Aînés'], bg:'#2B5F4F', fg:'#FFFFFF'},
@@ -2007,52 +2115,138 @@ function renderFilters(){
 /* 3. calendrier */
 var joined = {};
 function actsFor(d){ return ACTS.filter(function(a){ return (d == null || a.d === d) && catOk(a.c) && hit(a.t, a.s, JOURS_L[a.d]); }); }
+function actCard(a){
+  var k = ACTS.indexOf(a), on = !!joined[k], n = a.n + (on ? 1 : 0);
+  return '<div class="qCard act"><div class="actTime">' + a.h.replace(' h ', ' h\u00a0') + '</div><div class="actBody"><span class="actT">' + esc(a.t) + '</span><span class="actS">' + esc(a.s) + '</span><span class="actN">' + n + ' participant' + (n > 1 ? 's' : '') + '</span></div><button class="btnPart' + (on ? ' on' : '') + '" data-join="' + k + '" aria-pressed="' + on + '">' + (on ? '\u2713 Je participe' : 'Je participe') + '</button></div>';
+}
+function moreBtn(block, n, extra){ return '<button type="button" class="qMoreBtn" data-list="' + block + '"' + (extra || '') + '>Voir tout (' + n + ')<span aria-hidden="true"> ›</span></button>'; }
 function renderCal(){
-  var any = actsFor(null);
-  var h = '';
+  var any = actsFor(null), h = '';
   for(var i = 0; i < 7; i++){
-    var dt = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i);
-    var has = actsFor(i).length > 0;
-    h += '<button class="qDay' + (i === todayIdx ? ' today' : '') + '" data-day="' + i + '" aria-pressed="' + (i === dayIdx) + '" aria-label="' + JOURS_L[i] + ' ' + dt.getDate() + (i === todayIdx ? ', aujourd\u2019hui' : '') + '"><span class="dn">' + JOURS[i] + '</span><span class="dd">' + dt.getDate() + '</span>' + (has ? '<span class="dot"></span>' : '') + '</button>';
+    var dt = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i), c = actsFor(i).length;
+    h += '<button class="qDay' + (i === todayIdx ? ' today' : '') + '" data-day="' + i + '" aria-pressed="' + (i === dayIdx) + '" aria-label="' + JOURS_L[i] + ' ' + dt.getDate() + (i === todayIdx ? ', aujourd\u2019hui' : '') + ', ' + c + ' activité' + (c > 1 ? 's' : '') + '"><span class="dn">' + JOURS[i] + '</span><span class="dd">' + dt.getDate() + '</span><span class="dc' + (c ? '' : ' zero') + '">' + c + '</span></button>';
   }
   parts.days.innerHTML = h;
   var list = actsFor(dayIdx);
-  parts.dayList.innerHTML = list.length ? list.map(function(a){
-    var k = ACTS.indexOf(a), on = !!joined[k], n = a.n + (on ? 1 : 0);
-    return '<div class="qCard act"><div class="actTime">' + a.h.replace(' h ', ' h\u00a0') + '</div><div class="actBody"><span class="actT">' + esc(a.t) + '</span><span class="actS">' + esc(a.s) + '</span><span class="actN">' + n + ' participant' + (n > 1 ? 's' : '') + '</span></div><button class="btnPart' + (on ? ' on' : '') + '" data-join="' + k + '" aria-pressed="' + on + '">' + (on ? '\u2713 Je participe' : 'Je participe') + '</button></div>';
-  }).join('') : '<div class="qEmpty" style="padding:8px 0">Aucune activité ' + JOURS_L[dayIdx] + '.</div>';
+  parts.dayList.innerHTML = list.length ? list.slice(0, 3).map(actCard).join('') : '<div class="qEmpty" style="padding:8px 0">Aucune activité ' + JOURS_L[dayIdx] + '.</div>';
+  parts.calMore.innerHTML = list.length > 3 ? moreBtn('cal', list.length) : '';
   var show = any.length > 0;
   parts.cal.classList.toggle('qHidden', !show);
   return show;
 }
 
+/* équité : sans réponse d'abord, relance après 24 h, rotation de l'aperçu à chaque visite */
+var rot = 0; try{ rot = +localStorage.getItem('ms_qrot') || 0; }catch(_){}
+var URANK = {'Urgent':0, 'Cette semaine':1, 'Flexible':2};
+function isDone(x){ return !!(x.done || x.given); }
+function boosted(x){ return !isDone(x) && x.r === 0 && x.a >= 24; }
+function fairRank(x){ return isDone(x) ? 9 : boosted(x) ? 0 : x.r === 0 ? 1 : 2; }
+function fairSort(list, key){
+  return list.slice().sort(function(p, q){
+    var d = fairRank(p) - fairRank(q); if(d) return d;
+    if(key === 'dist') return p.m - q.m;
+    if(key === 'recent') return p.a - q.a;
+    return ((URANK[p.u] || 0) - (URANK[q.u] || 0)) || (p.a - q.a);
+  });
+}
+function preview(list, n){
+  var elig = fairSort(list.filter(function(x){ return !isDone(x); }));
+  var un = elig.filter(function(x){ return x.r === 0; }), rest = elig.filter(function(x){ return x.r > 0; }), out = [];
+  function take(arr, k){ if(!arr.length) return []; var s = rot % arr.length, res = []; for(var i = 0; i < Math.min(k, arr.length); i++) res.push(arr[(s + i) % arr.length]); return res; }
+  out = take(un, n); if(out.length < n) out = out.concat(take(rest, n - out.length));
+  return fairSort(out);
+}
+function fmtDist(m){ return m < 1000 ? 'à ' + (Math.round(m / 50) * 50) + ' m' : 'à ' + (m / 1000).toFixed(1).replace('.', ',') + ' km'; }
+function fmtAge(h){ return h < 1 ? 'il y a 40 min' : h < 24 ? 'il y a ' + Math.round(h) + ' h' : 'il y a ' + Math.floor(h / 24) + ' j'; }
+function metaLine(x, unit){
+  return '<div class="qMeta"><span>📍 ' + fmtDist(x.m) + '</span><span>' + fmtAge(x.a) + '</span><span>' + (x.r ? x.r + ' ' + unit + (x.r > 1 ? 's' : '') : '0 ' + unit) + '</span></div>';
+}
+function fairTags(x){
+  if(isDone(x)) return '';
+  return (x.r === 0 ? '<span class="noRespTag">Personne n\u2019a encore répondu</span>' : '') + (boosted(x) ? '<span class="boostTag">🔔 Relancée · voisins proches notifiés</span>' : '');
+}
+
 /* 4. entraide */
 function reqCard(r, care){
-  var u = URG[r.u];
+  var u = URG[r.u], idx = (care ? CARE : REQS).indexOf(r), done = isDone(r);
   var tag = care ? (r.open ? '<span class="openTag">⚠️ Non vérifiés acceptés · responsabilité de la famille</span>' : '<span class="bgTag">🛡️ Antécédents vérifiés requis</span>') : '';
-  return '<div class="qCard req' + (care ? ' care' : '') + (r.open ? ' open' : '') + '"><div class="reqTop"><span class="reqWho"><span class="reqIco" aria-hidden="true">' + r.ico + '</span><strong style="font-size:15px">' + esc(r.who) + '</strong></span><span class="urg" style="background:' + u[0] + ';color:' + u[1] + '">' + r.u + '</span></div>' +
+  var ft = fairTags(r);
+  return '<div class="qCard req' + (care ? ' care' : '') + (r.open ? ' open' : '') + (!done && r.r === 0 ? ' noResp' : '') + (done ? ' done' : '') + '"><div class="reqTop"><span class="reqWho"><span class="reqIco" aria-hidden="true">' + r.ico + '</span><strong style="font-size:15px">' + esc(r.who) + '</strong></span>' + (done ? '<span class="doneTag">✓ Comblée</span>' : '<span class="urg" style="background:' + u[0] + ';color:' + u[1] + '">' + r.u + '</span>') + '</div>' +
+    (ft ? '<div class="reqTags">' + ft + '</div>' : '') +
     (care ? '<div class="reqTags"><span class="reqKind">' + esc(r.k) + '</span>' + tag + '</div>' : '') +
-    '<div class="reqTxt">' + esc(/^Famille /.test(r.who) ? 'La f' + r.who.slice(1) : r.who.split(' ')[0]) + ' ' + esc(r.txt) + '</div><a href="#messages" class="reqBtn"' + (care ? ' data-care="' + (r.open ? 'open' : 'bg') + '"' : '') + '>' + (care ? 'Proposer ma présence' : 'Proposer mon aide') + '</a></div>';
+    '<div class="reqTxt">' + esc(/^Famille /.test(r.who) ? 'La f' + r.who.slice(1) : r.who.split(' ')[0]) + ' ' + esc(r.txt) + '</div>' + metaLine(r, 'réponse') +
+    (done ? '' : '<a href="#messages" class="reqBtn" data-resp="' + (care ? 'care' : 'req') + ':' + idx + '"' + (care ? ' data-care="' + (r.open ? 'open' : 'bg') + '"' : '') + '>' + (care ? 'Proposer ma présence' : 'Proposer mon aide') + '</a>') + '</div>';
 }
+function reqHit(r){ return hit(r.who, r.txt, r.u, 'entraide', 'coups de main', 'coup de main'); }
+function careHit(r){ return hit(r.who, r.txt, r.u, r.k, 'entraide', 'aide à la personne', 'voisins vérifiés', 'antécédents', r.open ? 'non vérifiés acceptés responsabilité' : 'antécédents vérifiés requis'); }
 function renderReq(){
-  var simple = REQS.filter(function(r){ return catOk('entraide') && hit(r.who, r.txt, r.u, 'entraide', 'coups de main', 'coup de main'); });
-  var care = CARE.filter(function(r){ return catOk('entraide') && hit(r.who, r.txt, r.u, r.k, 'entraide', 'aide à la personne', 'voisins vérifiés', 'antécédents', r.open ? 'non vérifiés acceptés responsabilité' : 'antécédents vérifiés requis'); });
-  parts.reqList.innerHTML = simple.map(function(r){ return reqCard(r, false); }).join('');
-  parts.careList.innerHTML = care.map(function(r){ return reqCard(r, true); }).join('');
-  parts.req.classList.toggle('qHidden', !simple.length);
-  parts.care.classList.toggle('qHidden', !care.length);
-  return simple.length + care.length > 0;
+  var simple = catOk('entraide') ? REQS.filter(reqHit) : [], care = catOk('entraide') ? CARE.filter(careHit) : [];
+  var sa = simple.filter(function(x){ return !isDone(x); }), ca = care.filter(function(x){ return !isDone(x); });
+  parts.reqList.innerHTML = preview(simple, 3).map(function(r){ return reqCard(r, false); }).join('');
+  parts.careList.innerHTML = preview(care, 3).map(function(r){ return reqCard(r, true); }).join('');
+  parts.reqMore.innerHTML = simple.length > 3 ? moreBtn('req', sa.length) : '';
+  parts.careMore.innerHTML = care.length > 3 ? moreBtn('care', ca.length) : '';
+  parts.req.classList.toggle('qHidden', !sa.length);
+  parts.care.classList.toggle('qHidden', !ca.length);
+  return sa.length + ca.length > 0;
 }
 
 /* 5. dons */
-function renderDons(){
-  var list = DONS.filter(function(d){ return catOk('dons') && hit(d.t, d.s, 'don'); });
-  parts.donList.innerHTML = list.map(function(d){
-    return '<div class="qCard don"><div class="donImg" style="background:' + d.bg + '" aria-hidden="true">' + d.e + '</div><div class="donBody"><span class="donT">' + esc(d.t) + '</span><span class="donS">' + esc(d.s) + '</span><a href="#messages" class="donBtn">Je suis intéressé</a></div></div>';
-  }).join('');
-  parts.dons.classList.toggle('qHidden', !list.length);
-  return list.length > 0;
+var donCat = 'Tous';
+function donHit(d){ return hit(d.t, d.s, d.cat, 'don'); }
+function donCard(d, row){
+  var idx = DONS.indexOf(d), done = isDone(d), ft = fairTags(d);
+  return '<div class="qCard don' + (row ? ' donRow' : '') + (!done && d.r === 0 ? ' noResp' : '') + (done ? ' done' : '') + '"><div class="donImg" style="background:' + d.bg + '" aria-hidden="true">' + d.e + '</div><div class="donBody"><span class="donCat">' + d.cat + '</span><span class="donT">' + esc(d.t) + '</span><span class="donS">' + esc(d.s) + '</span>' + metaLine(d, 'intéressé') + (ft ? '<div class="reqTags">' + ft + '</div>' : '') +
+    (done ? '<span class="doneTag">✓ Donné</span>' : '<a href="#messages" class="donBtn" data-resp="don:' + idx + '">Je suis intéressé</a>') + '</div></div>';
 }
+function renderDons(){
+  var all = catOk('dons') ? DONS.filter(donHit) : [];
+  var list = all.filter(function(d){ return donCat === 'Tous' || d.cat === donCat; }), act = list.filter(function(d){ return !isDone(d); });
+  parts.donCats.innerHTML = DON_CATS.map(function(c){ var n = c === 'Tous' ? all.filter(function(d){ return !isDone(d); }).length : all.filter(function(d){ return d.cat === c && !isDone(d); }).length; return '<button data-doncat="' + c + '" aria-pressed="' + (c === donCat) + '">' + c + ' <span class="pc">' + n + '</span></button>'; }).join('');
+  parts.donList.innerHTML = act.length ? preview(list, 3).map(function(d){ return donCard(d, false); }).join('') + (act.length > 3 ? '<button type="button" class="qCard donAll" data-list="dons">Voir tout<br><strong>(' + act.length + ')</strong><span aria-hidden="true">›</span></button>' : '') : '<div class="qEmpty" style="padding:8px 0">Aucun don dans cette catégorie.</div>';
+  parts.donMore.innerHTML = act.length > 3 ? moreBtn('dons', act.length) : '';
+  parts.dons.classList.toggle('qHidden', !all.filter(function(d){ return !isDone(d); }).length);
+  return all.length > 0;
+}
+
+/* liste complète (« Voir tout ») */
+var L = {block:null, q:'', f:{}, sort:'recent', page:1, cat:'Tous', day:0};
+var L_TITLES = {req:'Coups de main', care:'Aide à la personne', dons:'Dons disponibles', cal:'Activités'};
+var L_FILTERS = [['urgent','Urgent'],['today','Aujourd\u2019hui'],['near','Près de moi'],['noresp','Sans réponse']];
+function lItems(){
+  var src = L.block === 'req' ? REQS : L.block === 'care' ? CARE : L.block === 'dons' ? DONS : ACTS;
+  var q = norm(L.q), hours = now.getHours() + now.getMinutes() / 60;
+  return src.filter(function(x){
+    if(L.block === 'cal') return x.d === L.day && (!q || norm(x.t + ' ' + x.s).indexOf(q) >= 0);
+    if(q && norm([x.who, x.txt, x.t, x.s, x.k, x.cat, x.u].join(' ')).indexOf(q) < 0) return false;
+    if(L.block === 'dons' && L.cat !== 'Tous' && x.cat !== L.cat) return false;
+    if(L.f.urgent && x.u !== 'Urgent') return false;
+    if(L.f.today && x.a > hours) return false;
+    if(L.f.near && x.m > 500) return false;
+    if(L.f.noresp && (x.r > 0 || isDone(x))) return false;
+    return true;
+  });
+}
+function renderList(keepScroll){
+  var cal = L.block === 'cal', items = lItems();
+  if(!cal) items = fairSort(items, L.sort);
+  var act = items.filter(function(x){ return !isDone(x); }).length, doneN = items.length - act, shown = items.slice(0, L.page * 10);
+  $('#lTitle').textContent = cal ? 'Activités · ' + JOURS_L[L.day] : L_TITLES[L.block];
+  $('#lCount').textContent = cal ? items.length + ' activité' + (items.length > 1 ? 's' : '') : act + ' active' + (act > 1 ? 's' : '') + (doneN ? ' · ' + doneN + (L.block === 'dons' ? ' donné' : ' comblée') + (doneN > 1 ? 's' : '') : '') + ' · exemples';
+  $('#lFilters').hidden = cal; $('#lSortRow').hidden = cal; $('#lCats').hidden = L.block !== 'dons';
+  $('#lFilters').innerHTML = L_FILTERS.filter(function(f){ return !(L.block === 'dons' && f[0] === 'urgent'); }).map(function(f){ return '<button data-lf="' + f[0] + '" aria-pressed="' + !!L.f[f[0]] + '">' + f[1] + '</button>'; }).join('');
+  $('#lCats').innerHTML = DON_CATS.map(function(c){ return '<button data-lcat="' + c + '" aria-pressed="' + (c === L.cat) + '">' + c + '</button>'; }).join('');
+  $$('#lSortRow [data-sort]').forEach(function(b){ b.setAttribute('aria-checked', b.getAttribute('data-sort') === L.sort ? 'true' : 'false'); });
+  $('#lList').innerHTML = shown.length ? shown.map(function(x){ return cal ? actCard(x) : L.block === 'dons' ? donCard(x, true) : reqCard(x, L.block === 'care'); }).join('') : '<div class="qEmpty" style="padding:24px 0;text-align:center">Aucun résultat avec ces filtres.</div>';
+  $('#lMore').innerHTML = items.length > shown.length ? '<button type="button" class="qMoreBtn" id="lMoreBtn">Voir plus (' + (items.length - shown.length) + ')</button>' : (items.length > 10 ? '<p class="lEnd">Vous avez tout vu 👍</p>' : '');
+  if(!keepScroll) $('#lMain').scrollTop = 0;
+}
+function openList(block){
+  L = {block:block, q:query, f:{}, sort:'recent', page:1, cat:block === 'dons' ? donCat : 'Tous', day:dayIdx};
+  $('#lQ').value = L.q; renderList();
+  var p = $('#qListPanel'); p.hidden = false; $('#lBack').focus();
+}
+function closeList(){ $('#qListPanel').hidden = true; renderAll(); }
 
 /* 6. voisins vérifiés */
 var SVCS = ['Tous','🛡️ Antécédents vérifiés','Compagnie','Courses','Bricolage','Transport'];
@@ -2128,7 +2322,7 @@ function renderAll(){
 }
 
 function init(){
-  ['today','filters','empty','cal','days','dayList','req','reqList','care','careList','dons','donList','pros','proFilters','proList','res','resList','map','mapBox'].forEach(function(k){
+  ['today','filters','empty','cal','days','dayList','calMore','req','reqList','reqMore','care','careList','careMore','dons','donCats','donList','donMore','pros','proFilters','proList','res','resList','map','mapBox'].forEach(function(k){
     parts[k] = document.getElementById('q' + k.charAt(0).toUpperCase() + k.slice(1));
   });
   renderFilters(); renderAll(); loadWeather();
@@ -2151,14 +2345,35 @@ function init(){
   root.addEventListener('click', function(e){
     var t;
     if((t = e.target.closest('[data-cat]'))){ cat = t.getAttribute('data-cat'); renderFilters(); renderAll(); return; }
+    if((t = e.target.closest('[data-list]'))){ openList(t.getAttribute('data-list')); return; }
+    if((t = e.target.closest('[data-doncat]'))){ donCat = t.getAttribute('data-doncat'); renderDons(); parts.donList.scrollLeft = 0; return; }
+    if((t = e.target.closest('[data-resp]'))){ var rp = t.getAttribute('data-resp').split(':'), arr = rp[0] === 'req' ? REQS : rp[0] === 'care' ? CARE : DONS, it = arr[+rp[1]]; if(it && !it._me){ it._me = 1; it.r++; } return; }
+    if((t = e.target.closest('[data-lf]'))){ var f = t.getAttribute('data-lf'); L.f[f] = !L.f[f]; L.page = 1; renderList(); return; }
+    if((t = e.target.closest('[data-lcat]'))){ L.cat = t.getAttribute('data-lcat'); L.page = 1; renderList(); return; }
+    if((t = e.target.closest('[data-sort]'))){ L.sort = t.getAttribute('data-sort'); L.page = 1; renderList(); return; }
+    if(e.target.closest('#lMoreBtn')){ L.page++; renderList(true); return; }
+    if(e.target.closest('#lBack')){ closeList(); return; }
     if((t = e.target.closest('[data-day]'))){ dayIdx = +t.getAttribute('data-day'); renderCal(); return; }
-    if((t = e.target.closest('[data-join]'))){ var k = t.getAttribute('data-join'); joined[k] = !joined[k]; renderCal(); return; }
+    if((t = e.target.closest('[data-join]'))){ var k = t.getAttribute('data-join'); joined[k] = !joined[k]; renderCal(); if(!$('#qListPanel').hidden) renderList(true); return; }
     if((t = e.target.closest('[data-svc]'))){ proSvc = t.getAttribute('data-svc'); renderPros(); return; }
     if((t = e.target.closest('.alert .ax'))){ var id = t.closest('.alert').getAttribute('data-alert'); dismissed[id] = 1; try{ localStorage.setItem('ms_alerts_off', JSON.stringify(dismissed)); }catch(_){} renderAll(); return; }
     if((t = e.target.closest('[data-pin]'))){ showTip(t.getAttribute('data-pin')); return; }
     if(!e.target.closest('.qMapBox')){ var tip = $('.pinTip', root); if(tip) tip.remove(); }
   });
   root.addEventListener('keydown', function(e){ var t = e.target.closest && e.target.closest('[data-pin]'); if(t && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); showTip(t.getAttribute('data-pin')); } });
+  var lq = $('#lQ');
+  lq.addEventListener('input', function(){ L.q = lq.value.trim(); L.page = 1; renderList(); });
+  lq.addEventListener('keydown', function(e){ if(e.key === 'Enter') lq.blur(); });
+  var lm = $('#lMain');
+  lm.addEventListener('scroll', function(){ var b = $('#lMoreBtn'); if(b && lm.scrollTop + lm.clientHeight > lm.scrollHeight - 120){ L.page++; renderList(true); } });
+  $('#qListPanel').addEventListener('keydown', function(e){ if(e.key === 'Escape') closeList(); });
+  window.msQVisit = function(o){
+    var lp = $('#qListPanel');
+    if(!lp.hidden && o && o.back){ renderList(true); renderAll(); return; }
+    lp.hidden = true;
+    rot++; try{ localStorage.setItem('ms_qrot', rot); }catch(_){}
+    renderAll();
+  };
   var rech = $('#recherche');
   rech.addEventListener('input', function(){ query = rech.value.trim(); renderAll(); });
   rech.addEventListener('keydown', function(e){ if(e.key === 'Enter') rech.blur(); });
