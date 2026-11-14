@@ -107,7 +107,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ms-build" content="20261114071612">
+<meta name="ms-build" content="20261114075631">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -131,17 +131,18 @@ body{font-family:Figtree,system-ui,sans-serif;color:#1E2A27;overscroll-behavior:
   --cream:#FFFFFF;
   --line:#E6E8E7;
   --ink:#1E2A27;
+  --field:#5B6661;
   --fs:16px;
-  --fs-sm:13px;
-  --nav-h:58px;
-  --nav-side:16px;
+  --fs-sm:16px;
+  --nav-h:76px;
+  --nav-side:8px;
   --nav-lift:10px;
   --safe-bottom:env(safe-area-inset-bottom, 0px);
   --nav-space:calc(var(--nav-h) + var(--nav-lift) + 16px + var(--safe-bottom));
 }
-html[data-fs="16"]{--fs:16px;--fs-sm:13px}
-html[data-fs="18"]{--fs:18px;--fs-sm:15px}
-html[data-fs="21"]{--fs:21px;--fs-sm:17px}
+html[data-fs="16"]{--fs:16px;--fs-sm:16px}
+html[data-fs="18"]{--fs:18px;--fs-sm:16px}
+html[data-fs="21"]{--fs:21px;--fs-sm:18px}
 #device,body,.screen{font-size:var(--fs)}
 html[data-fs="18"] #device,html[data-fs="18"] body,html[data-fs="18"] .screen{font-size:18px !important}
 html[data-fs="21"] #device,html[data-fs="21"] body,html[data-fs="21"] .screen{font-size:21px !important}
@@ -172,8 +173,11 @@ html[data-fs="21"] #device,html[data-fs="21"] body,html[data-fs="21"] .screen{fo
 }
 .mainNav .navItem{
   position:relative;
-  display:flex;align-items:center;justify-content:center;
-  height:46px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;
+  height:68px;
+  min-width:0;
+  padding:0 1px;
   color:#5B6661;
   text-decoration:none;
   background:none;
@@ -185,29 +189,46 @@ html[data-fs="21"] #device,html[data-fs="21"] body,html[data-fs="21"] .screen{fo
 .mainNav .navItem svg{
   position:relative;z-index:1;
   display:block;
+  width:22px;height:22px;
   filter:none;
+  flex-shrink:0;
+}
+.mainNav .navIco{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:24px}
+.mainNav .navLbl{
+  position:relative;z-index:1;
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.15;
+  letter-spacing:-0.03em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:100%;
+  color:inherit;
 }
 .mainNav .navItem[aria-current="page"]{color:#2B5F4F}
 .mainNav .navItem[aria-current="page"]::before{
   content:'';
   position:absolute;left:50%;top:50%;
-  width:48px;height:40px;
+  width:58px;height:62px;
   transform:translate(-50%,-50%);
-  border-radius:20px;
+  border-radius:16px;
   background:transparent;
   z-index:0;
   pointer-events:none;
 }
+.mainNav .navAsk{color:#2B5F4F}
+.mainNav .navAsk .navIco{
+  width:26px;height:26px;border-radius:13px;background:#2B5F4F;color:#FFFFFF;
+}
+.mainNav .navAsk svg{width:16px;height:16px;color:#FFFFFF;stroke:#FFFFFF}
+.mainNav .navAsk[aria-current="page"] .navIco{background:#1E4539}
 .mainNav .navPlus{
   justify-self:center;
-  width:38px;height:38px;
-  border-radius:19px;
-  background:#2B5F4F;
-  color:#FFFFFF;
 }
 .mainNav .navPlus::before{display:none}
-.mainNav .navPlus svg{width:18px;height:18px}
-.mainNav .navEmoji{position:relative;z-index:1;display:block;font-size:22px;line-height:1;filter:none}
+.mainNav .navEmoji{position:relative;z-index:1;display:block;font-size:20px;line-height:1;filter:none}
 .screen.hasNav #feed,
 .screen.hasNav #qMain,
 .screen.hasNav #enMain,
@@ -227,10 +248,10 @@ html[data-fs="21"] #device,html[data-fs="21"] body,html[data-fs="21"] .screen{fo
 #s-secteur .zone-top{cursor:pointer;transition:filter .15s}
 #s-secteur .zone-top:active{filter:brightness(.88)}
 #s-secteur .zone-side{pointer-events:none}
-#s-fil .act{display:flex;align-items:center;gap:5px;min-height:40px;padding:0 10px;color:#1E2A27;font-size:14px;font-weight:600;cursor:pointer}
+#s-fil .act{display:flex;align-items:center;gap:5px;min-height:48px;padding:0 10px;color:#1E2A27;font-size:16px;font-weight:600;cursor:pointer}
 #s-fil .act:active{opacity:.7}
-#s-fil .badge{display:inline-flex;align-items:center;gap:3px;padding:2px 9px 2px 6px;border-radius:10px;font-size:11px;font-weight:700;white-space:nowrap}
-#s-fil .chip{display:inline-flex;align-items:center;padding:7px 14px;border-radius:20px;font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer}
+#s-fil .badge{display:inline-flex;align-items:center;gap:3px;padding:4px 10px 4px 8px;border-radius:10px;font-size:16px;font-weight:700;white-space:nowrap}
+#s-fil .chip{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:8px 14px;border-radius:20px;font-size:16px;font-weight:600;white-space:nowrap;cursor:pointer}
 #s-fil button.btnParticipe{border:2px solid #2B5F4F}
 #s-secteur #maPosition{border:2px solid #2B5F4F !important}
 #s-story button:not([id^=storyPrev]):not([id^=storyNext]){background:none}
@@ -287,10 +308,12 @@ html[data-fs="21"] #device,html[data-fs="21"] body,html[data-fs="21"] .screen{fo
 #s-publier .optDel{width:36px;height:44px;display:flex;align-items:center;justify-content:center;color:#3F4A45}
 #s-publier .pollAdd{margin-top:8px;display:flex;align-items:center;gap:10px;height:50px;padding:0 14px;border:1px solid #E6E8E7 !important;border-radius:14px;color:#3F4A45;font-size:17px;font-weight:600;text-align:left}
 #s-publier .pollToggleRow{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-bottom:12px;border-bottom:1px solid #E6E8E7;font-size:16px;cursor:pointer}
-.switch{appearance:none;-webkit-appearance:none;width:52px;height:32px;border-radius:16px;background:#E6E8E7;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0;margin:0}
-.switch::after{content:'';position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left .2s}
+.switch{appearance:none;-webkit-appearance:none;width:72px;height:36px;border-radius:18px;background:#5B6661;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0;margin:0}
+.switch::before{content:'Non';position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding:0 10px 0 0;color:#FFFFFF;font:700 13px/1 Figtree,system-ui,sans-serif;pointer-events:none}
+.switch::after{content:'';position:absolute;top:3px;left:3px;width:30px;height:30px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left .2s;z-index:1}
 .switch:checked{background:#2B5F4F}
-.switch:checked::after{left:23px}
+.switch:checked::before{content:'Oui';justify-content:flex-start;padding:0 0 0 10px}
+.switch:checked::after{left:39px}
 /* composer attachments */
 #s-publier .attPhotos{display:grid;gap:6px}
 #s-publier .attItem{position:relative;border-radius:12px;overflow:hidden;background:#F0EDE6}
@@ -321,15 +344,15 @@ html[data-fs="21"] #device,html[data-fs="21"] body,html[data-fs="21"] .screen{fo
 .qScope .qEmpty{color:#5B6661;font-size:15px;text-align:center;padding-top:20px}
 .qScope .qCard{background:#FFFFFF;border:1px solid #E6E8E7;border-radius:14px}
 .qScope .todayBox{background:#FFFFFF;color:#1E2A27;border:1px solid #E6E8E7;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
-.qScope .alert{display:flex;align-items:flex-start;gap:10px;background:#FFFFFF;border-radius:12px;padding:10px 6px 10px 12px;font-size:14px;line-height:1.35;border:1px solid #E6E8E7}
+.qScope .alert{display:flex;align-items:flex-start;gap:10px;background:#FFFFFF;border-radius:12px;padding:10px 6px 10px 12px;font-size:16px;line-height:1.35;border:1px solid #E6E8E7}
 .qScope .alert .ax{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#3F4A45;opacity:.9;margin-top:-4px}
-.qScope .qPills{display:flex;gap:8px;overflow-x:auto;padding:0 20px;scrollbar-width:none;flex-shrink:0}
-.qScope .qPills button{flex-shrink:0;min-height:36px;padding:0 14px;border-radius:18px;border:1.5px solid #E6E8E7;background:#FFFFFF;color:#1E2A27;font-size:14px;font-weight:600;white-space:nowrap}
+.qScope .qPills{display:flex;flex-wrap:wrap;gap:8px;overflow:visible;padding:0 20px;scrollbar-width:none;flex-shrink:0}
+.qScope .qPills button{flex-shrink:0;min-height:48px;padding:0 14px;border-radius:18px;border:1.5px solid var(--field,#5B6661);background:#FFFFFF;color:#1E2A27;font-size:16px;font-weight:600;white-space:nowrap}
 .qScope .qPills button[aria-pressed="true"]{background:#F4F5F5;border-color:#1E2A27;color:#1E2A27}
-.qScope .qPillsSm button{min-height:32px;font-size:13px;padding:0 12px}
+.qScope .qPillsSm button{min-height:48px;font-size:16px;padding:0 12px}
 .qScope .qDays{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 20px}
 .qScope .qDay{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0;border-radius:12px;background:#FFFFFF;border:1px solid #E6E8E7;position:relative}
-.qScope .qDay .dn{font-size:11px;font-weight:700;text-transform:uppercase;color:#3F4A45}
+.qScope .qDay .dn{font-size:16px;font-weight:700;text-transform:uppercase;color:#3F4A45}
 .qScope .qDay .dd{font-size:17px;font-weight:700}
 .qScope .qDay.today{border:2px solid #1E2A27}
 .qScope .qDay.today .dn{color:#1E2A27}
@@ -339,39 +362,39 @@ html[data-fs="21"] #device,html[data-fs="21"] body,html[data-fs="21"] .screen{fo
 .qScope .act{display:flex;align-items:center;gap:12px;padding:12px}
 .qScope .actTime{width:54px;flex-shrink:0;text-align:center;font-size:14px;font-weight:800;color:#1E2A27;background:#FFFFFF;border:1px solid #E6E8E7;border-radius:10px;padding:8px 0}
 .qScope .actBody{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
-.qScope .actT{font-size:15px;font-weight:700}
-.qScope .actS{font-size:12.5px;color:#5B6661}
-.qScope .actN{font-size:12px;color:#3F4A45}
-.qScope .btnPart{flex-shrink:0;min-height:36px;padding:0 12px;border-radius:18px;border:2px solid #2B5F4F !important;color:#1E4539;font-size:13px;font-weight:700;background:#FFFFFF !important}
+.qScope .actT{font-size:16px;font-weight:700}
+.qScope .actS{font-size:16px;color:#5B6661}
+.qScope .actN{font-size:16px;color:#3F4A45}
+.qScope .btnPart{flex-shrink:0;min-height:48px;padding:0 12px;border-radius:18px;border:2px solid #2B5F4F !important;color:#1E4539;font-size:16px;font-weight:700;background:#FFFFFF !important}
 .qScope .btnPart.on{background:#2B5F4F !important;color:#FFFFFF}
 .qScope .req{padding:14px;display:flex;flex-direction:column;gap:10px}
 .qScope .reqTop{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.qScope .urg{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:10px;font-size:12px;font-weight:700}
+.qScope .urg{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:10px;font-size:16px;font-weight:700}
 .qScope .urg::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor}
-.qScope .reqTxt{font-size:14.5px;line-height:1.45}
-.qScope .reqBtn{align-self:flex-start;display:flex;align-items:center;min-height:40px;padding:0 16px;border-radius:20px;border:2px solid #2B5F4F;color:#1E4539;font-size:14px;font-weight:700;background:#FFFFFF}
-.qScope .qCarousel{display:flex;gap:12px;overflow-x:auto;padding:0 20px 4px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.qScope .reqTxt{font-size:16px;line-height:1.45}
+.qScope .reqBtn{align-self:flex-start;display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:20px;border:2px solid #2B5F4F;color:#1E4539;font-size:16px;font-weight:700;background:#FFFFFF}
+.qScope .qCarousel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;overflow:visible;padding:0 20px 4px}
 .qScope .qProGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .qScope .pro{display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 10px;text-align:center;color:#1E2A27}
 .qScope .proAv{width:54px;height:54px;border-radius:27px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px}
 .qScope .proN{font-size:15px;font-weight:700}
-.qScope .proS{font-size:12.5px;color:#5B6661}
-.qScope .proV{display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:700;color:#1E4539}
+.qScope .proS{font-size:16px;color:#5B6661}
+.qScope .proV{display:inline-flex;align-items:center;gap:3px;font-size:16px;font-weight:700;color:#1E4539}
 .qScope .qResList{background:#FFFFFF;border:1px solid #E6E8E7;border-radius:14px;overflow:hidden}
 .qScope .res{display:flex;align-items:center;gap:12px;padding:12px;border-top:1px solid #E6E8E7}
 .qScope .res:first-child{border-top:none}
 .qScope .resIc{width:40px;height:40px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:20px}
 .qScope .resB{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
-.qScope .resN{font-size:14.5px;font-weight:700}
-.qScope .resI{font-size:12.5px;color:#5B6661;line-height:1.35}
+.qScope .resN{font-size:16px;font-weight:700}
+.qScope .resI{font-size:16px;color:#5B6661;line-height:1.35}
 .qScope .resA{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
-.qScope .resA a{display:flex;align-items:center;justify-content:center;gap:5px;min-height:32px;padding:0 10px;border-radius:16px;font-size:12.5px;font-weight:700}
+.qScope .resA a{display:flex;align-items:center;justify-content:center;gap:5px;min-height:48px;padding:0 10px;border-radius:16px;font-size:16px;font-weight:700}
 .qScope .resCall{background:#2B5F4F;color:#FFFFFF !important}
 .qScope .resGo{border:1.5px solid #E6E8E7;color:#1E2A27 !important;background:#FFFFFF}
 .qScope .qMapBox{position:relative;border-radius:16px;overflow:hidden;border:1px solid #E6E8E7;background:#EEF2EA}
 .qScope .qMapBox svg{display:block;width:100%;height:auto}
 .qScope .pin{cursor:pointer}
-.qScope .pinTip{position:absolute;transform:translate(-50%,-100%);background:#1E2A27;color:#FFFFFF;font-size:12.5px;font-weight:600;line-height:1.3;padding:7px 10px;border-radius:10px;white-space:nowrap;pointer-events:none;margin-top:-14px;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.qScope .pinTip{position:absolute;transform:translate(-50%,-100%);background:#1E2A27;color:#FFFFFF;font-size:16px;font-weight:600;line-height:1.3;padding:7px 10px;border-radius:10px;white-space:nowrap;pointer-events:none;margin-top:-14px;box-shadow:0 4px 12px rgba(0,0,0,.2)}
 .qScope .pinTip small{display:block;font-weight:400;opacity:.8}
 .qScope .qHidden{display:none !important}
 .qScope .pin:focus{outline:none}
@@ -663,7 +686,7 @@ html[data-fs="21"] #device,html[data-fs="21"] body,html[data-fs="21"] .screen{fo
 .pgBtnAlt{background:#FFFFFF;color:#1E4539 !important;border:2px solid #2B5F4F}
 .pgStepL{margin:0;padding:0 20px 4px;font-size:13px;font-weight:700;color:#5B6661}
 .pgField{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#5B6661;margin-bottom:14px}
-.pgField input[type=text],.pgField textarea{min-height:48px;border-radius:12px;border:1.5px solid #E6E8E7;padding:12px 14px;font:inherit;font-size:16px;font-weight:400;color:#1E2A27;background:#FFFFFF;box-sizing:border-box;resize:vertical}
+.pgField input[type=text],.pgField textarea{min-height:48px;border-radius:12px;border:2px solid #5B6661;padding:12px 14px;font:inherit;font-size:16px;font-weight:400;color:#1E2A27;background:#FFFFFF;box-sizing:border-box;resize:vertical}
 .pgField input:focus,.pgField textarea:focus{outline:2px solid #2B5F4F;outline-offset:1px}
 .pgHint{font-size:12px;color:#3F4A45;margin:0}
 .epChips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
@@ -1044,7 +1067,7 @@ nav.mainNav a[href="#profil"]{position:relative}
 .aideWhoExtra{display:flex;gap:8px;margin-top:10px}
 .aideWhoExtra[hidden]{display:none}
 .aideField{flex:1;display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:700;color:#5B6661}
-.aideField input,.aideIn,.aideDesc{width:100%;box-sizing:border-box;border:1.5px solid #E6E8E7;border-radius:12px;background:#FFF;padding:10px 12px;font:500 15px Figtree,system-ui,sans-serif;color:#1E2A27}
+.aideField input,.aideIn,.aideDesc{width:100%;box-sizing:border-box;border:2px solid #5B6661;border-radius:12px;background:#FFF;padding:10px 12px;font:500 16px Figtree,system-ui,sans-serif;color:#1E2A27}
 .aideDesc{resize:none;min-height:84px;line-height:1.4}
 .aideQBtn{display:flex;width:fit-content;align-items:center;gap:6px;border:1.5px solid #E6E8E7;background:#FFF;border-radius:18px;padding:8px 14px;font:700 15px Figtree,system-ui,sans-serif;color:#1E2A27;cursor:pointer}
 .aideWhoBox{margin-top:16px}
@@ -1079,7 +1102,7 @@ nav.mainNav a[href="#profil"]{position:relative}
 .filAideN{display:inline-flex;align-items:center;justify-content:center;min-width:28px;min-height:28px;padding:0 7px;border-radius:14px;background:#1E2A27;color:#FFFFFF;font:800 13px/1 Figtree,system-ui,sans-serif}
 .filAideN[hidden]{display:none}
 .filAideAll{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 10px;color:#1E4539;font:700 15px/1 Figtree,system-ui,sans-serif;text-decoration:none}
-.filAideRail{display:flex;gap:10px;overflow-x:auto;padding:0 2px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.filAideRail{display:grid;grid-template-columns:1fr;gap:8px;overflow:visible;padding:0 2px 4px}
 .filAideRail::-webkit-scrollbar{display:none}
 .filAideCard{flex:0 0 188px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:88px;padding:10px 12px;border:1px solid #E6E8E7;border-radius:16px;background:#FFFFFF;color:#1E2A27;text-decoration:none;text-align:left;cursor:pointer;font:inherit;box-sizing:border-box}
 .filAideCard .facType{font:800 15px/1.25 Figtree,system-ui,sans-serif;color:#1E2A27}
@@ -1376,11 +1399,13 @@ body,.screen,.pgWrap{color:#1E2A27}
 .bub.out{align-self:flex-end;background:#E3EDE7;border:1px solid #C5D9CF;border-bottom-right-radius:6px}
 .bubVoice{display:flex;align-items:center;gap:8px}
 .bubVoice button{min-height:36px;padding:0 12px;border-radius:18px;border:1.5px solid #2B5F4F;background:#FFFFFF;color:#1E4539;font:700 14px/1 Figtree,system-ui,sans-serif;cursor:pointer;font-family:inherit}
-.convQuick{display:flex;gap:8px;overflow-x:auto;padding:8px 12px;border-top:1px solid #E6E8E7;scrollbar-width:none}
-.convQBtn{flex-shrink:0;min-height:40px;padding:0 14px;border-radius:20px;border:1.5px solid #E6E8E7;background:#FFFFFF;color:#1E2A27;font:700 15px/1 Figtree,system-ui,sans-serif;cursor:pointer;font-family:inherit;white-space:nowrap}
+.convQuick{display:flex;flex-wrap:wrap;gap:8px;overflow:visible;padding:8px 12px;border-top:1px solid #E6E8E7}
+.convQBtn{flex:1 1 calc(50% - 8px);min-height:56px;padding:8px 12px;border-radius:16px;border:2px solid #5B6661;background:#FFFFFF;color:#1E2A27;font:700 16px/1.2 Figtree,system-ui,sans-serif;cursor:pointer;font-family:inherit;white-space:normal;text-align:center}
 .convForm{display:flex;align-items:center;gap:8px;padding:8px 12px calc(var(--nav-space) + 8px);border-top:1px solid #E6E8E7;background:#FFFFFF}
 .convForm input{flex:1;min-width:0;min-height:44px;border:1.5px solid #E6E8E7;border-radius:22px;padding:0 14px;font:500 16px Figtree,system-ui,sans-serif;color:#1E2A27;background:#FFFFFF}
-.convMic{width:44px;height:44px;border-radius:22px;border:1.5px solid #2B5F4F;background:#FFFFFF;font-size:18px;cursor:pointer;flex-shrink:0}
+.convMicWrap{display:flex;flex-direction:column;align-items:center;gap:2px;flex-shrink:0}
+.convMic{width:48px;height:48px;border-radius:24px;border:2px solid #2B5F4F;background:#FFFFFF;font-size:18px;cursor:pointer;flex-shrink:0}
+.convMicLab{font:700 16px/1 Figtree,system-ui,sans-serif;color:#1E2A27}
 .convMic.isOn{background:#E3EDE7}
 
 .msToast{position:absolute;left:50%;bottom:calc(var(--nav-space) + 8px);transform:translateX(-50%);z-index:80;max-width:86%;padding:12px 16px;border-radius:16px;background:#1E2A27;color:#FFFFFF;font:600 15px/1.35 Figtree,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.16)}
@@ -1398,6 +1423,223 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
 
 #grpBack[hidden],#grpClose[hidden]{display:none !important}
 .grpCard .sheetHead{grid-template-columns:48px 1fr 48px}
+
+/* ===== audit UX / accessibilité ===== */
+.screen input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=hidden]),
+.screen textarea,
+.screen select{border-color:#5B6661 !important;border-width:2px !important}
+.screen input:focus,.screen textarea:focus{border-color:#2B5F4F !important}
+
+/* back button always labelled, 56px */
+.bkRetour,.pgIcon.bkRetour,a.pgIcon,a[data-back].pgIcon,.vIcon,#msgBack,.pgHead .pgIcon{
+  min-width:56px;min-height:56px;box-sizing:border-box;
+  display:inline-flex;align-items:center;justify-content:flex-start;gap:2px;
+  padding:0 6px;color:#1E2A27;font:700 16px/1 Figtree,system-ui,sans-serif;text-decoration:none;background:none;border:none;cursor:pointer
+}
+.bkRetour .bkLab,a[data-back] .bkLab{font:700 16px/1 Figtree,system-ui,sans-serif;color:#1E2A27}
+.sheetHead .sheetX, .sheetX{
+  min-width:48px;min-height:48px;
+}
+
+/* keep sheets above the pill */
+.sheetOverlay.open .sheetCard,
+.sheetOverlay.open .aideCard,
+.sheetOverlay.open .plusCard,
+.sheetOverlay.open .menuCard,
+.sheetOverlay.open .comCard,
+.sheetOverlay.open .qPickCard,
+.sheetOverlay.open .grpCard{
+  margin-bottom:calc(var(--nav-space) - 8px);
+  max-height:calc(100% - var(--nav-space) - 12px);
+}
+
+/* stories + filters: no hidden horizontal scroll */
+#s-fil #filStories{
+  display:flex;flex-wrap:wrap;gap:10px 8px;overflow:visible !important;
+  padding:8px 16px 4px !important;justify-content:flex-start;
+}
+#s-fil #filFilters{
+  display:flex;flex-wrap:wrap;gap:8px;overflow:visible !important;
+  padding:6px 16px 8px !important;
+}
+#s-fil #filFilters > *{flex:1 1 calc(50% - 8px);justify-content:center}
+
+/* Nouveau pour vous + vie du quartier */
+.filNouveau{margin:0 16px 8px;padding:8px 12px;border:1px solid #E6E8E7;border-radius:14px;background:#FFFFFF}
+.filNouveau h2{margin:0 0 4px;font:700 16px/1.3 Figtree,system-ui,sans-serif;color:#1E2A27}
+.filNouveauList{display:flex;flex-direction:column;gap:8px}
+.filNouveauItem{display:flex;align-items:flex-start;gap:8px;font-size:16px;line-height:1.3;color:#1E2A27;background:none;border:none;padding:4px 0;text-align:left;width:100%;cursor:pointer;min-height:44px;font-family:inherit}
+.filNouveauItem + .filNouveauItem{border-top:1px solid #E6E8E7}
+.filVieQ{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 16px 8px;padding:8px 12px;border:1px solid #E6E8E7;border-radius:14px;background:#FFFFFF;color:#1E2A27;text-decoration:none;min-height:48px;font:700 16px/1.25 Figtree,system-ui,sans-serif}
+.filVieQ small{display:block;font:400 16px/1.3 Figtree,system-ui,sans-serif;color:#3F4A45;font-weight:400}
+.filHello{font-size:var(--fs) !important}
+
+/* typography floor */
+.qEmpty,.qH,.taskWho,.whenChip,.durChip,.doneTag,.takenTag,.ejCount,.notifHeadTxt small,
+.prfCheckN,.prfToggle small,.plusES,.verifETxt small,.menuTxt small,.humQ,.openTag,.bgTag,
+.urgBadge,.actTime,.filAideAll,.filAideN,.filAideT,.qMeta,.qMeta span, #notifCount,
+.comEx,.convDay,.prfPrefLab,.ejPills button,.lSort span,.lSort button{
+  font-size:16px !important;
+}
+.qDay{min-height:56px}
+
+/* conversation */
+#s-messages header h1, .pgHead h1, .enHead h1, .vHead h1, .actiHead h1{font-size:22px}
+.convForm{align-items:flex-end}
+#s-messages.is-conv .convQuick{padding-bottom:4px}
+
+/* Activités */
+#s-activites{background:#FFFFFF}
+.actiHead{display:flex;align-items:center;justify-content:center;min-height:56px;padding:8px 16px 4px;flex-shrink:0}
+.actiHead h1{margin:0;font:700 22px/1.2 Figtree,system-ui,sans-serif;text-align:center}
+#actiMain{flex:1;min-height:0;overflow-y:auto;padding:8px 0 calc(var(--nav-space) + 16px)}
+.actiSec{margin:0 0 18px}
+.actiSec h2{margin:0 16px 10px;font:700 18px/1.3 Figtree,system-ui,sans-serif}
+#actiDays{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 16px 10px}
+#actiEvList,#actiGroups{padding:0 16px;display:flex;flex-direction:column;gap:10px}
+
+/* Demander / C'est fait */
+#s-demander,#s-cestfait{background:#FFFFFF}
+.demWrap,.faitWrap{display:flex;flex-direction:column;height:100%;background:#FFFFFF}
+.demHead{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:4px;padding:4px 8px;min-height:64px;flex-shrink:0;border-bottom:1px solid #E6E8E7}
+.demHead h1{margin:0;font:700 18px/1.25 Figtree,system-ui,sans-serif;text-align:center}
+.demStep{margin:0;font:700 16px/1.3 Figtree,system-ui,sans-serif;color:#3F4A45;text-align:center;padding:8px 16px 0}
+.demLead{margin:4px 16px 12px;font:400 16px/1.4 Figtree,system-ui,sans-serif;color:#1E2A27;text-align:center}
+.demMain{flex:1;min-height:0;overflow-y:auto;padding:8px 16px 16px}
+.demNeeds{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.demNeed{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:96px;padding:12px 8px;border:2px solid #5B6661;border-radius:16px;background:#FFFFFF;color:#1E2A27;font:700 16px/1.25 Figtree,system-ui,sans-serif;text-align:center;cursor:pointer;font-family:inherit}
+.demNeed .demNeedIco{font-size:28px;line-height:1}
+.demNeed[aria-pressed="true"]{border-color:#2B5F4F;background:#E3EDE7;color:#1E4539}
+.demNeed.fam-task .demNeedIco{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#E3EDE7}
+.demNeed.fam-care .demNeedIco{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:20px;background:#F3EEF1}
+.demFamHint{display:inline-flex;align-items:center;gap:6px;margin:10px 0 0;font:700 16px/1.3 Figtree,system-ui,sans-serif}
+.demFamHint.fam-task{color:#1E4539}
+.demFamHint.fam-care{color:#4A3A4E}
+.demSub{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.demSubBtn,.demWhoBtn,.demWhenBtn{
+  min-height:56px;padding:8px 14px;border:2px solid #5B6661;border-radius:14px;background:#FFFFFF;color:#1E2A27;
+  font:700 16px/1.25 Figtree,system-ui,sans-serif;text-align:left;cursor:pointer;font-family:inherit
+}
+.demSubBtn[aria-pressed="true"],.demWhoBtn[aria-pressed="true"],.demWhenBtn[aria-pressed="true"]{border-color:#2B5F4F;background:#E3EDE7;color:#1E4539}
+.demWhen{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.demAlt{margin:16px 0 8px;padding-top:12px;border-top:1px solid #E6E8E7}
+.demAlt summary{font:700 16px/1.3 Figtree,system-ui,sans-serif;cursor:pointer;min-height:48px;display:flex;align-items:center}
+.demAltBtns{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.demAltBtns button,.demAltBtns a{min-height:56px;padding:8px 14px;border:2px solid #5B6661;border-radius:14px;background:#FFFFFF;color:#1E2A27;font:700 16px/1.25 Figtree,system-ui,sans-serif;text-decoration:none;display:flex;align-items:center;font-family:inherit;cursor:pointer}
+.demFoot{padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid #E6E8E7;flex-shrink:0;display:flex;flex-direction:column;gap:8px}
+.demCancel,.bkRetour.demCancel{width:100%;justify-content:center;min-height:56px;border:2px solid #5B6661;border-radius:14px;background:#FFFFFF}
+.demSend,.demNext{width:100%;min-height:56px;border:none;border-radius:14px;background:#2B5F4F;color:#FFFFFF;font:700 17px/1 Figtree,system-ui,sans-serif;cursor:pointer;font-family:inherit}
+.demSend:disabled,.demNext:disabled{opacity:.45}
+.demNote{margin:8px 0 0;font:400 16px/1.4 Figtree,system-ui,sans-serif;color:#3F4A45}
+.demHelpline{display:flex;flex-direction:column;gap:2px;margin:12px 0;padding:12px 14px;border:1px solid #E6E8E7;border-radius:14px;color:#1E2A27;text-decoration:none;min-height:56px;justify-content:center}
+.demHelpline strong{font-size:16px}
+.demHelpline small{font:400 16px/1.3 Figtree,system-ui,sans-serif;color:#3F4A45}
+
+/* mic step */
+.demMicBox{display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 8px 8px}
+.demMic{width:72px;height:72px;border-radius:36px;border:none;background:#2B5F4F;color:#FFFFFF;font-size:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.demMic.isOn{background:#1E4539;animation:pulseMic 1s ease-in-out infinite}
+@keyframes pulseMic{50%{transform:scale(1.06)}}
+.demMicLab{font:700 18px/1.3 Figtree,system-ui,sans-serif;color:#1E2A27;text-align:center}
+.demOrWrite{font:400 16px/1.3 Figtree,system-ui,sans-serif;color:#3F4A45;background:none;border:none;text-decoration:underline;cursor:pointer;min-height:48px;font-family:inherit}
+.demReview{margin:12px 0;padding:14px;border:2px solid #5B6661;border-radius:14px;background:#FFFFFF}
+.demReview p{margin:0 0 10px;font:400 18px/1.4 Figtree,system-ui,sans-serif}
+.demReviewBtns{display:flex;flex-direction:column;gap:8px}
+.demReviewBtns button{min-height:56px;border-radius:14px;font:700 16px Figtree,system-ui,sans-serif;cursor:pointer;font-family:inherit}
+.demYes{background:#2B5F4F;color:#FFFFFF;border:none}
+.demNo{background:#FFFFFF;color:#1E2A27;border:2px solid #5B6661}
+
+/* C'est fait */
+.faitWrap{align-items:center;justify-content:center;padding:24px 20px;text-align:center;gap:16px}
+.faitWrap h1{margin:0;font:700 26px/1.2 Figtree,system-ui,sans-serif}
+.faitWrap p{margin:0;font:400 18px/1.45 Figtree,system-ui,sans-serif;color:#1E2A27;max-width:32em}
+.faitWrap .demSend{max-width:280px}
+
+/* Confiance / confirm / font ask / voisin / report */
+.trustCard,.confirmCard,.fsAskCard{background:#FFFFFF;border-radius:20px 20px 0 0;padding:16px 16px 20px;display:flex;flex-direction:column;gap:10px;max-height:calc(100% - var(--nav-space) - 8px);overflow:auto}
+.fsAskOverlay{z-index:80}
+.fsAskCard{border-radius:20px;margin:auto 16px;max-width:360px;padding:22px 18px}
+.fsAskCard h2{margin:0;font:700 22px/1.3 Figtree,system-ui,sans-serif;text-align:center}
+.fsSample{margin:8px 0 12px;font:400 18px/1.45 Figtree,system-ui,sans-serif;text-align:center;color:#1E2A27}
+.fsAskBtns{display:flex;flex-direction:column;gap:8px}
+.fsAskBtns button{min-height:56px;border-radius:14px;border:2px solid #5B6661;background:#FFFFFF;font:700 16px Figtree,system-ui,sans-serif;cursor:pointer;font-family:inherit}
+.fsAskBtns button[data-fs="18"],.fsAskBtns .fsOk{background:#2B5F4F;color:#FFFFFF;border-color:#2B5F4F}
+.trustWho{display:flex;align-items:center;gap:12px}
+.trustAv{width:64px;height:64px;border-radius:32px;display:flex;align-items:center;justify-content:center;font:700 22px Figtree,system-ui,sans-serif;background:#D5E3DB;color:#1E4539;overflow:hidden}
+.trustAv img{width:100%;height:100%;object-fit:cover}
+.trustWho h2{margin:0;font:700 20px/1.25 Figtree,system-ui,sans-serif}
+.trustBadges{display:flex;flex-direction:column;gap:6px;margin:4px 0}
+.trustBadge{font:700 16px/1.35 Figtree,system-ui,sans-serif;color:#1E2A27}
+.trustRule{margin:8px 0;padding:12px;border:1px solid #E6E8E7;border-radius:12px;font:400 16px/1.4 Figtree,system-ui,sans-serif}
+.trustActs{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.trustActs button,.trustActs a{min-height:56px;border-radius:14px;font:700 16px Figtree,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;font-family:inherit}
+.trustCall,.trustNo{background:#FFFFFF;color:#1E2A27;border:2px solid #5B6661}
+.trustYes{background:#2B5F4F;color:#FFFFFF;border:none}
+.worryLink,.helplineBtn{display:block;margin-top:8px;min-height:48px;font:700 16px/1.3 Figtree,system-ui,sans-serif;color:#2B5F4F;background:none;border:none;padding:8px 0;text-align:left;cursor:pointer;font-family:inherit;text-decoration:underline}
+.confirmCard h2,.confirmCard p{margin:0}
+.confirmActs{display:flex;flex-direction:column;gap:8px}
+.confirmActs button{min-height:56px;border-radius:14px;font:700 16px Figtree,system-ui,sans-serif;cursor:pointer;font-family:inherit}
+.confirmOk{background:#2B5F4F;color:#FFFFFF;border:none}
+.confirmCancel{background:#FFFFFF;color:#1E2A27;border:2px solid #5B6661}
+
+/* follow-up on accueil / moi */
+.suiviCard{margin:0 16px 8px;padding:8px 12px;border:1px solid #E6E8E7;border-radius:14px;background:#FFFFFF}
+.suiviCard h2{margin:0 0 6px;font:700 16px/1.3 Figtree,system-ui,sans-serif}
+.suiviActs{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
+.suiviActs button{flex:1;min-height:48px;border-radius:14px;font:700 16px Figtree,system-ui,sans-serif;cursor:pointer;font-family:inherit;border:2px solid #5B6661;background:#FFFFFF}
+.suiviActs button[data-suivi="ok"]{background:#2B5F4F;color:#FFFFFF;border-color:#2B5F4F}
+
+/* Moi helpline */
+.prfHelpBox{margin:12px 20px 8px;padding:14px;border:1px solid #E6E8E7;border-radius:14px;background:#FFFFFF}
+.prfHelpBox h2{margin:0 0 6px;font:700 18px/1.3 Figtree,system-ui,sans-serif}
+.prfHelpBox p{margin:0 0 8px;font:400 16px/1.4 Figtree,system-ui,sans-serif}
+.prfHelpBox a{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:14px;background:#2B5F4F;color:#FFFFFF !important;font:700 16px Figtree,system-ui,sans-serif;text-decoration:none}
+
+/* report sheet */
+.reportCard textarea{min-height:100px;width:100%;border:2px solid #5B6661;border-radius:12px;padding:10px;font:400 16px Figtree,system-ui,sans-serif}
+
+/* family pictos on cards */
+.famTag{display:inline-flex;align-items:center;gap:6px;font:700 16px/1.2 Figtree,system-ui,sans-serif;margin-right:6px}
+.famTag.fam-task::before{content:'';width:14px;height:14px;border-radius:3px;background:#2B5F4F;display:inline-block}
+.famTag.fam-care::before{content:'';width:14px;height:14px;border-radius:7px;background:#4A3A4E;display:inline-block}
+
+/* stable confirmation instead of toast for important actions */
+.msConfirmStay{position:absolute;left:16px;right:16px;top:72px;bottom:auto;z-index:34;background:#FFFFFF;border:2px solid #2B5F4F;border-radius:16px;padding:14px;font:400 16px/1.4 Figtree,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.msConfirmStay button{margin-top:8px;min-height:48px;width:100%;border:none;border-radius:12px;background:#2B5F4F;color:#FFF;font:700 16px Figtree,system-ui,sans-serif;cursor:pointer;font-family:inherit}
+
+html.ms-contrast .demNeed,html.ms-contrast .demSubBtn,html.ms-contrast .demWhenBtn,html.ms-contrast .demWhoBtn,html.ms-contrast input,html.ms-contrast textarea{border-color:#0A0E0C !important}
+
+#s-profil p, #s-profil span, #s-profil small, #s-profil li, #s-profil button, #s-profil a, #s-profil h3, #s-profil h2, #s-profil label{
+  font-size: max(16px, var(--fs-sm)) !important;
+}
+#s-profil .prfFsBtn span{font-size:16px !important}
+
+.notifItem,.notifItem strong,.notifBody,.notifBody small,.notifAgo,.verifETxt strong,.verifETxt small,.plusETxt strong,.plusETxt small,.prfHelpBox *{font-size:16px !important}
+
+.filAideRail .filAideCard{min-height:48px;padding:8px 10px}
+.filHello{margin:0 4px 6px !important}
+.filAideHead{margin:0 0 6px}
+
+#s-fil #filStories > *{transform:none}
+#s-fil #filStories{padding:6px 12px 2px !important;gap:6px 4px}
+#s-fil #filFilters{padding:4px 16px 6px !important;gap:6px}
+#s-fil #filFilters > *{min-height:44px}
+#s-profil #prfSuivi{margin:12px 20px}
+
+#s-fil #filStories{
+  display:flex !important;flex-wrap:wrap !important;justify-content:flex-start;
+  max-height:96px;overflow:visible;
+}
+#s-fil #filStories > *{
+  width:56px !important;flex:0 0 56px !important;
+  display:flex !important;flex-direction:column;align-items:center;
+}
+#s-fil #filStories img, #s-fil #filStories span[style*="width"], #s-fil #filStories div[style*="width"]{
+  width:48px !important;height:48px !important;min-width:48px !important;border-radius:24px !important;
+}
+#s-fil #filStories span, #s-fil #filStories small{font-size:16px;line-height:1.1;max-width:56px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+.subFacts dt,.subFacts dd,.subMgmt strong,.notifHeadTxt strong{font-size:16px !important}
 
 </style>
 </head>
@@ -1591,7 +1833,7 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
 <section class="screen hasNav" id="s-fil" data-screen="fil" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(243, 240, 234); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;">
 
   
-  <main id="feed" style="flex-grow: 1; min-height: 0px; overflow-y: auto; background: rgb(255, 255, 255); scrollbar-width: none; padding-top: 0px; -webkit-overflow-scrolling: touch;"><header id="filHead" class="filHead"><div class="filHeadLeft"><button type="button" id="filMenuBtn" class="filIconBtn" aria-label="Menu"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button><div class="filBrandWrap"><span class="filBrand">MaisonSereine</span><button type="button" id="filQuartier" class="filQBtn" aria-label="Changer de quartier"><span class="quartierNom">Sainte-Foy</span><svg class="filQChev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button></div></div><div class="filHeadActions"><button type="button" id="filSearch" class="filIconBtn" aria-label="Rechercher"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg></button><button type="button" id="filCal" class="filIconBtn" aria-label="Calendrier"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M3.5 10h17"></path></svg></button><a href="#messages" id="filMsg" class="filIconBtn" aria-label="Messages"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path><path d="M12 8.15c.22-.65 1.05-.9 1.58-.38.53-.52 1.36-.27 1.58.38.22.8-.78 1.65-1.58 2.4-.8-.75-1.8-1.6-1.58-2.4z"></path></svg><span id="filMsgBadge" class="filMsgBadge">2</span></a></div></header><div id="filComposer" class="filComposer"><div class="filComposerRow"><a href="#publier" id="filQuoi" class="filQuoi" aria-label="Quoi de neuf dans le quartier ?"><span class="filQuoiAv" aria-hidden="true">LT</span><span class="filQuoiT">Quoi de neuf dans le quartier ?</span></a><button type="button" id="filGal" class="filGalBtn" aria-label="Ajouter une photo"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect><circle cx="9" cy="10.5" r="1.6"></circle><path d="M3.5 16.5l5-4.5 3.5 3 2.5-2.2 6 5.2"></path></svg><span class="filGalLab">Photo</span></button></div><button type="button" id="filAideBtn" class="filAideBtn">💚 Demander de l’aide</button></div><div id="filVoisins" class="filVoisins"><p id="filHello" class="filHello">Bonjour Alexandre, Sainte-Foy</p><div class="filAideHead"><h2 class="filAideT">Aide tes voisins ! <span id="filAideN" class="filAideN" hidden>0</span></h2><a href="#entraide" id="filAideAll" class="filAideAll">Voir tout</a></div><div id="filAideRail" class="filAideRail" role="list"></div></div>
+  <main id="feed" style="flex-grow: 1; min-height: 0px; overflow-y: auto; background: rgb(255, 255, 255); scrollbar-width: none; padding-top: 0px; -webkit-overflow-scrolling: touch;"><header id="filHead" class="filHead"><div class="filHeadLeft"><button type="button" id="filMenuBtn" class="filIconBtn" aria-label="Menu"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button><div class="filBrandWrap"><span class="filBrand">MaisonSereine</span><button type="button" id="filQuartier" class="filQBtn" aria-label="Changer de quartier"><span class="quartierNom">Sainte-Foy</span><svg class="filQChev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button></div></div><div class="filHeadActions"><button type="button" id="filSearch" class="filIconBtn" aria-label="Rechercher"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg></button><button type="button" id="filCal" class="filIconBtn" aria-label="Calendrier"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M3.5 10h17"></path></svg></button><a href="#messages" id="filMsg" class="filIconBtn" aria-label="Messages"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path><path d="M12 8.15c.22-.65 1.05-.9 1.58-.38.53-.52 1.36-.27 1.58.38.22.8-.78 1.65-1.58 2.4-.8-.75-1.8-1.6-1.58-2.4z"></path></svg><span id="filMsgBadge" class="filMsgBadge">2</span></a></div></header><div id="filComposer" class="filComposer"><div class="filComposerRow"><a href="#publier" id="filQuoi" class="filQuoi" aria-label="Quoi de neuf dans le quartier ?"><span class="filQuoiAv" aria-hidden="true">LT</span><span class="filQuoiT">Quoi de neuf dans le quartier ?</span></a><button type="button" id="filGal" class="filGalBtn" aria-label="Ajouter une photo"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect><circle cx="9" cy="10.5" r="1.6"></circle><path d="M3.5 16.5l5-4.5 3.5 3 2.5-2.2 6 5.2"></path></svg><span class="filGalLab">Photo</span></button></div><button type="button" id="filAideBtn" class="filAideBtn">💚 Demander de l’aide</button></div><div id="filVoisins" class="filVoisins"><p id="filHello" class="filHello">Bonjour Alexandre. Un voisin peut-il vous rendre service aujourd’hui ?</p><div id="filNouveau" class="filNouveau"><h2>Nouveau pour vous</h2><div id="filNouveauList" class="filNouveauList"></div></div><div id="filSuivi" class="suiviCard" hidden></div><a href="#quartier" id="filVieQ" class="filVieQ"><span>Vie du quartier<small>Alertes, emploi local et groupes</small></span><span aria-hidden="true">›</span></a><div class="filAideHead"><h2 class="filAideT">Aide tes voisins ! <span id="filAideN" class="filAideN" hidden>0</span></h2><a href="#entraide" id="filAideAll" class="filAideAll">Voir tout</a></div><div id="filAideRail" class="filAideRail" role="list"></div></div>
 
   
   <section id="filStories" style="display: flex; gap: 12px; padding: 10px 20px 12px; overflow-x: auto; scrollbar-width: none; flex-shrink: 0; background: transparent; border-bottom: none;">
@@ -1890,12 +2132,12 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
   </main>
 
   
-  <nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil" aria-current="page"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="#quartier" class="navItem" aria-label="Quartier"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a><a href="#publier" class="navItem navPlus" aria-label="Publier"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#entraide" class="navItem" aria-label="Entraide"><span class="navEmoji" aria-hidden="true">🤝</span></a><a href="#profil" class="navItem" aria-label="Profil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></a></nav></div></section>
+  <nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil" aria-current="page"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></span><span class="navLbl">Accueil</span></a><a href="#messages" class="navItem" aria-label="Messages"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path></svg></span><span class="navLbl">Messages</span></a><a href="#demander" class="navItem navAsk" aria-label="Demander"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span><span class="navLbl">Demander</span></a><a href="#activites" class="navItem" aria-label="Activités"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg></span><span class="navLbl">Activités</span></a><a href="#profil" class="navItem" aria-label="Moi"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></span><span class="navLbl">Moi</span></a></nav></div></section>
 <section class="screen" id="s-publication" data-screen="publication" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;"><header style="display: flex; align-items: center; gap: 4px; padding: 12px 8px 8px; border-bottom: 1px solid rgb(228, 223, 211);"><a href="#fil" data-back aria-label="Retour au fil" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: rgb(30, 42, 39);"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></a><h1 style="margin: 0px; font-size: 18px; font-weight: 700;">Publication</h1></header><main style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column;"><div style="display: flex; align-items: center; gap: 12px; padding: 12px 20px;"><a href="#profil" aria-label="Profil de Lucie Tremblay" style="width: 44px; height: 44px; border-radius: 22px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">LT</a><div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;"><div style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 16px; font-weight: 700;">Lucie Tremblay</span><span style="display: flex; align-items: center; gap: 3px; padding: 2px 8px 2px 5px; border-radius: 10px; background: rgb(227, 237, 231); color: rgb(30, 69, 57); font-size: 12px; font-weight: 600;"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Vérifiée</span></div><span style="font-size: 13px; color: rgb(91, 102, 97);">Voisine · Sainte-Foy · il y a 2 h</span></div></div><div style="height: 250px; flex-shrink: 0; background: rgb(213, 227, 219); color: rgb(30, 69, 57); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg><span style="font-size: 14px; font-weight: 600;">Atelier de tricot</span></div><div style="display: flex; align-items: center; gap: 4px; padding: 4px 8px 0px;"><button id="pubMerci" data-liked="1" style="display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 0px 12px; border: 0px; background: none; color: rgb(138, 63, 20); font-size: 15px; font-weight: 700;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><span id="pubMerciN">25 mercis</span></button><span style="display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 0px 12px; font-size: 15px; font-weight: 600;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12z"></path></svg><span id="pubComN">6 commentaires</span></span></div><p style="margin: 0px; padding: 0px 20px 16px; font-size: 15px; line-height: 1.45; border-bottom: 1px solid rgb(228, 223, 211);">Atelier de tricot ce matin au centre communautaire. Madame Gagnon a terminé son premier foulard&nbsp;! Prochain atelier jeudi, tout le monde est bienvenu.</p><section id="comments" aria-label="Commentaires" style="display: flex; flex-direction: column; gap: 16px; padding: 16px 20px;"><div style="display: flex; gap: 12px;"><span style="width: 36px; height: 36px; border-radius: 18px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">GB</span><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 14px;"><strong>Gilles Bouchard</strong> <span style="color: rgb(91, 102, 97);">· 1 h</span></span><span style="font-size: 15px; line-height: 1.4;">Bravo à madame Gagnon&nbsp;! Ma mère aimerait venir jeudi.</span></div></div><div style="display: flex; gap: 12px;"><a href="#profil" style="width: 36px; height: 36px; border-radius: 18px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">LT</a><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 14px;"><strong>Lucie Tremblay</strong> <span style="color: rgb(91, 102, 97);">· 50 min</span></span><span style="font-size: 15px; line-height: 1.4;">Avec plaisir Gilles, je lui garde une place.</span></div></div><div style="display: flex; gap: 12px;"><span style="width: 36px; height: 36px; border-radius: 18px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">AD</span><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 14px;"><strong>Amina Diallo</strong> <span style="color: rgb(91, 102, 97);">· 20 min</span></span><span style="font-size: 15px; line-height: 1.4;">Quelle belle idée. J'apporte de la laine la prochaine fois.</span></div></div></section></main><div id="comForm" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding: 12px 12px 20px 20px; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211);"><label for="commentaire" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);">Votre commentaire</label><input id="commentaire" type="text" placeholder="Écrire un commentaire…" style="flex-grow: 1; min-width: 0px; height: 48px; box-sizing: border-box; padding: 0px 16px; border: 1px solid rgb(201, 194, 178); border-radius: 24px; background: rgb(255, 255, 255); color: rgb(30, 42, 39); font-size: 15px;"><button id="comSend" type="button" aria-label="Envoyer le commentaire" style="width: 48px; height: 48px; flex-shrink: 0; border: 0px; border-radius: 24px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-3-7z"></path></svg></button></div></div></section>
 <section class="screen" id="s-publier" data-screen="publier" aria-hidden="true"><div style="position: relative; width: 100%; height: 100%; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;">
 <header style="display: grid; grid-template-columns: 48px 1fr 48px; align-items: center; padding: 10px 6px 8px; flex-shrink: 0;">
   <a href="#fil" data-back id="pubFermer" aria-label="Fermer" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: rgb(30, 42, 39);"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></a>
-  <h1 style="margin: 0; text-align: center; font-size: 18px; font-weight: 700;">Nouvelle publication</h1>
+  <h1 style="margin: 0; text-align: center; font-size: 18px; font-weight: 700;">Écrire à mes voisins</h1>
   <button aria-label="Plus d'options" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: rgb(30, 42, 39);"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="19" cy="12" r="1.8"></circle></svg></button>
 </header>
 <main style="flex-grow: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column;">
@@ -1970,9 +2212,9 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
   </section>
   <section id="qJobs" class="qBlock qPad qHelp qHelpJobs" data-cats="emploi"><div class="qHelpHead"><span class="qHelpIco" aria-hidden="true">💼</span><div><h2 class="qH">Emploi local</h2><p class="qHelpSub">Offres d’employeurs du quartier · à pied ou en autobus.</p></div></div><div id="qJobList" class="qList"></div><div id="qJobMore"></div></section>
   <!-- Carte du secteur masquée (SHOW_QMAP = False dans build.py pour la réactiver) -->
-</main><nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="#quartier" class="navItem" aria-label="Quartier" aria-current="page"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a><a href="#publier" class="navItem navPlus" aria-label="Publier"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#entraide" class="navItem" aria-label="Entraide"><span class="navEmoji" aria-hidden="true">🤝</span></a><a href="#profil" class="navItem" aria-label="Profil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></a></nav></div></section>
-<section class="screen hasNav" id="s-messages" data-screen="messages" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;"><header style="display: flex; align-items: center; gap: 2px; padding: 16px 12px 12px 8px;"><a href="#fil" data-back id="msgBack" class="pgIcon" aria-label="Retour"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></a><h1 style="margin: 0px; font-size: 24px; font-weight: 700; flex-grow: 1;">Messages</h1><button aria-label="Nouveau message" style="width: 44px; height: 44px; border: 0px; border-radius: 22px; background: rgb(227, 237, 231); color: rgb(30, 69, 57); display: flex; align-items: center; justify-content: center; cursor: pointer;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></button></header><main id="msgList" style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211);"><a href="#messages" class="conv" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39); background: rgb(242, 247, 244);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">GB</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Gilles Bouchard</span><span style="font-size: 13px; font-weight: 700; color: rgb(30, 69, 57);">9 h 12</span></span><span style="font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Merci beaucoup&nbsp;! Mardi 9 h, ça vous irait&nbsp;?</span></span><span style="flex-shrink: 0; padding: 3px 9px; border-radius: 11px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 12px; font-weight: 700;">Nouveau</span></a><a href="#profil" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">LT</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Lucie Tremblay</span><span style="font-size: 13px; color: rgb(91, 102, 97);">Hier</span></span><span style="font-size: 14px; color: rgb(91, 102, 97); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Je garde une place pour votre mère jeudi.</span></span></a><a href="#messages" class="conv" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">CC</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Centre communautaire</span><span style="font-size: 13px; color: rgb(91, 102, 97);">Lundi</span></span><span style="font-size: 14px; color: rgb(91, 102, 97); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">La marche du samedi part à 9 h 30 du parc.</span></span></a><a href="#messages" class="conv" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39); background: rgb(242, 247, 244);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">AD</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Amina Diallo</span><span style="font-size: 13px; font-weight: 700; color: rgb(30, 69, 57);">8 nov.</span></span><span style="font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Parfait, à vendredi pour le ménage.</span></span><span style="flex-shrink: 0; padding: 3px 9px; border-radius: 11px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 12px; font-weight: 700;">Nouveau</span></a><div style="display: flex; gap: 12px; align-items: flex-start; margin: 20px; padding: 14px 16px; border-radius: 14px; background: rgb(255, 255, 255); border: 1px solid rgb(228, 223, 211);"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5F4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span style="font-size: 14px; line-height: 1.4; color: rgb(63, 74, 69);">Vos échanges restent privés. MaisonSereine ne prélève aucune commission sur les services convenus entre vous.</span></div></main><nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="#quartier" class="navItem" aria-label="Quartier"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a><a href="#publier" class="navItem navPlus" aria-label="Publier"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#entraide" class="navItem" aria-label="Entraide"><span class="navEmoji" aria-hidden="true">🤝</span></a><a href="#profil" class="navItem" aria-label="Profil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></a></nav><div id="convPanel" class="convPanel" hidden><div id="convThread" class="convThread"></div><div id="convQuick" class="convQuick" role="list"><button type="button" class="convQBtn" data-quick="J’arrive">J’arrive</button><button type="button" class="convQBtn" data-quick="Merci beaucoup !">Merci beaucoup !</button><button type="button" class="convQBtn" data-quick="Je suis en retard">Je suis en retard</button><button type="button" class="convQBtn" data-quick="C’est fait">C’est fait</button></div><form id="convForm" class="convForm" autocomplete="off"><button type="button" id="convMic" class="convMic" aria-label="Envoyer un message vocal">🎤</button><label class="sr-only" for="convText">Votre message</label><input id="convText" type="text" placeholder="Message" maxlength="300"><button type="submit" class="comSend" aria-label="Envoyer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-3-7z"></path></svg></button></form></div></div></section>
-<section class="screen hasNav" id="s-profil" data-screen="profil" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;"><main style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 20px 20px 4px;"><div style="display: flex; align-items: center; gap: 16px;"><span style="width: 84px; height: 84px; flex-shrink: 0; border-radius: 42px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-weight: 700; font-size: 28px; display: flex; align-items: center; justify-content: center;">LT</span><div style="display: flex; flex-direction: column; gap: 4px;"><h1 style="margin: 0px; font-size: 22px; font-weight: 700;">Lucie Tremblay</h1><span id="prfAwayTag" class="awayTag" hidden>Indisponible</span><span style="font-size: 14px; color: rgb(91, 102, 97);">Voisine · Sainte-Foy</span><span style="align-self: flex-start; display: flex; align-items: center; gap: 4px; padding: 3px 10px 3px 6px; border-radius: 12px; background: rgb(227, 237, 231); color: rgb(30, 69, 57); font-size: 13px; font-weight: 700;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Voisine vérifiée</span><span id="plusBadge" class="plusBadge" hidden>🏅 Membre soutien</span></div></div><div style="display: grid; grid-template-columns: repeat(3, minmax(0px, 1fr)); gap: 8px; padding: 12px 0px; border-top: 1px solid rgb(228, 223, 211); border-bottom: 1px solid rgb(228, 223, 211); text-align: center;"><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 20px; font-weight: 700;">18</span><span style="font-size: 13px; color: rgb(91, 102, 97);">publications</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 20px; font-weight: 700;">142</span><span style="font-size: 13px; color: rgb(91, 102, 97);">voisins abonnés</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 20px; font-weight: 700;">310</span><span style="font-size: 13px; color: rgb(91, 102, 97);">mercis reçus</span></div></div><p style="margin: 0px; font-size: 15px; line-height: 1.45;">J'accompagne des aînés du quartier depuis huit ans. J'aime les ateliers créatifs, les marches et les bonnes conversations autour d'un thé.</p><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;"><span style="padding: 6px 12px; border-radius: 16px; background: rgb(255, 255, 255); border: 1px solid rgb(201, 194, 178); font-size: 14px; font-weight: 600;">Compagnie</span><span style="padding: 6px 12px; border-radius: 16px; background: rgb(255, 255, 255); border: 1px solid rgb(201, 194, 178); font-size: 14px; font-weight: 600;">Marches</span></div><section id="prfCheck" class="prfCheck"><div class="prfCheckHead"><strong>Complète ton profil</strong><span id="prfCheckN" class="prfCheckN">2 sur 4</span></div><div class="prfBar" aria-hidden="true"><span id="prfBar"></span></div><ul id="prfSteps" class="prfSteps"></ul><div id="prfBioBox" class="prfBioBox" hidden><textarea id="prfBio" rows="3" maxlength="240" placeholder="Quelques mots sur vous…"></textarea><button type="button" id="prfBioSave" class="prfBioSave">Enregistrer</button></div><input id="prfPhotoFile" type="file" accept="image/*" hidden></section><section id="prfAway" class="prfAway"><button type="button" id="prfAwayBtn" class="prfAwayBtn" aria-pressed="false">Je suis indisponible</button><label id="prfAwayUntil" class="prfAwayUntil" hidden>Jusqu’au <input id="prfAwayDate" type="date"></label></section><section id="prfPrefs" class="prfPrefs"><div class="prfEnHead"><h2>Affichage et réglages</h2></div><p class="prfPrefLab" id="prfFsLab">Taille du texte</p><div id="prfFs" class="prfFs" role="radiogroup" aria-labelledby="prfFsLab"><button type="button" class="prfFsBtn" data-fs="16" aria-pressed="true">Normal<span>16</span></button><button type="button" class="prfFsBtn" data-fs="18" aria-pressed="false">Grand<span>18</span></button><button type="button" class="prfFsBtn" data-fs="21" aria-pressed="false">Très grand<span>21</span></button></div><label class="prfToggle"><span><strong>Contraste renforcé</strong><small>Texte et contours plus foncés</small></span><input id="prfContrast" type="checkbox" class="switch" role="switch"></label><div class="prfProche"><label class="prfToggle"><span><strong>Proche de confiance</strong><small>Cette personne reçoit une copie de vos demandes d’aide</small></span><input id="prfProcheOn" type="checkbox" class="switch" role="switch"></label><label class="aideField prfProcheName" id="prfProcheBox" hidden>Nom <input id="prfProcheNom" type="text" maxlength="40" placeholder="Ex. : ma sœur Hélène" autocomplete="off"></label></div></section><section id="prfEntraide" class="prfEntraide"><div class="prfEnHead"><h2>Mon entraide</h2></div><div class="prfEnTiles"><button type="button" id="prfMesDem" class="prfEnTile" data-ensheet="demandes"><strong id="prfMesDemN">0</strong><span>Mes demandes</span></button><button type="button" id="prfMonAide" class="prfEnTile" data-ensheet="aide"><strong id="prfMonAideN">0</strong><span>Mon aide</span></button></div><h3>À venir</h3><ul id="prfComing" class="prfComing"></ul></section><section id="prfNotifs" class="notifCard"><div class="notifHead"><span class="notifHeadIco" aria-hidden="true">🔔</span><div class="notifHeadTxt"><strong>Notifications</strong><small id="notifCount"></small></div><button type="button" id="notifReadAll" class="notifReadAll">Tout marquer comme lu</button></div><ul id="notifList" class="notifList"></ul></section><a href="#verif" id="prfVerif" class="verifEntry"><span class="verifEIco" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span><span class="verifETxt"><strong id="prfVerifT">Faire vérifier mon profil</strong><small id="prfVerifS">Pièce d’identité et attestation · facultatif, un plus pour la confiance</small></span><span class="verifEArr" aria-hidden="true">›</span></a><a href="#plus" id="plusEntry" class="plusEntry"><span class="plusEIco" aria-hidden="true">⭐</span><span class="plusETxt"><strong id="plusET">MaisonSereine+</strong><small id="plusES">Mise en avant, statistiques, badge soutien · 10 $/mois · l’app reste gratuite</small></span><span class="plusEArr" aria-hidden="true">›</span></a><div id="plusManage" hidden><div class="subMgmt" data-mgmt><div class="subMgmtHead"><strong>Mon abonnement</strong><span class="subStatus" data-substatus>Actif</span></div><dl class="subFacts"><div><dt>Formule</dt><dd>MaisonSereine+ · 10 $/mois + taxes</dd></div><div><dt data-nextl>Prochain prélèvement</dt><dd data-subnext></dd></div><div><dt>Carte</dt><dd data-subcard>Visa •••• 4242 · exemple</dd></div></dl><p class="subMsg" data-submsg hidden></p><div class="subBtns"><button type="button" class="subBtn" data-paychange>Modifier la carte (simulation)</button><button type="button" class="subBtn danger" data-subcancel>Résilier (simulation)</button></div></div></div><div style="display: grid; grid-template-columns: repeat(2, minmax(0px, 1fr)); gap: 12px;"><a href="#messages" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border-radius: 24px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 15px; font-weight: 700;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Écrire à Lucie</a><button id="suivre" aria-pressed="false" style="min-height: 48px; border-radius: 24px; border: 2px solid rgb(43, 95, 79); background: rgb(255, 255, 255); color: rgb(30, 69, 57); font-size: 15px; font-weight: 700; cursor: pointer;"><span>Suivre</span></button></div><div style="display: grid; grid-template-columns: repeat(3, minmax(0px, 1fr)); gap: 4px; margin: 0px -20px;"><a href="#publication" aria-label="Publication : atelier de tricot" style="height: 128px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Tricot</a><a href="#publication" aria-label="Publication : marche au parc" style="height: 128px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Marche au parc</a><a href="#publication" aria-label="Publication : jeux de société" style="height: 128px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Jeux de société</a><a href="#publication" aria-label="Publication : jardinage" style="height: 128px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Jardinage</a><a href="#publication" aria-label="Publication : recette de tarte" style="height: 128px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Tarte aux pommes</a><a href="#publication" aria-label="Publication : chorale" style="height: 128px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Chorale</a></div></main><nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="#quartier" class="navItem" aria-label="Quartier"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a><a href="#publier" class="navItem navPlus" aria-label="Publier"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#entraide" class="navItem" aria-label="Entraide"><span class="navEmoji" aria-hidden="true">🤝</span></a><a href="#profil" class="navItem" aria-label="Profil" aria-current="page"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></a></nav></div></section>
+</main><nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></span><span class="navLbl">Accueil</span></a><a href="#messages" class="navItem" aria-label="Messages"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path></svg></span><span class="navLbl">Messages</span></a><a href="#demander" class="navItem navAsk" aria-label="Demander"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span><span class="navLbl">Demander</span></a><a href="#activites" class="navItem" aria-label="Activités"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg></span><span class="navLbl">Activités</span></a><a href="#profil" class="navItem" aria-label="Moi"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></span><span class="navLbl">Moi</span></a></nav></div></section>
+<section class="screen hasNav" id="s-messages" data-screen="messages" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;"><header style="display: flex; align-items: center; gap: 2px; padding: 16px 12px 12px 8px;"><a href="#fil" data-back id="msgBack" class="pgIcon bkRetour" aria-label="Retour"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg><span class="bkLab">Retour</span></a><h1 style="margin: 0px; font-size: 24px; font-weight: 700; flex-grow: 1;">Messages</h1><button aria-label="Nouveau message" style="width: 44px; height: 44px; border: 0px; border-radius: 22px; background: rgb(227, 237, 231); color: rgb(30, 69, 57); display: flex; align-items: center; justify-content: center; cursor: pointer;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></button></header><main id="msgList" style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; background: rgb(255, 255, 255); border-top: 1px solid rgb(228, 223, 211);"><a href="#messages" class="conv" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39); background: rgb(242, 247, 244);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">GB</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Gilles Bouchard</span><span style="font-size: 13px; font-weight: 700; color: rgb(30, 69, 57);">9 h 12</span></span><span style="font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Merci beaucoup&nbsp;! Mardi 9 h, ça vous irait&nbsp;?</span></span><span style="flex-shrink: 0; padding: 3px 9px; border-radius: 11px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 12px; font-weight: 700;">Nouveau</span></a><a href="#profil" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">LT</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Lucie Tremblay</span><span style="font-size: 13px; color: rgb(91, 102, 97);">Hier</span></span><span style="font-size: 14px; color: rgb(91, 102, 97); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Je garde une place pour votre mère jeudi.</span></span></a><a href="#messages" class="conv" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">CC</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Centre communautaire</span><span style="font-size: 13px; color: rgb(91, 102, 97);">Lundi</span></span><span style="font-size: 14px; color: rgb(91, 102, 97); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">La marche du samedi part à 9 h 30 du parc.</span></span></a><a href="#messages" class="conv" style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgb(239, 235, 225); color: rgb(30, 42, 39); background: rgb(242, 247, 244);"><span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 26px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center;">AD</span><span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0px;"><span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 16px; font-weight: 700;">Amina Diallo</span><span style="font-size: 13px; font-weight: 700; color: rgb(30, 69, 57);">8 nov.</span></span><span style="font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Parfait, à vendredi pour le ménage.</span></span><span style="flex-shrink: 0; padding: 3px 9px; border-radius: 11px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 12px; font-weight: 700;">Nouveau</span></a><div style="display: flex; gap: 12px; align-items: flex-start; margin: 20px; padding: 14px 16px; border-radius: 14px; background: rgb(255, 255, 255); border: 1px solid rgb(228, 223, 211);"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B5F4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span style="font-size: 14px; line-height: 1.4; color: rgb(63, 74, 69);">Vos échanges restent privés. MaisonSereine ne prélève aucune commission sur les services convenus entre vous.</span></div></main><nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></span><span class="navLbl">Accueil</span></a><a href="#messages" class="navItem" aria-label="Messages" aria-current="page"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path></svg></span><span class="navLbl">Messages</span></a><a href="#demander" class="navItem navAsk" aria-label="Demander"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span><span class="navLbl">Demander</span></a><a href="#activites" class="navItem" aria-label="Activités"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg></span><span class="navLbl">Activités</span></a><a href="#profil" class="navItem" aria-label="Moi"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></span><span class="navLbl">Moi</span></a></nav><div id="convPanel" class="convPanel" hidden><div id="convThread" class="convThread"></div><div id="convQuick" class="convQuick" role="list"><button type="button" class="convQBtn" data-quick="Oui, ça me va">Oui, ça me va</button><button type="button" class="convQBtn" data-quick="Non, une autre heure">Non, une autre heure</button><button type="button" class="convQBtn" data-quick="Appelez-moi">Appelez-moi</button></div><button type="button" class="worryLink" data-report="conv">Quelque chose vous inquiète ?</button><form id="convForm" class="convForm" autocomplete="off"><span class="convMicWrap"><button type="button" id="convMic" class="convMic" aria-label="Parler">🎤</button><span class="convMicLab">Parler</span></span><label class="sr-only" for="convText">Votre message</label><input id="convText" type="text" placeholder="Message" maxlength="300"><button type="submit" class="comSend" aria-label="Envoyer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-3-7z"></path></svg></button></form></div></div></section>
+<section class="screen hasNav" id="s-profil" data-screen="profil" aria-hidden="true"><div style="width: 100%; height: 100%; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(30, 42, 39); font-family: Figtree, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden;"><main style="flex-grow: 1; min-height: 0px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 20px 20px 4px;"><div style="display: flex; align-items: center; gap: 16px;"><span style="width: 84px; height: 84px; flex-shrink: 0; border-radius: 42px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-weight: 700; font-size: 28px; display: flex; align-items: center; justify-content: center;">LT</span><div style="display: flex; flex-direction: column; gap: 4px;"><h1 style="margin: 0px; font-size: 22px; font-weight: 700;">Lucie Tremblay</h1><span id="prfAwayTag" class="awayTag" hidden>Indisponible</span><span style="font-size: 14px; color: rgb(91, 102, 97);">Voisine · Sainte-Foy</span><span style="align-self: flex-start; display: flex; align-items: center; gap: 4px; padding: 3px 10px 3px 6px; border-radius: 12px; background: rgb(227, 237, 231); color: rgb(30, 69, 57); font-size: 13px; font-weight: 700;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Voisine vérifiée</span><span id="plusBadge" class="plusBadge" hidden>🏅 Membre soutien</span></div></div><div style="display: grid; grid-template-columns: repeat(3, minmax(0px, 1fr)); gap: 8px; padding: 12px 0px; border-top: 1px solid rgb(228, 223, 211); border-bottom: 1px solid rgb(228, 223, 211); text-align: center;"><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 20px; font-weight: 700;">18</span><span style="font-size: 13px; color: rgb(91, 102, 97);">publications</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 20px; font-weight: 700;">142</span><span style="font-size: 13px; color: rgb(91, 102, 97);">voisins abonnés</span></div><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 20px; font-weight: 700;">310</span><span style="font-size: 13px; color: rgb(91, 102, 97);">mercis reçus</span></div></div><p style="margin: 0px; font-size: 15px; line-height: 1.45;">J'accompagne des aînés du quartier depuis huit ans. J'aime les ateliers créatifs, les marches et les bonnes conversations autour d'un thé.</p><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;"><span style="padding: 6px 12px; border-radius: 16px; background: rgb(255, 255, 255); border: 1px solid rgb(201, 194, 178); font-size: 14px; font-weight: 600;">Compagnie</span><span style="padding: 6px 12px; border-radius: 16px; background: rgb(255, 255, 255); border: 1px solid rgb(201, 194, 178); font-size: 14px; font-weight: 600;">Marches</span></div><section id="prfCheck" class="prfCheck"><div class="prfCheckHead"><strong>Complète ton profil</strong><span id="prfCheckN" class="prfCheckN">2 sur 4</span></div><div class="prfBar" aria-hidden="true"><span id="prfBar"></span></div><ul id="prfSteps" class="prfSteps"></ul><div id="prfBioBox" class="prfBioBox" hidden><textarea id="prfBio" rows="3" maxlength="240" placeholder="Quelques mots sur vous…"></textarea><button type="button" id="prfBioSave" class="prfBioSave">Enregistrer</button></div><input id="prfPhotoFile" type="file" accept="image/*" hidden></section><section id="prfAway" class="prfAway"><button type="button" id="prfAwayBtn" class="prfAwayBtn" aria-pressed="false">Je suis indisponible</button><label id="prfAwayUntil" class="prfAwayUntil" hidden>Jusqu’au <input id="prfAwayDate" type="date"></label></section><section id="prfHelp" class="prfHelpBox"><h2>Parler à quelqu’un</h2><p>Une personne de l’équipe vous écoute, du lundi au vendredi, de 9 h à 16 h.</p><a id="prfHelpline" href="tel:+14185550142">📞 418 555-0142</a></section><section id="prfPrefs" class="prfPrefs"><div class="prfEnHead"><h2>Affichage et réglages</h2></div><p class="prfPrefLab" id="prfFsLab">Taille du texte</p><div id="prfFs" class="prfFs" role="radiogroup" aria-labelledby="prfFsLab"><button type="button" class="prfFsBtn" data-fs="16" aria-pressed="true">Normal<span>16</span></button><button type="button" class="prfFsBtn" data-fs="18" aria-pressed="false">Grand<span>18</span></button><button type="button" class="prfFsBtn" data-fs="21" aria-pressed="false">Très grand<span>21</span></button></div><label class="prfToggle"><span><strong>Contraste renforcé</strong><small>Texte et contours plus foncés</small></span><input id="prfContrast" type="checkbox" class="switch" role="switch"></label><div class="prfProche"><label class="prfToggle"><span><strong>Proche de confiance</strong><small>Cette personne reçoit une copie de vos demandes d’aide</small></span><input id="prfProcheOn" type="checkbox" class="switch" role="switch"></label><label class="aideField prfProcheName" id="prfProcheBox" hidden>Nom <input id="prfProcheNom" type="text" maxlength="40" placeholder="Ex. : ma sœur Hélène" autocomplete="off"></label></div></section><section id="prfEntraide" class="prfEntraide"><div class="prfEnHead"><h2>Mon entraide</h2></div><div class="prfEnTiles"><button type="button" id="prfMesDem" class="prfEnTile" data-ensheet="demandes"><strong id="prfMesDemN">0</strong><span>Mes demandes</span></button><button type="button" id="prfMonAide" class="prfEnTile" data-ensheet="aide"><strong id="prfMonAideN">0</strong><span>Mon aide</span></button></div><h3>À venir</h3><ul id="prfComing" class="prfComing"></ul></section><section id="prfNotifs" class="notifCard"><div class="notifHead"><span class="notifHeadIco" aria-hidden="true">🔔</span><div class="notifHeadTxt"><strong>Notifications</strong><small id="notifCount"></small></div><button type="button" id="notifReadAll" class="notifReadAll">J’ai tout lu</button></div><ul id="notifList" class="notifList"></ul></section><a href="#verif" id="prfVerif" class="verifEntry"><span class="verifEIco" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span><span class="verifETxt"><strong id="prfVerifT">Faire vérifier mon profil</strong><small id="prfVerifS">Pièce d’identité et attestation · facultatif, un plus pour la confiance</small></span><span class="verifEArr" aria-hidden="true">›</span></a><a href="#plus" id="plusEntry" class="plusEntry"><span class="plusEIco" aria-hidden="true">⭐</span><span class="plusETxt"><strong id="plusET">MaisonSereine+</strong><small id="plusES">Mise en avant, statistiques, badge soutien · 10 $/mois · l’app reste gratuite</small></span><span class="plusEArr" aria-hidden="true">›</span></a><div id="plusManage" hidden><div class="subMgmt" data-mgmt><div class="subMgmtHead"><strong>Mon abonnement</strong><span class="subStatus" data-substatus>Actif</span></div><dl class="subFacts"><div><dt>Formule</dt><dd>MaisonSereine+ · 10 $/mois + taxes</dd></div><div><dt data-nextl>Prochain prélèvement</dt><dd data-subnext></dd></div><div><dt>Carte</dt><dd data-subcard>Visa •••• 4242 · exemple</dd></div></dl><p class="subMsg" data-submsg hidden></p><div class="subBtns"><button type="button" class="subBtn" data-paychange>Modifier la carte (simulation)</button><button type="button" class="subBtn danger" data-subcancel>Résilier (simulation)</button></div></div></div><div style="display: grid; grid-template-columns: repeat(2, minmax(0px, 1fr)); gap: 12px;"><a href="#messages" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border-radius: 24px; background: rgb(43, 95, 79); color: rgb(255, 255, 255); font-size: 15px; font-weight: 700;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Écrire à Lucie</a><button id="suivre" aria-pressed="false" style="min-height: 48px; border-radius: 24px; border: 2px solid rgb(43, 95, 79); background: rgb(255, 255, 255); color: rgb(30, 69, 57); font-size: 15px; font-weight: 700; cursor: pointer;"><span>Suivre</span></button></div><div style="display: grid; grid-template-columns: repeat(3, minmax(0px, 1fr)); gap: 4px; margin: 0px -20px;"><a href="#publication" aria-label="Publication : atelier de tricot" style="height: 128px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Tricot</a><a href="#publication" aria-label="Publication : marche au parc" style="height: 128px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Marche au parc</a><a href="#publication" aria-label="Publication : jeux de société" style="height: 128px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Jeux de société</a><a href="#publication" aria-label="Publication : jardinage" style="height: 128px; background: rgb(233, 228, 216); color: rgb(63, 74, 69); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Jardinage</a><a href="#publication" aria-label="Publication : recette de tarte" style="height: 128px; background: rgb(213, 227, 219); color: rgb(30, 69, 57); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Tarte aux pommes</a><a href="#publication" aria-label="Publication : chorale" style="height: 128px; background: rgb(240, 217, 196); color: rgb(107, 51, 18); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; padding: 8px; box-sizing: border-box;">Chorale</a></div></main><nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></span><span class="navLbl">Accueil</span></a><a href="#messages" class="navItem" aria-label="Messages"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path></svg></span><span class="navLbl">Messages</span></a><a href="#demander" class="navItem navAsk" aria-label="Demander"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span><span class="navLbl">Demander</span></a><a href="#activites" class="navItem" aria-label="Activités"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg></span><span class="navLbl">Activités</span></a><a href="#profil" class="navItem" aria-label="Moi" aria-current="page"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></span><span class="navLbl">Moi</span></a></nav></div></section>
 <section class="screen" id="s-story" data-screen="story" aria-hidden="true"><div style="width: 100%; height: 100%; font-family: Figtree, system-ui, sans-serif; position: relative; overflow: hidden; background: rgb(0, 0, 0);">
 
   
@@ -2076,7 +2318,7 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
   <div id="storyToast" style="display:none;position:absolute;bottom:160px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:8px 18px;color:#FFF;font-size:13px;font-weight:600;white-space:nowrap;z-index:30">❤️ Réaction envoyée à Lucie</div></div></section>
 <section class="screen" id="s-verif" data-screen="verif" aria-hidden="true"><div class="vWrap">
 <header class="vHead">
-  <a href="#profil" data-back id="vBack" class="vIcon" aria-label="Retour"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <a href="#profil" data-back id="vBack" class="vIcon bkRetour" aria-label="Retour"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg><span class="bkLab">Retour</span></a>
   <h1>Devenir voisin vérifié</h1>
   <span></span>
 </header>
@@ -2135,7 +2377,7 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
 <footer class="vFoot"><button type="button" id="vNext" class="vNext" disabled>Continuer</button></footer>
 </div></section>
 <section class="screen" id="s-plus" data-screen="plus" aria-hidden="true"><div class="pgWrap">
-<header class="pgHead"><a href="#profil" data-back class="pgIcon" aria-label="Retour"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></a><h1>MaisonSereine+</h1><span></span></header>
+<header class="pgHead"><a href="#profil" data-back class="pgIcon bkRetour" aria-label="Retour"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg><span class="bkLab">Retour</span></a><h1>MaisonSereine+</h1><span></span></header>
 <main class="pgMain" id="plusMain">
   <section class="plStep" data-pstep="1">
     <div class="plHero"><span class="plStar" aria-hidden="true">⭐</span><h2>MaisonSereine<span>+</span></h2><p class="plPrice"><strong>10 $/mois</strong></p><p class="plPriceS">10 $/mois · prélevé automatiquement chaque mois · sans engagement, résiliable en tout temps<br>TPS/TVQ en sus</p><p class="plHeroS">Un coup de pouce pour vos publications, et un soutien au réseau du quartier.</p></div>
@@ -2163,7 +2405,7 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
     <h2 class="plH2">Bienvenue, Membre+ !</h2>
     <p class="plLead">Merci de soutenir le réseau du quartier. Votre badge « Membre soutien » est affiché sur votre profil.</p>
     <div class="plStats"><div><strong id="plLeft">3</strong><span>mises en avant restantes cette semaine</span></div><div><strong>214</strong><span>voisins ont vu vos publications <small>(exemple)</small></span></div><div><strong>37</strong><span>réactions cette semaine <small>(exemple)</small></span></div></div>
-    <p class="plLead plSmall">Pour mettre une publication en avant, touchez « ⭐ Mettre en avant » dans Nouvelle publication.</p>
+    <p class="plLead plSmall">Pour mettre une publication en avant, touchez « ⭐ Mettre en avant » dans Écrire à mes voisins.</p>
     <div class="subMgmt" data-mgmt><div class="subMgmtHead"><strong>Mon abonnement</strong><span class="subStatus" data-substatus>Actif</span></div><dl class="subFacts"><div><dt>Formule</dt><dd>MaisonSereine+ · 10 $/mois + taxes</dd></div><div><dt data-nextl>Prochain prélèvement</dt><dd data-subnext></dd></div><div><dt>Carte</dt><dd data-subcard>Visa •••• 4242 · exemple</dd></div></dl><p class="subMsg" data-submsg hidden></p><div class="subBtns"><button type="button" class="subBtn" data-paychange>Modifier la carte (simulation)</button><button type="button" class="subBtn danger" data-subcancel>Résilier (simulation)</button></div></div>
   </section>
 </main>
@@ -2173,7 +2415,7 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
   <header class="enHead">
     <h1>Entraide</h1>
     <div class="enAskRow">
-      <a href="#publier" id="enAsk" class="pgBtn enAskTop">Demander de l’aide</a>
+      <a href="#demander" id="enAsk" class="pgBtn enAskTop">Demander de l’aide</a>
       <button type="button" id="enOffer" class="pgBtn pgBtnAlt enOfferTop">Offrir mon aide</button>
     </div>
     <div id="enToggle" class="enToggle" role="tablist" aria-label="Type d’entraide">
@@ -2185,9 +2427,9 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
   <section id="qReq" class="qBlock qPad qHelp qHelpSimple" data-cats="entraide"><div id="qReqList" class="qList"></div><div id="qReqMore"></div></section>
   <section id="qCare" class="qBlock qPad qHelp qHelpCare qHidden" data-cats="entraide"><div id="aideFilt" class="aideFilt" role="tablist" aria-label="Filtrer les demandes"><button type="button" data-af="tous" aria-pressed="true">Tous</button><button type="button" data-af="urgent" aria-pressed="false">Urgent</button></div><div id="qCareList" class="qList"></div><div id="qCareMore"></div></section>
   </main>
-<nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="#quartier" class="navItem" aria-label="Quartier"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a><a href="#publier" class="navItem navPlus" aria-label="Publier"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a><a href="#entraide" class="navItem" aria-label="Entraide" aria-current="page"><span class="navEmoji" aria-hidden="true">🤝</span></a><a href="#profil" class="navItem" aria-label="Profil"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></a></nav></div></section>
+<nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></span><span class="navLbl">Accueil</span></a><a href="#messages" class="navItem" aria-label="Messages"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path></svg></span><span class="navLbl">Messages</span></a><a href="#demander" class="navItem navAsk" aria-label="Demander"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span><span class="navLbl">Demander</span></a><a href="#activites" class="navItem" aria-label="Activités"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg></span><span class="navLbl">Activités</span></a><a href="#profil" class="navItem" aria-label="Moi"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></span><span class="navLbl">Moi</span></a></nav></div></section>
 <section class="screen" id="s-emploi" data-screen="emploi" aria-hidden="true"><div class="pgWrap">
-<header class="pgHead"><a href="#quartier" data-back class="pgIcon" aria-label="Retour"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></a><h1>Emploi local</h1><span></span></header>
+<header class="pgHead"><a href="#quartier" data-back class="pgIcon bkRetour" aria-label="Retour"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg><span class="bkLab">Retour</span></a><h1>Emploi local</h1><span></span></header>
 <div class="ejTools">
   <div class="ejSearch"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input id="ejQ" type="search" placeholder="Poste, employeur, lieu…" autocomplete="off"></div>
   <div id="ejFilters" class="ejPills" role="group" aria-label="Filtres emploi"></div>
@@ -2197,12 +2439,12 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
 <footer class="pgFoot"><a href="#emploipub" id="ejPost" class="pgBtn">Publier une offre</a></footer>
 </div></section>
 <section class="screen" id="s-emploidetail" data-screen="emploidetail" aria-hidden="true"><div class="pgWrap">
-<header class="pgHead"><a href="#emploi" data-back class="pgIcon" aria-label="Retour"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></a><h1>Offre d’emploi</h1><span></span></header>
+<header class="pgHead"><a href="#emploi" data-back class="pgIcon bkRetour" aria-label="Retour"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg><span class="bkLab">Retour</span></a><h1>Offre d’emploi</h1><span></span></header>
 <main class="pgMain" id="edMain"></main>
 <footer class="pgFoot edFoot"><a href="#messages" id="edContact" class="pgBtn">Contacter l’employeur</a><a id="edCall" class="pgBtn pgBtnAlt edCall" href="tel:+14185550100" aria-label="Appeler l’employeur">📞</a></footer>
 </div></section>
 <section class="screen" id="s-emploipub" data-screen="emploipub" aria-hidden="true"><div class="pgWrap">
-<header class="pgHead"><a href="#emploi" data-back class="pgIcon" aria-label="Retour"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></a><h1>Publier une offre</h1><span></span></header>
+<header class="pgHead"><a href="#emploi" data-back class="pgIcon bkRetour" aria-label="Retour"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg><span class="bkLab">Retour</span></a><h1>Publier une offre</h1><span></span></header>
 <p id="epStepL" class="pgStepL">Étape 1 sur 3 · L’offre</p>
 <main class="pgMain" id="epMain">
   <section class="epStep" data-estep="1">
@@ -2233,6 +2475,102 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
   </section>
 </main>
 <footer class="pgFoot"><button type="button" id="epNext" class="pgBtn" disabled>Continuer</button></footer>
+</div></section>
+<section class="screen qScope hasNav" id="s-activites" data-screen="activites" aria-hidden="true"><div style="width:100%;height:100%;box-sizing:border-box;background:#FFFFFF;color:#1E2A27;font-family:Figtree,system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden;">
+  <header class="actiHead"><h1>Activités</h1></header>
+  <main id="actiMain">
+    <section class="actiSec">
+      <h2>Événements</h2>
+      <div id="actiDays" class="qDays" role="tablist" aria-label="Jours de la semaine"></div>
+      <div id="actiEvList" class="qList"></div>
+    </section>
+    <section class="actiSec">
+      <h2>Groupes du quartier</h2>
+      <div id="actiGroups" class="qList"></div>
+    </section>
+  </main>
+<nav class="mainNav" aria-label="Navigation principale"><a href="#fil" class="navItem" aria-label="Accueil"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></span><span class="navLbl">Accueil</span></a><a href="#messages" class="navItem" aria-label="Messages"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.8h14A2 2 0 0 1 21 6.8v7.4a2 2 0 0 1-2 2h-4.8L8 20.2v-3.6H5a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2z"></path></svg></span><span class="navLbl">Messages</span></a><a href="#demander" class="navItem navAsk" aria-label="Demander"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span><span class="navLbl">Demander</span></a><a href="#activites" class="navItem" aria-label="Activités" aria-current="page"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg></span><span class="navLbl">Activités</span></a><a href="#profil" class="navItem" aria-label="Moi"><span class="navIco" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></span><span class="navLbl">Moi</span></a></nav></div></section>
+<section class="screen" id="s-demander" data-screen="demander" aria-hidden="true"><div class="demWrap">
+  <header class="demHead">
+    <span></span>
+    <h1>Demander de l’aide</h1>
+    <span></span>
+  </header>
+  <p id="demStepL" class="demStep">Étape 1 sur 2</p>
+  <div id="demStep1" class="demMain">
+    <p class="demLead">Pour quoi aimeriez-vous l’aide d’un voisin ?</p>
+    <p class="demNote" style="text-align:center;margin-top:0">Choisissez ce qui s’en rapproche le plus. On verra les détails ensuite.</p>
+    <div id="demNeeds" class="demNeeds" role="group" aria-label="Type d’aide"></div>
+    <p id="demFam" class="demFamHint" hidden></p>
+    <div id="demCoursesHow" class="demSub" hidden>
+      <p class="aideLab">Pour les courses</p>
+      <button type="button" class="demSubBtn" data-courses="pour-moi" aria-pressed="false">Qu’on les fasse pour moi</button>
+      <button type="button" class="demSubBtn" data-courses="accompagne" aria-pressed="false">Qu’on m’accompagne</button>
+    </div>
+    <div id="demWhoBox" class="demSub">
+      <p class="aideLab">C’est pour qui ?</p>
+      <button type="button" class="demWhoBtn" data-dwho="moi" aria-pressed="true">Pour moi</button>
+      <button type="button" class="demWhoBtn" data-dwho="proche" aria-pressed="false">Pour un proche</button>
+      <div id="demWhoExtra" class="aideWhoExtra" hidden>
+        <label class="aideField">Prénom <input id="demPrenom" type="text" maxlength="40" placeholder="Prénom" autocomplete="off"></label>
+      </div>
+    </div>
+    <div class="demSub">
+      <p class="aideLab">Quand</p>
+      <div class="demWhen" role="group" aria-label="Quand">
+        <button type="button" class="demWhenBtn" data-dwhen="Aujourd’hui" aria-pressed="false">Aujourd’hui</button>
+        <button type="button" class="demWhenBtn" data-dwhen="Demain" aria-pressed="false">Demain</button>
+        <button type="button" class="demWhenBtn" data-dwhen="Cette semaine" aria-pressed="true">Cette semaine</button>
+        <button type="button" class="demWhenBtn" data-dwhen="date" aria-pressed="false">Choisir une date</button>
+      </div>
+      <label id="demDateBox" class="aideField" hidden>Date <input id="demDate" type="date"></label>
+    </div>
+    <details class="demAlt" id="demAlt">
+      <summary>Je veux plutôt…</summary>
+      <div class="demAltBtns">
+        <button type="button" id="demAltOffer">Offrir mon aide</button>
+        <a href="#activites" id="demAltAct">Annoncer une activité</a>
+        <button type="button" id="demAltPub">Écrire à mes voisins</button>
+        <button type="button" id="demAltMerci">Dire merci</button>
+      </div>
+    </details>
+  </div>
+  <div id="demStep2" class="demMain" hidden>
+    <div class="demMicBox">
+      <button type="button" id="demMic" class="demMic" aria-label="Appuyez et parlez">🎤</button>
+      <p class="demMicLab">Appuyez et parlez</p>
+      <button type="button" id="demWrite" class="demOrWrite">ou écrire</button>
+    </div>
+    <div id="demReview" class="demReview" hidden>
+      <p id="demReviewTxt"></p>
+      <p class="demMicLab">Est-ce bien ça ?</p>
+      <div class="demReviewBtns">
+        <button type="button" id="demYes" class="demYes">Oui, envoyer</button>
+        <button type="button" id="demRedo" class="demNo">Recommencer</button>
+      </div>
+    </div>
+    <label class="aideLab" for="demDesc" id="demDescLab" hidden>Dites-le comme vous le diriez à un voisin</label>
+    <textarea id="demDesc" class="aideDesc" rows="4" maxlength="400" hidden placeholder="Dites-le comme vous le diriez à un voisin"></textarea>
+    <p class="demNote">Vos voisins voient seulement votre rue. Votre adresse exacte est donnée à la personne que vous acceptez.</p>
+    <div class="aideWhoBox">
+      <p class="aideLab">Qui peut répondre ?</p>
+      <label class="whoOpt"><input type="radio" name="demWhoCan" value="verif" checked><span><strong>Seulement des voisins aux antécédents vérifiés</strong> <span class="whoRec">recommandé</span><br><small>🛡️ Vérification officielle des antécédents judiciaires.</small></span></label>
+      <label class="whoOpt"><input type="radio" name="demWhoCan" value="open"><span><strong>Accepter aussi des voisins non vérifiés</strong><br><small>Votre publication portera la mention « Non vérifiés acceptés ».</small></span></label>
+      <label id="demAckLbl" class="whoAck" hidden><input type="checkbox" id="demAck"><span>Je comprends que MaisonSereine n’a pas vérifié ces personnes et que le choix de l’aidant devient ma responsabilité.</span></label>
+    </div>
+    <p id="demProcheNote" class="demNote" hidden></p>
+    <a class="demHelpline" href="tel:+14185550142"><strong>Parler à quelqu’un</strong><small>418 555-0142 · du lundi au vendredi, 9 h à 16 h</small></a>
+  </div>
+  <div class="demFoot">
+    <button type="button" id="demNext" class="demNext">Continuer</button>
+    <button type="button" id="demSend" class="demSend" hidden>Envoyer à mes voisins</button>
+    <button type="button" id="demCancel" class="demCancel">Annuler ma demande</button>
+  </div>
+</div></section>
+<section class="screen" id="s-cestfait" data-screen="cestfait" aria-hidden="true"><div class="faitWrap">
+  <h1>C’est fait</h1>
+  <p id="faitTxt">Vos voisins viennent d’être prévenus. Nous vous avertirons dès qu’une personne répond. Vous pouvez annuler à tout moment.</p>
+  <button type="button" id="faitOk" class="demSend">Retour à l’accueil</button>
 </div></section>
 <div id="resSheet" class="sheetOverlay" aria-hidden="true">
   <button type="button" class="sheetBak" data-sheetclose aria-label="Fermer"></button>
@@ -2274,10 +2612,14 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
     </div>
     <nav class="menuNav" aria-label="Menu">
       <button type="button" id="menuQuartier" class="menuRow" aria-label="Changer de quartier"><span class="menuIco" aria-hidden="true">📍</span><span class="menuTxt">Votre quartier<strong class="quartierNom">Sainte-Foy</strong><small>Changer de quartier</small></span></button>
+      <a href="#quartier" id="menuVieQ" class="menuRow"><span class="menuIco" aria-hidden="true">🏡</span><span class="menuTxt">Vie du quartier<small>Alertes, emploi local et groupes</small></span></a>
+      <a href="#entraide" id="menuEntraide" class="menuRow"><span class="menuIco" aria-hidden="true">🤝</span><span class="menuTxt">Entraide<small>Demandes et offres du quartier</small></span></a>
+      <a href="#activites" id="menuActivites" class="menuRow"><span class="menuIco" aria-hidden="true">📅</span><span class="menuTxt">Activités<small>Événements et groupes</small></span></a>
       <button type="button" id="filTel" class="menuRow" aria-label="Ressources utiles"><span class="menuIco" aria-hidden="true">📞</span><span class="menuTxt">Ressources utiles<small>Les 5 numéros essentiels</small></span></button>
       <button type="button" id="menuCal" class="menuRow" aria-label="Calendrier"><span class="menuIco" aria-hidden="true">📅</span><span class="menuTxt">Calendrier<small>Les activités de la semaine</small></span></button>
       <button type="button" id="menuGroupes" class="menuRow" aria-label="Groupes du quartier"><span class="menuIco" aria-hidden="true">👥</span><span class="menuTxt">Groupes du quartier<small>Café-jasette, jardin, entraide techno…</small></span></button>
-      <a href="#profil" class="menuRow"><span class="menuIco" aria-hidden="true">👤</span><span class="menuTxt">Profil</span></a>
+      <button type="button" id="menuPublier" class="menuRow" aria-label="Écrire à mes voisins"><span class="menuIco" aria-hidden="true">✏️</span><span class="menuTxt">Écrire à mes voisins<small>Publication, merci ou offre d’emploi</small></span></button>
+      <a href="#profil" class="menuRow"><span class="menuIco" aria-hidden="true">👤</span><span class="menuTxt">Moi</span></a>
       <a href="#plus" class="menuRow"><span class="menuIco" aria-hidden="true">⭐</span><span class="menuTxt">MaisonSereine+</span></a>
       <a href="#verif" class="menuRow"><span class="menuIco" aria-hidden="true">🛡️</span><span class="menuTxt">Vérification</span></a>
       <a href="#profil" id="menuNotifs" class="menuRow"><span class="menuIco" aria-hidden="true">🔔</span><span class="menuTxt">Notifications</span></a>
@@ -2407,7 +2749,7 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
   <div class="plusCard" role="dialog" aria-modal="true" aria-labelledby="plusSheetT">
     <h2 id="plusSheetT" class="plusSheetT">Que voulez-vous publier&nbsp;?</h2>
     <button type="button" id="plusAide" class="plusAct plusFeat"><span class="plusActIco" aria-hidden="true">💚</span><span>Demande d’aide</span></button>
-    <a href="#publier" id="plusNew" class="plusAct"><span class="plusActIco" aria-hidden="true">✏️</span><span>Nouvelle publication</span></a>
+    <a href="#publier" id="plusNew" class="plusAct"><span class="plusActIco" aria-hidden="true">✏️</span><span>Écrire à mes voisins</span></a>
     <button type="button" id="plusMerci" class="plusAct"><span class="plusActIco" aria-hidden="true">🙏</span><span>Dire merci</span></button>
         <a href="#emploipub" id="plusJob" class="plusAct"><span class="plusActIco" aria-hidden="true">💼</span><span>Publier une offre d’emploi</span></a>
     <button type="button" class="plusCancel" data-sheetclose>Annuler</button>
@@ -2445,6 +2787,69 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
     </div>
   </div>
 </div>
+
+<div id="trustSheet" class="sheetOverlay" aria-hidden="true">
+  <button type="button" class="sheetBak" data-sheetclose aria-label="Fermer"></button>
+  <div class="sheetCard trustCard" role="dialog" aria-modal="true" aria-labelledby="trustTitle">
+    <header class="sheetHead">
+      <span></span>
+      <h2 id="trustTitle">Voir qui est Paul</h2>
+      <button type="button" class="sheetX" data-sheetclose aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </header>
+    <div id="trustBody"></div>
+  </div>
+</div>
+<div id="voisinSheet" class="sheetOverlay" aria-hidden="true">
+  <button type="button" class="sheetBak" data-sheetclose aria-label="Fermer"></button>
+  <div class="sheetCard trustCard" role="dialog" aria-modal="true" aria-labelledby="voisinTitle">
+    <header class="sheetHead">
+      <span></span>
+      <h2 id="voisinTitle">Profil du voisin</h2>
+      <button type="button" class="sheetX" data-sheetclose aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </header>
+    <div id="voisinBody"></div>
+    <button type="button" class="demSend" data-sheetclose style="margin-top:8px">Fermer</button>
+  </div>
+</div>
+<div id="confirmSheet" class="sheetOverlay" aria-hidden="true">
+  <button type="button" class="sheetBak" data-sheetclose aria-label="Fermer"></button>
+  <div class="sheetCard confirmCard" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+    <h2 id="confirmTitle">Confirmation</h2>
+    <p id="confirmTxt"></p>
+    <div class="confirmActs">
+      <button type="button" id="confirmOk" class="confirmOk">Oui</button>
+      <button type="button" id="confirmCancel" class="confirmCancel" data-sheetclose>Non</button>
+    </div>
+  </div>
+</div>
+<div id="reportSheet" class="sheetOverlay" aria-hidden="true">
+  <button type="button" class="sheetBak" data-sheetclose aria-label="Fermer"></button>
+  <div class="sheetCard reportCard confirmCard" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+    <header class="sheetHead">
+      <span></span>
+      <h2 id="reportTitle">Quelque chose vous inquiète ?</h2>
+      <button type="button" class="sheetX" data-sheetclose aria-label="Fermer"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </header>
+    <p>Dites-nous ce qui vous préoccupe. Une personne de l’équipe lira votre message. Vous pouvez aussi appeler la ligne d’entraide.</p>
+    <textarea id="reportTxt" maxlength="400" placeholder="Écrivez quelques mots pour que vos voisins comprennent."></textarea>
+    <a class="demHelpline" href="tel:+14185550142"><strong>Parler à quelqu’un</strong><small>418 555-0142 · du lundi au vendredi, 9 h à 16 h</small></a>
+    <div class="confirmActs">
+      <button type="button" id="reportSend" class="confirmOk">Envoyer</button>
+      <button type="button" class="confirmCancel" data-sheetclose>Annuler</button>
+    </div>
+  </div>
+</div>
+<div id="fsAsk" class="sheetOverlay fsAskOverlay" aria-hidden="true">
+  <div class="fsAskCard" role="dialog" aria-modal="true" aria-labelledby="fsAskT">
+    <h2 id="fsAskT">Lisez-vous bien ce texte ?</h2>
+    <p class="fsSample" id="fsSample">Bonjour Alexandre. Voici un exemple de texte dans MaisonSereine. S’il vous semble petit, choisissez une taille plus grande.</p>
+    <div class="fsAskBtns">
+      <button type="button" data-fsask="16">Oui, c’est bien · 16</button>
+      <button type="button" data-fsask="18">Un peu plus grand · 18</button>
+      <button type="button" data-fsask="21">Beaucoup plus grand · 21</button>
+    </div>
+  </div>
+</div>
 <div id="msToast" class="msToast" hidden role="status"></div>
 <div id="qListPanel" class="qListPanel qScope" hidden role="dialog" aria-modal="true" aria-labelledby="lTitle">
   <header class="lHead"><button type="button" id="lBack" class="lBack" aria-label="Retour"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button><div class="lHeadT"><h2 id="lTitle">Coups de main</h2><span id="lCount" class="lCount"></span></div></header>
@@ -2452,7 +2857,7 @@ html.ms-contrast .prfToggle small,html.ms-contrast .qHelpSub,html.ms-contrast .a
     <div class="lSearch"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input id="lQ" type="search" placeholder="Rechercher dans la liste" autocomplete="off"></div>
     <div id="lCats" class="qPills qPillsSm lPills" role="group" aria-label="Catégories"></div>
     <div id="lFilters" class="qPills qPillsSm lPills" role="group" aria-label="Filtres"></div>
-    <div id="lSortRow" class="lSortRow"><span>Trier :</span><div class="lSort" role="radiogroup" aria-label="Trier"><button type="button" role="radio" data-sort="recent" aria-checked="true">Récent</button><button type="button" role="radio" data-sort="dist" aria-checked="false">Distance</button></div></div>
+    <div id="lSortRow" class="lSortRow"><span>Trier :</span><div class="lSort" role="radiogroup" aria-label="Trier"><button type="button" role="radio" data-sort="recent" aria-checked="true">Récent</button></div></div>
   </div>
   <main id="lMain" class="lMain"><div id="lList" class="qList"></div><div id="lMore"></div></main>
 </div>
@@ -2532,10 +2937,23 @@ document.addEventListener('click', function(e){
   if(e.target.closest('#filQuartier, #menuQuartier')){ openQPick(e.target.closest('#filQuartier, #menuQuartier')); return; }
   var qp = e.target.closest('#qPickSheet .qPickBtn');
   if(qp){
-    setQuartier(qp.getAttribute('data-q'));
-    closeOverlays();
-    if(window.msAideRestore){ window.msAideRestore = false; if(window.msOpenAideSheet) window.msOpenAideSheet(); }
-    if(window.msRenderReq) window.msRenderReq();
+    var nq = qp.getAttribute('data-q');
+    var curQ = (typeof choix !== 'undefined' && choix) || (($('.quartierNom') || {}).textContent || 'Sainte-Foy');
+    function applyQ(){
+      setQuartier(nq);
+      closeOverlays();
+      if(window.msAideRestore){ window.msAideRestore = false; if(window.msOpenAideSheet) window.msOpenAideSheet(); }
+      if(window.msRenderReq) window.msRenderReq();
+    }
+    if(nq && nq !== curQ && window.msConfirm){
+      window.msConfirm({
+        title: 'Changer de quartier ?',
+        text: 'Vous êtes dans ' + curQ + '. Changer de quartier ?',
+        ok: 'Oui, changer',
+        cancel: 'Non, rester',
+        onok: applyQ
+      });
+    } else applyQ();
     return;
   }
   if(e.target.closest('#filTel')){ openOverlay('resSheet', e.target.closest('#filTel')); return; }
@@ -2562,7 +2980,8 @@ document.addEventListener('click', function(e){
     closeOverlays();
     return;
   }
-  if(e.target.closest('#plusAide, #filAideBtn')){ closeOverlays(); if(window.msOpenAide) window.msOpenAide(); return; }
+  if(e.target.closest('#menuPublier')){ closeOverlays(); openOverlay('plusSheet', e.target.closest('#menuPublier')); return; }
+  if(e.target.closest('#plusAide, #filAideBtn, #enAsk')){ closeOverlays(); if(window.msOpenAide) window.msOpenAide(); return; }
   if(e.target.closest('#aideQBtn')){ window.msAideRestore = true; openQPick(e.target.closest('#aideQBtn')); return; }
   var aex = e.target.closest('[data-aideex]');
   if(aex){ if(window.msOpenAide) window.msOpenAide(aex.getAttribute('data-aideex')); return; }
@@ -2571,7 +2990,7 @@ document.addEventListener('click', function(e){
   e.preventDefault();
   if(a.id === 'pubPublier') return; // handled below
   if(a.id === 'enAsk' && window.msEnMode === 'care'){ if(window.msOpenAide) window.msOpenAide(); return; }
-  if(a.getAttribute('aria-label') === 'Publier' && a.closest('nav')){ openOverlay('plusSheet', a); return; }
+  if(a.closest('nav') && (a.getAttribute('aria-label') === 'Demander' || (a.getAttribute('href')||'') === '#demander')){ if(window.msOpenAide) window.msOpenAide(); return; }
   var target = a.getAttribute('href').slice(1);
   if(a.hasAttribute('data-back')) return back(target);
   if(target === current){ // e.g. tapping the active tab: scroll to top
@@ -3080,7 +3499,7 @@ var FIL_EMPTY = {
   entraide:   ['🤝', 'Aucune demande d’entraide pour le moment', 'Besoin d’un coup de main ? Demandez à vos voisins.'],
   evenement:  ['🎉', 'Aucun événement à venir', 'Organisez une activité pour le quartier !'],
   discussion: ['💬', 'Aucune discussion en cours', 'Lancez la conversation avec vos voisins.'],
-  tout:       ['🏡', 'Rien dans le fil pour le moment', 'Soyez la première personne à publier !']
+  tout:       ['🏡', 'Rien dans le fil pour le moment', 'Personne n’a encore écrit. Vous voulez commencer ?']
 };
 var filType = 'tout';
 var filEmpty = document.createElement('div');
@@ -3214,7 +3633,7 @@ var JOBS = [
   {id:10, ico:'🔧', bg:'#F3EDE3', t:'Concierge de résidence', emp:'Habitations du Parc Roland-Beaudin', lieu:'Avenue Roland-Beaudin', m:1100, type:'partiel', hor:'20 h/sem. · horaire flexible + garde 1 fin de semaine/mois', sal:'21 $/h', a:60, tel:'+14185550120', desc:'Petites réparations, déneigement des entrées et entretien des aires communes d’un immeuble de 40 logements pour aînés autonomes.'},
   {id:11, ico:'🛍️', bg:'#F0E8FB', t:'Conseiller(ère) aux ventes', emp:'Quincaillerie du Quartier', lieu:'Boulevard Hochelaga', m:1800, type:'plein', hor:'Jour et soir en rotation · 40 h/sem.', sal:'18,75 $/h', a:40, tel:'+14185550121', desc:'Conseiller les clients en peinture et quincaillerie, réception de marchandise. Connaissances en rénovation, un atout.'}
 ];
-function jobDist(m){ return m < 1000 ? 'à ' + (Math.round(m / 50) * 50) + ' m' : 'à ' + (m / 1000).toFixed(1).replace('.', ',') + ' km'; }
+function jobDist(m){ return 'Dans votre quartier'; }
 function jobAge(h){ return h < 1 ? 'à l’instant' : h < 24 ? 'il y a ' + Math.round(h) + ' h' : 'il y a ' + Math.floor(h / 24) + ' j'; }
 function jobCard(j){
   return '<button type="button" class="jobCard" data-job="' + j.id + '"><span class="jobIco" style="background:' + j.bg + '" aria-hidden="true">' + j.ico + '</span><span class="jobBody"><span class="jobT">' + esc(j.t) + '</span><span class="jobEmp">' + esc(j.emp) + '</span><span class="jobMeta">📍 ' + esc(j.lieu) + ' · ' + jobDist(j.m) + '</span><span class="jobTags"><span class="jobType t-' + j.type + '">' + JOB_TYPES[j.type] + '</span><span class="jobSal">' + esc(j.sal) + '</span></span><span class="jobHor">🕒 ' + esc(j.hor) + '</span><span class="jobFoot"><span class="paidTag">✓ Offre vérifiée' + (j.mine ? ' · payée' : '') + '</span>' + (j.mine ? '<span class="newTag">Nouveau</span>' : '') + '<span class="jobAge">' + jobAge(j.a) + '</span></span></span></button>';
@@ -3469,7 +3888,7 @@ function previewBase(list, n){
   out = take(un, n); if(out.length < n) out = out.concat(take(rest, n - out.length));
   return fairSort(out);
 }
-function fmtDist(m){ return m < 1000 ? 'à ' + (Math.round(m / 50) * 50) + ' m' : 'à ' + (m / 1000).toFixed(1).replace('.', ',') + ' km'; }
+function fmtDist(m){ return 'Dans votre quartier'; }
 function fmtAge(h){ return h < 1 ? 'il y a 40 min' : h < 24 ? 'il y a ' + Math.round(h) + ' h' : 'il y a ' + Math.floor(h / 24) + ' j'; }
 function metaLine(x, unit){
   return '<div class="qMeta"><span>📍 ' + fmtDist(x.m) + '</span><span>' + fmtAge(x.a) + '</span><span>' + (x.r ? x.r + ' ' + unit + (x.r > 1 ? 's' : '') : '0 ' + unit) + '</span></div>';
@@ -3525,7 +3944,7 @@ function taskCard(r){
   var bg = TASK_BG[r.ico] || '#FBEFE4';
   return '<div class="qCard req task' + (!done && r.r === 0 ? ' noResp' : '') + (!done && r.f ? ' feat' : '') + (done ? ' done' : '') + (taken ? ' taken' : '') + '"><div class="taskRow"><span class="taskIco" style="background:' + bg + '" aria-hidden="true">' + r.ico + '</span><div class="taskBody"><div class="taskTop"><strong class="taskT reqWho">' + esc(r.t) + '</strong>' + (done ? '<span class="doneTag">✓ Comblée</span>' : '<span class="urg" style="background:' + u[0] + ';color:' + u[1] + '">' + r.u + '</span>') + '</div><div class="taskChips">' + (r.dur ? '<span class="durChip">⏱ ' + esc(r.dur) + '</span>' : '') + (r.when ? '<span class="whenChip">' + esc(r.when) + '</span>' : '') + '</div><div class="qMeta"><span>📍 ' + fmtDist(r.m) + '</span><span class="taskWho">' + esc(firstName(r.who)) + '</span></div></div></div>' +
     (ft ? '<div class="reqTags">' + ft + '</div>' : '') +
-    (done ? '' : taken ? '<span class="takenTag">✓ Pris en charge par vous</span>' : '<button type="button" class="reqBtn taskBtn jaideBtn" data-resp="req:' + idx + '">J\u2019aide ' + firstName(r.who) + '</button>') + '</div>';
+    (done ? '' : taken ? '<span class="takenTag">✓ Pris en charge par vous</span>' : '<button type="button" class="reqBtn taskBtn jaideBtn" data-resp="req:' + idx + '">Je peux aider</button>') + '</div>';
 }
 function careCard(r){
   var u = URG[r.u], idx = CARE.indexOf(r), done = isDone(r), ft = fairTags(r), taken = !!r._me;
@@ -3541,7 +3960,7 @@ function careCard(r){
     (r.freq ? '<div class="humFreq">📅 ' + esc(r.freq) + '</div>' : '') +
     (r.by ? '<div class="humBy">' + esc(r.by) + '</div>' : '') +
     ((ft || tag) ? '<div class="reqTags">' + ft + tag + '</div>' : '') +
-    (done ? '' : taken ? '<span class="takenTag">✓ Présence proposée</span>' : '<a href="#messages" class="reqBtn careBtn jaideBtn" data-resp="care:' + idx + '" data-care="' + (r.open ? 'open' : 'bg') + '">J\u2019aide ' + firstName(r.who) + '</a>') + '</div>';
+    (done ? '' : taken ? '<span class="takenTag">✓ Présence proposée</span>' : '<a href="#messages" class="reqBtn careBtn jaideBtn" data-resp="care:' + idx + '" data-care="' + (r.open ? 'open' : 'bg') + '">Je peux aider</a>') + '</div>';
 }
 function isUrgentExpired(r){
   if(!r) return false;
@@ -4149,8 +4568,9 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
 (function(){
   var KEY = 'ms_notifs_read';
   var ITEMS = [
+    {id:'n0', ico:'💚', t:'Bonne nouvelle : Paul Tremblay, votre voisin de Sainte-Foy, peut vous aider dimanche.', d:'Il a proposé son aide pour pelleter votre entrée.', ago:'il y a 1 h', href:'#messages'},
     {id:'n1', ico:'💬', t:'Gilles Bouchard vous a écrit', d:'Mardi 9 h, ça vous irait ?', ago:'il y a 2 h', href:'#messages'},
-    {id:'n2', ico:'💼', t:'Nouvelle offre près de chez vous', d:'Aide-cuisinier · Chez Gaston', ago:'il y a 5 h', href:'#emploi'},
+    {id:'n2', ico:'💼', t:'Nouvelle offre dans votre quartier', d:'Aide-cuisinier · Chez Gaston', ago:'il y a 5 h', href:'#emploi'},
     {id:'n3', ico:'📷', t:'Lucie Tremblay a publié une photo', d:'Dans le fil de Sainte-Foy', ago:'il y a 1 j', href:'#fil'}
   ];
   function readIds(){ try{ var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; }catch(_){ return []; } }
@@ -4192,6 +4612,9 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
   });
   var btn = $('#notifReadAll');
   if(btn) btn.addEventListener('click', function(){ save(ITEMS.map(function(it){ return it.id; })); render(); });
+  window.msNotifItems = ITEMS;
+  window.msNotifUnread = unreadN;
+  window.msNotifRender = render;
   render();
 })();
 
@@ -4417,7 +4840,7 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
       html += '<div class="cmRow">' + bubbleHTML(c) + '</div>';
       (c.replies || []).forEach(function(r){ html += '<div class="cmRow cmReply">' + bubbleHTML(r) + '</div>'; });
     });
-    if(!list.length) html = '<p class="comEx" style="text-transform:none;font-weight:500;padding:20px 8px">Soyez la première personne à commenter.</p>';
+    if(!list.length) html = '<p class="comEx" style="text-transform:none;font-weight:500;padding:20px 8px">Personne n’a encore commenté. Vous voulez commencer ?</p>';
     box.innerHTML = html;
   }
   function openCom(art, trigger){
@@ -4624,7 +5047,7 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
       (r.freq ? '<div class="humFreq">📅 ' + esc(r.freq) + '</div>' : '') +
       (r.by ? '<div class="humBy">' + esc(r.by) + '</div>' : '') +
       '<div class="reqTags">' + tag + '</div>' +
-      '<a href="#messages" class="helpOffer careBtn jaideBtn">J\u2019aide ' + firstNameSafe(who) + '</a>' +
+      '<a href="#messages" class="helpOffer careBtn jaideBtn">Je peux aider</a>' +
       '<div style="display:flex;align-items:center;margin-top:4px"><button type="button" class="act like" style="padding-left:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E2A27" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><span style="color:#1E2A27"><span>0</span></span></button><button type="button" class="act comBtn" aria-label="Commentaires">' + ICO_COM + '<span class="ccount">0</span></button></div>';
   }
   function firstNameSafe(who){
@@ -4661,6 +5084,10 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
       u: aideUrg, ico: typeIco(aideType), q: qn, open: whoCan === 'open',
       m: 0, a: 0, r: 0, _mine: true, byName: whoName
     };
+    window.msInsertAideCard(r, {goFil:true});
+  }
+  window.msInsertAideCard = function(r, opts){
+    opts = opts || {};
     if(window.msAddCare) window.msAddCare(r);
     if(window.msNoteMyRequest) window.msNoteMyRequest(r, 'care');
     var pid = 'aide-' + Date.now().toString(36);
@@ -4668,9 +5095,10 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
     var art = document.createElement('article');
     art.className = 'newpost helpCard';
     art.setAttribute('data-type', 'entraide');
-    art.setAttribute('data-sub', 'personne');
+    art.setAttribute('data-sub', (r.fam === 'task') ? 'tache' : 'personne');
     art.setAttribute('data-pid', pid);
-    if(whoCan === 'open') art.setAttribute('data-open', '1');
+    if(r.open) art.setAttribute('data-open', '1');
+    if(r.fam) art.setAttribute('data-fam', r.fam);
     art.innerHTML = helpCardHTML(r, pid);
     var feed = $('#feed');
     if(feed){ var hook = feed.querySelector('article, #filEmpty'); feed.insertBefore(art, hook || feed.firstElementChild); }
@@ -4679,8 +5107,11 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
     enhancePost(art);
     closeOverlays();
     if(window.msFilShowChrome) window.msFilShowChrome();
-    show('fil', {back:true});
-    if(feed) feed.scrollTo({top:0});
+    if(opts.goFil !== false){
+      show('fil', {back:true});
+      if(feed) feed.scrollTo({top:0});
+    }
+    return art;
   }
   var pubBtn = $('#aidePublier');
   if(pubBtn) pubBtn.addEventListener('click', publishAide);
@@ -4762,7 +5193,7 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
 
   function renderVoisins(){
     var hello = $('#filHello');
-    if(hello) hello.textContent = heureHello() + ' ' + ME_NAME + ', ' + quartier();
+    if(hello) hello.textContent = heureHello() + ' ' + ME_NAME + '. Un voisin peut-il vous rendre service aujourd’hui ?';
     var list = (window.msHelpOpen && window.msHelpOpen()) || [];
     var nEl = $('#filAideN');
     if(nEl){
@@ -4775,7 +5206,7 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
       rail.innerHTML = '<p class="filAideEmpty">Aucune demande en cours dans le quartier.</p>';
       return;
     }
-    rail.innerHTML = list.slice(0, 8).map(function(it){
+    rail.innerHTML = list.slice(0, 1).map(function(it){
       var mode = it.kind === 'care' ? 'care' : 'req';
       return '<a href="#entraide" class="filAideCard" role="listitem" data-enopen="' + mode + '">' +
         '<span class="facType">' + esc((it.ico ? it.ico + ' ' : '') + it.t) + '</span>' +
@@ -5427,7 +5858,7 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
           name = t.split(/\s+/)[0];
         }
       });
-      btn.textContent = 'J\u2019aide' + (name ? ' ' + name : '');
+      btn.textContent = 'Je peux aider';
       btn.classList.add('jaideBtn');
     });
   }
@@ -5559,6 +5990,608 @@ $('#epPreview').addEventListener('click', function(e){ var b = e.target.closest(
     if(!opts || !opts.keepConv) closeConv();
     if(prevEnter) prevEnter(opts);
   };
+})();
+
+
+/* ---------------- audit UX : demander, confiance, accueil, activités ---------------- */
+(function(){
+  function $(sel, r){ return (r||document).querySelector(sel); }
+  function $$(sel, r){ return Array.prototype.slice.call((r||document).querySelectorAll(sel)); }
+  function esc(t){ return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function qName(){ return (window.msCurrentQ && window.msCurrentQ()) || 'Sainte-Foy'; }
+  function initials(name){
+    return String(name||'?').split(/\s+/).filter(Boolean).slice(0,2).map(function(p){ return p.charAt(0).toUpperCase(); }).join('') || '?';
+  }
+
+  /* Confirmations stables */
+  window.msConfirm = function(opts){
+    opts = opts || {};
+    var title = $('#confirmTitle'), txt = $('#confirmTxt'), ok = $('#confirmOk'), cancel = $('#confirmCancel');
+    if(title) title.textContent = opts.title || 'Confirmation';
+    if(txt) txt.textContent = opts.text || '';
+    if(ok) ok.textContent = opts.ok || 'Oui';
+    if(cancel){ cancel.textContent = opts.cancel || 'Non'; cancel.hidden = !!opts.noCancel; }
+    ok._onok = opts.onok || null;
+    if(typeof openOverlay === 'function') openOverlay('confirmSheet');
+  };
+  document.addEventListener('click', function(e){
+    if(e.target && e.target.id === 'confirmOk'){
+      var fn = e.target._onok; e.target._onok = null;
+      if(typeof closeOverlays === 'function') closeOverlays();
+      if(fn) fn();
+    }
+  });
+  function stay(msg){
+    var el = $('#msStay');
+    if(!el){
+      el = document.createElement('div');
+      el.id = 'msStay'; el.className = 'msConfirmStay'; el.setAttribute('role','status');
+      var dev = $('#device') || document.body;
+      dev.appendChild(el);
+    }
+    el.innerHTML = '<p>' + esc(msg) + '</p><button type="button">J’ai compris</button>';
+    el.hidden = false;
+    var b = el.querySelector('button');
+    if(b) b.onclick = function(){ el.hidden = true; };
+  }
+  window.msStay = stay;
+
+  /* Premier lancement : taille du texte */
+  function showFsAsk(){
+    if(typeof openOverlay === 'function') openOverlay('fsAsk');
+  }
+  window.msShowFsAsk = showFsAsk;
+  function acceptFs(n){
+    try{ localStorage.setItem('ms_fs_asked','1'); }catch(_){}
+    var btns = document.querySelectorAll('#prfFs [data-fs], #prfFs .prfFsBtn');
+    /* applyFs lives in another IIFE; set tokens directly + click profile buttons */
+    n = String(n);
+    document.documentElement.setAttribute('data-fs', n);
+    document.documentElement.style.setProperty('--fs', n + 'px');
+    try{ localStorage.setItem('ms_fs', n); }catch(_){}
+    $$('#prfFs .prfFsBtn').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-fs') === n ? 'true' : 'false'); });
+    if(typeof closeOverlays === 'function') closeOverlays();
+  }
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('#fsAsk [data-fsask]');
+    if(b) acceptFs(b.getAttribute('data-fsask'));
+  });
+  try{
+    if(!localStorage.getItem('ms_fs_asked') && !navigator.webdriver){
+      setTimeout(showFsAsk, 400);
+    }
+  }catch(_){}
+
+  /* Nouveau pour vous + suivi */
+  function renderNouveau(){
+    var box = $('#filNouveauList'); if(!box) return;
+    var items = window.msNotifItems || [];
+    var html = items.slice(0,2).map(function(it){
+      return '<button type="button" class="filNouveauItem" data-nhref="' + esc(it.href) + '"><span aria-hidden="true">' + it.ico + '</span><span>' + esc(it.t) + '</span></button>';
+    }).join('');
+    box.innerHTML = html || '<p class="demNote">Rien de nouveau pour le moment.</p>';
+  }
+  function suiviHTML(){
+    return '<h2>Comment ça s’est passé avec Paul ?</h2><div class="suiviActs">' +
+      '<button type="button" data-suivi="ok">Très bien</button>' +
+      '<button type="button" data-suivi="talk">J’aimerais en parler</button></div>';
+  }
+  function renderSuivi(){
+    var done = false;
+    try{ done = localStorage.getItem('ms_suivi') === '1'; }catch(_){}
+    // Accueil stays compact: the follow-up lives in Moi, and also at the top of Accueil only as a short bar if space allows.
+    var acc = $('#filSuivi');
+    if(acc){ acc.hidden = true; acc.innerHTML = ''; }
+    var box = $('#prfSuivi');
+    if(!box){
+      var host = $('#prfHelp') || $('#prfEntraide') || $('#s-profil main');
+      if(host){
+        box = document.createElement('section');
+        box.id = 'prfSuivi';
+        box.className = 'suiviCard';
+        host.parentNode.insertBefore(box, host.nextSibling);
+      }
+    }
+    if(!box) return;
+    if(done){ box.hidden = true; box.innerHTML = ''; return; }
+    box.hidden = false;
+    box.innerHTML = suiviHTML();
+  }
+  window.msRenderNouveau = renderNouveau;
+  renderNouveau();
+  renderSuivi();
+
+  document.addEventListener('click', function(e){
+    var n = e.target.closest && e.target.closest('#filNouveauList [data-nhref]');
+    if(n){
+      var href = n.getAttribute('data-nhref') || '#fil';
+      if(href.charAt(0) === '#') show(href.slice(1));
+      return;
+    }
+    var s = e.target.closest && e.target.closest('[data-suivi]');
+    if(s){
+      try{ localStorage.setItem('ms_suivi','1'); }catch(_){}
+      if(s.getAttribute('data-suivi') === 'talk'){
+        stay('Merci. Vous pouvez aussi appeler la ligne d’entraide au 418 555-0142, du lundi au vendredi, de 9 h à 16 h.');
+      } else {
+        stay('Merci, ça nous fait plaisir de le savoir.');
+      }
+      renderSuivi();
+    }
+  });
+
+  /* Activités : événements + groupes */
+  function renderActiDays(){
+    var box = $('#actiDays'); if(!box) return;
+    var names = ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'];
+    /* avoid abbreviations? audit said no abbreviations for demand when buttons. For week grid, existing calendar uses short names. Use full if space: we'll use 2-letter still... audit wanted no Auj/Dem. I'll use first two letters of French days as the existing qDay does, or "14" numbers. Keep same as calSheet for consistency but ensure 16px (already). */
+    if(window.msOpenCal) try{ window.msOpenCal(); }catch(_){}
+    var src = $('#calSheet #calDays, #calSheet .qDays');
+    if(src){ box.innerHTML = src.innerHTML; }
+  }
+  function renderActiEv(){
+    var box = $('#actiEvList'); if(!box) return;
+    var src = $('#calList, #calSheet .qList, #calListView');
+    /* prefer visible list from calendar */
+    var list = document.querySelector('#calSheet #calListView') || document.querySelector('#calSheet .qList') || document.querySelector('#calList');
+    if(list) box.innerHTML = list.innerHTML;
+    else box.innerHTML = '<p class="qEmpty">Les événements de la semaine s’affichent ici.</p>';
+  }
+  function renderActiGroups(){
+    var box = $('#actiGroups'); if(!box) return;
+    var src = $('#qGroupsList, #qGroups .qList');
+    var list = document.querySelector('#qGroupsList') || document.querySelector('#qGroups .qList') || document.querySelector('#qGroups');
+    if(list){
+      /* copy group rows if present */
+      var rows = list.querySelectorAll('.grpRow, .qCard, a, button');
+      if(list.id === 'qGroups'){
+        var inner = list.querySelector('#qGroupsList') || list;
+        box.innerHTML = (inner.id === 'qGroupsList' || inner.classList.contains('qList')) ? inner.innerHTML : list.innerHTML;
+      } else box.innerHTML = list.innerHTML;
+    } else box.innerHTML = '<p class="qEmpty">Les groupes du quartier s’affichent ici.</p>';
+  }
+  window.msEnter_activites = function(){
+    if(window.msOpenCal) try{ window.msOpenCal(); }catch(_){}
+    if(window.msOpenGroupes) { /* ensure quartier groups rendered */ }
+    renderActiDays();
+    renderActiEv();
+    renderActiGroups();
+  };
+
+  /* Demander — 2 étapes */
+  var NEEDS = [
+    {id:'courses', ico:'🛒', lab:'Faire mes courses', fam:'task'},
+    {id:'rdv', ico:'🩺', lab:'Aller à un rendez-vous', fam:'care'},
+    {id:'deneiger', ico:'❄️', lab:'Déneiger mon entrée', fam:'task'},
+    {id:'travaux', ico:'🔧', lab:'Un petit travail', fam:'task'},
+    {id:'compagnie', ico:'💚', lab:'De la compagnie', fam:'care'},
+    {id:'tablette', ico:'💻', lab:'Aide avec ma tablette', fam:'task'},
+    {id:'autre', ico:'✏️', lab:'Autre chose', fam:'task'}
+  ];
+  var dem = {need:null, courses:null, who:'moi', when:'Cette semaine', date:'', text:'', step:1};
+
+  function famOf(){
+    if(dem.need === 'courses') return dem.courses === 'accompagne' ? 'care' : 'task';
+    var n = NEEDS.filter(function(x){ return x.id === dem.need; })[0];
+    return n ? n.fam : 'task';
+  }
+  function needLab(){
+    var n = NEEDS.filter(function(x){ return x.id === dem.need; })[0];
+    return n ? n.lab : '';
+  }
+  function renderNeeds(){
+    var box = $('#demNeeds'); if(!box) return;
+    box.innerHTML = NEEDS.map(function(n){
+      var on = dem.need === n.id;
+      return '<button type="button" class="demNeed fam-' + n.fam + '" data-need="' + n.id + '" aria-pressed="' + on + '">' +
+        '<span class="demNeedIco" aria-hidden="true">' + n.ico + '</span><span>' + n.lab + '</span></button>';
+    }).join('');
+    var how = $('#demCoursesHow'); if(how) how.hidden = dem.need !== 'courses';
+    $$('#demCoursesHow [data-courses]').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-courses') === dem.courses ? 'true' : 'false');
+    });
+    var hint = $('#demFam');
+    if(hint){
+      if(!dem.need || (dem.need === 'courses' && !dem.courses)){ hint.hidden = true; }
+      else {
+        var fam = famOf();
+        hint.hidden = false;
+        hint.className = 'demFamHint fam-' + fam;
+        hint.innerHTML = fam === 'care'
+          ? '<span class="famTag fam-care"></span> Accompagnement'
+          : '<span class="famTag fam-task"></span> Coup de main';
+      }
+    }
+  }
+  function setStep(n){
+    dem.step = n;
+    var s1 = $('#demStep1'), s2 = $('#demStep2'), lab = $('#demStepL');
+    var next = $('#demNext'), send = $('#demSend');
+    if(s1) s1.hidden = n !== 1;
+    if(s2) s2.hidden = n !== 2;
+    if(lab) lab.textContent = n === 1 ? 'Étape 1 sur 2' : 'Étape 2 sur 2';
+    if(next) next.hidden = n !== 1;
+    if(send) send.hidden = n !== 2;
+    var sc = n === 1 ? s1 : s2;
+    if(sc) sc.scrollTop = 0;
+    updateProcheNote();
+  }
+  function updateProcheNote(){
+    var el = $('#demProcheNote'); if(!el) return;
+    var p = window.msProche ? window.msProche() : {on:false,name:''};
+    if(p && p.on && p.name){
+      el.hidden = false;
+      el.textContent = p.name + ' sera prévenue de cette demande.';
+    } else if(p && !p.on){
+      el.hidden = false;
+      el.textContent = 'Vous pouvez ajouter un proche de confiance dans l’onglet Moi. Cette personne recevra une copie de vos demandes.';
+    } else el.hidden = true;
+  }
+  function resetDem(ex){
+    dem = {need:null, courses:null, who:'moi', when:'Cette semaine', date:'', text:'', step:1};
+    if(ex === 'courses' || (ex && ex.type === 'Courses')){ dem.need = 'courses'; }
+    if(ex === 'rdv' || (ex && /rendez-vous/i.test(ex.type||''))){ dem.need = 'rdv'; dem.who = 'proche'; }
+    if(ex === 'compagnie' || (ex && /Visite|compagnie/i.test(ex.type||ex||''))){ dem.need = 'compagnie'; }
+    if(ex === 'surveiller'){ dem.need = 'compagnie'; dem.who = 'proche'; }
+    var desc = $('#demDesc'); if(desc){ desc.value = (ex && ex.desc) || ''; desc.hidden = true; }
+    var lab = $('#demDescLab'); if(lab) lab.hidden = true;
+    var rev = $('#demReview'); if(rev) rev.hidden = true;
+    $$('#demWhoBox [data-dwho]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-dwho') === dem.who ? 'true' : 'false'); });
+    var extra = $('#demWhoExtra'); if(extra) extra.hidden = dem.who !== 'proche';
+    $$('.demWhenBtn').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-dwhen') === dem.when ? 'true' : 'false'); });
+    var db = $('#demDateBox'); if(db) db.hidden = true;
+    var v = $('input[name="demWhoCan"][value="verif"]'); if(v) v.checked = true;
+    var ack = $('#demAck'), al = $('#demAckLbl');
+    if(ack) ack.checked = false;
+    if(al) al.hidden = true;
+    renderNeeds();
+    setStep(1);
+  }
+  window.msDemReset = resetDem;
+  window.msOpenAide = function(ex){
+    if(typeof closeOverlays === 'function') closeOverlays();
+    resetDem(ex);
+    if(typeof show === 'function') show('demander');
+  };
+  window.msOpenAideSheet = window.msOpenAide;
+  window.msEnter_demander = function(opts){
+    if(!opts || !opts.keep) { /* keep current if continuing */ }
+  };
+
+  function canStep2(){
+    if(!dem.need) return false;
+    if(dem.need === 'courses' && !dem.courses) return false;
+    return true;
+  }
+  function typeLabel(){
+    if(dem.need === 'courses') return 'Courses';
+    if(dem.need === 'rdv') return 'Transport/rendez-vous';
+    if(dem.need === 'deneiger') return 'Déneigement';
+    if(dem.need === 'travaux') return 'Petits travaux';
+    if(dem.need === 'compagnie') return 'Visite d’amitié';
+    if(dem.need === 'tablette') return 'Aide technologique';
+    return 'Autre';
+  }
+  function typeIco(){
+    var n = NEEDS.filter(function(x){ return x.id === dem.need; })[0];
+    return n ? n.ico : '💚';
+  }
+  function publishDem(fromVoice){
+    var desc = ($('#demDesc') && $('#demDesc').value || dem.text || '').trim();
+    if(!desc){
+      var d = $('#demDesc');
+      if(d){ d.hidden = false; var lab = $('#demDescLab'); if(lab) lab.hidden = false; d.focus(); }
+      return false;
+    }
+    var whoCan = (($('input[name="demWhoCan"]:checked') || {}).value) || 'verif';
+    if(whoCan === 'open' && !($('#demAck') && $('#demAck').checked)){
+      var al = $('#demAckLbl'); if(al){ al.hidden = false; al.classList.add('need'); al.scrollIntoView({block:'center'}); }
+      return false;
+    }
+    var prenom = ($('#demPrenom') && $('#demPrenom').value || '').trim();
+    var whoName = (dem.who === 'proche' && prenom) ? prenom : 'Lucie Tremblay';
+    var by = dem.who === 'proche'
+      ? ('Demandé par Lucie' + (prenom ? (' pour ' + prenom) : ' pour un proche'))
+      : 'Demandé par Lucie';
+    var fam = famOf();
+    var r = {
+      who: whoName, bio: desc, txt: desc,
+      needs: [typeLabel()], k: typeLabel(), by: by,
+      u: dem.when === 'date' && dem.date ? dem.date : dem.when,
+      ico: typeIco(), q: qName(), open: whoCan === 'open',
+      m: 0, a: 0, r: 0, _mine: true, byName: whoName, fam: fam
+    };
+    if(window.msInsertAideCard) window.msInsertAideCard(r, {goFil:false});
+    var ft = $('#faitTxt');
+    if(ft){
+      var p = window.msProche ? window.msProche() : null;
+      var extra = (p && p.on && p.name) ? (' ' + p.name + ' sera aussi prévenue.') : '';
+      ft.textContent = 'Vos voisins viennent d’être prévenus. Nous vous avertirons dès qu’une personne répond. Vous pouvez annuler à tout moment.' + extra;
+    }
+    if(typeof show === 'function') show('cestfait');
+    return true;
+  }
+
+  function simulateDictation(){
+    var samples = {
+      courses: 'J’aurais besoin d’aide pour mes courses, demain en avant-midi.',
+      rdv: 'J’ai un rendez-vous à la clinique et j’aimerais qu’on m’y accompagne.',
+      deneiger: 'J’aurais besoin d’un coup de main pour déneiger mon entrée.',
+      travaux: 'Il y a une petite réparation à faire chez moi, si quelqu’un peut passer.',
+      compagnie: 'J’aimerais qu’on vienne me tenir compagnie un après-midi.',
+      tablette: 'J’aurais besoin d’aide pour me servir de ma tablette.',
+      autre: 'J’aurais besoin de l’aide d’un voisin, je peux expliquer.'
+    };
+    var text = samples[dem.need] || samples.autre;
+    dem.text = text;
+    var ta = $('#demDesc'); if(ta) ta.value = text;
+    var rev = $('#demReview'), p = $('#demReviewTxt');
+    if(p) p.textContent = text;
+    if(rev) rev.hidden = false;
+  }
+
+  document.addEventListener('click', function(e){
+    var need = e.target.closest && e.target.closest('#demNeeds [data-need]');
+    if(need){ dem.need = need.getAttribute('data-need'); if(dem.need !== 'courses') dem.courses = null; renderNeeds(); return; }
+    var c = e.target.closest && e.target.closest('#demCoursesHow [data-courses]');
+    if(c){ dem.courses = c.getAttribute('data-courses'); renderNeeds(); return; }
+    var w = e.target.closest && e.target.closest('#demWhoBox [data-dwho]');
+    if(w){
+      dem.who = w.getAttribute('data-dwho');
+      $$('#demWhoBox [data-dwho]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-dwho') === dem.who ? 'true' : 'false'); });
+      var ex = $('#demWhoExtra'); if(ex) ex.hidden = dem.who !== 'proche';
+      return;
+    }
+    var wh = e.target.closest && e.target.closest('.demWhenBtn');
+    if(wh){
+      dem.when = wh.getAttribute('data-dwhen');
+      $$('.demWhenBtn').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-dwhen') === dem.when ? 'true' : 'false'); });
+      var db = $('#demDateBox'); if(db) db.hidden = dem.when !== 'date';
+      return;
+    }
+    if(e.target.closest && e.target.closest('#demNext')){
+      if(!canStep2()){
+        var box = $('#demNeeds');
+        if(box){ box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake'); }
+        return;
+      }
+      setStep(2);
+      return;
+    }
+    if(e.target.closest && e.target.closest('#demSend')){ publishDem(false); return; }
+    if(e.target.closest && e.target.closest('#demCancel')){
+      window.msConfirm({
+        title: 'Annuler ma demande ?',
+        text: 'Voulez-vous vraiment annuler votre demande ? Rien ne sera envoyé.',
+        ok: 'Oui, l’annuler',
+        cancel: 'Non, la garder',
+        onok: function(){ if(typeof show === 'function') show('fil'); }
+      });
+      return;
+    }
+    if(e.target.closest && e.target.closest('#demMic')){
+      var mic = $('#demMic');
+      if(mic.classList.contains('isOn')) return;
+      mic.classList.add('isOn');
+      mic.setAttribute('aria-label', 'Écoute…');
+      setTimeout(function(){ mic.classList.remove('isOn'); mic.setAttribute('aria-label','Appuyez et parlez'); simulateDictation(); }, 900);
+      return;
+    }
+    if(e.target.closest && e.target.closest('#demWrite')){
+      var d = $('#demDesc'), lab = $('#demDescLab');
+      if(d){ d.hidden = false; d.focus(); }
+      if(lab) lab.hidden = false;
+      return;
+    }
+    if(e.target.closest && e.target.closest('#demYes')){ publishDem(true); return; }
+    if(e.target.closest && e.target.closest('#demRedo')){
+      var rev = $('#demReview'); if(rev) rev.hidden = true;
+      dem.text = '';
+      var ta = $('#demDesc'); if(ta) ta.value = '';
+      var mic = $('#demMic'); if(mic) mic.click();
+      return;
+    }
+    if(e.target.closest && e.target.closest('#demAltOffer')){
+      if(typeof show === 'function') show('entraide');
+      setTimeout(function(){ var b = $('#enOffer'); if(b) b.click(); }, 200);
+      return;
+    }
+    if(e.target.closest && e.target.closest('#demAltPub')){
+      if(typeof show === 'function') show('publier');
+      return;
+    }
+    if(e.target.closest && e.target.closest('#demAltMerci')){
+      if(window.msOpenMerci) window.msOpenMerci();
+      return;
+    }
+    if(e.target.closest && e.target.closest('#faitOk')){
+      if(typeof show === 'function') show('fil');
+      return;
+    }
+  });
+  document.addEventListener('change', function(e){
+    if(e.target && e.target.name === 'demWhoCan'){
+      var open = e.target.value === 'open' && e.target.checked;
+      var al = $('#demAckLbl'); if(al) al.hidden = !open;
+      if(!open && $('#demAck')) $('#demAck').checked = false;
+    }
+    if(e.target && e.target.id === 'demDate'){ dem.date = e.target.value; }
+  });
+
+  /* Confiance : Je peux aider → fiche */
+  var TRUST = {
+    'Gilles Bouchard': {since:2023, mercis:36, known:['Thérèse','Jeannine'], verif:true, rec:4, bg:true, tel:'+14185550180'},
+    'Paul Tremblay': {since:2022, mercis:11, known:['Lucie'], verif:true, rec:3, bg:true, tel:'+14185550181'},
+    'Amina Diallo': {since:2024, mercis:6, known:['Denise'], verif:true, rec:2, bg:false, tel:'+14185550182'},
+    'Louis Martel': {since:2021, mercis:18, known:['Gilles','Lucie'], verif:true, rec:5, bg:true, tel:'+14185550183'},
+    'Thérèse Gagnon': {nouveau:true, mercis:0, known:[], verif:false, rec:0, bg:false, tel:'+14185550184'}
+  };
+  var pendingHelp = null;
+  function trustOf(name){
+    return TRUST[name] || {nouveau:true, mercis:0, known:[], verif:false, rec:0, bg:false, tel:'+14185550142'};
+  }
+  function firstName(n){ return String(n||'ce voisin').split(/\s+/)[0]; }
+  function openTrust(name, isCare, after){
+    name = name || 'Paul Tremblay';
+    pendingHelp = {name:name, care:!!isCare, after:after};
+    var info = trustOf(name);
+    var title = $('#trustTitle');
+    if(title) title.textContent = 'Voir qui est ' + firstName(name);
+    var badges = '';
+    if(info.verif) badges += '<div class="trustBadge">✓ Identité vérifiée' + (info.since ? (' depuis ' + info.since) : '') + '</div>';
+    if(info.rec) badges += '<div class="trustBadge">Recommandé par ' + info.rec + ' voisin' + (info.rec>1?'s':'') + '</div>';
+    if(info.nouveau || !info.verif) badges += '<div class="trustBadge">Nouveau dans le quartier</div>';
+    if(info.mercis) badges += '<div class="trustBadge">' + info.mercis + ' mercis</div>';
+    if(info.known && info.known.length) badges += '<div class="trustBadge">Connu de ' + info.known.join(' et ') + '</div>';
+    badges += '<div class="trustBadge">Voisin de ' + qName() + '</div>';
+    if(isCare && info.bg) badges += '<div class="trustBadge">🛡️ Antécédents judiciaires vérifiés</div>';
+    var body = $('#trustBody');
+    if(body){
+      body.innerHTML =
+        '<div class="trustWho"><span class="trustAv" aria-hidden="true">' + esc(initials(name)) + '</span><div><h2>' + esc(name) + '</h2><p class="demNote" style="margin:0">Voisin de ' + esc(qName()) + '</p></div></div>' +
+        '<div class="trustBadges">' + badges + '</div>' +
+        '<p class="trustRule">Un voisin ne vous demandera jamais d’argent, de carte ni de code.</p>' +
+        '<div class="trustActs">' +
+          (info.tel ? '<a class="trustCall" href="tel:' + info.tel + '">L’appeler d’abord</a>' : '') +
+          '<button type="button" class="trustYes" id="trustYes">Accepter son aide</button>' +
+          '<button type="button" class="trustNo" id="trustNo">Non merci</button>' +
+        '</div>' +
+        '<a class="demHelpline" href="tel:+14185550142"><strong>Parler à quelqu’un</strong><small>418 555-0142 · du lundi au vendredi, 9 h à 16 h</small></a>' +
+        '<button type="button" class="worryLink" data-report="trust">Quelque chose vous inquiète ?</button>';
+    }
+    if(typeof openOverlay === 'function') openOverlay('trustSheet');
+  }
+  window.msOpenTrust = openTrust;
+
+  function nameFrom(el){
+    if(!el) return '';
+    var card = el.closest('.qCard, article, .helpCard, .filAideCard');
+    var n = '';
+    if(card){
+      var cand = card.querySelector('.humName, .taskWho, .helpId strong, .reqWho');
+      if(cand) n = cand.textContent.trim().split(/,/)[0];
+    }
+    if(!n){
+      var t = (el.textContent||'').replace(/Je peux aider\s*/,'').trim();
+      n = t;
+    }
+    return n || 'Paul Tremblay';
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest && e.target.closest('.jaideBtn, .helpOffer.careBtn, .taskBtn, .careBtn');
+    if(btn && /Je peux aider/i.test((btn.textContent||'').replace(/\s+/g,' ')) && !btn.getAttribute('data-trusted')){
+      e.preventDefault();
+      e.stopPropagation();
+      var name = nameFrom(btn);
+      var isCare = !!(btn.classList.contains('careBtn') || btn.closest('.care, .helpCard, [data-sub="personne"]'));
+      openTrust(name, isCare, function(){
+        btn.setAttribute('data-trusted','1');
+        try{ btn.click(); }catch(_){}
+        stay('Votre offre est envoyée. ' + firstName(name) + ' a reçu votre message.');
+      });
+      return;
+    }
+    if(e.target.closest && e.target.closest('#trustYes')){
+      var p = pendingHelp; pendingHelp = null;
+      if(typeof closeOverlays === 'function') closeOverlays();
+      if(p && p.after) p.after();
+      else if(p){
+        if(typeof show === 'function') show('messages');
+        if(window.msOpenConv) window.msOpenConv(p.name);
+        stay('Votre offre est envoyée. ' + firstName(p.name) + ' a reçu votre message.');
+      }
+      return;
+    }
+    if(e.target.closest && e.target.closest('#trustNo')){
+      pendingHelp = null;
+      if(typeof closeOverlays === 'function') closeOverlays();
+      return;
+    }
+    var wr = e.target.closest && e.target.closest('[data-report]');
+    if(wr){
+      if(typeof openOverlay === 'function') openOverlay('reportSheet');
+      return;
+    }
+    if(e.target.closest && e.target.closest('#reportSend')){
+      if(typeof closeOverlays === 'function') closeOverlays();
+      stay('Merci, votre message a bien été reçu. Une personne de l’équipe le lira.');
+      return;
+    }
+  }, true);
+
+  /* Profil voisin en feuille (max 2 niveaux) */
+  function openVoisin(name){
+    name = name || 'Gilles Bouchard';
+    var info = trustOf(name);
+    var t = $('#voisinTitle'); if(t) t.textContent = name;
+    var body = $('#voisinBody');
+    if(body){
+      var badges = '';
+      if(info.verif) badges += '<div class="trustBadge">✓ Identité vérifiée' + (info.since ? (' depuis ' + info.since) : '') + '</div>';
+      else badges += '<div class="trustBadge">Nouveau dans le quartier</div>';
+      if(info.rec) badges += '<div class="trustBadge">Recommandé par ' + info.rec + ' voisins</div>';
+      if(info.mercis) badges += '<div class="trustBadge">' + info.mercis + ' mercis</div>';
+      badges += '<div class="trustBadge">Voisin de ' + qName() + '</div>';
+      body.innerHTML = '<div class="trustWho"><span class="trustAv">' + esc(initials(name)) + '</span><div><h2>' + esc(name) + '</h2></div></div>' +
+        '<div class="trustBadges">' + badges + '</div>' +
+        '<button type="button" class="worryLink" data-report="profil">Quelque chose vous inquiète ?</button>';
+    }
+    if(typeof openOverlay === 'function') openOverlay('voisinSheet');
+  }
+  window.msOpenVoisin = openVoisin;
+  document.addEventListener('click', function(e){
+    var av = e.target.closest && e.target.closest('.humAv, .humName, .helpId strong, article header .filAv, #s-fil article [style*="font-weight: 700"]');
+    /* too broad? limit to entraide/help cards and names in messages list */
+    var nameEl = e.target.closest && e.target.closest('.humName, .helpId strong, #s-messages a.conv span[style*="font-weight: 700"]');
+    if(nameEl && !e.target.closest('.jaideBtn, .reqBtn, a.filAideCard, #filNouveau')){
+      /* don't steal conv open — messages list still opens conv */
+      if(nameEl.closest('#s-messages a.conv')) return;
+      e.preventDefault();
+      openVoisin(nameEl.textContent.trim().split(/,/)[0]);
+    }
+  });
+
+  /* Contextual quick replies already in markup; tweak if last inbound mentions time — default is the audit example. */
+  var prevOpen = window.msOpenConv;
+  window.msOpenConv = function(name){
+    if(prevOpen) prevOpen(name);
+    var box = $('#convQuick');
+    if(!box) return;
+    var last = '';
+    $$('#convThread .bub.in').forEach(function(b){ last = b.textContent || last; });
+    var a,b,c;
+    if(/14\s*h|heure|ça vous va/i.test(last) || /9 h|irait/i.test(last)){
+      a='Oui, ça me va'; b='Non, une autre heure'; c='Appelez-moi';
+    } else if(/merci/i.test(last)){
+      a='Avec plaisir'; b='Merci beaucoup !'; c='À bientôt';
+    } else {
+      a='Oui, ça me va'; b='Non, une autre heure'; c='Appelez-moi';
+    }
+    box.innerHTML =
+      '<button type="button" class="convQBtn" data-quick="' + a + '">' + a + '</button>' +
+      '<button type="button" class="convQBtn" data-quick="' + b + '">' + b + '</button>' +
+      '<button type="button" class="convQBtn" data-quick="' + c + '">' + c + '</button>';
+  };
+
+  /* Helpline on entraide request cards */
+  function addHelplineToCards(){
+    $$('#qReqList .qCard, #qCareList .qCard, #feed article.helpCard').forEach(function(card){
+      if(card.querySelector('.demHelpline, .cardHelp')) return;
+      var a = document.createElement('a');
+      a.className = 'demHelpline cardHelp';
+      a.href = 'tel:+14185550142';
+      a.innerHTML = '<strong>Parler à quelqu’un</strong><small>418 555-0142 · lun. au ven., 9 h à 16 h</small>';
+      card.appendChild(a);
+    });
+  }
+  var mo;
+  try{
+    mo = new MutationObserver(function(){ addHelplineToCards(); });
+    var root = $('#device') || document.body;
+    mo.observe(root, {childList:true, subtree:true});
+  }catch(_){}
+  addHelplineToCards();
 })();
 
 
