@@ -1,0 +1,4 @@
+node_modules/
+test/shots*/
+test/sheets*/
+test/package-lock.json
