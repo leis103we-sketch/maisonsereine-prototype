@@ -1,0 +1,10 @@
+{
+  "name": "entre-voisins-tests",
+  "private": true,
+  "description": "Parcours de contrôle du prototype Entre Voisins",
+  "devDependencies": {
+    "@fontsource-variable/atkinson-hyperlegible-next": "*",
+    "@fontsource-variable/bricolage-grotesque": "*",
+    "puppeteer-core": "*"
+  }
+}
