@@ -10,6 +10,15 @@ Ouvrez `index.html` dans un navigateur, de préférence sur un téléphone. Tout
 
 Pour entrer vite : « J'ai déjà un compte », puis n'importe quel courriel et mot de passe. Trois touchers sur « EntreVoisins », en haut d'une étape, font apparaître les liens du mode test.
 
+## L'installer sur un téléphone
+
+Ouvert depuis son adresse web, le prototype s'installe comme une application : sa propre icône, en plein écran, et il fonctionne sans connexion.
+
+- iPhone, dans Safari : « Partager », puis « Sur l'écran d'accueil ».
+- Android, dans Chrome : menu « ⋮ », puis « Installer l'application ».
+
+Les fichiers concernés : `manifest.webmanifest`, `sw.js` et le dossier `icons/`.
+
 ## Le modifier
 
 Ne modifiez pas `index.html` à la main : il est fabriqué à partir du dossier `src/`.

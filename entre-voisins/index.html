@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Entre Voisins">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <title>Entre Voisins</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -416,6 +423,7 @@ label.btn{cursor:pointer}
 .splash-card{flex:none;position:relative;margin-top:-26px;background:var(--bg);border-radius:30px 30px 0 0;padding:26px 20px calc(18px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:10px}
 .splash-card h1{font:800 1.87rem/1.1 var(--display);letter-spacing:-.025em}
 .splash-card p{color:var(--ink2);font-size:1.13rem;line-height:1.4;margin-bottom:8px}
+.install{align-self:center;color:var(--ink2)}
 .onb{display:flex;flex-direction:column;gap:16px;padding-top:8px}
 .onb .lead{margin-top:-8px}
 .onb .lnk{align-self:flex-start}
@@ -1374,6 +1382,7 @@ function vSplash() {
       <p>Demandez un coup de main, offrez le vôtre, sans jamais être seul.</p>
       ${btn('Rejoindre mon quartier', 'onbStart:postal')}
       ${btn('J’ai déjà un compte', 'onbStart:login', 'soft')}
+      ${canInstall() ? `<button class="lnk install" data-a="install">${ic('phone', 16)} Installer sur mon téléphone</button>` : ''}
     </div>
   </div>`;
 }
@@ -2478,6 +2487,25 @@ A.savePro = () => {
   S.pro.services = rows.filter(r => r[0] && r[1]); S.pro.saved = true; render(); toast('Vos services sont enregistrés.');
 };
 A.cancelPro = () => { S.pro = { active: false, services: [] }; S.stack = S.stack.filter(s => s.name !== 'pro'); render(); toast('Votre abonnement est annulé. Vos services sont retirés de l’annuaire.'); };
+
+/* ---------- installation sur le téléphone ---------- */
+let installEvt = null;
+const standalone = () => { try { return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true; } catch (e) { return false; } };
+const canInstall = () => /^https?:$/.test(location.protocol) && !standalone() && window.self === window.top;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; });
+window.addEventListener('appinstalled', () => { installEvt = null; toast('Entre Voisins est installée sur votre téléphone.'); render(); });
+A.install = () => {
+  if (installEvt) { const e = installEvt; installEvt = null; try { e.prompt(); } catch (err) { sheet('install'); } return; }
+  sheet('install');
+};
+SHEETS.install = () => sh('Installer sur mon téléphone', `
+  <p class="muted">Entre Voisins s’ouvre alors comme une application : sa propre icône, en plein écran.</p>
+  <section><h3 class="h4">Sur iPhone, dans Safari</h3><ol class="steps"><li>Touchez le bouton « Partager », en bas de l’écran.</li><li>Choisissez « Sur l’écran d’accueil ».</li><li>Touchez « Ajouter ».</li></ol></section>
+  <section><h3 class="h4">Sur Android, dans Chrome</h3><ol class="steps"><li>Touchez le menu « ⋮ », en haut à droite.</li><li>Choisissez « Installer l’application » ou « Ajouter à l’écran d’accueil ».</li><li>Touchez « Installer ».</li></ol></section>`,
+  btn('J’ai compris', 'closeSheet', 'soft'));
+if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && window.self === window.top) {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => { /* sans mode hors connexion */ }); });
+}
 
 /* ---------- démarrage ---------- */
 render();

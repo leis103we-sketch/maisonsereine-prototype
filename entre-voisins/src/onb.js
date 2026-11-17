@@ -20,6 +20,7 @@ function vSplash() {
       <p>Demandez un coup de main, offrez le vôtre, sans jamais être seul.</p>
       ${btn('Rejoindre mon quartier', 'onbStart:postal')}
       ${btn('J’ai déjà un compte', 'onbStart:login', 'soft')}
+      ${canInstall() ? `<button class="lnk install" data-a="install">${ic('phone', 16)} Installer sur mon téléphone</button>` : ''}
     </div>
   </div>`;
 }
