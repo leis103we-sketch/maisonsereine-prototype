@@ -77,6 +77,11 @@ function vEmail() {
      ${field('Mot de passe', 'pw', { type: 'password', ph: 'Votre mot de passe', hint: '8 caractères au minimum', auto: 'new-password' })}`,
     btn('Recevoir mon code', 'onbNext', 'primary', 'data-v="email"'));
 }
+W.email = () => missing([!emailOk(S.f.email) && 'un courriel valide', (S.f.pw || '').length < 8 && 'un mot de passe de 8 caractères ou plus']);
+W.login = () => missing([!emailOk(S.f.email) && 'votre courriel', !(S.f.pw || '').length && 'votre mot de passe']);
+W.code = () => 'les 6 chiffres du code';
+W.regCode = W.code;
+W.regPhone = () => 'un numéro de cellulaire à 10 chiffres';
 V.code = () => /^\d{6}$/.test(S.f.code || '');
 function vCode() {
   return onbShell('Entrez votre code', `Nous avons envoyé un code à 6 chiffres à <b>${esc(S.f.email || 'votre courriel')}</b>.`,
@@ -142,11 +147,12 @@ SHEETS.steps = () => {
         <label class="btn soft">${ic('camera', 20)} Prendre une photo<input type="file" accept="image/*" capture="user" data-file="pickPhoto" hidden></label>
         <label class="btn soft">${ic('image', 20)} Choisir dans mes photos<input type="file" accept="image/*" data-file="pickPhoto" hidden></label>
       </div>`;
-    foot = btn(S.me.photo ? 'Continuer avec cette photo' : 'Continuer', 'regNext', 'primary', dis(!!S.me.photo));
+    foot = why(S.me.photo ? '' : 'Ajoutez une photo pour continuer.') + btn(S.me.photo ? 'Continuer avec cette photo' : 'Continuer', 'regNext', 'primary', dis(!!S.me.photo));
   } else {
     const all = S.reg.charter.every(Boolean);
     body = `<h3 class="h3">La charte du bon voisin</h3><p class="muted">Touchez chacun des quatre engagements.</p><div class="stackv">${CHARTER.map((c, i) => check(c, 'charter:' + i, S.reg.charter[i])).join('')}</div>`;
-    foot = btn('Terminer mon inscription', 'regNext', 'primary', dis(all));
+    const left = S.reg.charter.filter(x => !x).length;
+    foot = why(all ? '' : `Il reste ${left} engagement${left > 1 ? 's' : ''} à toucher.`) + btn('Terminer mon inscription', 'regNext', 'primary', dis(all));
   }
   return sh('Encore trois petites étapes', prog + body, foot + `<button class="btn ghost" data-a="regLater">Plus tard</button>` + testLink(), wordmark(true));
 };

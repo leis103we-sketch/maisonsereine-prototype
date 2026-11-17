@@ -127,8 +127,19 @@ function render() {
   setHTML($('#banner'), vBanner());
   refreshValid();
 }
+/* Un bouton gris dit toujours ce qui manque. */
+const W = {};
+const missing = a => a.filter(Boolean).join(', ');
+const why = t => t ? `<small class="why">${t}</small>` : '';
 function refreshValid() {
-  $$('[data-v]').forEach(b => { b.disabled = !V[b.dataset.v](b); });
+  $$('[data-v]').forEach(b => {
+    const k = b.dataset.v; b.disabled = !V[k](b);
+    if (!W[k]) return;
+    let el = b.previousElementSibling;
+    if (!el || !el.classList.contains('why')) { el = document.createElement('small'); el.className = 'why'; b.insertAdjacentElement('beforebegin', el); }
+    const m = b.disabled ? W[k]() : '';
+    el.textContent = m ? frText('Il reste à indiquer : ' + m + '.') : '';
+  });
 }
 function scrollBottom() { $$('#stack [data-bottom]').forEach(n => { n.scrollTop = n.scrollHeight; }); }
 
