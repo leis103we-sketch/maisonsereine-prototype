@@ -13,7 +13,7 @@ function vTabbar() {
 
 /* ---------- le fil ---------- */
 const isOpen = p => p.type === 'req' && p.status === 'open';
-const visible = p => !p.hidden && !['cancelled', 'removed', 'filled'].includes(p.status) && (p.type === 'job' || p.hood === S.hood);
+const visible = p => !p.hidden && !['cancelled', 'removed', 'filled'].includes(p.status) && (p.type === 'job' || p.hood === S.hood || (p.type === 'req' && p.by === 'me'));
 function feed(f) {
   let a = S.posts.filter(visible);
   if (f === 'demandes') a = a.filter(isOpen);
@@ -75,7 +75,12 @@ function reqState(p) {
   const mine = p.by === 'me', acc = p.offers.find(o => o.status === 'accepted'), pend = p.offers.filter(o => o.status === 'pending'), my = p.offers.find(o => o.by === 'me');
   if (p.status === 'done') return { info: `<div class="state done">${ic('check', 16)}<span>Pris en charge par ${first(acc.by)}</span></div>`, main: '' };
   if (mine) {
-    if (acc) return { info: `<div class="state ok">${avatar(acc.by, 30)}<span><b>${first(acc.by)} vient vous aider</b><small>${p.when}</small></span></div>`, main: `<button class="btn primary grow" data-a="done:${p.id}">${ic('check', 18)} C’est fait</button><button class="btn soft" data-a="write:${acc.by}:${p.id}">Écrire</button>` };
+    if (acc) {
+      const early = dayDiff(p.date) > 0;
+      return { info: `<div class="state ok">${avatar(acc.by, 30)}<span><b>${first(acc.by)} vient vous aider</b><small>${p.when}</small></span></div>`,
+        main: early ? `<button class="btn primary grow" data-a="write:${acc.by}:${p.id}">${ic('chat', 18)} Écrire à ${first(acc.by)}</button><button class="btn soft" data-a="done:${p.id}">C’est fait</button>`
+          : `<button class="btn primary grow" data-a="done:${p.id}">${ic('check', 18)} C’est fait</button><button class="btn soft" data-a="write:${acc.by}:${p.id}">Écrire</button>` };
+    }
     if (pend.length) { const o = pend[0]; return { info: `<div class="state offer">${avatar(o.by, 30)}<span><b>${first(o.by)} peut vous aider</b><small>Aide ${lc(HELP_TYPES[o.type])}</small></span></div>`, main: `<button class="btn primary grow" data-a="trust:${p.id}:${o.by}">Voir qui est ${first(o.by)}</button><button class="btn ghost" data-a="cancelPost:${p.id}">Annuler</button>` }; }
     return { info: `<div class="state wait">${ic('bell', 16)}<span>Vos voisins sont prévenus.</span></div>`, main: `<button class="btn ghost" data-a="cancelPost:${p.id}">Annuler</button>` };
   }
@@ -105,7 +110,8 @@ function card(p) {
   const detail = ['req', 'job', 'event'].includes(p.type);
   const goDetail = p.type === 'event' ? 'go:event:' + p.ev : 'go:post:' + p.id;
   const more = detail ? `<button class="lnk" data-a="${goDetail}">Voir les détails</button>` : (long && !exp ? `<button class="lnk" data-a="expand:${p.id}">Voir plus</button>` : '');
-  const meta = p.type === 'req' ? `<p class="meta">${ic('cal', 15)}<span>${p.when}</span></p>` : p.type === 'event' ? `<p class="meta">${ic('cal', 15)}<span>${evWhen(evt(p.ev))}</span></p>` : '';
+  const away = p.type === 'req' && p.by === 'me' && p.hood !== S.hood ? `<p class="meta">${ic('pin', 15)}<span>Publiée dans ${esc(p.hood)}</span></p>` : '';
+  const meta = p.type === 'req' ? `<p class="meta">${ic('cal', 15)}<span>${p.when}</span></p>${away}` : p.type === 'event' ? `<p class="meta">${ic('cal', 15)}<span>${evWhen(evt(p.ev))}</span></p>` : '';
   const st = mainAct(p);
   return `<article class="card t-${p.type}${p.status === 'done' ? ' closed' : ''}">
     ${cardHead(p)}
@@ -141,7 +147,8 @@ A.copyLink = id => {
 A.cancelPost = id => sheet('sure', { title: 'Annuler votre demande ?', text: 'Elle disparaît du fil. Les voisins qui ont proposé leur aide sont prévenus avec un mot gentil.', yes: 'Oui, annuler ma demande', act: 'doCancel:' + id });
 A.doCancel = id => { post(id).status = 'cancelled'; S.sheets = []; S.stack = S.stack.filter(s => !(s.name === 'post' && s.p.id === id)); render(); toast('Votre demande est annulée.'); };
 A.removePost = id => { post(id).status = 'removed'; S.sheets = []; S.stack = S.stack.filter(s => !(s.name === 'post' && s.p.id === id)); render(); toast('Votre publication est retirée.'); };
-A.filled = id => { post(id).status = 'filled'; S.sheets = []; S.stack = S.stack.filter(s => !(s.name === 'post' && s.p.id === id)); render(); toast('Poste comblé. L’annonce est retirée du fil.'); };
+A.filled = id => { S.sheets = []; sheet('sure', { title: 'Le poste est comblé ?', text: 'Votre annonce est retirée du fil dans tous les quartiers. Pour la remettre en ligne, il faudra en publier une nouvelle.', yes: 'Oui, le poste est comblé', act: 'doFilled:' + id }); };
+A.doFilled = id => { post(id).status = 'filled'; S.sheets = []; S.stack = S.stack.filter(s => !(s.name === 'post' && s.p.id === id)); render(); toast('Poste comblé. L’annonce est retirée du fil.'); };
 SHEETS.sure = p => sh(p.title, `<p>${p.text}</p>`, btn(p.yes, p.act, p.danger ? 'danger' : 'primary') + btn('Non, revenir', 'closeSheet', 'ghost'));
 const tipNote = () => `<button class="note tip" data-a="go:tips">${ic('shield', 18)}<span><b>Avant une première rencontre</b><small>Échangez quelques messages, rencontrez-vous dehors, prévenez un proche.</small></span>${ic('right', 16)}</button>`;
 SHEETS.ok = p => sh('', `<div class="okk"><span class="okc">${ic('check', 30)}</span><h2>${p.title}</h2>${p.text ? `<p>${p.text}</p>` : ''}</div>${p.steps ? `<h3 class="h4">Ce qui se passe maintenant</h3><ol class="steps">${p.steps.map(s => `<li>${s}</li>`).join('')}</ol>` : ''}${p.tip ? tipNote() : ''}`,
@@ -210,6 +217,9 @@ A.compose = kind => gate(() => { S.sheets = []; S.f = Object.assign(S.f, { 'n.ti
 V.news = () => (S.f['n.text'] || '').trim().length >= 5;
 V.event = () => (S.f['e.title'] || '').trim().length >= 3 && S.compose.d != null && !!S.f['e.time'] && (S.f['e.place'] || '').trim().length >= 3;
 V.job = () => (S.f['j.biz'] || '').trim().length >= 2 && (S.f['j.title'] || '').trim().length >= 3 && (S.f['j.place'] || '').trim().length >= 2 && (S.f['j.desc'] || '').trim().length >= 10 && (S.compose.kind === 'Bénévolat' || (S.f['j.pay'] || '').trim().length >= 1);
+W.news = () => 'votre nouvelle, en quelques mots';
+W.event = () => missing([(S.f['e.title'] || '').trim().length < 3 && 'le nom de l’activité', S.compose.d == null && 'le jour', !S.f['e.time'] && 'l’heure', (S.f['e.place'] || '').trim().length < 3 && 'le lieu']);
+W.job = () => missing([(S.f['j.biz'] || '').trim().length < 2 && 'le nom du commerce ou de l’organisme', (S.f['j.title'] || '').trim().length < 3 && 'le titre du poste', S.compose.kind !== 'Bénévolat' && !(S.f['j.pay'] || '').trim() && 'le salaire horaire', (S.f['j.place'] || '').trim().length < 2 && 'le lieu', (S.f['j.desc'] || '').trim().length < 10 && 'une description d’au moins 10 caractères']);
 const HOURS = ['8 h', '9 h', '10 h', '11 h', '12 h', '13 h', '14 h', '15 h', '16 h', '17 h', '18 h', '19 h', '20 h'];
 function dayStrip(sel, act, n = 21, from = 0) {
   return `<div class="hscroll days" data-k="days">${Array.from({ length: n }, (_, i) => { const k = i + from, d = day(k); return `<button class="dayb${sel === k ? ' on' : ''}" data-a="${act}:${k}" aria-pressed="${sel === k}"><small>${k === 0 ? 'auj.' : JOURS_C[d.getDay()]}</small><b>${d.getDate()}</b><small>${MOIS_C[d.getMonth()]}</small></button>`; }).join('')}</div>`;

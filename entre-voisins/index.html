@@ -148,6 +148,8 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
 .hint svg,.err svg{margin-top:2px}
 .err{color:var(--red);font-weight:600}
 .found{color:var(--green);font-weight:700;align-items:center}
+.why{display:block;text-align:center;color:var(--ink2);font-size:.87rem;line-height:1.3}
+.why:empty{display:none}
 .test{color:var(--ink2);font-size:.87rem;text-decoration:underline;align-self:center;padding:8px}
 
 /* ---------- visages ---------- */
@@ -364,7 +366,7 @@ button.row:active{background:var(--fill)}
 .sheet-b{overflow-y:auto;padding:8px 18px 18px;display:flex;flex-direction:column;gap:14px;overscroll-behavior:contain}
 .sheet-b>*{flex:none}
 .sheet-f{flex:none;padding:10px 18px calc(14px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line)}
-.big{display:flex;align-items:center;gap:14px;width:100%;padding:16px 14px;border-radius:20px;background:var(--s)}
+.big{display:flex;align-items:center;gap:14px;width:100%;padding:12px 14px;border-radius:20px;background:var(--s)}
 .big-i{width:54px;height:54px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;flex:none}
 .big>span:not(.big-i){flex:1;display:flex;flex-direction:column;line-height:1.3}
 .big b{font:700 1.2rem/1.2 var(--display)}
@@ -1262,8 +1264,19 @@ function render() {
   setHTML($('#banner'), vBanner());
   refreshValid();
 }
+/* Un bouton gris dit toujours ce qui manque. */
+const W = {};
+const missing = a => a.filter(Boolean).join(', ');
+const why = t => t ? `<small class="why">${t}</small>` : '';
 function refreshValid() {
-  $$('[data-v]').forEach(b => { b.disabled = !V[b.dataset.v](b); });
+  $$('[data-v]').forEach(b => {
+    const k = b.dataset.v; b.disabled = !V[k](b);
+    if (!W[k]) return;
+    let el = b.previousElementSibling;
+    if (!el || !el.classList.contains('why')) { el = document.createElement('small'); el.className = 'why'; b.insertAdjacentElement('beforebegin', el); }
+    const m = b.disabled ? W[k]() : '';
+    el.textContent = m ? frText('Il reste à indiquer : ' + m + '.') : '';
+  });
 }
 function scrollBottom() { $$('#stack [data-bottom]').forEach(n => { n.scrollTop = n.scrollHeight; }); }
 
@@ -1439,6 +1452,11 @@ function vEmail() {
      ${field('Mot de passe', 'pw', { type: 'password', ph: 'Votre mot de passe', hint: '8 caractères au minimum', auto: 'new-password' })}`,
     btn('Recevoir mon code', 'onbNext', 'primary', 'data-v="email"'));
 }
+W.email = () => missing([!emailOk(S.f.email) && 'un courriel valide', (S.f.pw || '').length < 8 && 'un mot de passe de 8 caractères ou plus']);
+W.login = () => missing([!emailOk(S.f.email) && 'votre courriel', !(S.f.pw || '').length && 'votre mot de passe']);
+W.code = () => 'les 6 chiffres du code';
+W.regCode = W.code;
+W.regPhone = () => 'un numéro de cellulaire à 10 chiffres';
 V.code = () => /^\d{6}$/.test(S.f.code || '');
 function vCode() {
   return onbShell('Entrez votre code', `Nous avons envoyé un code à 6 chiffres à <b>${esc(S.f.email || 'votre courriel')}</b>.`,
@@ -1504,11 +1522,12 @@ SHEETS.steps = () => {
         <label class="btn soft">${ic('camera', 20)} Prendre une photo<input type="file" accept="image/*" capture="user" data-file="pickPhoto" hidden></label>
         <label class="btn soft">${ic('image', 20)} Choisir dans mes photos<input type="file" accept="image/*" data-file="pickPhoto" hidden></label>
       </div>`;
-    foot = btn(S.me.photo ? 'Continuer avec cette photo' : 'Continuer', 'regNext', 'primary', dis(!!S.me.photo));
+    foot = why(S.me.photo ? '' : 'Ajoutez une photo pour continuer.') + btn(S.me.photo ? 'Continuer avec cette photo' : 'Continuer', 'regNext', 'primary', dis(!!S.me.photo));
   } else {
     const all = S.reg.charter.every(Boolean);
     body = `<h3 class="h3">La charte du bon voisin</h3><p class="muted">Touchez chacun des quatre engagements.</p><div class="stackv">${CHARTER.map((c, i) => check(c, 'charter:' + i, S.reg.charter[i])).join('')}</div>`;
-    foot = btn('Terminer mon inscription', 'regNext', 'primary', dis(all));
+    const left = S.reg.charter.filter(x => !x).length;
+    foot = why(all ? '' : `Il reste ${left} engagement${left > 1 ? 's' : ''} à toucher.`) + btn('Terminer mon inscription', 'regNext', 'primary', dis(all));
   }
   return sh('Encore trois petites étapes', prog + body, foot + `<button class="btn ghost" data-a="regLater">Plus tard</button>` + testLink(), wordmark(true));
 };
@@ -1577,7 +1596,7 @@ function vTabbar() {
 
 /* ---------- le fil ---------- */
 const isOpen = p => p.type === 'req' && p.status === 'open';
-const visible = p => !p.hidden && !['cancelled', 'removed', 'filled'].includes(p.status) && (p.type === 'job' || p.hood === S.hood);
+const visible = p => !p.hidden && !['cancelled', 'removed', 'filled'].includes(p.status) && (p.type === 'job' || p.hood === S.hood || (p.type === 'req' && p.by === 'me'));
 function feed(f) {
   let a = S.posts.filter(visible);
   if (f === 'demandes') a = a.filter(isOpen);
@@ -1639,7 +1658,12 @@ function reqState(p) {
   const mine = p.by === 'me', acc = p.offers.find(o => o.status === 'accepted'), pend = p.offers.filter(o => o.status === 'pending'), my = p.offers.find(o => o.by === 'me');
   if (p.status === 'done') return { info: `<div class="state done">${ic('check', 16)}<span>Pris en charge par ${first(acc.by)}</span></div>`, main: '' };
   if (mine) {
-    if (acc) return { info: `<div class="state ok">${avatar(acc.by, 30)}<span><b>${first(acc.by)} vient vous aider</b><small>${p.when}</small></span></div>`, main: `<button class="btn primary grow" data-a="done:${p.id}">${ic('check', 18)} C’est fait</button><button class="btn soft" data-a="write:${acc.by}:${p.id}">Écrire</button>` };
+    if (acc) {
+      const early = dayDiff(p.date) > 0;
+      return { info: `<div class="state ok">${avatar(acc.by, 30)}<span><b>${first(acc.by)} vient vous aider</b><small>${p.when}</small></span></div>`,
+        main: early ? `<button class="btn primary grow" data-a="write:${acc.by}:${p.id}">${ic('chat', 18)} Écrire à ${first(acc.by)}</button><button class="btn soft" data-a="done:${p.id}">C’est fait</button>`
+          : `<button class="btn primary grow" data-a="done:${p.id}">${ic('check', 18)} C’est fait</button><button class="btn soft" data-a="write:${acc.by}:${p.id}">Écrire</button>` };
+    }
     if (pend.length) { const o = pend[0]; return { info: `<div class="state offer">${avatar(o.by, 30)}<span><b>${first(o.by)} peut vous aider</b><small>Aide ${lc(HELP_TYPES[o.type])}</small></span></div>`, main: `<button class="btn primary grow" data-a="trust:${p.id}:${o.by}">Voir qui est ${first(o.by)}</button><button class="btn ghost" data-a="cancelPost:${p.id}">Annuler</button>` }; }
     return { info: `<div class="state wait">${ic('bell', 16)}<span>Vos voisins sont prévenus.</span></div>`, main: `<button class="btn ghost" data-a="cancelPost:${p.id}">Annuler</button>` };
   }
@@ -1669,7 +1693,8 @@ function card(p) {
   const detail = ['req', 'job', 'event'].includes(p.type);
   const goDetail = p.type === 'event' ? 'go:event:' + p.ev : 'go:post:' + p.id;
   const more = detail ? `<button class="lnk" data-a="${goDetail}">Voir les détails</button>` : (long && !exp ? `<button class="lnk" data-a="expand:${p.id}">Voir plus</button>` : '');
-  const meta = p.type === 'req' ? `<p class="meta">${ic('cal', 15)}<span>${p.when}</span></p>` : p.type === 'event' ? `<p class="meta">${ic('cal', 15)}<span>${evWhen(evt(p.ev))}</span></p>` : '';
+  const away = p.type === 'req' && p.by === 'me' && p.hood !== S.hood ? `<p class="meta">${ic('pin', 15)}<span>Publiée dans ${esc(p.hood)}</span></p>` : '';
+  const meta = p.type === 'req' ? `<p class="meta">${ic('cal', 15)}<span>${p.when}</span></p>${away}` : p.type === 'event' ? `<p class="meta">${ic('cal', 15)}<span>${evWhen(evt(p.ev))}</span></p>` : '';
   const st = mainAct(p);
   return `<article class="card t-${p.type}${p.status === 'done' ? ' closed' : ''}">
     ${cardHead(p)}
@@ -1705,7 +1730,8 @@ A.copyLink = id => {
 A.cancelPost = id => sheet('sure', { title: 'Annuler votre demande ?', text: 'Elle disparaît du fil. Les voisins qui ont proposé leur aide sont prévenus avec un mot gentil.', yes: 'Oui, annuler ma demande', act: 'doCancel:' + id });
 A.doCancel = id => { post(id).status = 'cancelled'; S.sheets = []; S.stack = S.stack.filter(s => !(s.name === 'post' && s.p.id === id)); render(); toast('Votre demande est annulée.'); };
 A.removePost = id => { post(id).status = 'removed'; S.sheets = []; S.stack = S.stack.filter(s => !(s.name === 'post' && s.p.id === id)); render(); toast('Votre publication est retirée.'); };
-A.filled = id => { post(id).status = 'filled'; S.sheets = []; S.stack = S.stack.filter(s => !(s.name === 'post' && s.p.id === id)); render(); toast('Poste comblé. L’annonce est retirée du fil.'); };
+A.filled = id => { S.sheets = []; sheet('sure', { title: 'Le poste est comblé ?', text: 'Votre annonce est retirée du fil dans tous les quartiers. Pour la remettre en ligne, il faudra en publier une nouvelle.', yes: 'Oui, le poste est comblé', act: 'doFilled:' + id }); };
+A.doFilled = id => { post(id).status = 'filled'; S.sheets = []; S.stack = S.stack.filter(s => !(s.name === 'post' && s.p.id === id)); render(); toast('Poste comblé. L’annonce est retirée du fil.'); };
 SHEETS.sure = p => sh(p.title, `<p>${p.text}</p>`, btn(p.yes, p.act, p.danger ? 'danger' : 'primary') + btn('Non, revenir', 'closeSheet', 'ghost'));
 const tipNote = () => `<button class="note tip" data-a="go:tips">${ic('shield', 18)}<span><b>Avant une première rencontre</b><small>Échangez quelques messages, rencontrez-vous dehors, prévenez un proche.</small></span>${ic('right', 16)}</button>`;
 SHEETS.ok = p => sh('', `<div class="okk"><span class="okc">${ic('check', 30)}</span><h2>${p.title}</h2>${p.text ? `<p>${p.text}</p>` : ''}</div>${p.steps ? `<h3 class="h4">Ce qui se passe maintenant</h3><ol class="steps">${p.steps.map(s => `<li>${s}</li>`).join('')}</ol>` : ''}${p.tip ? tipNote() : ''}`,
@@ -1774,6 +1800,9 @@ A.compose = kind => gate(() => { S.sheets = []; S.f = Object.assign(S.f, { 'n.ti
 V.news = () => (S.f['n.text'] || '').trim().length >= 5;
 V.event = () => (S.f['e.title'] || '').trim().length >= 3 && S.compose.d != null && !!S.f['e.time'] && (S.f['e.place'] || '').trim().length >= 3;
 V.job = () => (S.f['j.biz'] || '').trim().length >= 2 && (S.f['j.title'] || '').trim().length >= 3 && (S.f['j.place'] || '').trim().length >= 2 && (S.f['j.desc'] || '').trim().length >= 10 && (S.compose.kind === 'Bénévolat' || (S.f['j.pay'] || '').trim().length >= 1);
+W.news = () => 'votre nouvelle, en quelques mots';
+W.event = () => missing([(S.f['e.title'] || '').trim().length < 3 && 'le nom de l’activité', S.compose.d == null && 'le jour', !S.f['e.time'] && 'l’heure', (S.f['e.place'] || '').trim().length < 3 && 'le lieu']);
+W.job = () => missing([(S.f['j.biz'] || '').trim().length < 2 && 'le nom du commerce ou de l’organisme', (S.f['j.title'] || '').trim().length < 3 && 'le titre du poste', S.compose.kind !== 'Bénévolat' && !(S.f['j.pay'] || '').trim() && 'le salaire horaire', (S.f['j.place'] || '').trim().length < 2 && 'le lieu', (S.f['j.desc'] || '').trim().length < 10 && 'une description d’au moins 10 caractères']);
 const HOURS = ['8 h', '9 h', '10 h', '11 h', '12 h', '13 h', '14 h', '15 h', '16 h', '17 h', '18 h', '19 h', '20 h'];
 function dayStrip(sel, act, n = 21, from = 0) {
   return `<div class="hscroll days" data-k="days">${Array.from({ length: n }, (_, i) => { const k = i + from, d = day(k); return `<button class="dayb${sel === k ? ' on' : ''}" data-a="${act}:${k}" aria-pressed="${sel === k}"><small>${k === 0 ? 'auj.' : JOURS_C[d.getDay()]}</small><b>${d.getDate()}</b><small>${MOIS_C[d.getMonth()]}</small></button>`; }).join('')}</div>`;
@@ -1877,6 +1906,7 @@ A.askHour = h => { S.ask.hour = h; render(); };
 A.askTo = id => { S.ask.who = id; render(); };
 const SLOTS = { matin: ['Matin', 'le matin'], apm: ['Après-midi', 'l’après-midi'], soir: ['Soir', 'le soir'], heure: ['Heure précise', ''] };
 V.ask = () => { const a = S.ask; return !!a && (S.f['ask.text'] || '').trim().length >= 5 && a.day != null && !!a.slot && (a.slot !== 'heure' || !!a.hour); };
+W.ask = () => { const a = S.ask || {}; return missing([(S.f['ask.text'] || '').trim().length < 5 && 'votre besoin', a.day == null && 'le jour', !a.slot && 'le moment de la journée', a.slot === 'heure' && !a.hour && 'l’heure']); };
 const procheOf = id => S.proches.find(x => x.id === id);
 SCREENS.ask = () => {
   const a = S.ask, famLabel = a.fam === 'proche' ? 'De l’aide pour un proche' : 'Un coup de main';
@@ -1917,7 +1947,7 @@ A.sendAsk = () => {
   const p = { id, type: 'req', by: 'me', ago: 'à l’instant', hood, fam: a.fam, need: a.need, title: a.need === 'autre' ? (text.length > 48 ? text.slice(0, 46).trim() + '…' : text) : n[1], text, when, date: d,
     dur: 'À préciser par message', zone: pr ? `Près de chez ${pr.nick}, dans ${hood}` : 'Près de chez vous', offers: [], status: 'open', likes: 0, seed: uid, comments: [], proche: pr ? pr.id : null, forWho: pr ? `Pour ${pr.nick}` : '' };
   S.posts.unshift(p); S.stack = []; S.tab = 'accueil'; S.filter = 'tout';
-  ok({ title: 'Votre demande est envoyée', text: pr && hood !== S.hood ? `Elle est publiée dans ${esc(hood)}, le quartier de ${esc(pr.nick)}. Vous la retrouvez dans « Mes demandes ».` : '',
+  ok({ title: 'Votre demande est envoyée', text: pr && hood !== S.hood ? `Elle est publiée dans ${esc(hood)}, le quartier de ${esc(pr.nick)}. Elle reste aussi sur votre accueil.` : '',
     steps: ['Les voisins du quartier sont prévenus.', 'Dès qu’un voisin propose son aide, vous recevez une notification. C’est vous qui choisissez qui vient.', 'Sans réponse après un jour, nous relançons discrètement les voisins proches.', 'Personne ne voit depuis quand vous attendez.'],
     btns: [['Voir ma demande', 'go:post:' + id, 'primary'], ['Fermer', 'closeSheet', 'ghost']] });
   simulateOffer(p, 6500);
@@ -1945,7 +1975,7 @@ SHEETS.offer = ({ id }) => {
     ${note('info', `Rien n’est engagé tant qu’${il(p.by)} n’a pas accepté.`)}
     <h3 class="h4">Votre aide est…</h3>
     <div class="opts" role="radiogroup">${Object.keys(HELP_TYPES).map(k => `<button class="opt${t === k ? ' on' : ''}" data-a="offerType:${k}" role="radio" aria-checked="${t === k}"><span class="radio"></span><span class="opt-b"><b>${HELP_TYPES[k]}</b><small>${HELP_SUB[k]}</small></span></button>`).join('')}</div>`,
-    btn('Proposer mon aide', 'sendOffer:' + id, 'primary', dis(!!t)));
+    why(t ? '' : 'Choisissez le type de votre aide.') + btn('Proposer mon aide', 'sendOffer:' + id, 'primary', dis(!!t)));
 };
 A.offerType = t => { S.f.offerType = t; render(); };
 function ensureConv(who, postId) {
@@ -1979,6 +2009,7 @@ SHEETS.trust = ({ id, by }) => {
   const pr = procheOf(p.proche), th = u.thanks[0];
   return sh('', `
     <div class="trust-top">${avatar(by, 88)}<h2>${u.name}</h2><p class="muted">propose son aide pour « ${esc(p.title)} »</p></div>
+    ${pr ? check('Je serai sur place, ou joignable par téléphone, à la première visite.', 'togglePresent', S.f.present) : ''}
     <div class="kvs">
       ${kv('hand', 'Type d’aide déclaré', HELP_TYPES[o.type])}
       ${kv('cal', 'Ancienneté', `Membre depuis ${u.since}`)}
@@ -1989,9 +2020,9 @@ SHEETS.trust = ({ id, by }) => {
     </div>
     ${th ? `<blockquote class="qb"><p>« ${esc(th[1])} »</p><footer>${avatar(th[0], 24)} ${th[0] === 'me' ? P.me.first : first(th[0])}</footer></blockquote>` : ''}
     ${note('receipt', 'L’argent se règle entre vous. Si un montant est prévu, convenez-en avant. Entre Voisins ne prend aucune commission et ne gère aucun paiement.')}
-    ${pr ? check('Je serai sur place, ou joignable par téléphone, à la première visite.', 'togglePresent', S.f.present) + `<p class="small muted">La note « bon à savoir » sur ${esc(pr.nick)} est envoyée à ${u.first} seulement si vous acceptez son aide.</p>` : ''}
+    ${pr ? `<p class="small muted">La note « bon à savoir » sur ${esc(pr.nick)} est envoyée à ${u.first} seulement si vous acceptez son aide.</p>` : ''}
     <button class="lnk" data-a="go:profile:${by}">Voir sa fiche complète</button>`,
-    btn('Accepter son aide', `accept:${id}:${by}`, 'primary', dis(!pr || S.f.present)) + btn('Lui écrire d’abord', `write:${by}:${id}`, 'soft') + btn('Non merci', `refuse:${id}:${by}`, 'ghost'));
+    why(pr && !S.f.present ? 'Cochez la case de présence, en haut, pour accepter.' : '') + btn('Accepter son aide', `accept:${id}:${by}`, 'primary', dis(!pr || S.f.present)) + btn('Lui écrire d’abord', `write:${by}:${id}`, 'soft') + btn('Non merci', `refuse:${id}:${by}`, 'ghost'));
 };
 A.togglePresent = () => { S.f.present = !S.f.present; render(); };
 A.accept = (id, by) => {
@@ -2021,7 +2052,7 @@ A.done = id => { S.f.merci = ''; S.f.showMerci = false; S.sheets = []; sheet('do
 V.merci = () => (S.f.merci || '').trim().length >= 2;
 SHEETS.done = p => {
   const q = post(p.id), by = q.offers.find(o => o.status === 'accepted').by;
-  if (p.step === 1) return sh('L’aide a bien eu lieu ?', `<div class="mini">${avatar(by, 44)}<span><b>${first(by)} devait vous aider</b><small>${esc(q.title)} · ${q.when}</small></span></div>`,
+  if (p.step === 1) return sh('L’aide a bien eu lieu ?', `${dayDiff(q.date) > 0 ? note('cal', `Le rendez-vous est prévu ${fRel(q.date)}. Si ${first(by)} n’est pas encore venu${P[by].g === 'f' ? 'e' : ''}, touchez « Pas encore ».`, 'warn') : ''}<div class="mini">${avatar(by, 44)}<span><b>${first(by)} devait vous aider</b><small>${esc(q.title)} · ${q.when}</small></span></div>`,
     btn('Oui, c’est fait', 'doneYes') + btn('Pas encore', 'closeSheet', 'soft') + btn('Signaler un problème', 'report:' + by, 'ghost'));
   return sh(`Dire merci à ${first(by)}`, `
     ${field('Votre mot', 'merci', { area: true, rows: 3, ph: `Un mot pour ${first(by)}, en toute simplicité.`, max: 200, count: true })}
@@ -2248,6 +2279,8 @@ function agenda() {
   S.events.filter(e => e.mine && !e.removed).forEach(e => items.push({ d: day(e.d), title: e.title, sub: `${evWhen(e)} · ${e.place}`, go: 'go:event:' + e.id, av: disc('cal', 44, 'mauve') }));
   return items.sort((a, b) => a.d - b.d);
 }
+const myAds = () => S.posts.filter(p => p.type === 'job' && p.mine && !['removed', 'filled'].includes(p.status));
+SCREENS.ads = () => { const a = myAds(); return bar('Mes annonces') + `<div class="scroll" data-k="ads"><div class="feed">${a.length ? a.map(card).join('') + `<p class="small muted center">Touchez « Poste comblé » quand vous avez trouvé quelqu’un.</p>` : empty('case', 'Aucune annonce en ligne', 'Vos offres d’emploi publiées paraissent ici.')}</div></div>`; };
 const myReqs = () => S.posts.filter(p => p.type === 'req' && p.by === 'me' && p.status !== 'cancelled');
 TABS.moi = () => {
   const nA = agenda().length, nR = myReqs().filter(p => p.status !== 'done').length;
@@ -2258,7 +2291,7 @@ TABS.moi = () => {
     ${stats('me')}
     <div class="pad stackv">
       <h2 class="wk">Mon activité</h2>
-      <div class="list">${row('cal', 'Mon agenda', nA ? `${nA} rendez-vous à venir` : 'Aucun rendez-vous à venir', 'go:agenda')}${row('hand', 'Mes demandes', nR ? `${nR} demande${nR > 1 ? 's' : ''} en cours` : 'Aucune demande en cours', 'go:mine')}</div>
+      <div class="list">${row('cal', 'Mon agenda', nA ? `${nA} rendez-vous à venir` : 'Aucun rendez-vous à venir', 'go:agenda')}${row('hand', 'Mes demandes', nR ? `${nR} demande${nR > 1 ? 's' : ''} en cours` : 'Aucune demande en cours', 'go:mine')}${myAds().length ? row('case', 'Mes annonces', `${myAds().length} offre${myAds().length > 1 ? 's' : ''} d’emploi en ligne`, 'go:ads') : ''}</div>
       <h2 class="wk">Mon compte</h2>
       <div class="list">${row('mail', 'Courriel et téléphone', '', 'go:account')}${row('heart', 'Les personnes que j’aide', S.proches.map(p => esc(p.nick)).join(', '), 'go:proches')}${row('sliders', 'Affichage et rappels', '', 'go:display')}</div>
       <div class="list solo">${row('tool', 'Voisin Pro', S.pro.active ? 'Votre abonnement est actif' : 'Offrez vos services rémunérés dans le quartier', S.pro.active ? 'go:pro' : 'becomePro')}</div>
@@ -2276,7 +2309,7 @@ SCREENS.agenda = () => {
 SCREENS.mine = () => {
   const all = myReqs(), cur = all.filter(p => p.status !== 'done'), done = all.filter(p => p.status === 'done');
   return bar('Mes demandes') + `<div class="scroll" data-k="mine"><div class="feed">
-    ${cur.length ? cur.map(p => (p.hood !== S.hood ? `<p class="small muted pad-s">Publiée dans ${esc(p.hood)}</p>` : '') + card(p)).join('') : empty('hand', 'Aucune demande en cours', 'Besoin d’un coup de main ? Vos voisins sont là.', btn('Demander un coup de main', 'publish', 'primary'))}
+    ${cur.length ? cur.map(card).join('') : empty('hand', 'Aucune demande en cours', 'Besoin d’un coup de main ? Vos voisins sont là.', btn('Demander un coup de main', 'publish', 'primary'))}
     ${done.length ? `<h2 class="wk pad-s">Terminées</h2>` + done.map(card).join('') : ''}
   </div></div>`;
 };
@@ -2341,6 +2374,9 @@ SCREENS.proches = () => bar('Les personnes que j’aide') + `<div class="scroll"
     <button class="btn soft" data-a="openProche:new">${ic('plus', 18)} Ajouter une personne</button>
     ${note('lock', 'La note « bon à savoir » est envoyée seulement au voisin dont vous acceptez l’aide.')}
   </div></div>`;
+W.proche = () => missing([(S.f['pr.nick'] || '').trim().length < 2 && 'un surnom', (S.f['pr.first'] || '').trim().length < 2 && 'son prénom', !S.f['pr.ok'] && 'son accord, avec la case du bas']);
+W.pro = () => 'au moins un service avec son tarif';
+W.edit = () => S.editKey === 'email' ? 'un courriel valide' : S.editKey === 'phone' ? 'un numéro à 10 chiffres' : 'un mot de passe de 8 caractères ou plus';
 V.proche = () => (S.f['pr.nick'] || '').trim().length >= 2 && (S.f['pr.first'] || '').trim().length >= 2 && !!S.f['pr.hood'] && !!S.f['pr.ok'];
 A.openProche = (id, then) => {
   const p = procheOf(id);
@@ -2446,7 +2482,7 @@ SHEETS.becomePro = () => sh('Devenir Voisin Pro', `
   <div class="note warn">${ic('ban', 18)}<span><b>Services refusés dans l’annuaire :</b> ${REFUSED.map(r => lc(r[0])).join(', ')}.</span></div>
   ${check('Je détiens les permis et les assurances exigés pour les services que j’offre.', 'toggleF:proOk', S.f.proOk)}
   <p class="hint">${ic('info', 16)}<span>Démonstration : aucun paiement réel n’est fait.</span></p>`,
-  btn('Commencer ma semaine gratuite', 'startPro', 'primary', dis(!!S.f.proOk)));
+  why(S.f.proOk ? '' : 'Cochez la case des permis et des assurances pour continuer.') + btn('Commencer ma semaine gratuite', 'startPro', 'primary', dis(!!S.f.proOk)));
 A.startPro = () => {
   S.pro = { active: true, services: [], n: 1, err: {}, saved: false };
   ['0', '1', '2', '3', '4'].forEach(i => { S.f['ps.' + i] = ''; S.f['pt.' + i] = ''; });

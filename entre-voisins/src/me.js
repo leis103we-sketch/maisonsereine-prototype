@@ -13,6 +13,8 @@ function agenda() {
   S.events.filter(e => e.mine && !e.removed).forEach(e => items.push({ d: day(e.d), title: e.title, sub: `${evWhen(e)} · ${e.place}`, go: 'go:event:' + e.id, av: disc('cal', 44, 'mauve') }));
   return items.sort((a, b) => a.d - b.d);
 }
+const myAds = () => S.posts.filter(p => p.type === 'job' && p.mine && !['removed', 'filled'].includes(p.status));
+SCREENS.ads = () => { const a = myAds(); return bar('Mes annonces') + `<div class="scroll" data-k="ads"><div class="feed">${a.length ? a.map(card).join('') + `<p class="small muted center">Touchez « Poste comblé » quand vous avez trouvé quelqu’un.</p>` : empty('case', 'Aucune annonce en ligne', 'Vos offres d’emploi publiées paraissent ici.')}</div></div>`; };
 const myReqs = () => S.posts.filter(p => p.type === 'req' && p.by === 'me' && p.status !== 'cancelled');
 TABS.moi = () => {
   const nA = agenda().length, nR = myReqs().filter(p => p.status !== 'done').length;
@@ -23,7 +25,7 @@ TABS.moi = () => {
     ${stats('me')}
     <div class="pad stackv">
       <h2 class="wk">Mon activité</h2>
-      <div class="list">${row('cal', 'Mon agenda', nA ? `${nA} rendez-vous à venir` : 'Aucun rendez-vous à venir', 'go:agenda')}${row('hand', 'Mes demandes', nR ? `${nR} demande${nR > 1 ? 's' : ''} en cours` : 'Aucune demande en cours', 'go:mine')}</div>
+      <div class="list">${row('cal', 'Mon agenda', nA ? `${nA} rendez-vous à venir` : 'Aucun rendez-vous à venir', 'go:agenda')}${row('hand', 'Mes demandes', nR ? `${nR} demande${nR > 1 ? 's' : ''} en cours` : 'Aucune demande en cours', 'go:mine')}${myAds().length ? row('case', 'Mes annonces', `${myAds().length} offre${myAds().length > 1 ? 's' : ''} d’emploi en ligne`, 'go:ads') : ''}</div>
       <h2 class="wk">Mon compte</h2>
       <div class="list">${row('mail', 'Courriel et téléphone', '', 'go:account')}${row('heart', 'Les personnes que j’aide', S.proches.map(p => esc(p.nick)).join(', '), 'go:proches')}${row('sliders', 'Affichage et rappels', '', 'go:display')}</div>
       <div class="list solo">${row('tool', 'Voisin Pro', S.pro.active ? 'Votre abonnement est actif' : 'Offrez vos services rémunérés dans le quartier', S.pro.active ? 'go:pro' : 'becomePro')}</div>
@@ -41,7 +43,7 @@ SCREENS.agenda = () => {
 SCREENS.mine = () => {
   const all = myReqs(), cur = all.filter(p => p.status !== 'done'), done = all.filter(p => p.status === 'done');
   return bar('Mes demandes') + `<div class="scroll" data-k="mine"><div class="feed">
-    ${cur.length ? cur.map(p => (p.hood !== S.hood ? `<p class="small muted pad-s">Publiée dans ${esc(p.hood)}</p>` : '') + card(p)).join('') : empty('hand', 'Aucune demande en cours', 'Besoin d’un coup de main ? Vos voisins sont là.', btn('Demander un coup de main', 'publish', 'primary'))}
+    ${cur.length ? cur.map(card).join('') : empty('hand', 'Aucune demande en cours', 'Besoin d’un coup de main ? Vos voisins sont là.', btn('Demander un coup de main', 'publish', 'primary'))}
     ${done.length ? `<h2 class="wk pad-s">Terminées</h2>` + done.map(card).join('') : ''}
   </div></div>`;
 };
@@ -106,6 +108,9 @@ SCREENS.proches = () => bar('Les personnes que j’aide') + `<div class="scroll"
     <button class="btn soft" data-a="openProche:new">${ic('plus', 18)} Ajouter une personne</button>
     ${note('lock', 'La note « bon à savoir » est envoyée seulement au voisin dont vous acceptez l’aide.')}
   </div></div>`;
+W.proche = () => missing([(S.f['pr.nick'] || '').trim().length < 2 && 'un surnom', (S.f['pr.first'] || '').trim().length < 2 && 'son prénom', !S.f['pr.ok'] && 'son accord, avec la case du bas']);
+W.pro = () => 'au moins un service avec son tarif';
+W.edit = () => S.editKey === 'email' ? 'un courriel valide' : S.editKey === 'phone' ? 'un numéro à 10 chiffres' : 'un mot de passe de 8 caractères ou plus';
 V.proche = () => (S.f['pr.nick'] || '').trim().length >= 2 && (S.f['pr.first'] || '').trim().length >= 2 && !!S.f['pr.hood'] && !!S.f['pr.ok'];
 A.openProche = (id, then) => {
   const p = procheOf(id);
@@ -211,7 +216,7 @@ SHEETS.becomePro = () => sh('Devenir Voisin Pro', `
   <div class="note warn">${ic('ban', 18)}<span><b>Services refusés dans l’annuaire :</b> ${REFUSED.map(r => lc(r[0])).join(', ')}.</span></div>
   ${check('Je détiens les permis et les assurances exigés pour les services que j’offre.', 'toggleF:proOk', S.f.proOk)}
   <p class="hint">${ic('info', 16)}<span>Démonstration : aucun paiement réel n’est fait.</span></p>`,
-  btn('Commencer ma semaine gratuite', 'startPro', 'primary', dis(!!S.f.proOk)));
+  why(S.f.proOk ? '' : 'Cochez la case des permis et des assurances pour continuer.') + btn('Commencer ma semaine gratuite', 'startPro', 'primary', dis(!!S.f.proOk)));
 A.startPro = () => {
   S.pro = { active: true, services: [], n: 1, err: {}, saved: false };
   ['0', '1', '2', '3', '4'].forEach(i => { S.f['ps.' + i] = ''; S.f['pt.' + i] = ''; });

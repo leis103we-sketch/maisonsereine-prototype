@@ -30,6 +30,7 @@ A.askHour = h => { S.ask.hour = h; render(); };
 A.askTo = id => { S.ask.who = id; render(); };
 const SLOTS = { matin: ['Matin', 'le matin'], apm: ['Après-midi', 'l’après-midi'], soir: ['Soir', 'le soir'], heure: ['Heure précise', ''] };
 V.ask = () => { const a = S.ask; return !!a && (S.f['ask.text'] || '').trim().length >= 5 && a.day != null && !!a.slot && (a.slot !== 'heure' || !!a.hour); };
+W.ask = () => { const a = S.ask || {}; return missing([(S.f['ask.text'] || '').trim().length < 5 && 'votre besoin', a.day == null && 'le jour', !a.slot && 'le moment de la journée', a.slot === 'heure' && !a.hour && 'l’heure']); };
 const procheOf = id => S.proches.find(x => x.id === id);
 SCREENS.ask = () => {
   const a = S.ask, famLabel = a.fam === 'proche' ? 'De l’aide pour un proche' : 'Un coup de main';
@@ -70,7 +71,7 @@ A.sendAsk = () => {
   const p = { id, type: 'req', by: 'me', ago: 'à l’instant', hood, fam: a.fam, need: a.need, title: a.need === 'autre' ? (text.length > 48 ? text.slice(0, 46).trim() + '…' : text) : n[1], text, when, date: d,
     dur: 'À préciser par message', zone: pr ? `Près de chez ${pr.nick}, dans ${hood}` : 'Près de chez vous', offers: [], status: 'open', likes: 0, seed: uid, comments: [], proche: pr ? pr.id : null, forWho: pr ? `Pour ${pr.nick}` : '' };
   S.posts.unshift(p); S.stack = []; S.tab = 'accueil'; S.filter = 'tout';
-  ok({ title: 'Votre demande est envoyée', text: pr && hood !== S.hood ? `Elle est publiée dans ${esc(hood)}, le quartier de ${esc(pr.nick)}. Vous la retrouvez dans « Mes demandes ».` : '',
+  ok({ title: 'Votre demande est envoyée', text: pr && hood !== S.hood ? `Elle est publiée dans ${esc(hood)}, le quartier de ${esc(pr.nick)}. Elle reste aussi sur votre accueil.` : '',
     steps: ['Les voisins du quartier sont prévenus.', 'Dès qu’un voisin propose son aide, vous recevez une notification. C’est vous qui choisissez qui vient.', 'Sans réponse après un jour, nous relançons discrètement les voisins proches.', 'Personne ne voit depuis quand vous attendez.'],
     btns: [['Voir ma demande', 'go:post:' + id, 'primary'], ['Fermer', 'closeSheet', 'ghost']] });
   simulateOffer(p, 6500);
@@ -98,7 +99,7 @@ SHEETS.offer = ({ id }) => {
     ${note('info', `Rien n’est engagé tant qu’${il(p.by)} n’a pas accepté.`)}
     <h3 class="h4">Votre aide est…</h3>
     <div class="opts" role="radiogroup">${Object.keys(HELP_TYPES).map(k => `<button class="opt${t === k ? ' on' : ''}" data-a="offerType:${k}" role="radio" aria-checked="${t === k}"><span class="radio"></span><span class="opt-b"><b>${HELP_TYPES[k]}</b><small>${HELP_SUB[k]}</small></span></button>`).join('')}</div>`,
-    btn('Proposer mon aide', 'sendOffer:' + id, 'primary', dis(!!t)));
+    why(t ? '' : 'Choisissez le type de votre aide.') + btn('Proposer mon aide', 'sendOffer:' + id, 'primary', dis(!!t)));
 };
 A.offerType = t => { S.f.offerType = t; render(); };
 function ensureConv(who, postId) {
@@ -132,6 +133,7 @@ SHEETS.trust = ({ id, by }) => {
   const pr = procheOf(p.proche), th = u.thanks[0];
   return sh('', `
     <div class="trust-top">${avatar(by, 88)}<h2>${u.name}</h2><p class="muted">propose son aide pour « ${esc(p.title)} »</p></div>
+    ${pr ? check('Je serai sur place, ou joignable par téléphone, à la première visite.', 'togglePresent', S.f.present) : ''}
     <div class="kvs">
       ${kv('hand', 'Type d’aide déclaré', HELP_TYPES[o.type])}
       ${kv('cal', 'Ancienneté', `Membre depuis ${u.since}`)}
@@ -142,9 +144,9 @@ SHEETS.trust = ({ id, by }) => {
     </div>
     ${th ? `<blockquote class="qb"><p>« ${esc(th[1])} »</p><footer>${avatar(th[0], 24)} ${th[0] === 'me' ? P.me.first : first(th[0])}</footer></blockquote>` : ''}
     ${note('receipt', 'L’argent se règle entre vous. Si un montant est prévu, convenez-en avant. Entre Voisins ne prend aucune commission et ne gère aucun paiement.')}
-    ${pr ? check('Je serai sur place, ou joignable par téléphone, à la première visite.', 'togglePresent', S.f.present) + `<p class="small muted">La note « bon à savoir » sur ${esc(pr.nick)} est envoyée à ${u.first} seulement si vous acceptez son aide.</p>` : ''}
+    ${pr ? `<p class="small muted">La note « bon à savoir » sur ${esc(pr.nick)} est envoyée à ${u.first} seulement si vous acceptez son aide.</p>` : ''}
     <button class="lnk" data-a="go:profile:${by}">Voir sa fiche complète</button>`,
-    btn('Accepter son aide', `accept:${id}:${by}`, 'primary', dis(!pr || S.f.present)) + btn('Lui écrire d’abord', `write:${by}:${id}`, 'soft') + btn('Non merci', `refuse:${id}:${by}`, 'ghost'));
+    why(pr && !S.f.present ? 'Cochez la case de présence, en haut, pour accepter.' : '') + btn('Accepter son aide', `accept:${id}:${by}`, 'primary', dis(!pr || S.f.present)) + btn('Lui écrire d’abord', `write:${by}:${id}`, 'soft') + btn('Non merci', `refuse:${id}:${by}`, 'ghost'));
 };
 A.togglePresent = () => { S.f.present = !S.f.present; render(); };
 A.accept = (id, by) => {
@@ -174,7 +176,7 @@ A.done = id => { S.f.merci = ''; S.f.showMerci = false; S.sheets = []; sheet('do
 V.merci = () => (S.f.merci || '').trim().length >= 2;
 SHEETS.done = p => {
   const q = post(p.id), by = q.offers.find(o => o.status === 'accepted').by;
-  if (p.step === 1) return sh('L’aide a bien eu lieu ?', `<div class="mini">${avatar(by, 44)}<span><b>${first(by)} devait vous aider</b><small>${esc(q.title)} · ${q.when}</small></span></div>`,
+  if (p.step === 1) return sh('L’aide a bien eu lieu ?', `${dayDiff(q.date) > 0 ? note('cal', `Le rendez-vous est prévu ${fRel(q.date)}. Si ${first(by)} n’est pas encore venu${P[by].g === 'f' ? 'e' : ''}, touchez « Pas encore ».`, 'warn') : ''}<div class="mini">${avatar(by, 44)}<span><b>${first(by)} devait vous aider</b><small>${esc(q.title)} · ${q.when}</small></span></div>`,
     btn('Oui, c’est fait', 'doneYes') + btn('Pas encore', 'closeSheet', 'soft') + btn('Signaler un problème', 'report:' + by, 'ghost'));
   return sh(`Dire merci à ${first(by)}`, `
     ${field('Votre mot', 'merci', { area: true, rows: 3, ph: `Un mot pour ${first(by)}, en toute simplicité.`, max: 200, count: true })}
